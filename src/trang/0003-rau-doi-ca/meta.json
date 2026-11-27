@@ -11,5 +11,43 @@
     "Có người thứ ba thì mảnh gỗ thành tiền thế nào?",
     "Ai quyết định rau này là của An?",
     "Sao kim cương đắt hơn nước?"
+  ],
+  "khaiNiem": [
+    {
+      "id": "phan-cong-lao-dong",
+      "ten": "Phân công lao động",
+      "en": "division of labour",
+      "nghia": "Mỗi người chuyên một việc rồi đổi cho nhau, tổng làm ra nhiều hơn lúc ai cũng tự làm mọi thứ (Adam Smith, 1776)."
+    },
+    {
+      "id": "loi-the-so-sanh",
+      "ten": "Lợi thế so sánh",
+      "en": "comparative advantage",
+      "nghia": "Đổi có lời khi chi phí cơ hội hai người khác nhau, kể cả khi một người giỏi hơn ở mọi việc (David Ricardo, 1817)."
+    },
+    {
+      "id": "khoang-gia",
+      "ten": "Khoảng giá",
+      "en": "bargaining range",
+      "nghia": "Các mức giá mà cả hai bên đều khá hơn lúc chưa đổi. Mặc cả chỉ quyết định ai lấy phần dư nhiều hơn."
+    },
+    {
+      "id": "quyen-so-huu",
+      "ten": "Quyền sở hữu",
+      "en": "property rights",
+      "nghia": "Mọi người cùng công nhận \"thứ này là của ai\". Không có nó thì cướp dễ hơn đổi."
+    },
+    {
+      "id": "tro-choi-lap-lai",
+      "ten": "Trò chơi lặp lại",
+      "en": "repeated game",
+      "nghia": "Khi hai người còn gặp nhau mãi, giữ lời có lời hơn lừa. Robert Aumann nhận Nobel 2005 một phần vì điều này."
+    },
+    {
+      "id": "trung-khop-nhu-cau-kep",
+      "ten": "Trùng khớp nhu cầu kép",
+      "en": "double coincidence of wants",
+      "nghia": "Cái may khi tôi có thứ bạn cần và bạn có thứ tôi cần, nên đổi thẳng được (Jevons, 1875). Thiếu nó thì cần tiền."
+    }
   ]
 }

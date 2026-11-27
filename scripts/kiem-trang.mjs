@@ -36,5 +36,26 @@ for (const ten of ds) {
     if (m.cha !== 'bia' && !theoSlug.has(m.cha)) loi.push(`${ten}: cha "${m.cha}" không tồn tại`);
   } catch {}
 }
+// Khái niệm: id duy nhất cả sách, chỗ định nghĩa có id="kn-<id>", mọi <KN id="..."> trỏ tới khái niệm có thật.
+const khaiNiem = new Map();
+for (const ten of ds) {
+  const metaTep = join(goc, ten, 'meta.json'), trangTep = join(goc, ten, 'Trang.astro');
+  if (!existsSync(metaTep) || !existsSync(trangTep)) continue;
+  let m; try { m = JSON.parse(readFileSync(metaTep, 'utf8')); } catch { continue; }
+  const html = readFileSync(trangTep, 'utf8');
+  for (const k of m.khaiNiem ?? []) {
+    for (const f of ['id', 'ten', 'en', 'nghia']) if (!k[f]) loi.push(`${ten}: khái niệm thiếu "${f}"`);
+    if (khaiNiem.has(k.id)) loi.push(`${ten}: trùng khái niệm "${k.id}" với ${khaiNiem.get(k.id)}`);
+    khaiNiem.set(k.id, ten);
+    if (!html.includes(`id="kn-${k.id}"`)) loi.push(`${ten}: khái niệm "${k.id}" chưa có chỗ định nghĩa id="kn-${k.id}" trong Trang.astro`);
+  }
+}
+for (const ten of ds) {
+  const trangTep = join(goc, ten, 'Trang.astro');
+  if (!existsSync(trangTep)) continue;
+  const html = readFileSync(trangTep, 'utf8');
+  for (const [, id] of html.matchAll(/<KN\s+id="([^"]+)"/g)) if (!khaiNiem.has(id)) loi.push(`${ten}: <KN id="${id}"> chưa trang nào định nghĩa`);
+  if (/<KN\b/.test(html) && !/import KN from/.test(html)) loi.push(`${ten}: dùng <KN> nhưng chưa import KN`);
+}
 if (loi.length) { console.error('Có lỗi:\n- ' + loi.join('\n- ')); process.exit(1); }
-console.log(`Ổn: ${ds.length} trang.`);
+console.log(`Ổn: ${ds.length} trang, ${khaiNiem.size} khái niệm.`);

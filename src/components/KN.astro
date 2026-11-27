@@ -1,0 +1,11 @@
+---
+// Nhắc lại một khái niệm đã định nghĩa ở trang trước: <KN id="gia-tri-chu-quan">giá trị chủ quan</KN>.
+// Bấm thì hiện thẻ định nghĩa ngắn (thẻ chung trong layout Sach); không có JS thì là link về đúng chỗ ở trang cũ.
+import { khaiNiem, duongDan } from '../lib/trang';
+interface Props { id: string }
+const { id } = Astro.props;
+const k = khaiNiem.get(id);
+if (!k) throw new Error(`<KN id="${id}">: chưa trang nào định nghĩa khái niệm này (thêm vào khaiNiem trong meta.json)`);
+---
+<a class="kn" href={`${duongDan(k.trang.slug)}#kn-${id}`} data-ten={k.ten} data-en={k.en} data-nghia={k.nghia}
+  data-so={k.trang.so} data-trang={k.trang.ten}><slot /></a>

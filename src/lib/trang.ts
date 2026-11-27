@@ -12,6 +12,13 @@ export interface MetaTrang {
   ngay: string;        // ngày viết, YYYY-MM-DD
   moTa: string;        // một câu mô tả, dùng cho thẻ meta
   goiY?: string[];     // gợi ý câu hỏi khi trang chưa có trang con
+  khaiNiem?: KhaiNiem[]; // khái niệm trang này định nghĩa; trang sau nhắc lại bằng <KN id="...">
+}
+export interface KhaiNiem {
+  id: string;          // duy nhất cả sách; chỗ định nghĩa trong Trang.astro mang id="kn-<id>"
+  ten: string;         // tên tiếng Việt
+  en: string;          // tên tiếng Anh
+  nghia: string;       // định nghĩa ngắn, 1–2 câu, hiện trong thẻ khi bấm
 }
 export interface Trang extends MetaTrang { NoiDung: AstroComponentFactory }
 
@@ -42,3 +49,12 @@ export const timTrang = (slug: string) => tatCa.find((t) => t.slug === slug);
 const BASE = import.meta.env.BASE_URL.replace(/\/?$/, '/');
 export const duongDan = (slug: string) => (slug === 'bia' ? BASE : `${BASE}trang/${slug}/`);
 export const duongTep = (tep: string) => BASE + tep;
+
+// Bản đồ khái niệm cả sách: id -> khái niệm + trang định nghĩa nó. Trùng id thì build hỏng.
+export const khaiNiem = new Map<string, KhaiNiem & { trang: Trang }>();
+for (const t of tatCa) {
+  for (const k of t.khaiNiem ?? []) {
+    if (khaiNiem.has(k.id)) throw new Error(`Trùng khái niệm "${k.id}" ở trang ${t.slug} và ${khaiNiem.get(k.id)!.trang.slug}`);
+    khaiNiem.set(k.id, { ...k, trang: t });
+  }
+}

@@ -11,5 +11,55 @@
     "Có người thứ hai thì tiền xuất hiện chưa?",
     "Lãi suất từ đâu ra?",
     "Sao kim cương đắt hơn nước?"
+  ],
+  "khaiNiem": [
+    {
+      "id": "phuong-tien-trao-doi",
+      "ten": "Phương tiện trao đổi",
+      "en": "medium of exchange",
+      "nghia": "Việc thứ nhất của tiền: đưa tiền cho người khác để lấy hàng của họ."
+    },
+    {
+      "id": "don-vi-tinh-gia",
+      "ten": "Đơn vị tính giá",
+      "en": "unit of account",
+      "nghia": "Việc thứ hai của tiền: một cái thước chung để so giá trị mọi thứ với nhau."
+    },
+    {
+      "id": "cat-giu-gia-tri",
+      "ten": "Cất giữ giá trị",
+      "en": "store of value",
+      "nghia": "Việc thứ ba của tiền: để dành sức mua cho mai sau."
+    },
+    {
+      "id": "no",
+      "ten": "Nợ",
+      "en": "debt",
+      "nghia": "Lời hứa trả sau giữa hai người khác nhau. Một người tự vay chính mình thì cộng trừ triệt tiêu, không ai cho ai cái gì: nợ cần hai người."
+    },
+    {
+      "id": "chi-phi-co-hoi",
+      "ten": "Chi phí cơ hội",
+      "en": "opportunity cost",
+      "nghia": "Cái phải bỏ để có một thứ: thứ tốt nhất mà bạn không làm được nữa. Giữ một giỏ hạt để gieo thì chi phí là một giỏ không được ăn hôm nay."
+    },
+    {
+      "id": "tiet-kiem",
+      "ten": "Tiết kiệm",
+      "en": "saving",
+      "nghia": "Nhịn dùng hôm nay để dành cho mai sau."
+    },
+    {
+      "id": "dau-tu",
+      "ten": "Đầu tư",
+      "en": "investment",
+      "nghia": "Đem thứ để dành ra làm cho mai sau có nhiều hơn, như gieo hạt xuống đất."
+    },
+    {
+      "id": "lai-suat",
+      "ten": "Lãi suất",
+      "en": "interest rate",
+      "nghia": "Phần thêm khi đổi một thứ hôm nay lấy thứ đó mai sau. Irving Fisher (1930): người ta thích có hôm nay hơn, mà hạt gieo hôm nay lại sinh thêm."
+    }
   ]
 }

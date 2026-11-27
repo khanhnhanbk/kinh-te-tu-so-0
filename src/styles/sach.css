@@ -215,3 +215,28 @@ th { font-family: var(--chu-nhan); font-size: 0.78rem; font-weight: 600; letter-
   .menger .dk { width: 100%; }
   .do b { font-size: 1.25rem; }
 }
+
+/* Khái niệm nhắc lại từ trang trước (<KN>): chữ gạch chấm, bấm hiện thẻ định nghĩa */
+a.kn { color: inherit; text-decoration: underline dotted; text-decoration-thickness: 0.1em; text-underline-offset: 0.25em;
+  text-decoration-color: var(--bien); cursor: help; border-radius: 3px; }
+a.kn:hover, a.kn[aria-expanded="true"] { background: var(--giay-2); text-decoration-style: solid; }
+a.kn::after { content: "↺"; font-family: var(--chu-nhan); font-size: 0.7em; color: var(--bien); margin-left: 0.15em; vertical-align: 0.35em; }
+.the-kn { position: absolute; inset: auto; margin: 0; width: min(23rem, calc(100vw - 32px)); padding: 1rem 2.6rem 1rem 1.1rem;
+  background: var(--giay); color: var(--muc); border: 1px solid var(--vien); border-left: 4px solid var(--bien); border-radius: 10px;
+  box-shadow: 0 12px 32px rgba(0, 0, 0, 0.18); font-size: 1rem; line-height: 1.6; }
+.the-kn p { margin: 0; }
+.the-kn .kn-ten { margin-top: 0.3rem; font-size: 1.1rem; }
+.the-kn .kn-nghia { margin-top: 0.4rem; }
+.the-kn .kn-doc-lai { display: inline-block; margin-top: 0.7rem; font-family: var(--chu-nhan); font-size: 0.9rem; color: var(--bien); }
+.the-kn .kn-dong { position: absolute; top: 0.4rem; right: 0.4rem; width: 2rem; height: 2rem; border: 0; border-radius: 50%;
+  background: none; color: var(--muc-nhat); font-size: 1.4rem; line-height: 1; cursor: pointer; }
+.the-kn .kn-dong:hover { background: var(--giay-2); }
+/* Đến từ thẻ "Đọc lại": tô sáng chỗ định nghĩa một lúc */
+[id^="kn-"] { scroll-margin-top: 30vh; }
+[id^="kn-"]:target { outline: 3px solid var(--vang); outline-offset: 4px; border-radius: 4px; }
+@media (prefers-reduced-motion: no-preference) {
+  [id^="kn-"]:target { animation: kn-sang 3s ease-out 0.6s both; }
+  @keyframes kn-sang { from { outline-color: var(--vang); } to { outline-color: transparent; } }
+}
+/* Chữ trong dòng: tô nền thay vì viền, để dòng bị ngắt vẫn liền một khối */
+strong[id^="kn-"]:target { outline: none; background: var(--vang-nen); box-shadow: 0 0 0 0.15em var(--vang-nen); -webkit-box-decoration-break: clone; box-decoration-break: clone; animation: none; }
