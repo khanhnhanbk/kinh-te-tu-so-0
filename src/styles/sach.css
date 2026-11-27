@@ -240,3 +240,9 @@ a.kn::after { content: "↺"; font-family: var(--chu-nhan); font-size: 0.7em; co
 }
 /* Chữ trong dòng: tô nền thay vì viền, để dòng bị ngắt vẫn liền một khối */
 strong[id^="kn-"]:target { outline: none; background: var(--vang-nen); box-shadow: 0 0 0 0.15em var(--vang-nen); -webkit-box-decoration-break: clone; box-decoration-break: clone; animation: none; }
+
+/* Trang 4: một ngày 10 giờ của An, phần tự nuôi mình (xanh) và phần dư (vàng) */
+.ngay-an { display: flex; height: 0.9rem; background: var(--giay); border-radius: 999px; overflow: hidden; margin: 0.2rem 0 0.1rem; }
+.ngay-an i { display: block; height: 100%; transition: width .35s cubic-bezier(.2,.7,.3,1); }
+.ngay-an .an-minh { background: var(--bien); }
+.ngay-an .an-du { background: var(--vang); }

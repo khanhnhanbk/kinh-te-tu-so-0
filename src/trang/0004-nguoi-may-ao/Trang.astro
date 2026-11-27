@@ -1,0 +1,177 @@
+---
+// Trang 4: Người may áo. Câu hỏi, số dân, trang cha nằm ở meta.json cùng thư mục.
+import KN from '../../components/KN.astro';
+---
+
+  <figure class="hanh-tinh">
+    <svg viewBox="0 0 640 300" role="img" aria-labelledby="t4-ten">
+      <title id="t4-ten">An đứng giữa ruộng rau và ao cá, Chi đứng cạnh một chiếc áo vừa may, giữa hai người là mũi tên trao đổi</title>
+      <rect width="640" height="300" fill="var(--troi)"/>
+      <g fill="var(--troi-chu)"><circle class="sao" cx="60" cy="40" r="1.3"/><circle cx="190" cy="66" r="1"/><circle class="sao" cx="460" cy="34" r="1.2" style="animation-delay:1s"/><circle cx="590" cy="60" r="1"/><circle class="sao" cx="330" cy="24" r="1" style="animation-delay:.4s"/></g>
+      <ellipse cx="320" cy="310" rx="380" ry="96" fill="#4f8a5a"/>
+      <g fill="#7fbf6a"><ellipse cx="70" cy="240" rx="12" ry="7"/><ellipse cx="104" cy="250" rx="12" ry="7"/><ellipse cx="84" cy="262" rx="12" ry="7"/></g>
+      <ellipse cx="170" cy="262" rx="46" ry="14" fill="#2f6f8f"/>
+      <g transform="translate(156 258)"><path d="M0 0c6-6 16-6 22 0-6 6-16 6-22 0z" fill="#e2b54f"/><path d="M22 0l6-4v8z" fill="#e2b54f"/></g>
+      <g transform="translate(200 180)"><circle r="7" fill="#f4efe6"/><path d="M0 8v22M-10 16h20M0 30l-8 14M0 30l8 14" stroke="#f4efe6" stroke-width="3.2" stroke-linecap="round"/></g>
+      <text x="200" y="246" text-anchor="middle" font-family="Be Vietnam Pro, system-ui, sans-serif" font-size="13" fill="var(--troi-chu)">An · rau và cá</text>
+      <g transform="translate(440 180)"><circle r="7" fill="#f4efe6"/><path d="M0 8v22M-10 16h20M0 30l-8 14M0 30l8 14" stroke="#f4efe6" stroke-width="3.2" stroke-linecap="round"/></g>
+      <text x="440" y="246" text-anchor="middle" font-family="Be Vietnam Pro, system-ui, sans-serif" font-size="13" fill="var(--troi-chu)" id="t4-hinh-nghe">Chi · may áo</text>
+      <g id="t4-hinh-ao" transform="translate(500 186)"><path d="M10 0l10 6 10-6 14 8-6 12-6-3v27H8V17l-6 3-6-12z" fill="#d88a8a" stroke="#f4efe6" stroke-width="1.5" stroke-linejoin="round"/></g>
+      <g id="t4-hinh-nha" transform="translate(498 184)" hidden><path d="M0 20L24 0l24 20" fill="none" stroke="#f4efe6" stroke-width="2.5" stroke-linejoin="round"/><rect x="5" y="19" width="38" height="28" fill="#c7a074"/><rect x="19" y="30" width="10" height="17" fill="#6b4a2e"/></g>
+      <g class="mui-doi" stroke="var(--troi-chu)" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round" opacity=".85">
+        <path d="M242 160c34-26 122-26 156 0"/><path d="M390 150l8 10-12 3"/>
+        <path d="M398 198c-34 26-122 26-156 0"/><path d="M250 208l-8-10 12-3"/>
+      </g>
+      <text x="320" y="136" text-anchor="middle" font-family="Be Vietnam Pro, system-ui, sans-serif" font-size="12" fill="#7fbf6a">phần ăn →</text>
+      <text x="320" y="232" text-anchor="middle" font-family="Be Vietnam Pro, system-ui, sans-serif" font-size="12" fill="#e9a3a3" id="t4-hinh-mui">← áo</text>
+    </svg>
+  </figure>
+
+  <p class="dan-nhap">Câu hỏi này đi thẳng vào chỗ yếu nhất của trang trước. An và Bình khớp nhau quá đẹp. Ngoài đời, phần lớn chúng ta giống người may áo hơn: không tự làm ra cái ăn, vậy mà vẫn sống.</p>
+
+  <h2>Không phải trùng hợp, mà là mình chọn ví dụ</h2>
+  <p>Nói thật: trang trước cố tình cho An giỏi trồng, Bình giỏi câu, và cả hai đều cần đúng thứ người kia có. Cái may đó có tên là <KN id="trung-khop-nhu-cau-kep">trùng khớp nhu cầu kép</KN>. Với hai người cùng phải ăn thì dễ khớp. Nhưng nó không tự nhiên mà có, và có ba lý do khiến người ta hay bổ sung cho nhau hơn mình tưởng:</p>
+  <ul>
+    <li><strong>Đất khác nhau.</strong> Người ở cạnh sông thì câu cá rẻ, người ở trên đồi thì trồng rau rẻ. Khác nhau từ chỗ đứng chứ chưa cần khác tài.</li>
+    <li><strong>Làm lâu thì giỏi.</strong> Adam Smith cho rằng phần lớn khác biệt tài năng là <em>kết quả</em> của việc chuyên một nghề, chứ không phải nguyên nhân. Ông viết rằng khác biệt giữa một nhà triết học và một anh khuân vác ngoài phố "có vẻ không đến từ bẩm sinh, mà từ thói quen, tập quán và giáo dục" (mình dịch thoáng). Hai người giống hệt nhau, chuyên hai việc vài năm, sẽ thành hai người bổ sung cho nhau.</li>
+    <li><strong>Chỉ cần lệch một chút.</strong> <KN id="loi-the-so-sanh">Lợi thế so sánh</KN> không cần ai giỏi hơn ai, chỉ cần <KN id="chi-phi-co-hoi">chi phí cơ hội</KN> của hai người khác nhau. Mà hai người thật thì gần như luôn khác.</li>
+  </ul>
+  <p>Vậy phần "bổ sung" dễ có. Phần khó là câu thứ hai của bạn.</p>
+
+  <h2>Một người tự lo đủ ăn, một người chỉ biết may</h2>
+  <p>Giờ đổi vai. <strong>An</strong> vừa trồng rau vừa nuôi cá, tự sống được một mình. <strong>Chi</strong> chỉ biết may áo (hoặc xây nhà). Áo không ăn được. Chi cần mỗi ngày <strong>1 phần ăn</strong>, và chỉ An có. Kéo thử xem khi nào Chi sống được bằng cây kim:</p>
+
+  <div class="thu" id="t4-thu">
+    <p class="nhan">Chi có sống được bằng nghề của mình không?</p>
+    <div class="chon-che-do" role="radiogroup" aria-label="Nghề của Chi">
+      <button type="button" role="radio" aria-checked="true" data-t4-nghe="ao">Chi may áo</button>
+      <button type="button" role="radio" aria-checked="false" data-t4-nghe="nha">Chi xây nhà</button>
+    </div>
+    <div class="thanh">
+      <label for="t4-gio"><span>An cần mấy giờ để làm đủ ăn cho chính mình?</span><output id="t4-ra-gio" for="t4-gio">7 giờ</output></label>
+      <input id="t4-gio" type="range" min="2" max="10" step="1" value="7">
+      <div class="ngay-an" aria-hidden="true"><i class="an-minh" id="t4-thanh-minh"></i><i class="an-du" id="t4-thanh-du"></i></div>
+      <p class="nho" style="margin:0" id="t4-du-chu"></p>
+      <label for="t4-thich" style="margin-top:0.6rem"><span id="t4-thich-chu">Để có áo của Chi, mỗi ngày An chịu đưa tối đa</span><output id="t4-ra-thich" for="t4-thich">1,5 phần</output></label>
+      <input id="t4-thich" type="range" min="0" max="2" step="0.25" value="1.5">
+    </div>
+    <div class="hai-nguoi" aria-live="polite">
+      <div id="t4-the-an"><span class="nhan">An</span><b id="t4-an-so">1</b> phần ăn<span class="song" id="t4-an-song"></span></div>
+      <div id="t4-the-chi"><span class="nhan">Chi</span><b id="t4-chi-so">0</b> phần ăn<span class="song" id="t4-chi-song"></span></div>
+    </div>
+    <p class="ket-luan" id="t4-ket" aria-live="polite"></p>
+  </div>
+
+  <p>Bạn sẽ thấy Chi chỉ sống được khi <strong>cùng lúc</strong> có hai điều:</p>
+  <ol>
+    <li><strong>An làm dư.</strong> Giờ rảnh của An phải làm ra ít nhất một phần ăn cho người khác. Đó là <strong id="kn-phan-du">phần làm dư</strong> <em class="tn">(surplus)</em>. Khi An cần cả 10 giờ chỉ để tự nuôi mình, thế giới này không có chỗ cho bất kỳ nghề nào ngoài làm ra cái ăn, dù Chi may đẹp đến đâu.</li>
+    <li><strong>An muốn áo, và chịu đưa đồ ăn để có.</strong> Muốn suông thì chưa đủ. Muốn và chịu đưa thứ của mình ra mới gọi là <strong id="kn-nhu-cau">nhu cầu</strong> <em class="tn">(demand)</em>. Áo đáng bao nhiêu là do An thấy, đó lại là <KN id="gia-tri-chu-quan">giá trị chủ quan</KN>.</li>
+  </ol>
+  <p>Các nhà khảo cổ kể lại đúng thứ tự này. Thợ gốm, thợ rèn, người ghi chép chỉ xuất hiện ở những nơi nông dân đã làm ra đủ lương thực dư để nuôi họ. Gordon Childe gọi bước ngoặt đó là "cách mạng đô thị" (1950): thành phố đầu tiên mọc lên trên phần dư của đồng ruộng.</p>
+
+  <h2>Một người mua duy nhất</h2>
+  <p>Kể cả khi đổi được, Chi vẫn ở thế yếu. Kéo lại thanh thứ hai: <KN id="khoang-gia">khoảng giá</KN> chạy từ 1 phần (Chi cần để sống) đến mức An chịu đưa. An đang cầm thứ Chi cần để sống, còn Chi cầm thứ An chỉ <em>thích</em>. Ai cầm thứ cần để sống thì mặc cả mạnh hơn. Và nếu một ngày An chán áo, Chi không có người mua thứ hai.</p>
+  <p>Adam Smith gọi giới hạn này là <strong id="kn-quy-mo-thi-truong">quy mô thị trường</strong> <em class="tn">(extent of the market)</em>: <em>phân công lao động bị giới hạn bởi độ rộng của chợ.</em> Ông lấy ví dụ vùng cao Scotland thời đó, nhà cửa thưa thớt đến mức mỗi nông dân phải tự làm đồ tể, thợ làm bánh và người nấu bia cho nhà mình. Không đủ người mua thì không ai sống được bằng một nghề hẹp.</p>
+  <p>Chọn "Chi xây nhà" thì có thêm một chuyện. Nhà xây một lần, ở hai mươi năm, nhưng Chi phải ăn mỗi ngày. Hoặc An trả dần, tức là An <KN id="no">nợ</KN> Chi; hoặc An nuôi Chi trước trong lúc xây, tức là Chi nợ An. Món hàng càng bền, nợ càng cần.</p>
+
+  <h2>Vậy cuộc sống có sống được không?</h2>
+  <p>Được, và đó là chuyện của gần như tất cả chúng ta. Năm 1857, nhà thống kê Ernst Engel đọc sổ chi tiêu của các gia đình công nhân ở Bỉ và thấy: nhà càng khá giả thì phần tiền dành cho cái ăn càng nhỏ. Người ta gọi đó là <strong id="kn-luat-engel">luật Engel</strong> <em class="tn">(Engel's law)</em>. Bụng chỉ chứa được chừng đó. No rồi thì cái muốn chuyển sang áo, nhà, thuốc, chuyện kể, chuyến đi.</p>
+  <p>Simon Kuznets (Nobel 1971) đo lại điều này qua nhiều nước: khi kinh tế lớn lên, người lao động dời dần khỏi đồng ruộng sang nhà máy rồi sang dịch vụ. Đó là <strong id="kn-chuyen-doi-co-cau">chuyển dịch cơ cấu</strong> <em class="tn">(structural change)</em>. Ở Mỹ năm 1800, khoảng ba phần tư người lao động làm nông. Ngày nay chỉ khoảng 1 trên 100 người làm việc trong nông trại, còn lại 99 người là "Chi": làm ra áo, nhà, phần mềm, bài giảng, những thứ không ăn được.</p>
+  <p>Nghĩa là: nghề càng "trừu tượng" thì càng cần hai thứ ở phía sau nó. Một là ai đó làm ra đủ dư cái ăn (nhờ nông cụ, máy móc, phân bón). Hai là đủ nhiều người muốn thứ mình làm. Thiếu một trong hai, người may áo phải quay về trồng rau.</p>
+
+  <div class="cau-hoi-lon">
+    <p class="nhan">Mảnh ghép thứ tư cho câu hỏi ngây thơ</p>
+    <p>Mỗi ngày An đưa Chi 1 phần ăn. Đếm riêng cột "đồ ăn" thì An −1, Chi +1, tổng bằng không, đúng như câu hỏi của bạn. Nhưng nhìn cả hành tinh: hôm qua chưa có cái áo nào, hôm nay có. Đồ ăn chỉ <em>chuyển chỗ</em>, còn cái áo thì <em>sinh ra</em>. Đếm một cột thì thấy tổng bằng không; đếm mọi thứ người ta muốn thì tổng tăng. Trang 1 nói giá trị có thể sinh ra; đây là lần đầu nó sinh ra từ một nghề không làm ra hạt gạo nào.</p>
+  </div>
+
+  <details class="gap">
+    <summary>Ghi nhớ và từ khóa</summary>
+    <ul class="gon">
+      <li>Hai người bổ sung cho nhau không phải do may: đất khác nhau, chuyên lâu thì giỏi (Smith), và chỉ cần chi phí cơ hội khác nhau (Ricardo).</li>
+      <li>Một nghề không làm ra cái ăn chỉ sống được khi có <strong>phần làm dư</strong> và có <strong>nhu cầu</strong> (người muốn và chịu đưa đồ để có).</li>
+      <li>Chợ càng nhỏ, nghề càng hẹp càng khó sống; một người mua duy nhất thì mặc cả yếu (Smith, quy mô thị trường).</li>
+      <li>Càng khá giả, phần chi cho cái ăn càng nhỏ (Engel, 1857); lao động dời khỏi nông nghiệp (Kuznets, Nobel 1971).</li>
+      <li>Đồ bền (nhà) mà trả mỗi ngày thì sinh ra nợ.</li>
+    </ul>
+    <div class="bang"><table>
+      <thead><tr><th>Tiếng Việt</th><th>Tiếng Anh</th><th>Nghĩa ngắn</th></tr></thead>
+      <tbody>
+        <tr><td>Phần làm dư</td><td>surplus</td><td>Làm ra nhiều hơn mình cần</td></tr>
+        <tr><td>Nhu cầu</td><td>demand</td><td>Muốn và chịu đưa thứ của mình để có</td></tr>
+        <tr><td>Quy mô thị trường</td><td>extent of the market</td><td>Có bao nhiêu người sẵn sàng đổi với mình</td></tr>
+        <tr><td>Tự cung tự cấp</td><td>self-sufficiency</td><td>Tự làm ra mọi thứ mình dùng</td></tr>
+        <tr><td>Luật Engel</td><td>Engel's law</td><td>Giàu lên thì tỷ lệ chi cho ăn giảm</td></tr>
+        <tr><td>Chuyển dịch cơ cấu</td><td>structural change</td><td>Lao động dời từ nông nghiệp sang công nghiệp, dịch vụ</td></tr>
+      </tbody>
+    </table></div>
+  </details>
+  <details class="gap">
+    <summary>Tự kiểm tra (3 câu)</summary>
+    <p><strong>1.</strong> An cần 8 giờ mỗi ngày để tự nuôi mình. Chi may áo rất đẹp và An rất thích. Chi có sống bằng nghề may được không?</p>
+    <details class="nho-mo"><summary>Đáp án</summary><p>Không. 2 giờ rảnh của An chỉ làm thêm được 1/4 phần ăn, Chi cần 1 phần. Thích đến đâu An cũng không có đủ đồ ăn dư để đưa.</p></details>
+    <p style="margin-top:1rem"><strong>2.</strong> Vì sao người may áo mặc cả yếu hơn người làm ra đồ ăn khi chỉ có hai người?</p>
+    <details class="nho-mo"><summary>Đáp án</summary><p>Vì Chi cần đồ ăn để sống, còn An chỉ thích áo, không có áo An vẫn sống. Và Chi chỉ có một người mua, An chán thì Chi hết đường.</p></details>
+    <p style="margin-top:1rem"><strong>3.</strong> Ngày nay phần lớn người lao động không làm ra cái ăn. Điều gì làm việc đó khả thi?</p>
+    <details class="nho-mo"><summary>Gợi ý</summary><p>Một số ít người làm nông nhờ máy móc, giống, phân bón mà làm ra đủ dư nuôi tất cả. Và vì đã no, người ta muốn rất nhiều thứ khác (luật Engel), nên nghề "trừu tượng" có người mua.</p></details>
+  </details>
+  <details class="gap nguon">
+    <summary>Nguồn</summary>
+    <ol>
+      <li>Adam Smith, <em>The Wealth of Nations</em>, 1776, quyển I chương 2 (nhà triết học và người khuân vác) và chương 3 "That the Division of Labour is Limited by the Extent of the Market" (vùng cao Scotland).</li>
+      <li>David Ricardo, <em>On the Principles of Political Economy and Taxation</em>, 1817, chương 7 (lợi thế so sánh).</li>
+      <li>V. Gordon Childe, "The Urban Revolution", <em>The Town Planning Review</em> 21(1), 1950.</li>
+      <li>Ernst Engel, "Die Productions- und Consumtionsverhältnisse des Königreichs Sachsen", 1857 (luật Engel).</li>
+      <li>Simon Kuznets, bài giảng Nobel 1971 "Modern Economic Growth: Findings and Reflections". <a href="https://www.nobelprize.org/prizes/economic-sciences/1971/kuznets/lecture/" target="_blank" rel="noopener">nobelprize.org</a>.</li>
+      <li>Stanley Lebergott, <em>Manpower in Economic Growth</em>, 1964 (tỷ lệ lao động nông nghiệp Mỹ năm 1800). USDA Economic Research Service, "Ag and Food Sectors and the Economy" (việc làm trong nông trại ngày nay khoảng 1%). <a href="https://www.ers.usda.gov/data-products/ag-and-food-statistics-charting-the-essentials/ag-and-food-sectors-and-the-economy" target="_blank" rel="noopener">ers.usda.gov</a>.</li>
+    </ol>
+  </details>
+
+<script is:inline>
+(function () {
+/* Trang 4: người may áo sống được khi nào. An có 10 giờ; cần h giờ để tự nuôi mình, giờ rảnh làm thêm được (10−h)/h phần ăn. Chi cần 1 phần/ngày. */
+var gio = document.getElementById("t4-gio"), thich = document.getElementById("t4-thich"), nghe = "ao";
+var TEN = { ao: { mon: "áo", nghe: "may áo", hinhMui: "← áo" }, nha: { mon: "nhà", nghe: "xây nhà", hinhMui: "← nhà" } };
+function so(n) { return (Math.round(n * 100) / 100).toString().replace(".", ","); }
+function the(id, ok, chu) { var t = document.getElementById("t4-the-" + id); t.className = ok ? "ok" : "doi-bung"; document.getElementById("t4-" + id + "-song").textContent = chu; }
+function ve() {
+  var h = +gio.value, w = +thich.value, du = (10 - h) / h, n = TEN[nghe];
+  document.getElementById("t4-ra-gio").textContent = h + " giờ";
+  document.getElementById("t4-ra-thich").textContent = so(w) + " phần";
+  document.getElementById("t4-thich-chu").textContent = "Để có " + n.mon + " của Chi, mỗi ngày An chịu đưa tối đa";
+  document.getElementById("t4-thanh-minh").style.width = (h * 10) + "%";
+  document.getElementById("t4-thanh-du").style.width = ((10 - h) * 10) + "%";
+  document.getElementById("t4-du-chu").textContent = h === 10 ? "Cả 10 giờ chỉ đủ An tự nuôi mình, không dư gì." : "Ăn của An " + h + " giờ, rảnh " + (10 - h) + " giờ: làm thêm được " + so(du) + " phần ăn cho người khác.";
+  var ket = document.getElementById("t4-ket"), duDu = du >= 1, muon = w >= 1;
+  if (duDu && muon) {
+    var tren = Math.min(w, du);
+    document.getElementById("t4-an-so").textContent = "1"; document.getElementById("t4-chi-so").textContent = "1";
+    the("an", true, "No, và có " + n.mon + " (đáng " + so(w) + " phần với An)");
+    the("chi", true, "Sống bằng nghề " + n.nghe);
+    ket.innerHTML = "<b>Đổi được.</b> Giá nằm đâu đó từ 1 đến " + so(tren) + " phần ăn mỗi ngày. Chi sống bằng một nghề không làm ra hạt gạo nào." + (nghe === "nha" ? " Nhà xây một lần mà trả mỗi ngày: <b>một bên nợ bên kia</b>." : "");
+  } else if (!duDu) {
+    document.getElementById("t4-an-so").textContent = "1"; document.getElementById("t4-chi-so").textContent = "0";
+    the("an", true, "No, nhưng không có " + n.mon);
+    the("chi", false, "Đói: phải bỏ nghề, tự đi trồng rau");
+    ket.innerHTML = "An chỉ dư <b>" + so(du) + " phần</b>, Chi cần 1. An thích " + n.mon + " đến đâu cũng không có gì để đưa. Thế giới này <b>chưa có chỗ</b> cho nghề " + n.nghe + ".";
+  } else {
+    document.getElementById("t4-an-so").textContent = "1"; document.getElementById("t4-chi-so").textContent = "0";
+    the("an", true, "No, không cần " + n.mon);
+    the("chi", false, "Đói: không ai chịu nuôi");
+    ket.innerHTML = "An đủ dư, nhưng chỉ coi " + n.mon + " đáng <b>" + so(w) + " phần</b> mỗi ngày, Chi cần ít nhất 1. Có phần dư mà <b>không có nhu cầu</b>, vẫn không đổi.";
+  }
+}
+document.querySelectorAll("[data-t4-nghe]").forEach(function (b) {
+  b.addEventListener("click", function () {
+    nghe = b.getAttribute("data-t4-nghe");
+    document.querySelectorAll("[data-t4-nghe]").forEach(function (x) { x.setAttribute("aria-checked", x === b ? "true" : "false"); });
+    document.getElementById("t4-hinh-ao").toggleAttribute("hidden", nghe !== "ao");
+    document.getElementById("t4-hinh-nha").toggleAttribute("hidden", nghe !== "nha");
+    document.getElementById("t4-hinh-nghe").textContent = "Chi · " + TEN[nghe].nghe;
+    document.getElementById("t4-hinh-mui").textContent = TEN[nghe].hinhMui;
+    ve();
+  });
+});
+gio.addEventListener("input", ve); thich.addEventListener("input", ve);
+ve();
+})();
+</script>
