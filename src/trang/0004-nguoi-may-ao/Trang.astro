@@ -54,30 +54,20 @@ import KN from '../../components/KN.astro';
   </div>
   <p class="nho">An có hai điều giấu kín, mỗi lần chơi một khác: mỗi ngày An dư bao nhiêu đồ ăn, và An thích áo đến mức nào. Hết tuần mới lật bài.</p>
 
-  <h2>Hai điều An giấu kín</h2>
-  <p>Đây là quy luật phía sau trò chơi. Kéo hai thanh để thấy khi nào Chi sống được bằng cây kim:</p>
+  <h2>Tự viết luật cho Chi và An</h2>
+  <p>Trò chơi trên giấu luật. Ở đây luật nằm trong tay bạn. Hai hằng số đầu là hai điều An giấu: An làm dư bao nhiêu mỗi ngày, và An thích áo đến đâu. Hai hàm bên dưới là cách Chi làm việc và cách An quyết có mua hay không. Sửa code rồi bấm chạy 100 ngày:</p>
 
-
-  <div class="thu" id="t4-thu">
-    <p class="nhan">Hai điều An giấu, giờ để bạn chỉnh</p>
-    <div class="chon-che-do" role="radiogroup" aria-label="Nghề của Chi">
-      <button type="button" role="radio" aria-checked="true" data-t4-nghe="ao">Chi may áo</button>
-      <button type="button" role="radio" aria-checked="false" data-t4-nghe="nha">Chi xây nhà</button>
-    </div>
-    <div class="thanh">
-      <label for="t4-gio"><span>An cần mấy giờ để làm đủ ăn cho chính mình?</span><output id="t4-ra-gio" for="t4-gio">7 giờ</output></label>
-      <input id="t4-gio" type="range" min="2" max="10" step="1" value="7">
-      <div class="ngay-an" aria-hidden="true"><i class="an-minh" id="t4-thanh-minh"></i><i class="an-du" id="t4-thanh-du"></i></div>
-      <p class="nho" style="margin:0" id="t4-du-chu"></p>
-      <label for="t4-thich" style="margin-top:0.6rem"><span id="t4-thich-chu">Để có áo của Chi, mỗi ngày An chịu đưa tối đa</span><output id="t4-ra-thich" for="t4-thich">1,5 phần</output></label>
-      <input id="t4-thich" type="range" min="0" max="2" step="0.25" value="1.5">
-    </div>
-    <div class="hai-nguoi" aria-live="polite">
-      <div id="t4-the-an"><span class="nhan">An</span><b id="t4-an-so">1</b> phần ăn<span class="song" id="t4-an-song"></span></div>
-      <div id="t4-the-chi"><span class="nhan">Chi</span><b id="t4-chi-so">0</b> phần ăn<span class="song" id="t4-chi-song"></span></div>
-    </div>
-    <p class="ket-luan" id="t4-ket" aria-live="polite"></p>
+  <div class="thu lap-trinh" id="t4c">
+    <p class="nhan">Hai nhân vật, một trăm ngày</p>
+    <div class="hanh-dong" id="t4c-mau" aria-label="Luật mẫu"></div>
+    <textarea id="t4c-code" spellcheck="false" autocapitalize="off" autocomplete="off" aria-label="Code luật của Chi và An" rows="16"></textarea>
+    <div class="hanh-dong"><button class="nut-nho nut-chay" type="button" id="t4c-chay">▶ Chạy 100 ngày</button></div>
+    <p class="loi-code" id="t4c-loi" role="alert" hidden></p>
+    <svg class="bieu-do" id="t4c-bd" viewBox="0 0 600 220" role="img" aria-labelledby="t4c-bd-ten"><title id="t4c-bd-ten">Đồ ăn trong kho của Chi và An qua 100 ngày</title></svg>
+    <p class="chu-giai"><span><i class="dau chi"></i>Kho của Chi</span><span><i class="dau an"></i>Kho của An</span><span><i class="dau doi"></i>Đêm đói</span></p>
+    <p class="ket-luan" id="t4c-ket" aria-live="polite"></p>
   </div>
+  <p class="nho">Luật chơi của thế giới: mỗi sáng An làm ra 1 phần cho mình cộng phần dư. Chi chọn: may một áo rồi chào An một giá, hoặc bỏ may đi hái rau (được 0,5 phần). Tối nào cũng ăn 1 phần. Đói ba đêm liền thì bỏ cuộc. Áo bền 10 ngày, rách thì An lại cần áo mới.</p>
 
   <p>Chi chỉ sống được khi <strong>cùng lúc</strong> có hai điều:</p>
   <ol>
@@ -87,10 +77,10 @@ import KN from '../../components/KN.astro';
   <p>Khảo cổ học cho thấy đúng thứ tự này. Thợ gốm, thợ rèn, người ghi chép chỉ xuất hiện ở những nơi nông dân đã làm ra đủ lương thực dư để nuôi họ. Gordon Childe gọi bước ngoặt đó là "cách mạng đô thị" (1950): thành phố đầu tiên mọc lên trên phần dư của đồng ruộng.</p>
 
   <h2>Một người mua duy nhất</h2>
-  <p>Kể cả khi đổi được, Chi vẫn ở thế yếu. Nhìn lại thanh thứ hai: <KN id="khoang-gia">khoảng giá</KN> chạy từ 1 phần (Chi cần để sống) đến mức An chịu đưa. An đang cầm thứ Chi cần để sống, còn Chi cầm thứ An chỉ <em>thích</em>. Ai cầm thứ cần để sống thì mặc cả mạnh hơn. Và nếu một ngày An chán áo, Chi không có người mua thứ hai.</p>
+  <p>Kể cả khi đổi được, Chi vẫn ở thế yếu. <KN id="khoang-gia">Khoảng giá</KN> chạy từ mức Chi cần để sống đến mức An chịu đưa. Thử bấm luật mẫu "Chi bán rẻ" rồi "Chi bán đắt" để thấy hai đầu của khoảng đó. An đang cầm thứ Chi cần để sống, còn Chi cầm thứ An chỉ <em>thích</em>. Ai cầm thứ cần để sống thì mặc cả mạnh hơn. Và nếu một ngày An chán áo, Chi không có người mua thứ hai.</p>
   <p>Trong trò chơi, bạn hẳn đã thấy: cái áo thứ hai An trả ít hơn cái thứ nhất, cái thứ ba còn ít hơn nữa. Không phải An keo kiệt. Có một cái áo rồi thì cái tiếp theo bớt cần. Đó là <strong id="kn-ich-loi-can-bien-giam-dan">ích lợi cận biên giảm dần</strong> <em class="tn">(diminishing marginal utility)</em>: mỗi đơn vị thêm vào mang lại ít hơn đơn vị trước. Đây chính là chữ "cận biên" trong <KN id="gia-tri-chu-quan">cuộc cách mạng ở trang 1</KN>. Với một người mua duy nhất, nhu cầu của người đó cạn rất nhanh.</p>
   <p>Adam Smith gọi giới hạn này là <strong id="kn-quy-mo-thi-truong">quy mô thị trường</strong> <em class="tn">(extent of the market)</em>: <em>phân công lao động bị giới hạn bởi độ rộng của chợ.</em> Ông lấy ví dụ vùng cao Scotland thời đó, nhà cửa thưa thớt đến mức mỗi nông dân phải tự làm đồ tể, thợ làm bánh và người nấu bia cho nhà mình. Không đủ người mua thì không ai sống được bằng một nghề hẹp.</p>
-  <p>Chọn "Chi xây nhà" thì có thêm một chuyện. Nhà xây một lần, ở hai mươi năm, nhưng Chi phải ăn mỗi ngày. Hoặc An trả dần, tức là An <KN id="no">nợ</KN> Chi; hoặc An nuôi Chi trước trong lúc xây, tức là Chi nợ An. Món hàng càng bền thì càng cần đến nợ.</p>
+  <p>Nếu Chi xây nhà thay vì may áo thì có thêm một chuyện. Nhà xây một lần, ở hai mươi năm, nhưng Chi phải ăn mỗi ngày. Hoặc An trả dần, tức là An <KN id="no">nợ</KN> Chi; hoặc An nuôi Chi trước trong lúc xây, tức là Chi nợ An. Món hàng càng bền thì càng cần đến nợ.</p>
 
   <h2>Vậy người may áo có sống được không?</h2>
   <p>Được, và đó là chuyện của gần như tất cả chúng ta. Năm 1857, nhà thống kê Ernst Engel đọc sổ chi tiêu của các gia đình công nhân ở Bỉ và thấy: nhà càng khá giả thì phần tiền dành cho cái ăn càng nhỏ. Người ta gọi đó là <strong id="kn-luat-engel">luật Engel</strong> <em class="tn">(Engel's law)</em>. Bụng chỉ chứa được chừng đó. No rồi thì mong muốn chuyển sang áo, nhà, thuốc, chuyện kể, chuyến đi.</p>
@@ -225,51 +215,83 @@ function ketThuc(song) {
 batDau();
 })();
 
+
+
 (function () {
-/* Trang 4: người may áo sống được khi nào. An có 10 giờ; cần h giờ để tự nuôi mình, giờ rảnh làm thêm được (10−h)/h phần ăn. Chi cần 1 phần/ngày. */
-var gio = document.getElementById("t4-gio"), thich = document.getElementById("t4-thich"), nghe = "ao";
-var TEN = { ao: { mon: "áo", nghe: "may áo", hinhMui: "← áo" }, nha: { mon: "nhà", nghe: "xây nhà", hinhMui: "← nhà" } };
-function so(n) { return (Math.round(n * 100) / 100).toString().replace(".", ","); }
-function the(id, ok, chu) { var t = document.getElementById("t4-the-" + id); t.className = ok ? "ok" : "doi-bung"; document.getElementById("t4-" + id + "-song").textContent = chu; }
-function ve() {
-  var h = +gio.value, w = +thich.value, du = (10 - h) / h, n = TEN[nghe];
-  document.getElementById("t4-ra-gio").textContent = h + " giờ";
-  document.getElementById("t4-ra-thich").textContent = so(w) + " phần";
-  document.getElementById("t4-thich-chu").textContent = "Để có " + n.mon + " của Chi, mỗi ngày An chịu đưa tối đa";
-  document.getElementById("t4-thanh-minh").style.width = (h * 10) + "%";
-  document.getElementById("t4-thanh-du").style.width = ((10 - h) * 10) + "%";
-  document.getElementById("t4-du-chu").textContent = h === 10 ? "Cả 10 giờ chỉ đủ An tự nuôi mình, không dư gì." : "Ăn của An " + h + " giờ, rảnh " + (10 - h) + " giờ: làm thêm được " + so(du) + " phần ăn cho người khác.";
-  var ket = document.getElementById("t4-ket"), duDu = du >= 1, muon = w >= 1;
-  if (duDu && muon) {
-    var tren = Math.min(w, du);
-    document.getElementById("t4-an-so").textContent = "1"; document.getElementById("t4-chi-so").textContent = "1";
-    the("an", true, "No, và có " + n.mon + " (đáng " + so(w) + " phần với An)");
-    the("chi", true, "Sống bằng nghề " + n.nghe);
-    ket.innerHTML = "<b>Đổi được.</b> " + (tren > 1 ? "Giá nằm đâu đó từ 1 đến " + so(tren) + " phần ăn mỗi ngày." : "Giá chỉ có thể là đúng 1 phần ăn mỗi ngày, vì " + (du <= w ? "An chỉ dư đúng chừng đó." : "An thấy " + n.mon + " chỉ đáng đúng chừng đó.")) + " Chi sống bằng một nghề không làm ra hạt gạo nào." + (nghe === "nha" ? " Nhà xây một lần mà trả mỗi ngày: <b>một bên nợ bên kia</b>." : "");
-  } else if (!duDu) {
-    document.getElementById("t4-an-so").textContent = "1"; document.getElementById("t4-chi-so").textContent = "0";
-    the("an", true, "No, nhưng không có " + n.mon);
-    the("chi", false, "Đói: phải bỏ nghề, tự đi trồng rau");
-    ket.innerHTML = "An chỉ dư <b>" + so(du) + " phần</b>, Chi cần 1. An thích " + n.mon + " đến đâu cũng không có gì để đưa. Thế giới này <b>chưa có chỗ</b> cho nghề " + n.nghe + ".";
-  } else {
-    document.getElementById("t4-an-so").textContent = "1"; document.getElementById("t4-chi-so").textContent = "0";
-    the("an", true, "No, không cần " + n.mon);
-    the("chi", false, "Đói: không ai chịu nuôi");
-    ket.innerHTML = "An đủ dư, nhưng chỉ coi " + n.mon + " đáng <b>" + so(w) + " phần</b> mỗi ngày, Chi cần ít nhất 1. Có phần dư mà <b>không có nhu cầu</b>, vẫn không đổi.";
-  }
-}
-document.querySelectorAll("[data-t4-nghe]").forEach(function (b) {
-  b.addEventListener("click", function () {
-    nghe = b.getAttribute("data-t4-nghe");
-    document.querySelectorAll("[data-t4-nghe]").forEach(function (x) { x.setAttribute("aria-checked", x === b ? "true" : "false"); });
-    document.getElementById("t4-hinh-ao").toggleAttribute("hidden", nghe !== "ao");
-    document.getElementById("t4-hinh-nha").toggleAttribute("hidden", nghe !== "nha");
-    document.getElementById("t4-hinh-nghe").textContent = "Chi · " + TEN[nghe].nghe;
-    document.getElementById("t4-hinh-mui").textContent = TEN[nghe].hinhMui;
-    ve();
-  });
+/* Trang 4: tự viết luật cho Chi và An, chạy 100 ngày. Code người đọc viết chạy ngay trong trình duyệt của họ. */
+var MAU = {
+  "Luật gốc": 'const AN_DU = 1.5;        // mỗi ngày An làm dư bao nhiêu phần ăn\nconst AN_THICH_AO = 3;    // cái áo đầu tiên đáng bao nhiêu phần với An\n\n// Mỗi ngày Chi may một áo rồi chào An một giá (trả về số),\n// hoặc bỏ may, đi hái rau (trả về "rau").\nfunction chi(ngay, kho, ao) {\n  if (kho < 0.5) return "rau";\n  return 1.5;\n}\n\n// An có mua một áo với giá này không? aoDangMac: số áo An đang có\nfunction an(gia, aoDangMac, kho) {\n  const dang = AN_THICH_AO * Math.pow(0.9, aoDangMac); // cái tiếp theo đáng bao nhiêu\n  return gia <= dang && gia <= kho - 1; // chừa 1 phần cho mình tối nay\n}\n',
+  "Chi bán rẻ": null, "Chi bán đắt": null, "An mua hết": null, "An hết dư": null
+};
+var goc = MAU["Luật gốc"];
+MAU["Chi bán rẻ"] = goc.replace("return 1.5;", "return 0.5;");
+MAU["Chi bán đắt"] = goc.replace("return 1.5;", "return 2.5;");
+MAU["An mua hết"] = goc.replace("return 1.5;", "return 2.5;").replace("return gia <= dang && gia <= kho - 1; // chừa 1 phần cho mình tối nay", "return true; // thấy áo là mua, không cần biết giá");
+MAU["An hết dư"] = goc.replace("const AN_DU = 1.5;", "const AN_DU = 0.5;");
+var vung = document.getElementById("t4c-code"), loi = document.getElementById("t4c-loi"), bd = document.getElementById("t4c-bd"), ket = document.getElementById("t4c-ket");
+var NS = "http://www.w3.org/2000/svg";
+function so(n) { return (Math.round(n * 10) / 10).toString().replace(".", ","); }
+Object.keys(MAU).forEach(function (ten, i) {
+  var b = document.createElement("button"); b.type = "button"; b.className = "nut-nho"; b.textContent = ten;
+  b.addEventListener("click", function () { vung.value = MAU[ten]; chay(); });
+  document.getElementById("t4c-mau").appendChild(b);
 });
-gio.addEventListener("input", ve); thich.addEventListener("input", ve);
-ve();
+vung.value = goc;
+vung.addEventListener("keydown", function (e) {
+  if (e.key === "Tab" && !e.shiftKey) { e.preventDefault(); var a = vung.selectionStart; vung.setRangeText("  ", a, vung.selectionEnd, "end"); }
+  if (e.key === "Enter" && (e.ctrlKey || e.metaKey)) { e.preventDefault(); chay(); }
+});
+function chay() {
+  loi.hidden = true;
+  var luat;
+  try { luat = new Function(vung.value + "\n;return { chi: chi, an: an, du: AN_DU, thich: AN_THICH_AO };")(); }
+  catch (e) { baoLoi("Code chưa chạy được: " + e.message); return; }
+  var kc = 3, ka = 3, ao = 0, tu = [], dc = 0, da = 0, banDuoc = 0, tienBan = 0, chet = null, ds = [], dem = [];
+  for (var ngay = 1; ngay <= 100; ngay++) {
+    ka += 1 + Number(luat.du || 0);
+    tu = tu.filter(function (n) { return ngay - n < 10; });
+    var viec;
+    try { viec = luat.chi(ngay, kc, ao); } catch (e) { baoLoi("Hàm chi() lỗi ở ngày " + ngay + ": " + e.message); return; }
+    if (viec === "rau") kc += 0.5;
+    else if (typeof viec === "number" && isFinite(viec)) {
+      ao++;
+      var gia = Math.max(0, viec), mua;
+      try { mua = luat.an(gia, tu.length, ka); } catch (e) { baoLoi("Hàm an() lỗi ở ngày " + ngay + ": " + e.message); return; }
+      if (mua && ka >= gia) { ka -= gia; kc += gia; ao--; tu.push(ngay); banDuoc++; tienBan += gia; }
+    }
+    kc -= 1; ka -= 1;
+    var doiC = kc < 0, doiA = ka < 0;
+    if (doiC) kc = 0; if (doiA) ka = 0;
+    dc = doiC ? dc + 1 : 0; da = doiA ? da + 1 : 0;
+    ds.push([kc, ka]); dem.push([doiC, doiA]);
+    if (dc >= 3) { chet = "Chi"; break; }
+    if (da >= 3) { chet = "An"; break; }
+  }
+  ve(ds, dem);
+  var soNgay = ds.length, tb = banDuoc ? tienBan / banDuoc : 0;
+  var demDoiC = dem.filter(function (d) { return d[0]; }).length, demDoiA = dem.filter(function (d) { return d[1]; }).length;
+  ket.innerHTML = (chet ? "<b>" + chet + " bỏ cuộc ở ngày " + soNgay + "</b> sau ba đêm đói liền. " : "<b>Cả hai sống qua 100 ngày.</b> ") +
+    "Chi bán " + banDuoc + " áo" + (banDuoc ? ", giá trung bình " + so(tb) + " phần" : "") + ". Đêm đói: Chi " + demDoiC + ", An " + demDoiA + ".";
+}
+function baoLoi(m) { loi.textContent = m; loi.hidden = false; }
+function ve(ds, dem) {
+  while (bd.childNodes.length > 1) bd.removeChild(bd.lastChild);
+  var W = 600, H = 220, L = 34, R = 8, T = 10, B = 24;
+  var max = Math.max(4, Math.ceil(Math.max.apply(null, ds.map(function (d) { return Math.max(d[0], d[1]); }))));
+  function x(i) { return L + (i / 99) * (W - L - R); }
+  function y(v) { return T + (1 - v / max) * (H - T - B); }
+  function el(t, a) { var e = document.createElementNS(NS, t); for (var k in a) e.setAttribute(k, a[k]); bd.appendChild(e); return e; }
+  [0, max / 2, max].forEach(function (v) {
+    el("line", { x1: L, x2: W - R, y1: y(v), y2: y(v), "class": "luoi" });
+    el("text", { x: L - 6, y: y(v) + 4, "text-anchor": "end", "class": "truc" }).textContent = so(v);
+  });
+  [1, 25, 50, 75, 100].forEach(function (d) { el("text", { x: x(d - 1), y: H - 6, "text-anchor": d === 1 ? "start" : d === 100 ? "end" : "middle", "class": "truc" }).textContent = "ngày " + d; });
+  ["chi", "an"].forEach(function (ai, k) {
+    el("polyline", { points: ds.map(function (d, i) { return x(i) + "," + y(d[k]); }).join(" "), "class": "duong " + ai });
+  });
+  dem.forEach(function (d, i) { if (d[0]) el("circle", { cx: x(i), cy: y(0), r: 3.5, "class": "cham-doi" }); if (d[1]) el("circle", { cx: x(i), cy: y(0) - 8, r: 3.5, "class": "cham-doi" }); });
+}
+document.getElementById("t4c-chay").addEventListener("click", chay);
+chay();
 })();
 </script>
