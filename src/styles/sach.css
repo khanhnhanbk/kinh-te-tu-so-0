@@ -1,7 +1,7 @@
 /* Bố cục: một cột sách hẹp (~65 ký tự). Mỗi lần chỉ hiện một trang; cuối trang là câu hỏi, bấm câu hỏi để lật.
    Chi tiết riêng: "số dân" của thế giới ở góc mỗi trang. */
 :root {
-  --giay: #eef1ec; --giay-2: #e1e6e0; --muc: #1c2430; --muc-nhat: #56606c; --vien: #c6cec5;
+  --giay: #eef1ec; --giay-2: #e1e6e0; --muc: #1c2430; --muc-nhat: #434c57; --vien: #c6cec5;
   --bien: #2c6a66; --vang: #946712; --vang-nen: #f2e5c6; --troi: #18202b; --troi-chu: #e8ebe6;
   --chu-sach: "Literata", Georgia, "Times New Roman", serif;
   --chu-tieu-de: "Fraunces", "Literata", Georgia, serif;
@@ -10,19 +10,20 @@
 }
 @media (prefers-color-scheme: dark) {
   :root:not([data-theme="light"]) {
-    --giay: #12171d; --giay-2: #1b222a; --muc: #e4e7e1; --muc-nhat: #9aa3ad; --vien: #2e3741;
+    --giay: #12171d; --giay-2: #1b222a; --muc: #e4e7e1; --muc-nhat: #b3bbc4; --vien: #2e3741;
     --bien: #74bcb3; --vang: #dcb15e; --vang-nen: #2a2416; --troi: #0b0f14; --troi-chu: #e8ebe6; color-scheme: dark;
   }
 }
 :root[data-theme="dark"] {
-  --giay: #12171d; --giay-2: #1b222a; --muc: #e4e7e1; --muc-nhat: #9aa3ad; --vien: #2e3741;
+  --giay: #12171d; --giay-2: #1b222a; --muc: #e4e7e1; --muc-nhat: #b3bbc4; --vien: #2e3741;
   --bien: #74bcb3; --vang: #dcb15e; --vang-nen: #2a2416; --troi: #0b0f14; --troi-chu: #e8ebe6; color-scheme: dark;
 }
 *, *::before, *::after { box-sizing: border-box; }
 [hidden] { display: none !important; }
-html { scroll-padding-top: 1.5rem; -webkit-text-size-adjust: 100%; }
+/* Cỡ chữ gốc lớn dần theo bề ngang màn hình: 16px ở điện thoại, ~18px ở laptop, tối đa 20px ở màn lớn. */
+html { font-size: clamp(100%, 0.85rem + 0.35vw, 125%); scroll-padding-top: 1.5rem; -webkit-text-size-adjust: 100%; }
 @media (prefers-reduced-motion: no-preference) { html { scroll-behavior: smooth; } }
-body { margin: 0; background: var(--giay); color: var(--muc); font-family: var(--chu-sach); font-size: 1.125rem; line-height: 1.7; }
+body { margin: 0; background: var(--giay); color: var(--muc); font-family: var(--chu-sach); font-size: 1.125rem; line-height: 1.75; }
 img { max-width: 100%; height: auto; }
 a { color: var(--bien); text-underline-offset: 0.18em; text-decoration-thickness: 1px; }
 :focus-visible { outline: 2px solid var(--bien); outline-offset: 3px; border-radius: 3px; }
@@ -61,7 +62,7 @@ p { margin: 0 0 1.1rem; }
 .nhan { font-family: var(--chu-nhan); font-size: 0.8rem; font-weight: 600; letter-spacing: 0.08em; text-transform: uppercase; color: var(--muc-nhat); margin: 0; }
 .dan-nhap { font-size: 1.25rem; color: var(--muc-nhat); text-wrap: pretty; }
 .nho { font-size: 0.95rem; color: var(--muc-nhat); }
-em.tn { font-style: normal; font-family: var(--chu-nhan); font-size: 0.82em; color: var(--muc-nhat); }
+em.tn { font-style: normal; font-family: var(--chu-nhan); font-size: 0.9em; color: var(--muc-nhat); }
 strong { font-weight: 650; }
 ul.gon, ol.gon { padding-left: 1.3rem; margin: 0 0 1.1rem; display: grid; gap: 0.35rem; }
 
