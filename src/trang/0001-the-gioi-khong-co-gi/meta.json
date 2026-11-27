@@ -11,5 +11,49 @@
     "Nếu có một người đầu tiên thì sao?",
     "Sao kim cương đắt hơn nước?",
     "Vậy tiền có giá trị không?"
+  ],
+  "khaiNiem": [
+    {
+      "id": "tai-nguyen",
+      "ten": "Tài nguyên",
+      "en": "resource",
+      "nghia": "Thứ có sẵn trong tự nhiên nhưng chưa thành hàng hóa, vì còn thiếu một trong bốn điều kiện của Menger."
+    },
+    {
+      "id": "hang-hoa",
+      "ten": "Hàng hóa",
+      "en": "good",
+      "nghia": "Thứ có ích cho con người. Theo Carl Menger (1871) phải đủ bốn điều: có người cần, nó đáp ứng được nhu cầu đó, người đó biết vậy, và người đó lấy được nó."
+    },
+    {
+      "id": "khan-hiem",
+      "ten": "Khan hiếm",
+      "en": "scarcity",
+      "nghia": "Khi thứ người ta muốn nhiều hơn thứ đang có. Khan hiếm không phải là \"có ít\": không ai muốn thì ít mấy cũng không khan hiếm."
+    },
+    {
+      "id": "hang-hoa-tu-do",
+      "ten": "Hàng hóa tự do",
+      "en": "free good",
+      "nghia": "Hàng hóa có nhiều hơn mức mọi người muốn, như không khí ngoài trời: không ai phải nhường cho ai."
+    },
+    {
+      "id": "hang-hoa-kinh-te",
+      "ten": "Hàng hóa kinh tế",
+      "en": "economic good",
+      "nghia": "Hàng hóa có ít hơn mức mọi người muốn: dùng chỗ này thì mất chỗ kia. Kinh tế học lo loại này."
+    },
+    {
+      "id": "gia-tri-lao-dong",
+      "ten": "Thuyết giá trị lao động",
+      "en": "labour theory of value",
+      "nghia": "Giá trị của món hàng đến từ lao động bỏ vào làm ra nó (Smith, Ricardo, Marx)."
+    },
+    {
+      "id": "gia-tri-chu-quan",
+      "ten": "Giá trị chủ quan",
+      "en": "subjective value",
+      "nghia": "Giá trị không nằm sẵn trong món đồ, mà ở chỗ một người cần nó đến mức nào. Cùng một con cá, người đói thấy quý hơn người no. Jevons, Menger, Walras đưa ra khoảng 1871–1874 (cách mạng cận biên)."
+    }
   ]
 }

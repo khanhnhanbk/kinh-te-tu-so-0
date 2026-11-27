@@ -43,6 +43,14 @@ const { tieuDe, moTa, slug } = Astro.props;
     </article>
   </main>
 
+  <div class="the-kn" id="the-kn" popover role="dialog" aria-labelledby="tkn-ten">
+    <p class="nhan" id="tkn-noi"></p>
+    <p class="kn-ten"><b id="tkn-ten"></b> <em class="tn" id="tkn-en"></em></p>
+    <p class="kn-nghia" id="tkn-nghia"></p>
+    <a class="kn-doc-lai" id="tkn-link" href="#"></a>
+    <button class="kn-dong" type="button" popovertarget="the-kn" popovertargetaction="hide" aria-label="Đóng">×</button>
+  </div>
+
   <footer class="tac-gia">
     <img src={duongTep('tac-gia.webp')} alt="Ảnh chân dung Novian" width="52" height="52">
     <p><b>Novian</b> đặt câu hỏi, AI dựng trang trả lời, có dẫn nguồn. Cuốn sách lớn lên theo từng câu hỏi, ai muốn thì đi theo cùng lộ trình.</p>
@@ -54,6 +62,34 @@ const { tieuDe, moTa, slug } = Astro.props;
   var root = document.documentElement;
   function doc(k) { try { return localStorage.getItem(k); } catch (e) { return null; } }
   function ghi(k, v) { try { localStorage.setItem(k, v); } catch (e) {} }
+
+  /* Khái niệm nhắc lại (<KN>): bấm thì hiện thẻ định nghĩa ngay cạnh chữ, link trong thẻ về đúng chỗ ở trang cũ */
+  var the = document.getElementById("the-kn");
+  if (the && typeof the.showPopover === "function") {
+    var dangMo = null;
+    function datCho(a) {
+      var r = a.getBoundingClientRect(), w = the.offsetWidth, h = the.offsetHeight, vw = document.documentElement.clientWidth;
+      var trai = Math.min(Math.max(16, r.left + r.width / 2 - w / 2), vw - w - 16);
+      var tren = r.bottom + 10;
+      if (tren + h > window.innerHeight - 8 && r.top - h - 10 > 8) tren = r.top - h - 10;
+      the.style.left = (trai + window.scrollX) + "px"; the.style.top = (tren + window.scrollY) + "px";
+    }
+    document.addEventListener("click", function (e) {
+      var a = e.target.closest && e.target.closest("a.kn");
+      if (!a || e.ctrlKey || e.metaKey || e.shiftKey) return;
+      e.preventDefault();
+      if (dangMo === a && the.matches(":popover-open")) { the.hidePopover(); return; }
+      document.getElementById("tkn-noi").textContent = "Đã gặp ở trang " + a.dataset.so;
+      document.getElementById("tkn-ten").textContent = a.dataset.ten;
+      document.getElementById("tkn-en").textContent = "(" + a.dataset.en + ")";
+      document.getElementById("tkn-nghia").textContent = a.dataset.nghia;
+      var l = document.getElementById("tkn-link"); l.href = a.href; l.textContent = "Đọc lại ở trang " + a.dataset.so + ": " + a.dataset.trang + "\u00a0→";
+      if (the.matches(":popover-open")) the.hidePopover();
+      the.showPopover(); datCho(a); dangMo = a; a.setAttribute("aria-expanded", "true");
+    });
+    the.addEventListener("toggle", function (e) { if (e.newState === "closed" && dangMo) { dangMo.setAttribute("aria-expanded", "false"); if (the.contains(document.activeElement)) dangMo.focus(); dangMo = null; } });
+    window.addEventListener("resize", function () { if (dangMo && the.matches(":popover-open")) datCho(dangMo); });
+  }
 
   /* Nút sáng/tối */
   var nutGD = document.querySelector(".nut-giao-dien");

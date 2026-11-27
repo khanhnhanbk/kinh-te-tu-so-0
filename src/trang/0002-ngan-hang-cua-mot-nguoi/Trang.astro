@@ -1,5 +1,6 @@
 ---
 // Trang 2: Ngân hàng của một người. Câu hỏi, số dân, trang cha nằm ở meta.json cùng thư mục.
+import KN from '../../components/KN.astro';
 ---
 
   <figure class="hanh-tinh">
@@ -32,7 +33,7 @@
     <div class="hanh-dong">
       <button class="nut-nho" type="button" data-thu="mua">Mua một quả táo</button>
       <button class="nut-nho" type="button" data-thu="gui">Gửi 100k vào ngân hàng</button>
-      <button class="nut-nho" type="button" data-thu="vay">Vay ngân hàng 1 triệu</button>
+      <button class="nut-nho" type="button" data-thu="vay" id="kn-no">Vay ngân hàng 1 triệu</button>
       <button class="nut-nho" type="button" data-thu="gia">Ghi giá cho táo và cá</button>
       <button class="nut-nho" type="button" data-thu="de-danh">Để dành tiền qua mùa đông</button>
     </div>
@@ -51,12 +52,12 @@
   <div class="bang"><table>
     <thead><tr><th>Việc</th><th>Nghĩa</th><th>Khi chỉ có một người</th></tr></thead>
     <tbody>
-      <tr><td><strong>Phương tiện trao đổi</strong><br><em class="tn">medium of exchange</em></td><td>Đưa tiền cho người khác để lấy hàng của họ</td><td>Không có ai để đưa</td></tr>
-      <tr><td><strong>Đơn vị tính giá</strong><br><em class="tn">unit of account</em></td><td>Cái thước chung để so giá trị mọi thứ</td><td>Một người tự so được trong đầu, không cần thước chung</td></tr>
-      <tr><td><strong>Cất giữ giá trị</strong><br><em class="tn">store of value</em></td><td>Để dành sức mua cho mai sau</td><td>Mai sau cũng không có ai bán gì cho mình</td></tr>
+      <tr><td><strong id="kn-phuong-tien-trao-doi">Phương tiện trao đổi</strong><br><em class="tn">medium of exchange</em></td><td>Đưa tiền cho người khác để lấy hàng của họ</td><td>Không có ai để đưa</td></tr>
+      <tr><td><strong id="kn-don-vi-tinh-gia">Đơn vị tính giá</strong><br><em class="tn">unit of account</em></td><td>Cái thước chung để so giá trị mọi thứ</td><td>Một người tự so được trong đầu, không cần thước chung</td></tr>
+      <tr><td><strong id="kn-cat-giu-gia-tri">Cất giữ giá trị</strong><br><em class="tn">store of value</em></td><td>Để dành sức mua cho mai sau</td><td>Mai sau cũng không có ai bán gì cho mình</td></tr>
     </tbody>
   </table></div>
-  <p>Cả ba việc đều cần <strong>người khác</strong>: người nhận tiền, người cùng dùng một cái thước, người chịu bán hàng cho mình sau này. Carl Menger, người ta gặp ở trang trước, viết năm 1892 rằng tiền không do ai phát minh ra cả. Nó tự hình thành dần dần từ những lần người ta đổi hàng với nhau. Không có trao đổi thì không có tiền.</p>
+  <p>Cả ba việc đều cần <strong>người khác</strong>: người nhận tiền, người cùng dùng một cái thước, người chịu bán hàng cho mình sau này. Carl Menger, người đặt ra <KN id="hang-hoa">bốn điều kiện của hàng hóa</KN> ở trang trước, viết năm 1892 rằng tiền không do ai phát minh ra cả. Nó tự hình thành dần dần từ những lần người ta đổi hàng với nhau. Không có trao đổi thì không có tiền.</p>
 
   <h2>Robinson nhặt được tiền</h2>
   <p>Trong tiểu thuyết <em>Robinson Crusoe</em> (Daniel Defoe, 1719), Robinson trôi dạt lên một hòn đảo không người. Lục con tàu đắm, anh tìm thấy một ngăn kéo đầy tiền vàng và tiền bạc. Anh nói to:</p>
@@ -80,8 +81,8 @@
     </div>
     <p class="ket-luan" id="ket-hat" aria-live="polite"></p>
   </div>
-  <p>Mỗi giỏ giữ lại là một giỏ không được ăn hôm nay. Cái giá đó gọi là <strong>chi phí cơ hội</strong> <em class="tn">(opportunity cost)</em>: muốn có thứ này thì phải bỏ thứ kia. Nhịn ăn hôm nay là <strong>tiết kiệm</strong>, gieo xuống đất là <strong>đầu tư</strong>. Không cần một đồng nào, và cũng không cần ai khác.</p>
-  <p>Năm 1930, nhà kinh tế Mỹ Irving Fisher giải thích <strong>lãi suất</strong> cũng từ hình ảnh này: người ta thích có hôm nay hơn mai sau, nhưng một giỏ hạt gieo hôm nay có thể thành nhiều giỏ mai sau. Lãi suất có gốc rễ ở chỗ đó, trước cả khi có ngân hàng.</p>
+  <p>Mỗi giỏ giữ lại là một giỏ không được ăn hôm nay. Cái giá đó gọi là <strong id="kn-chi-phi-co-hoi">chi phí cơ hội</strong> <em class="tn">(opportunity cost)</em>: muốn có thứ này thì phải bỏ thứ kia. Nhịn ăn hôm nay là <strong id="kn-tiet-kiem">tiết kiệm</strong>, gieo xuống đất là <strong id="kn-dau-tu">đầu tư</strong>. Không cần một đồng nào, và cũng không cần ai khác.</p>
+  <p>Năm 1930, nhà kinh tế Mỹ Irving Fisher giải thích <strong id="kn-lai-suat">lãi suất</strong> cũng từ hình ảnh này: người ta thích có hôm nay hơn mai sau, nhưng một giỏ hạt gieo hôm nay có thể thành nhiều giỏ mai sau. Lãi suất có gốc rễ ở chỗ đó, trước cả khi có ngân hàng.</p>
 
   <div class="cau-hoi-lon">
     <p class="nhan">Mảnh ghép thứ hai cho câu hỏi ngây thơ</p>
