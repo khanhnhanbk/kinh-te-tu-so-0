@@ -1,0 +1,22 @@
+{
+  "so": 4,
+  "slug": "nguoi-may-ao",
+  "ten": "Người may áo",
+  "cauHoi": "Sao hai người lại trùng hợp bổ sung cho nhau vậy? Nếu một người vừa trồng rau vừa nuôi cá, còn người kia làm việc có vẻ không liên quan, như may áo hay xây nhà, thì có đổi được không, và người đó có sống được không?",
+  "cha": "rau-doi-ca",
+  "danSo": 2,
+  "ngay": "2026-11-27",
+  "moTa": "Một người tự lo đủ cái ăn, một người chỉ biết may áo: họ có đổi được không, và người may áo sống bằng gì?",
+  "goiY": [
+    "Có người thứ ba thì mảnh gỗ thành tiền thế nào?",
+    "Nếu máy móc làm ra hết đồ ăn thì người ta làm gì?",
+    "Ai quyết định rau này là của An?"
+  ],
+  "khaiNiem": [
+    { "id": "phan-du", "ten": "Phần làm dư", "en": "surplus", "nghia": "Phần một người làm ra nhiều hơn mức chính mình cần để sống. Có phần dư thì mới nuôi được người làm việc khác, không làm ra cái ăn." },
+    { "id": "nhu-cau", "ten": "Nhu cầu", "en": "demand", "nghia": "Không chỉ là muốn, mà là muốn và chịu đưa thứ của mình ra để có. An thích áo nhưng không chịu đưa phần ăn nào thì chưa thành nhu cầu với Chi." },
+    { "id": "quy-mo-thi-truong", "ten": "Quy mô thị trường", "en": "extent of the market", "nghia": "Có bao nhiêu người sẵn sàng đổi với mình. Adam Smith (1776): chợ càng nhỏ thì càng khó sống bằng một nghề hẹp." },
+    { "id": "luat-engel", "ten": "Luật Engel", "en": "Engel's law", "nghia": "Càng khá giả, phần thu nhập dành cho cái ăn càng nhỏ, phần dành cho thứ khác càng lớn (Ernst Engel, 1857)." },
+    { "id": "chuyen-doi-co-cau", "ten": "Chuyển dịch cơ cấu", "en": "structural change", "nghia": "Khi nền kinh tế lớn lên, người lao động dời dần từ làm nông sang làm hàng hóa và dịch vụ (Simon Kuznets, Nobel 1971)." }
+  ]
+}
