@@ -45,7 +45,7 @@ import KN from '../../components/KN.astro';
     </ul>
   </div>
 
-  <p>Câu trả lời ngắn: <strong>chưa</strong>. Có tờ giấy in số 100.000, có tòa nhà ghi chữ "ngân hàng", nhưng tiền thì chưa có. Tiền không phải là tờ giấy, mà là thứ tờ giấy làm được. Mà nó chẳng làm được gì khi chỉ có một người.</p>
+  <p>Câu trả lời ngắn: <strong>chưa</strong>. Có tờ giấy in số 100.000, có tòa nhà ghi chữ "ngân hàng", nhưng tiền thì chưa có. Tiền không phải là tờ giấy, mà là những việc tờ giấy làm được. Khi chỉ có một người, nó chẳng làm được việc gì.</p>
 
   <h2>Ba việc tiền làm</h2>
   <p>Sách kinh tế vĩ mô nào cũng định nghĩa tiền bằng ba việc nó làm:</p>
@@ -60,7 +60,7 @@ import KN from '../../components/KN.astro';
   <p>Cả ba việc đều cần <strong>người khác</strong>: người nhận tiền, người cùng dùng một cái thước, người chịu bán hàng cho mình sau này. Carl Menger, người đặt ra <KN id="hang-hoa">bốn điều kiện của hàng hóa</KN> ở trang trước, viết năm 1892 rằng tiền không do ai phát minh ra cả. Nó tự hình thành dần dần từ những lần người ta đổi hàng với nhau. Không có trao đổi thì không có tiền.</p>
 
   <h2>Robinson nhặt được tiền</h2>
-  <p>Trong tiểu thuyết <em>Robinson Crusoe</em> (Daniel Defoe, 1719), Robinson trôi dạt lên một hòn đảo không người. Lục con tàu đắm, anh tìm thấy một ngăn kéo đầy tiền vàng và tiền bạc. Anh nói to:</p>
+  <p>Trong tiểu thuyết <em>Robinson Crusoe</em> (Daniel Defoe, 1719), Robinson trôi dạt lên một hòn đảo không người. Lục lọi con tàu đắm, anh tìm thấy một ngăn kéo đầy tiền vàng và tiền bạc. Anh nói to:</p>
   <blockquote>
     Hỡi đồ vô dụng! Mày thì được tích sự gì? Với tao, mày chẳng đáng công cúi xuống nhặt. Một con dao kia còn đáng giá hơn cả đống này.
     <footer>Daniel Defoe, <em>Robinson Crusoe</em>, 1719 (mình dịch thoáng)</footer>
@@ -86,7 +86,7 @@ import KN from '../../components/KN.astro';
 
   <div class="cau-hoi-lon">
     <p class="nhan">Mảnh ghép thứ hai cho câu hỏi ngây thơ</p>
-    <p>Với một người, mọi lần chuyển tiền đều <strong>đúng là tổng bằng không</strong>: ví −100k, ngân hàng +100k, cùng là túi của mình. Vậy mà người đó vẫn <strong>giàu lên được</strong>: giữ 3 giỏ hạt, mùa sau có 12. Giàu lên đến từ làm ra thêm đồ thật, không đến từ chuyển tiền. Câu hỏi còn lại: khi có người thứ hai, chuyện này có còn đúng không?</p>
+    <p>Với một người, mọi lần chuyển tiền đều <strong>đúng là tổng bằng không</strong>: ví −100k, ngân hàng +100k, cùng là túi của mình. Vậy mà người đó vẫn <strong>giàu lên được</strong>: giữ 3 giỏ hạt, mùa sau có 12. Người đó giàu lên nhờ làm ra thêm đồ thật, không nhờ chuyển tiền. Câu hỏi còn lại: khi có người thứ hai, chuyện này có còn đúng không?</p>
   </div>
 
   <details class="gap">
@@ -112,7 +112,7 @@ import KN from '../../components/KN.astro';
   <details class="gap">
     <summary>Tự kiểm tra (3 câu)</summary>
     <p><strong>1.</strong> Robinson có 1.000 đồng tiền vàng trên đảo. Trong ba việc của tiền, đống vàng làm được việc nào?</p>
-    <details class="nho-mo"><summary>Đáp án</summary><p>Trên đảo thì không việc nào. Nó chỉ có thể cất giữ giá trị <em>cho ngày Robinson về lại thế giới có người</em>, đó là lý do anh vẫn mang theo.</p></details>
+    <details class="nho-mo"><summary>Đáp án</summary><p>Trên đảo thì không việc nào. Nó chỉ có thể cất giữ giá trị <em>cho ngày Robinson về lại thế giới có người</em>. Đó là lý do anh vẫn mang nó theo.</p></details>
     <p style="margin-top:1rem"><strong>2.</strong> Một người giữ 5 giỏ hạt để gieo thay vì ăn. Chi phí cơ hội là gì?</p>
     <details class="nho-mo"><summary>Đáp án</summary><p>5 giỏ hạt không được ăn ngay mùa này (và cái no bụng đi kèm).</p></details>
     <p style="margin-top:1rem"><strong>3.</strong> Vì sao vay ngân hàng khi chỉ có một người lại vô nghĩa?</p>
@@ -148,7 +148,7 @@ var loi = {
     vi += 1000; noVay += 1000; nhay(eVi);
     return "Ví có thêm 1 triệu, nhưng bạn cũng <b>nợ chính bạn 1 triệu</b>. Cộng trừ triệt tiêu, tổng vẫn vậy. Người cho vay và người vay là một thì món nợ vô nghĩa. Nợ cần hai người.";
   },
-  gia: function () { truot("don-vi"); return "Bạn ghi \"táo = 10k, cá = 30k\". Con số đó chỉ nói lại điều bạn đã biết sẵn: bạn thích một con cá bằng ba quả táo. <b>Đơn vị tính giá: thừa</b>, vì không có ai khác cần so với bạn."; },
+  gia: function () { truot("don-vi"); return "Bạn ghi \"táo = 10k, cá = 30k\". Con số đó chỉ nói lại điều bạn đã biết sẵn: với bạn, một con cá đáng bằng ba quả táo. <b>Đơn vị tính giá: thừa</b>, vì không có ai khác cần so với bạn."; },
   "de-danh": function () { truot("cat-giu"); return "Mùa đông tới, bạn đói. Tờ tiền không ăn được, và cũng không có ai bán đồ ăn cho bạn. <b>Cất giữ giá trị: hỏng</b>. Thứ để dành thật sự là táo khô và hạt giống (xem dưới)."; }
 };
 document.querySelectorAll("[data-thu]").forEach(function (b) {
