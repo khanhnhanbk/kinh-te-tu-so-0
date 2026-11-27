@@ -16,5 +16,5 @@ Dự án 100% AI code. Novian đặt câu hỏi, Claude dựng trang trả lời
 
 - Một file `index.html` (CSS + JS trong file), không build. Mỗi trang là `<section class="trang" id="trang-N" data-so="N" data-ten="...">`.
 - Nút sáng/tối `position: absolute`, không fixed. Cuộn mượt link `#`. Link ra ngoài `target="_blank" rel="noopener"`.
-- Mỗi trang mới một PR, kèm ảnh chụp ở `docs/screenshots/<chủ-đề>/` (máy tính sáng + điện thoại tối). Soát: không tràn ngang ở 390px, không lỗi console.
+- Mỗi trang mới một PR (Claude tự squash merge sau khi soát, Novian chốt 27/11), kèm ảnh chụp ở `docs/screenshots/<chủ-đề>/` (máy tính sáng + điện thoại tối). Soát: không tràn ngang ở 390px, không lỗi console.
 - Thêm trang thì cập nhật bảng "Các trang" trong README.
