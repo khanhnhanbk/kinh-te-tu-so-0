@@ -147,7 +147,7 @@ function ve() {
     document.getElementById("t4-an-so").textContent = "1"; document.getElementById("t4-chi-so").textContent = "1";
     the("an", true, "No, và có " + n.mon + " (đáng " + so(w) + " phần với An)");
     the("chi", true, "Sống bằng nghề " + n.nghe);
-    ket.innerHTML = "<b>Đổi được.</b> " + (tren > 1 ? "Giá nằm đâu đó từ 1 đến " + so(tren) + " phần ăn mỗi ngày." : "Giá chỉ có thể là đúng 1 phần ăn mỗi ngày, không ai lời thêm chút nào.") + " Chi sống bằng một nghề không làm ra hạt gạo nào." + (nghe === "nha" ? " Nhà xây một lần mà trả mỗi ngày: <b>một bên nợ bên kia</b>." : "");
+    ket.innerHTML = "<b>Đổi được.</b> " + (tren > 1 ? "Giá nằm đâu đó từ 1 đến " + so(tren) + " phần ăn mỗi ngày." : "Giá chỉ có thể là đúng 1 phần ăn mỗi ngày, vì " + (du <= w ? "An chỉ dư đúng chừng đó." : "An thấy " + n.mon + " chỉ đáng đúng chừng đó.")) + " Chi sống bằng một nghề không làm ra hạt gạo nào." + (nghe === "nha" ? " Nhà xây một lần mà trả mỗi ngày: <b>một bên nợ bên kia</b>." : "");
   } else if (!duDu) {
     document.getElementById("t4-an-so").textContent = "1"; document.getElementById("t4-chi-so").textContent = "0";
     the("an", true, "No, nhưng không có " + n.mon);
