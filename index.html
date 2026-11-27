@@ -1,0 +1,724 @@
+<!doctype html>
+<html lang="vi">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Kinh tế từ số 0</title>
+<meta name="claude:viewport-fit-sides" content="cover">
+<meta name="description" content="Một cuốn sách học kinh tế đi từ hành tinh không có ai, lật trang bằng câu hỏi. Mỗi trang trả lời một câu hỏi của người đọc.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:wght@500;600&family=Fraunces:opsz,wght@9..144,600&family=Literata:ital,opsz,wght@0,7..72,400;0,7..72,600;1,7..72,400&display=swap">
+<style>
+/* Bố cục: một cột sách hẹp (~65 ký tự). Mỗi lần chỉ hiện một trang; cuối trang là câu hỏi, bấm câu hỏi để lật.
+   Chi tiết riêng: "số dân" của thế giới ở góc mỗi trang. */
+:root {
+  --giay: #eef1ec; --giay-2: #e1e6e0; --muc: #1c2430; --muc-nhat: #56606c; --vien: #c6cec5;
+  --bien: #2c6a66; --vang: #946712; --vang-nen: #f2e5c6; --troi: #18202b; --troi-chu: #e8ebe6;
+  --chu-sach: "Literata", Georgia, "Times New Roman", serif;
+  --chu-tieu-de: "Fraunces", "Literata", Georgia, serif;
+  --chu-nhan: "Be Vietnam Pro", system-ui, -apple-system, "Segoe UI", sans-serif;
+  color-scheme: light;
+}
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) {
+    --giay: #12171d; --giay-2: #1b222a; --muc: #e4e7e1; --muc-nhat: #9aa3ad; --vien: #2e3741;
+    --bien: #74bcb3; --vang: #dcb15e; --vang-nen: #2a2416; --troi: #0b0f14; --troi-chu: #e8ebe6; color-scheme: dark;
+  }
+}
+:root[data-theme="dark"] {
+  --giay: #12171d; --giay-2: #1b222a; --muc: #e4e7e1; --muc-nhat: #9aa3ad; --vien: #2e3741;
+  --bien: #74bcb3; --vang: #dcb15e; --vang-nen: #2a2416; --troi: #0b0f14; --troi-chu: #e8ebe6; color-scheme: dark;
+}
+*, *::before, *::after { box-sizing: border-box; }
+html { scroll-padding-top: 1.5rem; -webkit-text-size-adjust: 100%; }
+@media (prefers-reduced-motion: no-preference) { html { scroll-behavior: smooth; } }
+body { margin: 0; background: var(--giay); color: var(--muc); font-family: var(--chu-sach); font-size: 1.125rem; line-height: 1.7; }
+img { max-width: 100%; height: auto; }
+a { color: var(--bien); text-underline-offset: 0.18em; text-decoration-thickness: 1px; }
+:focus-visible { outline: 2px solid var(--bien); outline-offset: 3px; border-radius: 3px; }
+
+.khung { position: relative; max-width: 44rem; margin: 0 auto;
+  padding-left: max(16px, env(safe-area-inset-left, 0px)); padding-right: max(16px, env(safe-area-inset-right, 0px));
+  padding-block: 1.25rem 4rem; }
+
+/* Hai nút đầu trang: nằm yên (absolute), không bám theo khi cuộn */
+.nut-tron { position: absolute; top: calc(1.25rem + env(safe-area-inset-top, 0px)); width: 2.75rem; height: 2.75rem; border-radius: 50%;
+  border: 1px solid var(--vien); background: var(--giay-2); color: var(--muc); display: grid; place-items: center; cursor: pointer; padding: 0; z-index: 5; }
+.nut-tron:hover { border-color: var(--bien); color: var(--bien); }
+.nut-tron svg { width: 1.25rem; height: 1.25rem; }
+.nut-muc-luc { left: max(16px, env(safe-area-inset-left, 0px)); }
+.nut-giao-dien { right: max(16px, env(safe-area-inset-right, 0px)); }
+.nut-giao-dien .mat-trang { display: none; }
+:root[data-theme="dark"] .nut-giao-dien .mat-troi { display: none; }
+:root[data-theme="dark"] .nut-giao-dien .mat-trang { display: block; }
+
+/* Mục lục giấu: chỉ hiện những trang đã mở ra */
+.muc-luc { position: absolute; top: calc(4.5rem + env(safe-area-inset-top, 0px)); left: max(16px, env(safe-area-inset-left, 0px));
+  right: max(16px, env(safe-area-inset-right, 0px)); max-width: 26rem; z-index: 6; background: var(--giay); border: 1px solid var(--vien);
+  border-radius: 8px; padding: 1rem 1.1rem; box-shadow: 0 12px 32px rgb(0 0 0 / 0.14); font-family: var(--chu-nhan); font-size: 0.95rem; }
+.muc-luc ol { list-style: none; margin: 0.5rem 0 0; padding: 0; display: grid; gap: 0.15rem; }
+.muc-luc a { display: grid; grid-template-columns: 2.2rem 1fr; gap: 0.5rem; padding: 0.4rem 0.3rem; border-radius: 4px; text-decoration: none; color: var(--muc); }
+.muc-luc a:hover { background: var(--giay-2); }
+.muc-luc a[aria-current="page"] { color: var(--bien); font-weight: 600; }
+.muc-luc .so { color: var(--muc-nhat); font-variant-numeric: tabular-nums; }
+.muc-luc .cho { padding: 0.4rem 0.3rem; color: var(--muc-nhat); display: grid; grid-template-columns: 2.2rem 1fr; gap: 0.5rem; }
+
+/* Chữ */
+h1, h2, h3 { font-family: var(--chu-tieu-de); font-weight: 600; line-height: 1.2; text-wrap: balance; font-variation-settings: "opsz" 72; }
+h1 { font-size: clamp(2.2rem, 7vw, 3.3rem); margin: 0.3rem 0 0.9rem; letter-spacing: -0.01em; }
+h2 { font-size: clamp(1.4rem, 3.6vw, 1.75rem); margin: 3rem 0 0.75rem; }
+p { margin: 0 0 1.1rem; }
+.nhan { font-family: var(--chu-nhan); font-size: 0.8rem; font-weight: 600; letter-spacing: 0.08em; text-transform: uppercase; color: var(--muc-nhat); margin: 0; }
+.dan-nhap { font-size: 1.25rem; color: var(--muc-nhat); text-wrap: pretty; }
+.nho { font-size: 0.95rem; color: var(--muc-nhat); }
+em.tn { font-style: normal; font-family: var(--chu-nhan); font-size: 0.82em; color: var(--muc-nhat); }
+strong { font-weight: 650; }
+ul.gon, ol.gon { padding-left: 1.3rem; margin: 0 0 1.1rem; display: grid; gap: 0.35rem; }
+
+/* Trang: khi có JS thì chỉ hiện trang đang xem */
+.trang { padding-top: 3.75rem; }
+.js .trang:not(.dang-xem) { display: none; }
+.so-dan { display: flex; align-items: baseline; gap: 0.6rem; font-family: var(--chu-nhan); margin-bottom: 1.25rem; }
+.so-dan b { font-family: var(--chu-tieu-de); font-size: 3.25rem; line-height: 1; color: var(--bien); font-variant-numeric: tabular-nums; transition: color .4s; }
+.so-dan span { font-size: 0.9rem; color: var(--muc-nhat); }
+.cau-hoi-mo { font-family: var(--chu-nhan); font-size: 1rem; font-weight: 600; color: var(--bien); margin: 0; text-wrap: balance; }
+
+/* Bìa */
+.bia h1 { font-size: clamp(2.8rem, 11vw, 4.6rem); margin-top: 1rem; }
+.bia .so-khong { font-family: var(--chu-tieu-de); color: var(--bien); }
+
+/* Nút câu hỏi: cách lật trang duy nhất */
+.lat { margin: 3rem 0 0; padding-top: 1.5rem; border-top: 1px solid var(--vien); }
+.nut-hoi { display: flex; width: 100%; align-items: center; justify-content: space-between; gap: 1rem; text-align: left; cursor: pointer;
+  font-family: var(--chu-tieu-de); font-size: clamp(1.25rem, 3.6vw, 1.6rem); font-weight: 600; line-height: 1.3; color: var(--muc);
+  background: var(--giay-2); border: 1px solid var(--vien); border-radius: 10px; padding: 1.1rem 1.25rem; margin-top: 0.75rem; transition: border-color .2s, transform .2s; }
+.nut-hoi:hover { border-color: var(--bien); transform: translateY(-2px); }
+.nut-hoi .mui { flex: none; font-family: var(--chu-nhan); font-size: 1.4rem; color: var(--bien); }
+.nut-hoi span:first-child { min-width: 0; text-wrap: balance; }
+.cho-cau-hoi { margin-top: 0.75rem; padding: 1.25rem; border: 1px dashed var(--muc-nhat); border-radius: 10px; }
+.cho-cau-hoi p { margin: 0 0 0.75rem; }
+.goi-y { display: flex; flex-wrap: wrap; gap: 0.5rem; margin: 0; padding: 0; list-style: none; }
+.goi-y li { font-family: var(--chu-nhan); font-size: 0.9rem; padding: 0.35rem 0.8rem; border-radius: 999px; background: var(--giay-2); color: var(--muc-nhat); }
+.ve-truoc { display: inline-block; margin-top: 1.25rem; font-family: var(--chu-nhan); font-size: 0.9rem; color: var(--muc-nhat); background: none; border: 0; padding: 0; cursor: pointer; text-decoration: underline; text-underline-offset: 0.2em; }
+
+/* Hành tinh */
+.hanh-tinh { margin: 0.5rem 0 1.5rem; border-radius: 12px; overflow: hidden; background: var(--troi); }
+.hanh-tinh svg { display: block; width: 100%; height: auto; }
+.hanh-tinh .may { animation: troi-may 38s linear infinite; }
+.hanh-tinh .sao { animation: lap-lanh 4s ease-in-out infinite alternate; }
+.hanh-tinh .nguoi { opacity: 0; transition: opacity .8s, transform .8s; transform: translateY(-14px); }
+.co-nguoi .hanh-tinh .nguoi { opacity: 1; transform: none; }
+@keyframes troi-may { from { transform: translateX(-120px); } to { transform: translateX(120px); } }
+@keyframes lap-lanh { from { opacity: .35; } to { opacity: .9; } }
+
+/* Khối thử nghiệm */
+.thu { margin: 1.5rem 0; padding: 1.25rem; background: var(--giay-2); border-radius: 10px; }
+.thu > .nhan { color: var(--bien); margin-bottom: 0.6rem; }
+.thu p:last-child { margin-bottom: 0; }
+.thanh { display: grid; gap: 0.35rem; margin: 0.75rem 0 1rem; font-family: var(--chu-nhan); font-size: 0.95rem; }
+.thanh label { display: flex; justify-content: space-between; gap: 1rem; }
+.thanh output { font-weight: 600; color: var(--vang); font-variant-numeric: tabular-nums; }
+input[type="range"] { width: 100%; accent-color: var(--bien); }
+.do { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 0.6rem; font-family: var(--chu-nhan); }
+.do div { background: var(--giay); border-radius: 8px; padding: 0.6rem 0.7rem; min-width: 0; }
+.do b { display: block; font-family: var(--chu-tieu-de); font-size: 1.5rem; line-height: 1.2; font-variant-numeric: tabular-nums; }
+.do span { font-size: 0.78rem; color: var(--muc-nhat); }
+.do .vang-chu b { color: var(--vang); }
+.loi-giai { margin-top: 1rem; }
+
+/* Bốn điều kiện của Menger */
+.menger { display: grid; grid-template-columns: 7rem 1fr; gap: 1rem; align-items: center; margin: 0.75rem 0 0.5rem; }
+.qua-tao { width: 7rem; height: 7rem; display: block; transition: filter .6s, transform .6s; filter: grayscale(1) opacity(.55); }
+.menger.du .qua-tao { filter: none; transform: scale(1.08); }
+.dk { list-style: none; margin: 0; padding: 0; display: grid; gap: 0.4rem; font-family: var(--chu-nhan); font-size: 0.92rem; }
+.dk button { width: 100%; display: flex; align-items: center; gap: 0.6rem; text-align: left; font: inherit; color: var(--muc); background: var(--giay);
+  border: 1px solid var(--vien); border-radius: 8px; padding: 0.45rem 0.6rem; cursor: pointer; }
+.dk .den { flex: none; width: 0.8rem; height: 0.8rem; border-radius: 50%; border: 2px solid var(--muc-nhat); transition: background .3s, border-color .3s; }
+.dk button[aria-pressed="true"] .den { background: var(--bien); border-color: var(--bien); }
+.dk button.lac { animation: lac .4s; }
+@keyframes lac { 25% { transform: translateX(-4px); } 75% { transform: translateX(4px); } }
+.ket-luan { font-family: var(--chu-nhan); font-size: 0.95rem; min-height: 3em; margin: 0.6rem 0 0.75rem; }
+.ket-luan b { color: var(--vang); }
+.nut-nho { font-family: var(--chu-nhan); font-size: 0.92rem; font-weight: 600; cursor: pointer; padding: 0.55rem 1rem; border-radius: 999px;
+  border: 1px solid var(--bien); background: transparent; color: var(--bien); }
+.nut-nho:hover { background: var(--bien); color: var(--giay); }
+
+.hanh-dong { display: flex; flex-wrap: wrap; gap: 0.5rem; margin: 1rem 0 0.25rem; }
+.hanh-dong .nut-nho.da-thu { border-style: dashed; }
+.chuc-nang { list-style: none; margin: 0; padding: 0.75rem 0 0; border-top: 1px solid var(--vien); display: flex; flex-wrap: wrap; gap: 0.5rem 1.25rem; font-family: var(--chu-nhan); font-size: 0.9rem; color: var(--muc-nhat); }
+.chuc-nang li { display: flex; align-items: center; gap: 0.45rem; }
+.chuc-nang .den { width: 0.8rem; height: 0.8rem; border-radius: 50%; border: 2px solid var(--muc-nhat); }
+.chuc-nang li.truot { color: var(--vang); text-decoration: line-through; }
+.chuc-nang li.truot .den { border-color: var(--vang); background: var(--vang); }
+.do b { transition: color .3s; }
+.do b.nhay { animation: nhay .5s; }
+@keyframes nhay { 40% { transform: scale(1.18); } }
+.cot-hat { display: grid; gap: 0.75rem; font-family: var(--chu-nhan); }
+.cot-hat > div { display: grid; grid-template-columns: 8.5rem 1fr 4.5rem; gap: 0.75rem; align-items: center; }
+.cot-hat b { font-variant-numeric: tabular-nums; text-align: right; }
+.thanh-ngang { height: 0.9rem; background: var(--giay); border-radius: 999px; overflow: hidden; }
+.thanh-ngang i { display: block; height: 100%; background: var(--vang); border-radius: 999px; transition: width .35s cubic-bezier(.2,.7,.3,1); }
+.thanh-ngang i.xanh { background: var(--bien); }
+@media (max-width: 30rem) { .cot-hat > div { grid-template-columns: 1fr 3.8rem; } .cot-hat .nhan { grid-column: 1 / -1; } }
+blockquote { margin: 1.5rem 0; padding: 0 0 0 1.25rem; border-left: 2px solid var(--vien); font-style: italic; }
+blockquote footer { font-style: normal; font-family: var(--chu-nhan); font-size: 0.85rem; color: var(--muc-nhat); margin-top: 0.4rem; }
+.cau-hoi-lon { margin: 1.75rem 0; padding: 1.1rem 1.25rem; background: var(--vang-nen); border-left: 3px solid var(--vang); border-radius: 0 8px 8px 0; }
+.cau-hoi-lon .nhan { color: var(--vang); margin-bottom: 0.4rem; }
+.cau-hoi-lon p:last-child { margin-bottom: 0; }
+
+details.gap { border-top: 1px solid var(--vien); padding: 0.9rem 0; }
+details.gap:last-of-type { border-bottom: 1px solid var(--vien); }
+details.gap > summary { cursor: pointer; font-family: var(--chu-nhan); font-weight: 600; font-size: 0.98rem; }
+details.gap[open] > summary { margin-bottom: 0.75rem; }
+details.nho-mo summary { cursor: pointer; font-family: var(--chu-nhan); font-size: 0.92rem; font-weight: 600; color: var(--bien); }
+details.nho-mo[open] summary { margin-bottom: 0.5rem; }
+.bang { overflow-x: auto; }
+table { border-collapse: collapse; width: 100%; font-size: 0.98rem; }
+th, td { text-align: left; vertical-align: top; padding: 0.5rem 0.75rem 0.5rem 0; border-bottom: 1px solid var(--vien); }
+th { font-family: var(--chu-nhan); font-size: 0.78rem; font-weight: 600; letter-spacing: 0.05em; text-transform: uppercase; color: var(--muc-nhat); }
+.nguon ol { padding-left: 1.3rem; font-size: 0.95rem; display: grid; gap: 0.4rem; margin: 0; }
+
+.tac-gia { margin: 3rem 0 0; padding-top: 1.25rem; border-top: 1px solid var(--vien); display: flex; gap: 0.9rem; align-items: center; font-family: var(--chu-nhan); font-size: 0.88rem; color: var(--muc-nhat); }
+.tac-gia img { width: 3.25rem; height: 3.25rem; border-radius: 50%; flex: none; }
+.tac-gia p { margin: 0; min-width: 0; }
+.tac-gia b { color: var(--muc); }
+
+/* Lật trang: trang cũ gập sang trái như giấy, câu hỏi bay lên thành dòng đầu của trang mới */
+@media (prefers-reduced-motion: no-preference) {
+  ::view-transition-old(trang) { animation: gap-di .65s cubic-bezier(.55,.05,.7,.3) both; transform-origin: left center; }
+  ::view-transition-new(trang) { animation: mo-ra .55s .28s cubic-bezier(.2,.7,.3,1) both; }
+  ::view-transition-group(cau-hoi) { animation-duration: .7s; animation-timing-function: cubic-bezier(.3,.8,.3,1); }
+  @keyframes gap-di { to { transform: perspective(1800px) rotateY(-70deg); opacity: 0; } }
+  @keyframes mo-ra { from { transform: translateX(40px); opacity: 0; } }
+  .js .trang.vua-mo:not(.co-vt) { animation: mo-ra .5s cubic-bezier(.2,.7,.3,1) both; }
+}
+.khung-trang { view-transition-name: trang; }
+
+@media (max-width: 30rem) {
+  body { font-size: 1.0625rem; }
+  .menger { grid-template-columns: 1fr; justify-items: center; }
+  .menger .dk { width: 100%; }
+  .do b { font-size: 1.25rem; }
+}
+</style>
+<script>
+  (function () { try { var t = localStorage.getItem("kt0-giao-dien"); if (t === "light" || t === "dark") document.documentElement.setAttribute("data-theme", t); } catch (e) {} document.documentElement.classList.add("js"); })();
+</script>
+</head>
+<body>
+<div class="khung">
+  <button class="nut-tron nut-muc-luc" type="button" aria-expanded="false" aria-controls="muc-luc" title="Những trang đã mở">
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" aria-hidden="true"><path d="M5 5.5h14M5 12h14M5 18.5h9"/></svg>
+    <span class="nhan" style="position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0)">Những trang đã mở</span>
+  </button>
+  <nav class="muc-luc" id="muc-luc" hidden aria-label="Những trang đã mở">
+    <p class="nhan">Những trang đã mở</p>
+    <ol id="ds-trang"></ol>
+  </nav>
+  <button class="nut-tron nut-giao-dien" type="button" aria-label="Đổi nền sáng/tối">
+    <svg class="mat-troi" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" aria-hidden="true"><circle cx="12" cy="12" r="4.2"/><path d="M12 2.5v2.2M12 19.3v2.2M2.5 12h2.2M19.3 12h2.2M5.3 5.3l1.6 1.6M17.1 17.1l1.6 1.6M5.3 18.7l1.6-1.6M17.1 6.9l1.6-1.6"/></svg>
+    <svg class="mat-trang" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M19.5 14.5A8 8 0 0 1 9.5 4.5a8 8 0 1 0 10 10z"/></svg>
+  </button>
+
+  <main class="khung-trang">
+
+  <!-- ===================== BÌA ===================== -->
+  <section class="trang bia" id="bia" data-so="0" data-ten="Bìa">
+    <p class="nhan">Một cuốn sách lật bằng câu hỏi</p>
+    <h1>Kinh tế từ số <span class="so-khong">0</span></h1>
+    <p class="dan-nhap">Cuốn sách này không có mục lục bày sẵn. Mỗi trang trả lời đúng một câu hỏi, và cuối trang là câu hỏi tiếp theo. Bạn bấm vào câu hỏi để lật trang.</p>
+    <p>Ta bắt đầu từ một thế giới chưa có ai, rồi thêm từng người một: một người, hai người, mười người, rồi tiền, ngân hàng, nhà nước. Không đi theo lịch sử, mà đi từ đơn giản đến trừu tượng, dựa trên kinh tế học vi mô, vĩ mô và ý tưởng của những người đoạt giải Nobel kinh tế.</p>
+    <div class="cau-hoi-lon">
+      <p class="nhan">Câu hỏi ngây thơ đã mở ra cuốn sách</p>
+      <p>Nếu mình được cộng 100 nghìn thì người kia bị trừ 100 nghìn. Vậy tại sao kinh tế lại không phải một trò chơi tổng bằng không?</p>
+    </div>
+    <p class="nho">Câu này chưa được trả lời ở đây. Ta sẽ đi dần tới nó.</p>
+    <div class="lat">
+      <p class="nhan">Lật trang bằng câu hỏi</p>
+      <button class="nut-hoi" type="button" data-den="trang-1"><span data-cau-hoi>Nếu thế giới chưa có một ai, thì có kinh tế không?</span><span class="mui" aria-hidden="true">→</span></button>
+    </div>
+  </section>
+
+  <!-- ===================== TRANG 1 ===================== -->
+  <section class="trang" id="trang-1" data-so="1" data-ten="Thế giới không có gì cả">
+    <div class="so-dan" aria-label="Số người trên hành tinh ở trang này"><b id="so-nguoi">0</b><span>người trên hành tinh</span></div>
+    <p class="cau-hoi-mo" data-cau-hoi>Nếu thế giới chưa có một ai, thì có kinh tế không?</p>
+    <h1>Thế giới không có gì cả</h1>
+
+    <figure class="hanh-tinh">
+      <svg viewBox="0 0 640 340" role="img" aria-labelledby="ht-ten">
+        <title id="ht-ten">Một hành tinh có biển, rừng, sông và một mạch vàng, chưa có người nào</title>
+        <rect width="640" height="340" fill="var(--troi)"/>
+        <g fill="var(--troi-chu)">
+          <circle class="sao" cx="52" cy="44" r="1.4"/><circle cx="130" cy="92" r="1"/><circle class="sao" cx="214" cy="28" r="1.2" style="animation-delay:1s"/>
+          <circle cx="526" cy="48" r="1.4"/><circle class="sao" cx="596" cy="118" r="1" style="animation-delay:2s"/><circle cx="458" cy="22" r="1"/>
+          <circle class="sao" cx="30" cy="190" r="1" style="animation-delay:.5s"/><circle cx="612" cy="262" r="1.2"/><circle class="sao" cx="96" cy="300" r="1" style="animation-delay:1.5s"/>
+        </g>
+        <defs>
+          <clipPath id="dia-cau"><circle cx="320" cy="172" r="126"/></clipPath>
+          <radialGradient id="bong" cx="35%" cy="30%" r="80%"><stop offset="0" stop-color="#fff" stop-opacity=".18"/><stop offset=".6" stop-color="#000" stop-opacity="0"/><stop offset="1" stop-color="#000" stop-opacity=".45"/></radialGradient>
+        </defs>
+        <g clip-path="url(#dia-cau)">
+          <rect x="190" y="40" width="260" height="270" fill="#2f6f8f"/>
+          <path d="M214 116c26-24 68-28 92-12 16 11 9 30 30 35 26 6 42-16 68-7 23 8 26 35 9 51-19 19-52 12-70 31-16 16-9 42-35 49-30 8-61-12-72-37-10-23-5-42-21-58-12-12-14-35 0-52z" fill="#4f8a5a"/>
+          <path d="M408 236c14-10 34-8 44 4l-4 40h-60c2-18 8-34 20-44z" fill="#6f9a5e"/>
+          <path d="M256 126c9 20 34 25 39 46s-16 34-7 57" fill="none" stroke="#8fc3dd" stroke-width="3.2" stroke-linecap="round"/>
+          <g fill="#2c5a36"><path d="M318 124l-8 16h16z"/><path d="M334 131l-7 14h14z"/><path d="M347 121l-8 16h16z"/></g>
+          <circle cx="338" cy="150" r="3.6" fill="#d8463c"/>
+          <path d="M350 198l11 7 9-5 10 8" fill="none" stroke="#e2b54f" stroke-width="2.6" stroke-linecap="round"/>
+          <circle cx="381" cy="208" r="3.8" fill="#e2b54f"/>
+          <g class="may" fill="#fff" opacity=".55"><ellipse cx="270" cy="92" rx="36" ry="7"/><ellipse cx="380" cy="262" rx="44" ry="7"/><ellipse cx="200" cy="210" rx="26" ry="5"/></g>
+          <g class="nguoi"><circle cx="300" cy="186" r="4.2" fill="#f4efe6"/><path d="M300 191v12M294 196h12M300 203l-5 8M300 203l5 8" stroke="#f4efe6" stroke-width="2.2" stroke-linecap="round"/></g>
+          <rect x="190" y="40" width="260" height="270" fill="url(#bong)"/>
+        </g>
+        <circle cx="320" cy="172" r="126" fill="none" stroke="#8fc3dd" stroke-opacity=".35" stroke-width="1.5"/>
+        <g font-family="Be Vietnam Pro, system-ui, sans-serif" font-size="13" fill="var(--troi-chu)">
+          <text x="470" y="132">cây táo dại</text><line x1="466" y1="128" x2="344" y2="148" stroke="var(--troi-chu)" stroke-opacity=".4"/>
+          <text x="470" y="214">một mạch vàng</text><line x1="466" y1="210" x2="388" y2="208" stroke="var(--troi-chu)" stroke-opacity=".4"/>
+          <text x="58" y="176">một con sông</text><line x1="150" y1="172" x2="262" y2="160" stroke="var(--troi-chu)" stroke-opacity=".4"/>
+        </g>
+      </svg>
+    </figure>
+
+    <p class="dan-nhap">Có biển, có rừng, có một con sông. Cây táo dại ra quả mỗi mùa, quả chín rồi rụng, rồi mục thành đất. Dưới chân núi có một mạch vàng nằm yên cả triệu năm. Không có ai hái táo, không có ai đào vàng.</p>
+    <p>Thử nhìn hành tinh này bằng con mắt kinh tế. Nó giàu hay nghèo?</p>
+
+    <div class="thu">
+      <p class="nhan">Thử làm cho hành tinh giàu lên</p>
+      <div class="thanh">
+        <label for="luong-vang"><span>Lượng vàng dưới đất</span><output id="ra-vang" for="luong-vang">1 tấn</output></label>
+        <input id="luong-vang" type="range" min="0" max="9" step="1" value="2">
+      </div>
+      <div class="do" aria-live="polite">
+        <div class="vang-chu"><b id="o-vang">1 tấn</b><span>vàng có</span></div>
+        <div><b>0</b><span>người muốn nó</span></div>
+        <div><b>0</b><span>giá trị</span></div>
+      </div>
+      <details class="nho-mo loi-giai">
+        <summary>Sao kéo mấy cũng không đổi?</summary>
+        <p>Vì hành tinh này <strong>không giàu cũng không nghèo</strong>. "Giàu" là nói về việc <em>ai đó</em> có được những thứ <em>họ muốn</em>. Không có ai thì chữ "giàu" không bám vào đâu được. Vàng ở đây chỉ là một loại đá màu vàng.</p>
+      </details>
+    </div>
+
+    <p>Đây là ý đầu tiên của cả cuốn sách: <strong>kinh tế học không bắt đầu từ đồ vật, mà bắt đầu từ con người và những gì con người muốn.</strong> Đồ vật thì hành tinh này có đủ. Cái nó thiếu là người.</p>
+
+    <h2>Có đồ vật, nhưng chưa có hàng hóa</h2>
+    <p>Năm 1871, nhà kinh tế người Áo Carl Menger hỏi: khi nào một thứ trở thành <strong>hàng hóa</strong> <em class="tn">(good)</em>, tức là thứ có ích cho con người? Ông đưa ra bốn điều kiện, phải đủ cả bốn. Bấm thử từng điều với quả táo dại:</p>
+
+    <div class="thu">
+      <p class="nhan">Quả táo này đã là hàng hóa chưa?</p>
+      <div class="menger" id="menger">
+        <svg class="qua-tao" viewBox="0 0 100 100" aria-hidden="true">
+          <path d="M50 30c-6-8-18-10-27-4-12 8-13 27-6 42 6 13 17 24 27 22 3-1 4-2 6-2s3 1 6 2c10 2 21-9 27-22 7-15 6-34-6-42-9-6-21-4-27 4z" fill="#d8463c"/>
+          <path d="M50 30c0-8 2-14 7-19" stroke="#6b4a2b" stroke-width="3" fill="none" stroke-linecap="round"/>
+          <path d="M55 20c8-6 17-5 21-1-6 6-14 7-21 1z" fill="#4f8a5a"/>
+          <ellipse cx="34" cy="44" rx="6" ry="10" fill="#fff" opacity=".25"/>
+        </svg>
+        <ul class="dk">
+          <li><button type="button" data-dk="1" data-can-nguoi="1" aria-pressed="false"><span class="den"></span>Có ai đó cần nó</button></li>
+          <li><button type="button" data-dk="2" aria-pressed="true"><span class="den"></span>Nó có tính chất đáp ứng cái cần (ăn được, no bụng)</button></li>
+          <li><button type="button" data-dk="3" data-can-nguoi="1" aria-pressed="false"><span class="den"></span>Có người biết nó giúp được mình</button></li>
+          <li><button type="button" data-dk="4" data-can-nguoi="1" aria-pressed="false"><span class="den"></span>Có người nắm được nó để dùng</button></li>
+        </ul>
+      </div>
+      <p class="ket-luan" id="ket-luan" aria-live="polite">Mới đủ <b>1/4</b>. Quả táo vẫn chỉ là một <strong>tài nguyên</strong> <em class="tn">(resource)</em> nằm chờ.</p>
+      <button class="nut-nho" type="button" id="tha-nguoi">Thử thả một người xuống</button>
+    </div>
+
+    <p>Điều thứ ba đáng để ý. Một thứ có thể có ích từ lâu mà chưa ai biết. Dầu mỏ nằm dưới đất hàng triệu năm, chỉ thành của quý khi con người biết đốt nó để chạy máy. <strong>Kiến thức biến đá thành của cải.</strong></p>
+
+    <h2>Không ai muốn gì, nên không gì khan hiếm</h2>
+    <p>Sách kinh tế nào cũng mở đầu bằng chữ <strong>khan hiếm</strong> <em class="tn">(scarcity)</em>. Định nghĩa được dạy nhiều nhất đến nay là của Lionel Robbins:</p>
+    <blockquote>
+      Kinh tế học nghiên cứu hành vi của con người như một mối quan hệ giữa các mục đích và những phương tiện khan hiếm có nhiều cách dùng khác nhau.
+      <footer>Lionel Robbins, 1932</footer>
+    </blockquote>
+    <p>Khan hiếm không có nghĩa là "có ít". Khan hiếm là khi <strong>thứ người ta muốn nhiều hơn thứ đang có</strong>. Trên hành tinh trống, phía "muốn" bằng không, nên dù vàng ít đến đâu, vàng cũng không khan hiếm.</p>
+    <p>Menger chia hàng hóa ra hai loại theo đúng ý này. <strong>Hàng hóa tự do</strong> <em class="tn">(free good)</em> có nhiều hơn mức mọi người muốn, như không khí ngoài trời: không ai phải nhường cho ai. <strong>Hàng hóa kinh tế</strong> <em class="tn">(economic good)</em> có ít hơn mức mọi người muốn, dùng chỗ này thì mất chỗ kia. Kinh tế học chỉ lo loại thứ hai.</p>
+
+    <h2>Giá trị nằm ở đâu</h2>
+    <p>Nếu bạn từng học Kinh tế chính trị Mác–Lênin, bạn đã gặp <strong>thuyết giá trị lao động</strong>: giá trị của món hàng đến từ lao động bỏ vào làm ra nó. Ý này có từ Adam Smith, David Ricardo, rồi Karl Marx đặt nó làm trọng tâm.</p>
+    <p>Khoảng 1871 đến 1874, ba người ở ba nước, không hẹn nhau, đi hướng khác: Jevons ở Anh, Menger ở Áo, Walras ở Thụy Sĩ. Họ cho rằng <strong>giá trị nằm ở chỗ một người cần món đó đến mức nào</strong>. Đó là <strong>thuyết giá trị chủ quan</strong> <em class="tn">(subjective value)</em>, và cuộc đổi hướng được gọi là <strong>cách mạng cận biên</strong>. Kinh tế học vi mô ngày nay xây trên nền này.</p>
+    <p>Hành tinh trống là phép thử gọn nhất: không có ai cần thì giá trị của mọi thứ bằng không, kể cả mạch vàng. <strong>Giá trị là một quan hệ giữa người và vật</strong>, và một bên của quan hệ đó chưa có mặt.</p>
+
+    <div class="cau-hoi-lon">
+      <p class="nhan">Mảnh ghép đầu tiên cho câu hỏi ngây thơ</p>
+      <p>Khi người đầu tiên đến, đói bụng, và hái một quả táo, quả táo bỗng có giá trị với người đó. <strong>Không ai bị trừ đi cái gì.</strong> Giá trị đó không chuyển từ túi ai sang túi ai, nó sinh ra. Vậy cần tách hai thứ: <strong>giá trị</strong> (có thể sinh ra) và <strong>tiền</strong> (thứ chuyền tay nhau). Tiền thì chưa có mặt ở đây.</p>
+    </div>
+
+    <details class="gap">
+      <summary>Ghi nhớ và từ khóa</summary>
+      <ul class="gon">
+        <li>Không có người thì không có kinh tế. Kinh tế học nói về lựa chọn của con người, không phải về đồ vật.</li>
+        <li>Một thứ thành hàng hóa khi có người cần, nó đáp ứng được, người ta biết điều đó và nắm được nó (Menger, 1871).</li>
+        <li>Khan hiếm là mong muốn nhiều hơn thứ đang có (Robbins, 1932).</li>
+        <li>Giá trị là quan hệ giữa người và vật, nên nó có thể sinh ra.</li>
+      </ul>
+      <div class="bang"><table>
+        <thead><tr><th>Tiếng Việt</th><th>Tiếng Anh</th><th>Nghĩa ngắn</th></tr></thead>
+        <tbody>
+          <tr><td>Tài nguyên</td><td>resource</td><td>Có sẵn trong tự nhiên, chưa chắc có ai dùng</td></tr>
+          <tr><td>Hàng hóa</td><td>good</td><td>Thỏa mãn được nhu cầu của người, đủ bốn điều kiện Menger</td></tr>
+          <tr><td>Hàng hóa tự do</td><td>free good</td><td>Nhiều hơn mức mọi người muốn</td></tr>
+          <tr><td>Hàng hóa kinh tế</td><td>economic good</td><td>Ít hơn mức mọi người muốn</td></tr>
+          <tr><td>Khan hiếm</td><td>scarcity</td><td>Muốn nhiều hơn thứ đang có</td></tr>
+          <tr><td>Giá trị chủ quan</td><td>subjective value</td><td>Giá trị nằm ở mức một người cần món đó</td></tr>
+        </tbody>
+      </table></div>
+    </details>
+    <details class="gap">
+      <summary>Tự kiểm tra (3 câu)</summary>
+      <p><strong>1.</strong> Hành tinh trống có một tỷ tấn vàng. Vàng có khan hiếm không?</p>
+      <details class="nho-mo"><summary>Đáp án</summary><p>Không. Khan hiếm là muốn nhiều hơn thứ có. Không ai muốn thì một tỷ tấn hay một gam cũng như nhau.</p></details>
+      <p style="margin-top:1rem"><strong>2.</strong> Một người đến, nhưng không biết nấm đỏ trong rừng ăn được và rất bổ. Nấm đã là hàng hóa với người đó chưa?</p>
+      <details class="nho-mo"><summary>Đáp án</summary><p>Chưa. Thiếu điều kiện thứ ba của Menger: người đó chưa <em>biết</em>. Kiến thức là một phần của việc biến tài nguyên thành hàng hóa.</p></details>
+      <p style="margin-top:1rem"><strong>3.</strong> Cho ví dụ một thứ là hàng hóa tự do ở nơi này nhưng là hàng hóa kinh tế ở nơi khác.</p>
+      <details class="nho-mo"><summary>Gợi ý</summary><p>Nước ngọt bên sông lớn và nước ngọt giữa sa mạc. Không khí ngoài đồng và không khí sạch giữa Hà Nội mùa bụi mịn. Đồ vật giống nhau, chỉ khác số người muốn nó ở đó.</p></details>
+    </details>
+    <details class="gap nguon">
+      <summary>Nguồn</summary>
+      <ol>
+        <li>Carl Menger, <em>Principles of Economics</em>, 1871, chương 1–2 (bốn điều kiện của hàng hóa; hàng hóa kinh tế và phi kinh tế). <a href="https://mises.org/library/book/principles-economics" target="_blank" rel="noopener">Bản tiếng Anh miễn phí</a>.</li>
+        <li>Lionel Robbins, <em>An Essay on the Nature and Significance of Economic Science</em>, 1932, chương 1.</li>
+        <li>Adam Smith, <em>The Wealth of Nations</em>, 1776, quyển I chương 4.</li>
+        <li>W. S. Jevons, <em>The Theory of Political Economy</em>, 1871; Léon Walras, <em>Éléments d'économie politique pure</em>, 1874.</li>
+        <li>N. Gregory Mankiw, <em>Principles of Economics</em>, chương 1.</li>
+      </ol>
+    </details>
+
+    <div class="lat">
+      <p class="nhan">Lật trang bằng câu hỏi</p>
+      <button class="nut-hoi" type="button" data-den="trang-2"><span data-cau-hoi>Có người đầu tiên và một ngân hàng đầu tiên, thì tiền đã xuất hiện được chưa?</span><span class="mui" aria-hidden="true">→</span></button>
+      <button class="ve-truoc" type="button" data-den="bia">← Về bìa</button>
+    </div>
+
+  </section>
+
+  <!-- ===================== TRANG 2 ===================== -->
+  <section class="trang" id="trang-2" data-so="2" data-ten="Ngân hàng của một người">
+    <div class="so-dan" aria-label="Số người trên hành tinh ở trang này"><b>1</b><span>người trên hành tinh</span></div>
+    <p class="cau-hoi-mo" data-cau-hoi>Có người đầu tiên và một ngân hàng đầu tiên, thì tiền đã xuất hiện được chưa?</p>
+    <h1>Ngân hàng của một người</h1>
+
+    <figure class="hanh-tinh">
+      <svg viewBox="0 0 640 300" role="img" aria-labelledby="t2-ten">
+        <title id="t2-ten">Người đầu tiên đứng giữa cây táo, một tòa ngân hàng nhỏ và một tờ 100 nghìn</title>
+        <rect width="640" height="300" fill="var(--troi)"/>
+        <g fill="var(--troi-chu)"><circle class="sao" cx="60" cy="40" r="1.3"/><circle cx="170" cy="70" r="1"/><circle class="sao" cx="480" cy="34" r="1.3" style="animation-delay:1.2s"/><circle cx="590" cy="80" r="1"/><circle class="sao" cx="330" cy="26" r="1" style="animation-delay:.6s"/></g>
+        <ellipse cx="320" cy="300" rx="360" ry="88" fill="#4f8a5a"/>
+        <ellipse cx="320" cy="300" rx="360" ry="88" fill="#000" opacity=".12"/>
+        <g transform="translate(118 142)"><rect x="-5" y="20" width="10" height="66" fill="#6b4a2b"/><circle cx="0" cy="8" r="38" fill="#2c5a36"/><circle cx="-14" cy="0" r="4.5" fill="#d8463c"/><circle cx="12" cy="14" r="4.5" fill="#d8463c"/><circle cx="6" cy="-10" r="4.5" fill="#d8463c"/></g>
+        <g transform="translate(470 150)">
+          <path d="M-62 26 0 -10 62 26z" fill="#e8e2d4"/><rect x="-54" y="26" width="108" height="64" fill="#e8e2d4"/>
+          <g fill="#c8bfab"><rect x="-44" y="34" width="10" height="50"/><rect x="-22" y="34" width="10" height="50"/><rect x="12" y="34" width="10" height="50"/><rect x="34" y="34" width="10" height="50"/></g>
+          <text x="0" y="20" text-anchor="middle" font-family="Be Vietnam Pro, system-ui, sans-serif" font-size="10" font-weight="600" fill="#5a5243">NGÂN HÀNG</text>
+        </g>
+        <g transform="translate(300 196)"><circle cx="0" cy="0" r="7" fill="#f4efe6"/><path d="M0 8v22M-10 16h20M0 30l-8 14M0 30l8 14" stroke="#f4efe6" stroke-width="3.2" stroke-linecap="round"/></g>
+        <g transform="translate(342 232) rotate(-8)"><rect width="46" height="22" rx="2" fill="#5fa79c"/><rect x="3" y="3" width="40" height="16" rx="1" fill="none" stroke="#e8f3ef" stroke-width="1"/><text x="23" y="15" text-anchor="middle" font-family="Be Vietnam Pro, system-ui, sans-serif" font-size="8.5" font-weight="600" fill="#fff">100.000</text></g>
+      </svg>
+    </figure>
+
+    <p class="dan-nhap">Bạn thả người đầu tiên xuống hành tinh. Cho người đó một tờ 100 nghìn, xây cho người đó một ngân hàng. Giờ thử tiêu tiền xem.</p>
+
+    <div class="thu" id="thu-tien">
+      <p class="nhan">Thử dùng tiền khi cả hành tinh chỉ có một người</p>
+      <div class="do" aria-live="polite">
+        <div class="vang-chu"><b id="t2-vi">100k</b><span>trong ví</span></div>
+        <div class="vang-chu"><b id="t2-nh">0</b><span>trong ngân hàng</span></div>
+        <div><b id="t2-tong">100k</b><span>tổng của bạn</span></div>
+      </div>
+      <div class="hanh-dong">
+        <button class="nut-nho" type="button" data-thu="mua">Mua một quả táo</button>
+        <button class="nut-nho" type="button" data-thu="gui">Gửi 100k vào ngân hàng</button>
+        <button class="nut-nho" type="button" data-thu="vay">Vay ngân hàng 1 triệu</button>
+        <button class="nut-nho" type="button" data-thu="gia">Ghi giá cho táo và cá</button>
+        <button class="nut-nho" type="button" data-thu="de-danh">Để dành tiền qua mùa đông</button>
+      </div>
+      <p class="ket-luan" id="t2-ket" aria-live="polite">Bấm một việc để thử.</p>
+      <ul class="chuc-nang" aria-label="Ba việc tiền làm">
+        <li data-cn="trao-doi"><span class="den"></span>Phương tiện trao đổi</li>
+        <li data-cn="don-vi"><span class="den"></span>Đơn vị tính giá</li>
+        <li data-cn="cat-giu"><span class="den"></span>Cất giữ giá trị</li>
+      </ul>
+    </div>
+
+    <p>Câu trả lời ngắn: <strong>chưa</strong>. Có tờ giấy in số 100.000, có tòa nhà ghi chữ "ngân hàng", nhưng tiền thì chưa có. Tiền không phải là tờ giấy, mà là thứ tờ giấy làm được. Mà nó chẳng làm được gì khi chỉ có một người.</p>
+
+    <h2>Ba việc tiền làm</h2>
+    <p>Sách kinh tế vĩ mô nào cũng định nghĩa tiền bằng ba việc nó làm:</p>
+    <div class="bang"><table>
+      <thead><tr><th>Việc</th><th>Nghĩa</th><th>Khi chỉ có một người</th></tr></thead>
+      <tbody>
+        <tr><td><strong>Phương tiện trao đổi</strong><br><em class="tn">medium of exchange</em></td><td>Đưa tiền cho người khác để lấy hàng của họ</td><td>Không có ai để đưa</td></tr>
+        <tr><td><strong>Đơn vị tính giá</strong><br><em class="tn">unit of account</em></td><td>Cái thước chung để so giá trị mọi thứ</td><td>Một người tự so được trong đầu, không cần thước chung</td></tr>
+        <tr><td><strong>Cất giữ giá trị</strong><br><em class="tn">store of value</em></td><td>Để dành sức mua cho mai sau</td><td>Mai sau cũng không có ai bán gì cho mình</td></tr>
+      </tbody>
+    </table></div>
+    <p>Cả ba việc đều cần <strong>người khác</strong>: người nhận tiền, người cùng dùng một cái thước, người chịu bán hàng cho mình sau này. Carl Menger, người ta gặp ở trang trước, viết năm 1892 rằng tiền không do ai phát minh ra cả. Nó tự hình thành dần dần từ những lần người ta đổi hàng với nhau. Không có trao đổi thì không có tiền.</p>
+
+    <h2>Robinson nhặt được tiền</h2>
+    <p>Trong tiểu thuyết <em>Robinson Crusoe</em> (Daniel Defoe, 1719), Robinson trôi dạt lên một hòn đảo không người. Lục con tàu đắm, anh tìm thấy một ngăn kéo đầy tiền vàng và tiền bạc. Anh nói to:</p>
+    <blockquote>
+      Hỡi đồ vô dụng! Mày thì được tích sự gì? Với tao, mày chẳng đáng công cúi xuống nhặt. Một con dao kia còn đáng giá hơn cả đống này.
+      <footer>Daniel Defoe, <em>Robinson Crusoe</em>, 1719 (mình dịch thoáng)</footer>
+    </blockquote>
+    <p>Câu ngay sau đó mới thú vị: <em>"Tuy vậy, nghĩ lại, tôi vẫn mang nó theo."</em> Vì sao? Vì Robinson vẫn mong có ngày gặp lại người khác. Đống vàng chỉ có giá trị ở thế giới có người chịu nhận nó. Trên đảo, con dao thắng.</p>
+
+    <h2>Ngân&nbsp;hàng thật của người đầu tiên là cái&nbsp;kho</h2>
+    <p>Vậy một người có để dành, có "gửi ngân hàng" được không? Được, nhưng không phải bằng tiền. Người đó để dành bằng <strong>đồ thật</strong>: táo phơi khô, hạt giống, một cái lưới đánh cá. Kéo thử:</p>
+    <div class="thu">
+      <p class="nhan">Sau mùa gặt có 10 giỏ hạt</p>
+      <div class="thanh">
+        <label for="giu-hat"><span>Giữ lại bao nhiêu giỏ để gieo?</span><output id="ra-giu" for="giu-hat">3 giỏ</output></label>
+        <input id="giu-hat" type="range" min="0" max="10" step="1" value="3">
+      </div>
+      <div class="cot-hat" aria-hidden="true">
+        <div><span class="nhan">Ăn ngay mùa này</span><div class="thanh-ngang"><i id="cot-an"></i></div><b id="so-an">7 giỏ</b></div>
+        <div><span class="nhan">Thu được mùa sau</span><div class="thanh-ngang"><i id="cot-thu" class="xanh"></i></div><b id="so-thu">12 giỏ</b></div>
+      </div>
+      <p class="ket-luan" id="ket-hat" aria-live="polite"></p>
+    </div>
+    <p>Mỗi giỏ giữ lại là một giỏ không được ăn hôm nay. Cái giá đó gọi là <strong>chi phí cơ hội</strong> <em class="tn">(opportunity cost)</em>: muốn có thứ này thì phải bỏ thứ kia. Nhịn ăn hôm nay là <strong>tiết kiệm</strong>, gieo xuống đất là <strong>đầu tư</strong>. Không cần một đồng nào, và cũng không cần ai khác.</p>
+    <p>Năm 1930, nhà kinh tế Mỹ Irving Fisher giải thích <strong>lãi suất</strong> cũng từ hình ảnh này: người ta thích có hôm nay hơn mai sau, nhưng một giỏ hạt gieo hôm nay có thể thành nhiều giỏ mai sau. Lãi suất có gốc rễ ở chỗ đó, trước cả khi có ngân hàng.</p>
+
+    <div class="cau-hoi-lon">
+      <p class="nhan">Mảnh ghép thứ hai cho câu hỏi ngây thơ</p>
+      <p>Với một người, mọi lần chuyển tiền đều <strong>đúng là tổng bằng không</strong>: ví −100k, ngân hàng +100k, cùng là túi của mình. Vậy mà người đó vẫn <strong>giàu lên được</strong>: giữ 3 giỏ hạt, mùa sau có 12. Giàu lên đến từ làm ra thêm đồ thật, không đến từ chuyển tiền. Câu hỏi còn lại: khi có người thứ hai, chuyện này có còn đúng không?</p>
+    </div>
+
+    <details class="gap">
+      <summary>Ghi nhớ và từ khóa</summary>
+      <ul class="gon">
+        <li>Một người với một ngân hàng thì <strong>chưa có tiền</strong>. Tiền là thứ người khác chịu nhận, nên cần ít nhất một người khác.</li>
+        <li>Tiền làm ba việc: phương tiện trao đổi, đơn vị tính giá, cất giữ giá trị.</li>
+        <li>Tiền không do ai phát minh, nó hình thành từ trao đổi (Menger, 1892).</li>
+        <li>Một người vẫn tiết kiệm và đầu tư được bằng đồ thật. Chi phí cơ hội có ngay từ người đầu tiên.</li>
+      </ul>
+      <div class="bang"><table>
+        <thead><tr><th>Tiếng Việt</th><th>Tiếng Anh</th><th>Nghĩa ngắn</th></tr></thead>
+        <tbody>
+          <tr><td>Phương tiện trao đổi</td><td>medium of exchange</td><td>Đưa cho người khác để lấy hàng</td></tr>
+          <tr><td>Đơn vị tính giá</td><td>unit of account</td><td>Thước chung để so giá trị</td></tr>
+          <tr><td>Cất giữ giá trị</td><td>store of value</td><td>Để dành sức mua cho mai sau</td></tr>
+          <tr><td>Chi phí cơ hội</td><td>opportunity cost</td><td>Thứ tốt nhất phải bỏ để chọn thứ này</td></tr>
+          <tr><td>Tiết kiệm</td><td>saving</td><td>Không dùng hết hôm nay</td></tr>
+          <tr><td>Đầu tư</td><td>investment</td><td>Dùng phần để dành để làm ra nhiều hơn sau này</td></tr>
+        </tbody>
+      </table></div>
+    </details>
+    <details class="gap">
+      <summary>Tự kiểm tra (3 câu)</summary>
+      <p><strong>1.</strong> Robinson có 1.000 đồng tiền vàng trên đảo. Trong ba việc của tiền, đống vàng làm được việc nào?</p>
+      <details class="nho-mo"><summary>Đáp án</summary><p>Trên đảo thì không việc nào. Nó chỉ có thể cất giữ giá trị <em>cho ngày Robinson về lại thế giới có người</em>, đó là lý do anh vẫn mang theo.</p></details>
+      <p style="margin-top:1rem"><strong>2.</strong> Một người giữ 5 giỏ hạt để gieo thay vì ăn. Chi phí cơ hội là gì?</p>
+      <details class="nho-mo"><summary>Đáp án</summary><p>5 giỏ hạt không được ăn ngay mùa này (và cái no bụng đi kèm).</p></details>
+      <p style="margin-top:1rem"><strong>3.</strong> Vì sao vay ngân hàng khi chỉ có một người lại vô nghĩa?</p>
+      <details class="nho-mo"><summary>Đáp án</summary><p>Người cho vay và người vay là một. Món nợ đó cộng trừ triệt tiêu nhau ngay, không ai thật sự cho ai cái gì. Nợ cần hai người.</p></details>
+    </details>
+    <details class="gap nguon">
+      <summary>Nguồn</summary>
+      <ol>
+        <li>N. Gregory Mankiw, <em>Principles of Economics</em>, chương "The Monetary System" (ba chức năng của tiền).</li>
+        <li>Carl Menger, "On the Origin of Money", <em>Economic Journal</em>, 1892.</li>
+        <li>Daniel Defoe, <em>Robinson Crusoe</em>, 1719 (đoạn Robinson tìm thấy tiền trên tàu đắm). <a href="https://www.gutenberg.org/ebooks/521" target="_blank" rel="noopener">Bản gốc tiếng Anh, Project Gutenberg</a>.</li>
+        <li>Irving Fisher, <em>The Theory of Interest</em>, 1930.</li>
+      </ol>
+    </details>
+
+    <div class="lat">
+      <p class="nhan">Lật trang bằng câu hỏi</p>
+      <div class="cho-cau-hoi">
+        <p><strong>Trang 3 đang chờ câu hỏi của bạn.</strong> Hỏi bất cứ điều gì trang này làm bạn thắc mắc, câu hỏi đó sẽ thành trang tiếp theo.</p>
+        <p class="nho">Vài hướng có thể hỏi:</p>
+        <ul class="goi-y">
+          <li>Có người thứ hai thì tiền xuất hiện chưa?</li>
+          <li>Lãi suất từ đâu ra?</li>
+          <li>Sao kim cương đắt hơn nước?</li>
+        </ul>
+      </div>
+      <button class="ve-truoc" type="button" data-den="trang-1">← Trang trước</button>
+    </div>
+  </section>
+
+  </main>
+
+  <footer class="tac-gia">
+      <img src="data:image/webp;base64,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" alt="Ảnh chân dung Novian" width="52" height="52">
+      <p><b>Novian</b> đặt câu hỏi, AI dựng trang trả lời, có dẫn nguồn. Cuốn sách lớn lên theo từng câu hỏi, ai muốn thì đi theo cùng lộ trình.</p>
+    </footer>
+</div>
+
+<script>
+(function () {
+  var root = document.documentElement;
+  function doc(k) { try { return localStorage.getItem(k); } catch (e) { return null; } }
+  function ghi(k, v) { try { localStorage.setItem(k, v); } catch (e) {} }
+  var giamChuyenDong = window.matchMedia && window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+
+  /* Nút sáng/tối */
+  var nutGD = document.querySelector(".nut-giao-dien");
+  function dangToi() { var t = root.getAttribute("data-theme"); return t ? t === "dark" : window.matchMedia("(prefers-color-scheme: dark)").matches; }
+  function veNutGD() { var toi = dangToi(); root.setAttribute("data-theme", toi ? "dark" : "light"); nutGD.setAttribute("aria-label", toi ? "Chuyển sang nền sáng" : "Chuyển sang nền tối"); }
+  veNutGD();
+  nutGD.addEventListener("click", function () { var moi = dangToi() ? "light" : "dark"; root.setAttribute("data-theme", moi); ghi("kt0-giao-dien", moi); veNutGD(); });
+
+  /* Trang và lật trang */
+  var cacTrang = Array.prototype.slice.call(document.querySelectorAll(".trang"));
+  var daMo = {}; try { daMo = JSON.parse(doc("kt0-da-mo") || "{}") || {}; } catch (e) { daMo = {}; }
+  daMo.bia = 1;
+  function trangTheoId(id) { for (var i = 0; i < cacTrang.length; i++) if (cacTrang[i].id === id) return cacTrang[i]; return null; }
+
+  function hien(id) {
+    var t = trangTheoId(id) || cacTrang[0];
+    cacTrang.forEach(function (x) { x.classList.toggle("dang-xem", x === t); x.classList.remove("vua-mo"); });
+    void t.offsetWidth; t.classList.add("vua-mo");
+    daMo[t.id] = 1; ghi("kt0-da-mo", JSON.stringify(daMo));
+    window.scrollTo(0, 0);
+    veMucLuc(t.id);
+    document.title = t.id === "bia" ? "Kinh tế từ số 0" : t.getAttribute("data-ten") + " · Kinh tế từ số 0";
+    return t;
+  }
+
+  function lat(id, nut) {
+    var dich = trangTheoId(id); if (!dich) return;
+    var cauHoiMoi = dich.querySelector("[data-cau-hoi]");
+    var nhanNut = nut && nut.querySelector("[data-cau-hoi]");
+    if (!document.startViewTransition || giamChuyenDong) { hien(id); doiHash(id); return; }
+    root.classList.add("co-vt-chay");
+    if (nhanNut && cauHoiMoi) nhanNut.style.viewTransitionName = "cau-hoi";
+    var vt = document.startViewTransition(function () {
+      if (nhanNut) nhanNut.style.viewTransitionName = "";
+      dich.classList.add("co-vt");
+      hien(id);
+      if (nhanNut && cauHoiMoi) cauHoiMoi.style.viewTransitionName = "cau-hoi";
+    });
+    vt.finished.finally(function () { if (cauHoiMoi) cauHoiMoi.style.viewTransitionName = ""; dich.classList.remove("co-vt"); });
+    doiHash(id);
+  }
+  var dangDoiHash = false;
+  function doiHash(id) { if (location.hash.slice(1) === id) return; dangDoiHash = true; location.hash = id; setTimeout(function () { dangDoiHash = false; }, 50); }
+
+  document.addEventListener("click", function (e) {
+    var n = e.target.closest("[data-den]"); if (!n) return;
+    lat(n.getAttribute("data-den"), n);
+    dongMucLuc();
+  });
+  window.addEventListener("hashchange", function () { if (!dangDoiHash) hien(location.hash.slice(1) || "bia"); });
+
+  /* Mục lục giấu: chỉ liệt kê trang đã mở */
+  var nutML = document.querySelector(".nut-muc-luc"), ml = document.getElementById("muc-luc"), ds = document.getElementById("ds-trang");
+  function veMucLuc(hienTai) {
+    ds.innerHTML = "";
+    var conGiau = 0;
+    cacTrang.forEach(function (t) {
+      if (!daMo[t.id]) { conGiau++; return; }
+      var li = document.createElement("li"), a = document.createElement("a");
+      a.href = "#" + t.id; a.setAttribute("data-den", t.id);
+      if (t.id === hienTai) a.setAttribute("aria-current", "page");
+      a.innerHTML = '<span class="so">' + (t.id === "bia" ? "·" : t.getAttribute("data-so")) + "</span><span></span>";
+      a.lastChild.textContent = t.getAttribute("data-ten");
+      a.addEventListener("click", function (e) { e.preventDefault(); });
+      li.appendChild(a); ds.appendChild(li);
+    });
+    var cho = document.createElement("li"); cho.className = "cho";
+    cho.innerHTML = '<span class="so">?</span><span>' + (conGiau ? "Còn " + conGiau + " trang chưa mở" : "Trang tiếp theo chờ câu hỏi") + "</span>";
+    ds.appendChild(cho);
+  }
+  function dongMucLuc() { ml.hidden = true; nutML.setAttribute("aria-expanded", "false"); }
+  nutML.addEventListener("click", function (e) { e.stopPropagation(); var mo = ml.hidden; ml.hidden = !mo; nutML.setAttribute("aria-expanded", mo ? "true" : "false"); });
+  document.addEventListener("click", function (e) { if (!ml.hidden && !ml.contains(e.target) && e.target !== nutML) dongMucLuc(); });
+  document.addEventListener("keydown", function (e) { if (e.key === "Escape") dongMucLuc(); });
+
+  /* Trang 1: thanh kéo vàng */
+  var mucVang = ["1 gam", "1 kg", "1 tấn", "1 nghìn tấn", "1 triệu tấn", "1 tỷ tấn", "cả núi vàng", "nửa hành tinh", "cả hành tinh", "vô hạn"];
+  var thanhVang = document.getElementById("luong-vang"), raVang = document.getElementById("ra-vang"), oVang = document.getElementById("o-vang");
+  function veVang() { var s = mucVang[+thanhVang.value]; raVang.textContent = s; oVang.textContent = s; }
+  thanhVang.addEventListener("input", veVang); veVang();
+
+  /* Trang 1: bốn điều kiện của Menger */
+  var menger = document.getElementById("menger"), ketLuan = document.getElementById("ket-luan"), nutTha = document.getElementById("tha-nguoi");
+  var trang1 = document.getElementById("trang-1"), soNguoi = document.getElementById("so-nguoi");
+  var coNguoi = false;
+  var nutDK = Array.prototype.slice.call(menger.querySelectorAll("[data-dk]"));
+  function veMenger(loi) {
+    var du = nutDK.filter(function (b) { return b.getAttribute("aria-pressed") === "true"; }).length;
+    menger.classList.toggle("du", du === 4);
+    if (loi) { ketLuan.innerHTML = loi; return; }
+    if (du === 4) ketLuan.innerHTML = "Đủ <b>4/4</b>. Quả táo vừa thành một <strong>hàng hóa</strong>: có người cần, nó đáp ứng được, người đó biết và hái được nó.";
+    else ketLuan.innerHTML = "Mới đủ <b>" + du + "/4</b>. Quả táo vẫn chỉ là một <strong>tài nguyên</strong> <em class=\"tn\">(resource)</em> nằm chờ.";
+  }
+  nutDK.forEach(function (b) {
+    b.addEventListener("click", function () {
+      if (b.hasAttribute("data-can-nguoi") && !coNguoi) {
+        b.classList.remove("lac"); void b.offsetWidth; b.classList.add("lac");
+        veMenger("Không bật được: điều này cần <b>một con người</b>, mà hành tinh này đang có 0 người.");
+        return;
+      }
+      b.setAttribute("aria-pressed", b.getAttribute("aria-pressed") === "true" ? "false" : "true");
+      veMenger();
+    });
+  });
+  nutTha.addEventListener("click", function () {
+    coNguoi = !coNguoi;
+    trang1.classList.toggle("co-nguoi", coNguoi);
+    soNguoi.textContent = coNguoi ? "1" : "0";
+    nutDK.forEach(function (b) { if (b.hasAttribute("data-can-nguoi")) b.setAttribute("aria-pressed", coNguoi ? "true" : "false"); });
+    nutTha.textContent = coNguoi ? "Đưa người đó đi" : "Thử thả một người xuống";
+    veMenger();
+    if (coNguoi) ketLuan.innerHTML += " <span class=\"nho\">Nhìn lên hành tinh: số người vừa thành 1. Chuyện của người này để dành cho trang sau.</span>";
+  });
+
+  /* Trang 2: thử dùng tiền khi chỉ có một người */
+  var vi = 100, nh = 0, noVay = 0;
+  var eVi = document.getElementById("t2-vi"), eNh = document.getElementById("t2-nh"), eTong = document.getElementById("t2-tong"), eKet = document.getElementById("t2-ket");
+  function k(n) { return n === 0 ? "0" : (n >= 1000 ? (n / 1000) + " triệu" : n + "k"); }
+  function nhay(el) { el.classList.remove("nhay"); void el.offsetWidth; el.classList.add("nhay"); }
+  function veTien() { eVi.textContent = k(vi); eNh.textContent = k(nh); eTong.textContent = k(vi + nh - noVay); }
+  function truot(cn) { var li = document.querySelector('.chuc-nang [data-cn="' + cn + '"]'); if (li) li.classList.add("truot"); }
+  var loi = {
+    mua: function () { truot("trao-doi"); return "Mua của ai? Cây táo không bán gì cả, muốn ăn thì tự hái. Tờ 100k không đổi ra được quả táo nào. <b>Phương tiện trao đổi: hỏng</b>, vì không có ai để trao đổi."; },
+    gui: function () {
+      if (vi > 0) { nh += vi; vi = 0; } else { vi += nh; nh = 0; }
+      nhay(eVi); nhay(eNh);
+      return "Ngân hàng này của ai? Của chính bạn. Ví và ngân hàng đổi số cho nhau, còn <b>tổng của bạn vẫn đứng yên</b>. Đây đúng là trò chơi tổng bằng không: bạn chỉ chuyển tiền từ túi trái sang túi phải.";
+    },
+    vay: function () {
+      vi += 1000; noVay += 1000; nhay(eVi);
+      return "Ví có thêm 1 triệu, nhưng bạn cũng <b>nợ chính bạn 1 triệu</b>. Cộng trừ triệt tiêu, tổng vẫn vậy. Người cho vay và người vay là một thì món nợ vô nghĩa. Nợ cần hai người.";
+    },
+    gia: function () { truot("don-vi"); return "Bạn ghi \"táo = 10k, cá = 30k\". Con số đó chỉ nói lại điều bạn đã biết sẵn: bạn thích một con cá bằng ba quả táo. <b>Đơn vị tính giá: thừa</b>, vì không có ai khác cần so với bạn."; },
+    "de-danh": function () { truot("cat-giu"); return "Mùa đông tới, bạn đói. Tờ tiền không ăn được, và cũng không có ai bán đồ ăn cho bạn. <b>Cất giữ giá trị: hỏng</b>. Thứ để dành thật sự là táo khô và hạt giống (xem dưới)."; }
+  };
+  document.querySelectorAll("[data-thu]").forEach(function (b) {
+    b.addEventListener("click", function () {
+      eKet.innerHTML = loi[b.getAttribute("data-thu")]();
+      b.classList.add("da-thu"); veTien();
+      if (document.querySelectorAll(".chuc-nang .truot").length === 3) eKet.innerHTML += " <span class=\"nho\">Cả ba việc của tiền đều hỏng. Tờ 100k vẫn ở đó, nhưng tiền thì chưa có.</span>";
+    });
+  });
+  if (document.querySelector('[data-thu="gui"]')) {
+    var nutGui = document.querySelector('[data-thu="gui"]');
+    nutGui.addEventListener("click", function () { nutGui.textContent = vi > 0 ? "Gửi hết vào ngân hàng" : "Rút hết ra ví"; });
+  }
+
+  /* Trang 2: giữ hạt để gieo */
+  var giu = document.getElementById("giu-hat");
+  function veHat() {
+    var g = +giu.value, an = 10 - g, thu = g * 4;
+    document.getElementById("ra-giu").textContent = g + " giỏ";
+    document.getElementById("so-an").textContent = an + " giỏ";
+    document.getElementById("so-thu").textContent = thu + " giỏ";
+    document.getElementById("cot-an").style.width = (an / 40 * 100) + "%";
+    document.getElementById("cot-thu").style.width = (thu / 40 * 100) + "%";
+    var c = g === 0 ? "Ăn hết, no ngay. Mùa sau không có gì để gặt." : g === 10 ? "Nhịn đói cả mùa này để mùa sau có 40 giỏ. Liệu có sống tới mùa sau không?" : "Nhịn " + g + " giỏ hôm nay, mùa sau có " + thu + " giỏ. Mỗi giỏ gieo xuống thành 4 giỏ.";
+    document.getElementById("ket-hat").textContent = c;
+  }
+  giu.addEventListener("input", veHat); veHat();
+
+  /* Mở đúng trang theo địa chỉ */
+  hien(location.hash.slice(1) || "bia");
+})();
+</script>
+</body>
+</html>
