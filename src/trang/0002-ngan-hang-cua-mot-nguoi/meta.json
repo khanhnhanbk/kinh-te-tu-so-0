@@ -1,0 +1,15 @@
+{
+  "so": 2,
+  "slug": "ngan-hang-cua-mot-nguoi",
+  "ten": "Ngân hàng của một người",
+  "cauHoi": "Có người đầu tiên và một ngân hàng đầu tiên, thì tiền đã xuất hiện được chưa?",
+  "cha": "the-gioi-khong-co-gi",
+  "danSo": 1,
+  "ngay": "2026-11-27",
+  "moTa": "Một người, một tờ 100 nghìn và một ngân hàng: tiền đã xuất hiện chưa?",
+  "goiY": [
+    "Có người thứ hai thì tiền xuất hiện chưa?",
+    "Lãi suất từ đâu ra?",
+    "Sao kim cương đắt hơn nước?"
+  ]
+}

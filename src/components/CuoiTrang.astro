@@ -1,0 +1,28 @@
+---
+// Cuối mỗi trang: các câu hỏi đã có (mỗi câu là một trang con, bấm để lật),
+// hoặc ô "đang chờ câu hỏi" kèm gợi ý nếu chưa ai hỏi tiếp.
+import { trangCon, timTrang, duongDan } from '../lib/trang';
+interface Props { slug: string; goiY?: string[]; cha?: string }
+const { slug, goiY = [], cha } = Astro.props;
+const con = trangCon(slug);
+const trangCha = cha && cha !== 'bia' ? timTrang(cha) : undefined;
+---
+<div class="lat">
+  <p class="nhan">Lật trang bằng câu hỏi</p>
+  {con.length > 0 ? (
+    <div class="nhieu-cau-hoi">
+      {con.map((c) => (
+        <a class="nut-hoi" href={duongDan(c.slug)}>
+          <span style={`view-transition-name: q-${c.so}`}>{c.cauHoi}</span><span class="mui" aria-hidden="true">→</span>
+        </a>
+      ))}
+    </div>
+  ) : (
+    <div class="cho-cau-hoi">
+      <p><strong>Trang tiếp theo đang chờ câu hỏi của bạn.</strong> Hỏi bất cứ điều gì trang này làm bạn thắc mắc, câu hỏi đó sẽ thành trang tiếp theo.</p>
+      {goiY.length > 0 && <p class="nho">Vài hướng có thể hỏi:</p>}
+      {goiY.length > 0 && <ul class="goi-y">{goiY.map((g) => <li>{g}</li>)}</ul>}
+    </div>
+  )}
+  {cha && <a class="ve-truoc" href={duongDan(cha)}>← {trangCha ? trangCha.ten : 'Về bìa'}</a>}
+</div>

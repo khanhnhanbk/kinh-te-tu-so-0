@@ -1,0 +1,18 @@
+---
+// Sinh một trang tĩnh cho mỗi thư mục trong src/trang/.
+import Sach from '../../layouts/Sach.astro';
+import DauTrang from '../../components/DauTrang.astro';
+import CuoiTrang from '../../components/CuoiTrang.astro';
+import { tatCa, type Trang } from '../../lib/trang';
+
+export function getStaticPaths() {
+  return tatCa.map((trang) => ({ params: { slug: trang.slug }, props: { trang } }));
+}
+const { trang } = Astro.props as { trang: Trang };
+const { NoiDung } = trang;
+---
+<Sach tieuDe={`${trang.ten} · Kinh tế từ số 0`} moTa={trang.moTa} slug={trang.slug}>
+  <DauTrang trang={trang} />
+  <NoiDung />
+  <CuoiTrang slug={trang.slug} goiY={trang.goiY} cha={trang.cha} />
+</Sach>

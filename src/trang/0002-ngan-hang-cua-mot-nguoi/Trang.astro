@@ -1,0 +1,179 @@
+---
+// Trang 2: Ngân hàng của một người. Câu hỏi, số dân, trang cha nằm ở meta.json cùng thư mục.
+---
+
+  <figure class="hanh-tinh">
+    <svg viewBox="0 0 640 300" role="img" aria-labelledby="t2-ten">
+      <title id="t2-ten">Người đầu tiên đứng giữa cây táo, một tòa ngân hàng nhỏ và một tờ 100 nghìn</title>
+      <rect width="640" height="300" fill="var(--troi)"/>
+      <g fill="var(--troi-chu)"><circle class="sao" cx="60" cy="40" r="1.3"/><circle cx="170" cy="70" r="1"/><circle class="sao" cx="480" cy="34" r="1.3" style="animation-delay:1.2s"/><circle cx="590" cy="80" r="1"/><circle class="sao" cx="330" cy="26" r="1" style="animation-delay:.6s"/></g>
+      <ellipse cx="320" cy="300" rx="360" ry="88" fill="#4f8a5a"/>
+      <ellipse cx="320" cy="300" rx="360" ry="88" fill="#000" opacity=".12"/>
+      <g transform="translate(118 142)"><rect x="-5" y="20" width="10" height="66" fill="#6b4a2b"/><circle cx="0" cy="8" r="38" fill="#2c5a36"/><circle cx="-14" cy="0" r="4.5" fill="#d8463c"/><circle cx="12" cy="14" r="4.5" fill="#d8463c"/><circle cx="6" cy="-10" r="4.5" fill="#d8463c"/></g>
+      <g transform="translate(470 150)">
+        <path d="M-62 26 0 -10 62 26z" fill="#e8e2d4"/><rect x="-54" y="26" width="108" height="64" fill="#e8e2d4"/>
+        <g fill="#c8bfab"><rect x="-44" y="34" width="10" height="50"/><rect x="-22" y="34" width="10" height="50"/><rect x="12" y="34" width="10" height="50"/><rect x="34" y="34" width="10" height="50"/></g>
+        <text x="0" y="20" text-anchor="middle" font-family="Be Vietnam Pro, system-ui, sans-serif" font-size="10" font-weight="600" fill="#5a5243">NGÂN HÀNG</text>
+      </g>
+      <g transform="translate(300 196)"><circle cx="0" cy="0" r="7" fill="#f4efe6"/><path d="M0 8v22M-10 16h20M0 30l-8 14M0 30l8 14" stroke="#f4efe6" stroke-width="3.2" stroke-linecap="round"/></g>
+      <g transform="translate(342 232) rotate(-8)"><rect width="46" height="22" rx="2" fill="#5fa79c"/><rect x="3" y="3" width="40" height="16" rx="1" fill="none" stroke="#e8f3ef" stroke-width="1"/><text x="23" y="15" text-anchor="middle" font-family="Be Vietnam Pro, system-ui, sans-serif" font-size="8.5" font-weight="600" fill="#fff">100.000</text></g>
+    </svg>
+  </figure>
+
+  <p class="dan-nhap">Bạn thả người đầu tiên xuống hành tinh. Cho người đó một tờ 100 nghìn, xây cho người đó một ngân hàng. Giờ thử tiêu tiền xem.</p>
+
+  <div class="thu" id="thu-tien">
+    <p class="nhan">Thử dùng tiền khi cả hành tinh chỉ có một người</p>
+    <div class="do" aria-live="polite">
+      <div class="vang-chu"><b id="t2-vi">100k</b><span>trong ví</span></div>
+      <div class="vang-chu"><b id="t2-nh">0</b><span>trong ngân hàng</span></div>
+      <div><b id="t2-tong">100k</b><span>tổng của bạn</span></div>
+    </div>
+    <div class="hanh-dong">
+      <button class="nut-nho" type="button" data-thu="mua">Mua một quả táo</button>
+      <button class="nut-nho" type="button" data-thu="gui">Gửi 100k vào ngân hàng</button>
+      <button class="nut-nho" type="button" data-thu="vay">Vay ngân hàng 1 triệu</button>
+      <button class="nut-nho" type="button" data-thu="gia">Ghi giá cho táo và cá</button>
+      <button class="nut-nho" type="button" data-thu="de-danh">Để dành tiền qua mùa đông</button>
+    </div>
+    <p class="ket-luan" id="t2-ket" aria-live="polite">Bấm một việc để thử.</p>
+    <ul class="chuc-nang" aria-label="Ba việc tiền làm">
+      <li data-cn="trao-doi"><span class="den"></span>Phương tiện trao đổi</li>
+      <li data-cn="don-vi"><span class="den"></span>Đơn vị tính giá</li>
+      <li data-cn="cat-giu"><span class="den"></span>Cất giữ giá trị</li>
+    </ul>
+  </div>
+
+  <p>Câu trả lời ngắn: <strong>chưa</strong>. Có tờ giấy in số 100.000, có tòa nhà ghi chữ "ngân hàng", nhưng tiền thì chưa có. Tiền không phải là tờ giấy, mà là thứ tờ giấy làm được. Mà nó chẳng làm được gì khi chỉ có một người.</p>
+
+  <h2>Ba việc tiền làm</h2>
+  <p>Sách kinh tế vĩ mô nào cũng định nghĩa tiền bằng ba việc nó làm:</p>
+  <div class="bang"><table>
+    <thead><tr><th>Việc</th><th>Nghĩa</th><th>Khi chỉ có một người</th></tr></thead>
+    <tbody>
+      <tr><td><strong>Phương tiện trao đổi</strong><br><em class="tn">medium of exchange</em></td><td>Đưa tiền cho người khác để lấy hàng của họ</td><td>Không có ai để đưa</td></tr>
+      <tr><td><strong>Đơn vị tính giá</strong><br><em class="tn">unit of account</em></td><td>Cái thước chung để so giá trị mọi thứ</td><td>Một người tự so được trong đầu, không cần thước chung</td></tr>
+      <tr><td><strong>Cất giữ giá trị</strong><br><em class="tn">store of value</em></td><td>Để dành sức mua cho mai sau</td><td>Mai sau cũng không có ai bán gì cho mình</td></tr>
+    </tbody>
+  </table></div>
+  <p>Cả ba việc đều cần <strong>người khác</strong>: người nhận tiền, người cùng dùng một cái thước, người chịu bán hàng cho mình sau này. Carl Menger, người ta gặp ở trang trước, viết năm 1892 rằng tiền không do ai phát minh ra cả. Nó tự hình thành dần dần từ những lần người ta đổi hàng với nhau. Không có trao đổi thì không có tiền.</p>
+
+  <h2>Robinson nhặt được tiền</h2>
+  <p>Trong tiểu thuyết <em>Robinson Crusoe</em> (Daniel Defoe, 1719), Robinson trôi dạt lên một hòn đảo không người. Lục con tàu đắm, anh tìm thấy một ngăn kéo đầy tiền vàng và tiền bạc. Anh nói to:</p>
+  <blockquote>
+    Hỡi đồ vô dụng! Mày thì được tích sự gì? Với tao, mày chẳng đáng công cúi xuống nhặt. Một con dao kia còn đáng giá hơn cả đống này.
+    <footer>Daniel Defoe, <em>Robinson Crusoe</em>, 1719 (mình dịch thoáng)</footer>
+  </blockquote>
+  <p>Câu ngay sau đó mới thú vị: <em>"Tuy vậy, nghĩ lại, tôi vẫn mang nó theo."</em> Vì sao? Vì Robinson vẫn mong có ngày gặp lại người khác. Đống vàng chỉ có giá trị ở thế giới có người chịu nhận nó. Trên đảo, con dao thắng.</p>
+
+  <h2>Ngân&nbsp;hàng thật của người đầu tiên là cái&nbsp;kho</h2>
+  <p>Vậy một người có để dành, có "gửi ngân hàng" được không? Được, nhưng không phải bằng tiền. Người đó để dành bằng <strong>đồ thật</strong>: táo phơi khô, hạt giống, một cái lưới đánh cá. Kéo thử:</p>
+  <div class="thu">
+    <p class="nhan">Sau mùa gặt có 10 giỏ hạt</p>
+    <div class="thanh">
+      <label for="giu-hat"><span>Giữ lại bao nhiêu giỏ để gieo?</span><output id="ra-giu" for="giu-hat">3 giỏ</output></label>
+      <input id="giu-hat" type="range" min="0" max="10" step="1" value="3">
+    </div>
+    <div class="cot-hat" aria-hidden="true">
+      <div><span class="nhan">Ăn ngay mùa này</span><div class="thanh-ngang"><i id="cot-an"></i></div><b id="so-an">7 giỏ</b></div>
+      <div><span class="nhan">Thu được mùa sau</span><div class="thanh-ngang"><i id="cot-thu" class="xanh"></i></div><b id="so-thu">12 giỏ</b></div>
+    </div>
+    <p class="ket-luan" id="ket-hat" aria-live="polite"></p>
+  </div>
+  <p>Mỗi giỏ giữ lại là một giỏ không được ăn hôm nay. Cái giá đó gọi là <strong>chi phí cơ hội</strong> <em class="tn">(opportunity cost)</em>: muốn có thứ này thì phải bỏ thứ kia. Nhịn ăn hôm nay là <strong>tiết kiệm</strong>, gieo xuống đất là <strong>đầu tư</strong>. Không cần một đồng nào, và cũng không cần ai khác.</p>
+  <p>Năm 1930, nhà kinh tế Mỹ Irving Fisher giải thích <strong>lãi suất</strong> cũng từ hình ảnh này: người ta thích có hôm nay hơn mai sau, nhưng một giỏ hạt gieo hôm nay có thể thành nhiều giỏ mai sau. Lãi suất có gốc rễ ở chỗ đó, trước cả khi có ngân hàng.</p>
+
+  <div class="cau-hoi-lon">
+    <p class="nhan">Mảnh ghép thứ hai cho câu hỏi ngây thơ</p>
+    <p>Với một người, mọi lần chuyển tiền đều <strong>đúng là tổng bằng không</strong>: ví −100k, ngân hàng +100k, cùng là túi của mình. Vậy mà người đó vẫn <strong>giàu lên được</strong>: giữ 3 giỏ hạt, mùa sau có 12. Giàu lên đến từ làm ra thêm đồ thật, không đến từ chuyển tiền. Câu hỏi còn lại: khi có người thứ hai, chuyện này có còn đúng không?</p>
+  </div>
+
+  <details class="gap">
+    <summary>Ghi nhớ và từ khóa</summary>
+    <ul class="gon">
+      <li>Một người với một ngân hàng thì <strong>chưa có tiền</strong>. Tiền là thứ người khác chịu nhận, nên cần ít nhất một người khác.</li>
+      <li>Tiền làm ba việc: phương tiện trao đổi, đơn vị tính giá, cất giữ giá trị.</li>
+      <li>Tiền không do ai phát minh, nó hình thành từ trao đổi (Menger, 1892).</li>
+      <li>Một người vẫn tiết kiệm và đầu tư được bằng đồ thật. Chi phí cơ hội có ngay từ người đầu tiên.</li>
+    </ul>
+    <div class="bang"><table>
+      <thead><tr><th>Tiếng Việt</th><th>Tiếng Anh</th><th>Nghĩa ngắn</th></tr></thead>
+      <tbody>
+        <tr><td>Phương tiện trao đổi</td><td>medium of exchange</td><td>Đưa cho người khác để lấy hàng</td></tr>
+        <tr><td>Đơn vị tính giá</td><td>unit of account</td><td>Thước chung để so giá trị</td></tr>
+        <tr><td>Cất giữ giá trị</td><td>store of value</td><td>Để dành sức mua cho mai sau</td></tr>
+        <tr><td>Chi phí cơ hội</td><td>opportunity cost</td><td>Thứ tốt nhất phải bỏ để chọn thứ này</td></tr>
+        <tr><td>Tiết kiệm</td><td>saving</td><td>Không dùng hết hôm nay</td></tr>
+        <tr><td>Đầu tư</td><td>investment</td><td>Dùng phần để dành để làm ra nhiều hơn sau này</td></tr>
+      </tbody>
+    </table></div>
+  </details>
+  <details class="gap">
+    <summary>Tự kiểm tra (3 câu)</summary>
+    <p><strong>1.</strong> Robinson có 1.000 đồng tiền vàng trên đảo. Trong ba việc của tiền, đống vàng làm được việc nào?</p>
+    <details class="nho-mo"><summary>Đáp án</summary><p>Trên đảo thì không việc nào. Nó chỉ có thể cất giữ giá trị <em>cho ngày Robinson về lại thế giới có người</em>, đó là lý do anh vẫn mang theo.</p></details>
+    <p style="margin-top:1rem"><strong>2.</strong> Một người giữ 5 giỏ hạt để gieo thay vì ăn. Chi phí cơ hội là gì?</p>
+    <details class="nho-mo"><summary>Đáp án</summary><p>5 giỏ hạt không được ăn ngay mùa này (và cái no bụng đi kèm).</p></details>
+    <p style="margin-top:1rem"><strong>3.</strong> Vì sao vay ngân hàng khi chỉ có một người lại vô nghĩa?</p>
+    <details class="nho-mo"><summary>Đáp án</summary><p>Người cho vay và người vay là một. Món nợ đó cộng trừ triệt tiêu nhau ngay, không ai thật sự cho ai cái gì. Nợ cần hai người.</p></details>
+  </details>
+  <details class="gap nguon">
+    <summary>Nguồn</summary>
+    <ol>
+      <li>N. Gregory Mankiw, <em>Principles of Economics</em>, chương "The Monetary System" (ba chức năng của tiền).</li>
+      <li>Carl Menger, "On the Origin of Money", <em>Economic Journal</em>, 1892.</li>
+      <li>Daniel Defoe, <em>Robinson Crusoe</em>, 1719 (đoạn Robinson tìm thấy tiền trên tàu đắm). <a href="https://www.gutenberg.org/ebooks/521" target="_blank" rel="noopener">Bản gốc tiếng Anh, Project Gutenberg</a>.</li>
+      <li>Irving Fisher, <em>The Theory of Interest</em>, 1930.</li>
+    </ol>
+  </details>
+
+<script is:inline>
+(function () {
+/* Trang 2: thử dùng tiền khi chỉ có một người */
+var vi = 100, nh = 0, noVay = 0;
+var eVi = document.getElementById("t2-vi"), eNh = document.getElementById("t2-nh"), eTong = document.getElementById("t2-tong"), eKet = document.getElementById("t2-ket");
+function k(n) { return n === 0 ? "0" : (n >= 1000 ? (n / 1000) + " triệu" : n + "k"); }
+function nhay(el) { el.classList.remove("nhay"); void el.offsetWidth; el.classList.add("nhay"); }
+function veTien() { eVi.textContent = k(vi); eNh.textContent = k(nh); eTong.textContent = k(vi + nh - noVay); }
+function truot(cn) { var li = document.querySelector('.chuc-nang [data-cn="' + cn + '"]'); if (li) li.classList.add("truot"); }
+var loi = {
+  mua: function () { truot("trao-doi"); return "Mua của ai? Cây táo không bán gì cả, muốn ăn thì tự hái. Tờ 100k không đổi ra được quả táo nào. <b>Phương tiện trao đổi: hỏng</b>, vì không có ai để trao đổi."; },
+  gui: function () {
+    if (vi > 0) { nh += vi; vi = 0; } else { vi += nh; nh = 0; }
+    nhay(eVi); nhay(eNh);
+    return "Ngân hàng này của ai? Của chính bạn. Ví và ngân hàng đổi số cho nhau, còn <b>tổng của bạn vẫn đứng yên</b>. Đây đúng là trò chơi tổng bằng không: bạn chỉ chuyển tiền từ túi trái sang túi phải.";
+  },
+  vay: function () {
+    vi += 1000; noVay += 1000; nhay(eVi);
+    return "Ví có thêm 1 triệu, nhưng bạn cũng <b>nợ chính bạn 1 triệu</b>. Cộng trừ triệt tiêu, tổng vẫn vậy. Người cho vay và người vay là một thì món nợ vô nghĩa. Nợ cần hai người.";
+  },
+  gia: function () { truot("don-vi"); return "Bạn ghi \"táo = 10k, cá = 30k\". Con số đó chỉ nói lại điều bạn đã biết sẵn: bạn thích một con cá bằng ba quả táo. <b>Đơn vị tính giá: thừa</b>, vì không có ai khác cần so với bạn."; },
+  "de-danh": function () { truot("cat-giu"); return "Mùa đông tới, bạn đói. Tờ tiền không ăn được, và cũng không có ai bán đồ ăn cho bạn. <b>Cất giữ giá trị: hỏng</b>. Thứ để dành thật sự là táo khô và hạt giống (xem dưới)."; }
+};
+document.querySelectorAll("[data-thu]").forEach(function (b) {
+  b.addEventListener("click", function () {
+    eKet.innerHTML = loi[b.getAttribute("data-thu")]();
+    b.classList.add("da-thu"); veTien();
+    if (document.querySelectorAll(".chuc-nang .truot").length === 3) eKet.innerHTML += " <span class=\"nho\">Cả ba việc của tiền đều hỏng. Tờ 100k vẫn ở đó, nhưng tiền thì chưa có.</span>";
+  });
+});
+if (document.querySelector('[data-thu="gui"]')) {
+  var nutGui = document.querySelector('[data-thu="gui"]');
+  nutGui.addEventListener("click", function () { nutGui.textContent = vi > 0 ? "Gửi hết vào ngân hàng" : "Rút hết ra ví"; });
+}
+
+/* Trang 2: giữ hạt để gieo */
+var giu = document.getElementById("giu-hat");
+function veHat() {
+  var g = +giu.value, an = 10 - g, thu = g * 4;
+  document.getElementById("ra-giu").textContent = g + " giỏ";
+  document.getElementById("so-an").textContent = an + " giỏ";
+  document.getElementById("so-thu").textContent = thu + " giỏ";
+  document.getElementById("cot-an").style.width = (an / 40 * 100) + "%";
+  document.getElementById("cot-thu").style.width = (thu / 40 * 100) + "%";
+  var c = g === 0 ? "Ăn hết, no ngay. Mùa sau không có gì để gặt." : g === 10 ? "Nhịn đói cả mùa này để mùa sau có 40 giỏ. Liệu có sống tới mùa sau không?" : "Nhịn " + g + " giỏ hôm nay, mùa sau có " + thu + " giỏ. Mỗi giỏ gieo xuống thành 4 giỏ.";
+  document.getElementById("ket-hat").textContent = c;
+}
+giu.addEventListener("input", veHat); veHat();
+})();
+</script>

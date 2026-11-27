@@ -1,0 +1,111 @@
+---
+// Khung chung của mọi trang: nút mục lục (giấu), nút sáng/tối (absolute), thẻ tác giả.
+import '../styles/sach.css';
+import { duongTep } from '../lib/trang';
+interface Props { tieuDe: string; moTa: string; slug: string }
+const { tieuDe, moTa, slug } = Astro.props;
+---
+<!doctype html>
+<html lang="vi">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>{tieuDe}</title>
+<meta name="description" content={moTa}>
+<meta property="og:title" content={tieuDe}>
+<meta property="og:description" content={moTa}>
+<link rel="icon" href={duongTep('favicon.svg')} type="image/svg+xml">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:wght@500;600&family=Fraunces:opsz,wght@9..144,600&family=Literata:ital,opsz,wght@0,7..72,400;0,7..72,600;1,7..72,400&display=swap">
+<script is:inline>
+  (function () { try { var t = localStorage.getItem("kt0-giao-dien"); if (t === "light" || t === "dark") document.documentElement.setAttribute("data-theme", t); } catch (e) {} })();
+</script>
+</head>
+<body data-slug={slug} data-muc-luc={duongTep('muc-luc.json')} data-base={duongTep('')}>
+<div class="khung">
+  <button class="nut-tron nut-muc-luc" type="button" aria-expanded="false" aria-controls="muc-luc" title="Những trang đã mở">
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" aria-hidden="true"><path d="M5 5.5h14M5 12h14M5 18.5h9"/></svg>
+    <span class="an-chu">Những trang đã mở</span>
+  </button>
+  <nav class="muc-luc" id="muc-luc" hidden aria-label="Những trang đã mở">
+    <p class="nhan">Những trang đã mở</p>
+    <ol id="ds-trang"></ol>
+  </nav>
+  <button class="nut-tron nut-giao-dien" type="button" aria-label="Đổi nền sáng/tối">
+    <svg class="mat-troi" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" aria-hidden="true"><circle cx="12" cy="12" r="4.2"/><path d="M12 2.5v2.2M12 19.3v2.2M2.5 12h2.2M19.3 12h2.2M5.3 5.3l1.6 1.6M17.1 17.1l1.6 1.6M5.3 18.7l1.6-1.6M17.1 6.9l1.6-1.6"/></svg>
+    <svg class="mat-trang" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M19.5 14.5A8 8 0 0 1 9.5 4.5a8 8 0 1 0 10 10z"/></svg>
+  </button>
+
+  <main class="khung-trang">
+    <article class="trang">
+      <slot />
+    </article>
+  </main>
+
+  <footer class="tac-gia">
+    <img src={duongTep('tac-gia.webp')} alt="Ảnh chân dung Novian" width="52" height="52">
+    <p><b>Novian</b> đặt câu hỏi, AI dựng trang trả lời, có dẫn nguồn. Cuốn sách lớn lên theo từng câu hỏi, ai muốn thì đi theo cùng lộ trình.</p>
+  </footer>
+</div>
+
+<script is:inline>
+(function () {
+  var root = document.documentElement;
+  function doc(k) { try { return localStorage.getItem(k); } catch (e) { return null; } }
+  function ghi(k, v) { try { localStorage.setItem(k, v); } catch (e) {} }
+
+  /* Nút sáng/tối */
+  var nutGD = document.querySelector(".nut-giao-dien");
+  function dangToi() { var t = root.getAttribute("data-theme"); return t ? t === "dark" : window.matchMedia("(prefers-color-scheme: dark)").matches; }
+  function veNutGD() { var toi = dangToi(); root.setAttribute("data-theme", toi ? "dark" : "light"); nutGD.setAttribute("aria-label", toi ? "Chuyển sang nền sáng" : "Chuyển sang nền tối"); }
+  veNutGD();
+  nutGD.addEventListener("click", function () { var moi = dangToi() ? "light" : "dark"; root.setAttribute("data-theme", moi); ghi("kt0-giao-dien", moi); veNutGD(); });
+
+  /* Ghi nhớ trang đã mở (chỉ trên trình duyệt này) */
+  var slug = document.body.getAttribute("data-slug");
+  var daMo = {}; try { daMo = JSON.parse(doc("kt0-da-mo-v2") || "{}") || {}; } catch (e) { daMo = {}; }
+  daMo[slug] = 1; ghi("kt0-da-mo-v2", JSON.stringify(daMo));
+
+  /* Mục lục giấu: tải danh sách trang khi mở lần đầu, chỉ hiện trang đã mở, xếp theo cây câu hỏi */
+  var nutML = document.querySelector(".nut-muc-luc"), ml = document.getElementById("muc-luc"), ds = document.getElementById("ds-trang");
+  var daTai = false;
+  function veMucLuc(trang) {
+    var base = document.body.getAttribute("data-base");
+    var theoCha = {}; trang.forEach(function (t) { (theoCha[t.cha] = theoCha[t.cha] || []).push(t); });
+    ds.innerHTML = "";
+    function them(soLabel, ten, href, sau, hienTai) {
+      var li = document.createElement("li"), a = document.createElement("a");
+      li.className = "sau-" + Math.min(sau, 3); a.href = href;
+      if (hienTai) a.setAttribute("aria-current", "page");
+      var s1 = document.createElement("span"); s1.className = "so"; s1.textContent = soLabel;
+      var s2 = document.createElement("span"); s2.textContent = ten;
+      a.appendChild(s1); a.appendChild(s2); li.appendChild(a); ds.appendChild(li);
+    }
+    them("·", "Bìa", base, 0, slug === "bia");
+    var conGiau = 0;
+    (function di(cha, sau) {
+      (theoCha[cha] || []).forEach(function (t) {
+        if (daMo[t.slug]) { them(String(t.so), t.ten, base + "trang/" + t.slug + "/", sau, t.slug === slug); di(t.slug, sau + ((theoCha[t.slug] || []).length > 1 ? 1 : 0)); }
+        else conGiau++;
+      });
+    })("bia", 0);
+    var cho = document.createElement("li"); cho.className = "cho";
+    cho.innerHTML = '<span class="so">?</span><span></span>';
+    cho.lastChild.textContent = conGiau ? "Còn " + conGiau + " câu hỏi chưa mở" : "Trang tiếp theo chờ câu hỏi";
+    ds.appendChild(cho);
+  }
+  function moMucLuc() {
+    ml.hidden = false; nutML.setAttribute("aria-expanded", "true");
+    if (daTai) return;
+    daTai = true;
+    fetch(document.body.getAttribute("data-muc-luc")).then(function (r) { return r.json(); }).then(veMucLuc).catch(function () { ds.innerHTML = '<li class="cho"><span class="so">!</span><span>Không tải được mục lục</span></li>'; daTai = false; });
+  }
+  function dongMucLuc() { ml.hidden = true; nutML.setAttribute("aria-expanded", "false"); }
+  nutML.addEventListener("click", function (e) { e.stopPropagation(); if (ml.hidden) moMucLuc(); else dongMucLuc(); });
+  document.addEventListener("click", function (e) { if (!ml.hidden && !ml.contains(e.target) && e.target !== nutML) dongMucLuc(); });
+  document.addEventListener("keydown", function (e) { if (e.key === "Escape") dongMucLuc(); });
+})();
+</script>
+</body>
+</html>

@@ -1,0 +1,19 @@
+---
+// Bìa sách. Các câu hỏi dẫn từ bìa là những trang có "cha": "bia".
+import Sach from '../layouts/Sach.astro';
+import CuoiTrang from '../components/CuoiTrang.astro';
+---
+<Sach tieuDe="Kinh tế từ số 0" moTa="Một cuốn sách học kinh tế lật trang bằng câu hỏi, bắt đầu từ một hành tinh chưa có ai." slug="bia">
+<div class="bia">
+  <p class="nhan">Một cuốn sách lật bằng câu hỏi</p>
+  <h1>Kinh tế từ số <span class="so-khong">0</span></h1>
+  <p class="dan-nhap">Cuốn sách này không có mục lục bày sẵn. Mỗi trang trả lời đúng một câu hỏi, và cuối trang là câu hỏi tiếp theo. Bạn bấm vào câu hỏi để lật trang.</p>
+  <p>Ta bắt đầu từ một thế giới chưa có ai, rồi thêm từng người một: một người, hai người, mười người, rồi tiền, ngân hàng, nhà nước. Không đi theo lịch sử, mà đi từ đơn giản đến trừu tượng, dựa trên kinh tế học vi mô, vĩ mô và ý tưởng của những người đoạt giải Nobel kinh tế.</p>
+  <div class="cau-hoi-lon">
+    <p class="nhan">Câu hỏi ngây thơ đã mở ra cuốn sách</p>
+    <p>Nếu mình được cộng 100 nghìn thì người kia bị trừ 100 nghìn. Vậy tại sao kinh tế lại không phải một trò chơi tổng bằng không?</p>
+  </div>
+  <p class="nho">Câu này chưa được trả lời ở đây. Ta sẽ đi dần tới nó.</p>
+</div>
+  <CuoiTrang slug="bia" />
+</Sach>
