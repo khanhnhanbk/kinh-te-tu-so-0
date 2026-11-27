@@ -15,3 +15,4 @@ Mở `index.html` bằng trình duyệt là đọc được, không cần build.
 | 0 | (bìa) | Kinh tế từ số 0 |
 | 1 | Nếu thế giới chưa có một ai, thì có kinh tế không? | Thế giới không có gì cả |
 | 2 | Có người đầu tiên và một ngân hàng đầu tiên, thì tiền đã xuất hiện được chưa? | Ngân hàng của một người |
+| 3 | Người thứ hai xuất hiện: một người trồng rau, một người đánh cá, phải đổi cho nhau mới sống được. Tiền đóng vai trò gì? Vì sao họ đổi được với nhau, hay cả hai cùng chết? | Rau đổi cá |
