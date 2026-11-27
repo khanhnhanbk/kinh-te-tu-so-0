@@ -246,3 +246,21 @@ strong[id^="kn-"]:target { outline: none; background: var(--vang-nen); box-shado
 .ngay-an i { display: block; height: 100%; transition: width .35s cubic-bezier(.2,.7,.3,1); }
 .ngay-an .an-minh { background: var(--bien); }
 .ngay-an .an-du { background: var(--vang); }
+
+/* Trang 4: Một tuần làm Chi (bảy ngày + khung tin nhắn) */
+.ngay-tuan { list-style: none; display: flex; gap: 0.35rem; padding: 0; margin: 0.25rem 0 0.8rem; font-family: var(--chu-nhan); font-size: 0.8rem; }
+.ngay-tuan li { flex: 1; text-align: center; padding: 0.25rem 0; border-radius: 6px; background: var(--giay); color: var(--muc-nhat); border: 1px solid transparent; }
+.ngay-tuan li.hom-nay { border-color: var(--muc); color: var(--muc); font-weight: 600; }
+.ngay-tuan li.no { background: var(--bien); color: var(--giay); }
+.ngay-tuan li.doi { background: var(--vang); color: var(--giay); }
+.tro-chuyen { list-style: none; padding: 0.6rem; margin: 0.8rem 0 0; display: flex; flex-direction: column; gap: 0.45rem; max-height: 18rem; overflow-y: auto;
+  background: var(--giay); border-radius: 10px; font-family: var(--chu-nhan); font-size: 0.92rem; line-height: 1.5; }
+.tro-chuyen .tin { max-width: 85%; padding: 0.45rem 0.75rem; border-radius: 14px; }
+.tro-chuyen .tin.chi { align-self: flex-end; background: var(--bien); color: var(--giay); border-bottom-right-radius: 4px; }
+.tro-chuyen .tin.an { align-self: flex-start; background: var(--giay-2); border-bottom-left-radius: 4px; }
+.tro-chuyen .tin.an::before { content: "An: "; font-weight: 600; }
+.tro-chuyen .tin.he { align-self: center; max-width: 100%; text-align: center; color: var(--muc-nhat); font-size: 0.85rem; background: none; padding: 0.2rem 0.4rem; }
+.tro-chuyen .tin.he b { color: var(--muc); }
+.tuan-chi .nut-nho:disabled { opacity: 0.45; cursor: not-allowed; }
+.tuan-chi .nut-nho:disabled:hover { background: transparent; color: inherit; }
+@media (prefers-reduced-motion: no-preference) { .tro-chuyen .tin { animation: tin-hien .25s ease-out; } @keyframes tin-hien { from { opacity: 0; transform: translateY(6px); } } }
