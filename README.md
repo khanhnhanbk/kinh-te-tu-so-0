@@ -6,13 +6,15 @@ Mỗi trang trả lời đúng một câu hỏi của người đọc. Cuối tr
 
 ## Đọc
 
-Mở `index.html` bằng trình duyệt là đọc được, không cần build. Bản trên mạng: GitHub Pages của repo này.
+Bản trên mạng: https://khanhnhanbk.github.io/kinh-te-tu-so-0/
+
+Chạy ở máy: `pnpm install`, rồi `pnpm dev`. Mỗi trang là một thư mục trong `src/trang/`; cách thêm trang ở `CLAUDE.md`.
 
 ## Các trang
 
-| # | Câu hỏi mở trang | Tên trang |
-|---|---|---|
-| 0 | (bìa) | Kinh tế từ số 0 |
-| 1 | Nếu thế giới chưa có một ai, thì có kinh tế không? | Thế giới không có gì cả |
-| 2 | Có người đầu tiên và một ngân hàng đầu tiên, thì tiền đã xuất hiện được chưa? | Ngân hàng của một người |
-| 3 | Người thứ hai xuất hiện: một người trồng rau, một người đánh cá, phải đổi cho nhau mới sống được. Tiền đóng vai trò gì? Vì sao họ đổi được với nhau, hay cả hai cùng chết? | Rau đổi cá |
+| # | Câu hỏi mở trang | Tên trang | Trang cha |
+|---|---|---|---|
+| 0 | (bìa) | Kinh tế từ số 0 | |
+| 1 | Nếu thế giới chưa có một ai, thì có kinh tế không? | Thế giới không có gì cả | bìa |
+| 2 | Có người đầu tiên và một ngân hàng đầu tiên, thì tiền đã xuất hiện được chưa? | Ngân hàng của một người | 1 |
+| 3 | Người thứ hai xuất hiện: một người trồng rau, một người đánh cá, phải đổi cho nhau mới sống được. Tiền đóng vai trò gì? Vì sao họ đổi được với nhau, hay cả hai cùng chết? | Rau đổi cá | 2 |

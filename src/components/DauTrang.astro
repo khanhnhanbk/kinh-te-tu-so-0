@@ -1,0 +1,12 @@
+---
+// Đầu mỗi trang: số dân, câu hỏi đã mở trang (bay từ nút ở trang trước sang), tên trang.
+import type { Trang } from '../lib/trang';
+interface Props { trang: Trang }
+const { trang } = Astro.props;
+---
+<div class="so-dan" aria-label="Số người trên hành tinh ở trang này">
+  <b id="so-nguoi">{trang.danSo}</b><span>người trên hành tinh</span>
+  <span class="so-trang">Trang {trang.so}</span>
+</div>
+<p class="cau-hoi-mo" style={`view-transition-name: q-${trang.so}`}>{trang.cauHoi}</p>
+<h1>{trang.ten}</h1>

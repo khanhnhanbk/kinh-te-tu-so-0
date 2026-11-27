@@ -1,0 +1,15 @@
+{
+  "name": "kinh-te-tu-so-0",
+  "type": "module",
+  "private": true,
+  "packageManager": "pnpm@10.28.0",
+  "scripts": {
+    "dev": "astro dev",
+    "build": "astro build",
+    "preview": "astro preview",
+    "kiem": "node scripts/kiem-trang.mjs"
+  },
+  "dependencies": {
+    "astro": "7.4.7"
+  }
+}

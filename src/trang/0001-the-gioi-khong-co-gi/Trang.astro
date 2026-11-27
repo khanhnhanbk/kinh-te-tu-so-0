@@ -1,0 +1,187 @@
+---
+// Trang 1: Thế giới không có gì cả. Câu hỏi, số dân, trang cha nằm ở meta.json cùng thư mục.
+---
+
+  <figure class="hanh-tinh">
+    <svg viewBox="0 0 640 340" role="img" aria-labelledby="ht-ten">
+      <title id="ht-ten">Một hành tinh có biển, rừng, sông và một mạch vàng, chưa có người nào</title>
+      <rect width="640" height="340" fill="var(--troi)"/>
+      <g fill="var(--troi-chu)">
+        <circle class="sao" cx="52" cy="44" r="1.4"/><circle cx="130" cy="92" r="1"/><circle class="sao" cx="214" cy="28" r="1.2" style="animation-delay:1s"/>
+        <circle cx="526" cy="48" r="1.4"/><circle class="sao" cx="596" cy="118" r="1" style="animation-delay:2s"/><circle cx="458" cy="22" r="1"/>
+        <circle class="sao" cx="30" cy="190" r="1" style="animation-delay:.5s"/><circle cx="612" cy="262" r="1.2"/><circle class="sao" cx="96" cy="300" r="1" style="animation-delay:1.5s"/>
+      </g>
+      <defs>
+        <clipPath id="dia-cau"><circle cx="320" cy="172" r="126"/></clipPath>
+        <radialGradient id="bong" cx="35%" cy="30%" r="80%"><stop offset="0" stop-color="#fff" stop-opacity=".18"/><stop offset=".6" stop-color="#000" stop-opacity="0"/><stop offset="1" stop-color="#000" stop-opacity=".45"/></radialGradient>
+      </defs>
+      <g clip-path="url(#dia-cau)">
+        <rect x="190" y="40" width="260" height="270" fill="#2f6f8f"/>
+        <path d="M214 116c26-24 68-28 92-12 16 11 9 30 30 35 26 6 42-16 68-7 23 8 26 35 9 51-19 19-52 12-70 31-16 16-9 42-35 49-30 8-61-12-72-37-10-23-5-42-21-58-12-12-14-35 0-52z" fill="#4f8a5a"/>
+        <path d="M408 236c14-10 34-8 44 4l-4 40h-60c2-18 8-34 20-44z" fill="#6f9a5e"/>
+        <path d="M256 126c9 20 34 25 39 46s-16 34-7 57" fill="none" stroke="#8fc3dd" stroke-width="3.2" stroke-linecap="round"/>
+        <g fill="#2c5a36"><path d="M318 124l-8 16h16z"/><path d="M334 131l-7 14h14z"/><path d="M347 121l-8 16h16z"/></g>
+        <circle cx="338" cy="150" r="3.6" fill="#d8463c"/>
+        <path d="M350 198l11 7 9-5 10 8" fill="none" stroke="#e2b54f" stroke-width="2.6" stroke-linecap="round"/>
+        <circle cx="381" cy="208" r="3.8" fill="#e2b54f"/>
+        <g class="may" fill="#fff" opacity=".55"><ellipse cx="270" cy="92" rx="36" ry="7"/><ellipse cx="380" cy="262" rx="44" ry="7"/><ellipse cx="200" cy="210" rx="26" ry="5"/></g>
+        <g class="nguoi"><circle cx="300" cy="186" r="4.2" fill="#f4efe6"/><path d="M300 191v12M294 196h12M300 203l-5 8M300 203l5 8" stroke="#f4efe6" stroke-width="2.2" stroke-linecap="round"/></g>
+        <rect x="190" y="40" width="260" height="270" fill="url(#bong)"/>
+      </g>
+      <circle cx="320" cy="172" r="126" fill="none" stroke="#8fc3dd" stroke-opacity=".35" stroke-width="1.5"/>
+      <g font-family="Be Vietnam Pro, system-ui, sans-serif" font-size="13" fill="var(--troi-chu)">
+        <text x="470" y="132">cây táo dại</text><line x1="466" y1="128" x2="344" y2="148" stroke="var(--troi-chu)" stroke-opacity=".4"/>
+        <text x="470" y="214">một mạch vàng</text><line x1="466" y1="210" x2="388" y2="208" stroke="var(--troi-chu)" stroke-opacity=".4"/>
+        <text x="58" y="176">một con sông</text><line x1="150" y1="172" x2="262" y2="160" stroke="var(--troi-chu)" stroke-opacity=".4"/>
+      </g>
+    </svg>
+  </figure>
+
+  <p class="dan-nhap">Có biển, có rừng, có một con sông. Cây táo dại ra quả mỗi mùa, quả chín rồi rụng, rồi mục thành đất. Dưới chân núi có một mạch vàng nằm yên cả triệu năm. Không có ai hái táo, không có ai đào vàng.</p>
+  <p>Thử nhìn hành tinh này bằng con mắt kinh tế. Nó giàu hay nghèo?</p>
+
+  <div class="thu">
+    <p class="nhan">Thử làm cho hành tinh giàu lên</p>
+    <div class="thanh">
+      <label for="luong-vang"><span>Lượng vàng dưới đất</span><output id="ra-vang" for="luong-vang">1 tấn</output></label>
+      <input id="luong-vang" type="range" min="0" max="9" step="1" value="2">
+    </div>
+    <div class="do" aria-live="polite">
+      <div class="vang-chu"><b id="o-vang">1 tấn</b><span>vàng có</span></div>
+      <div><b>0</b><span>người muốn nó</span></div>
+      <div><b>0</b><span>giá trị</span></div>
+    </div>
+    <details class="nho-mo loi-giai">
+      <summary>Sao kéo mấy cũng không đổi?</summary>
+      <p>Vì hành tinh này <strong>không giàu cũng không nghèo</strong>. "Giàu" là nói về việc <em>ai đó</em> có được những thứ <em>họ muốn</em>. Không có ai thì chữ "giàu" không bám vào đâu được. Vàng ở đây chỉ là một loại đá màu vàng.</p>
+    </details>
+  </div>
+
+  <p>Đây là ý đầu tiên của cả cuốn sách: <strong>kinh tế học không bắt đầu từ đồ vật, mà bắt đầu từ con người và những gì con người muốn.</strong> Đồ vật thì hành tinh này có đủ. Cái nó thiếu là người.</p>
+
+  <h2>Có đồ vật, nhưng chưa có hàng hóa</h2>
+  <p>Năm 1871, nhà kinh tế người Áo Carl Menger hỏi: khi nào một thứ trở thành <strong>hàng hóa</strong> <em class="tn">(good)</em>, tức là thứ có ích cho con người? Ông đưa ra bốn điều kiện, phải đủ cả bốn. Bấm thử từng điều với quả táo dại:</p>
+
+  <div class="thu">
+    <p class="nhan">Quả táo này đã là hàng hóa chưa?</p>
+    <div class="menger" id="menger">
+      <svg class="qua-tao" viewBox="0 0 100 100" aria-hidden="true">
+        <path d="M50 30c-6-8-18-10-27-4-12 8-13 27-6 42 6 13 17 24 27 22 3-1 4-2 6-2s3 1 6 2c10 2 21-9 27-22 7-15 6-34-6-42-9-6-21-4-27 4z" fill="#d8463c"/>
+        <path d="M50 30c0-8 2-14 7-19" stroke="#6b4a2b" stroke-width="3" fill="none" stroke-linecap="round"/>
+        <path d="M55 20c8-6 17-5 21-1-6 6-14 7-21 1z" fill="#4f8a5a"/>
+        <ellipse cx="34" cy="44" rx="6" ry="10" fill="#fff" opacity=".25"/>
+      </svg>
+      <ul class="dk">
+        <li><button type="button" data-dk="1" data-can-nguoi="1" aria-pressed="false"><span class="den"></span>Có ai đó cần nó</button></li>
+        <li><button type="button" data-dk="2" aria-pressed="true"><span class="den"></span>Nó có tính chất đáp ứng cái cần (ăn được, no bụng)</button></li>
+        <li><button type="button" data-dk="3" data-can-nguoi="1" aria-pressed="false"><span class="den"></span>Có người biết nó giúp được mình</button></li>
+        <li><button type="button" data-dk="4" data-can-nguoi="1" aria-pressed="false"><span class="den"></span>Có người nắm được nó để dùng</button></li>
+      </ul>
+    </div>
+    <p class="ket-luan" id="ket-luan" aria-live="polite">Mới đủ <b>1/4</b>. Quả táo vẫn chỉ là một <strong>tài nguyên</strong> <em class="tn">(resource)</em> nằm chờ.</p>
+    <button class="nut-nho" type="button" id="tha-nguoi">Thử thả một người xuống</button>
+  </div>
+
+  <p>Điều thứ ba đáng để ý. Một thứ có thể có ích từ lâu mà chưa ai biết. Dầu mỏ nằm dưới đất hàng triệu năm, chỉ thành của quý khi con người biết đốt nó để chạy máy. <strong>Kiến thức biến đá thành của cải.</strong></p>
+
+  <h2>Không ai muốn gì, nên không gì khan hiếm</h2>
+  <p>Sách kinh tế nào cũng mở đầu bằng chữ <strong>khan hiếm</strong> <em class="tn">(scarcity)</em>. Định nghĩa được dạy nhiều nhất đến nay là của Lionel Robbins:</p>
+  <blockquote>
+    Kinh tế học nghiên cứu hành vi của con người như một mối quan hệ giữa các mục đích và những phương tiện khan hiếm có nhiều cách dùng khác nhau.
+    <footer>Lionel Robbins, 1932</footer>
+  </blockquote>
+  <p>Khan hiếm không có nghĩa là "có ít". Khan hiếm là khi <strong>thứ người ta muốn nhiều hơn thứ đang có</strong>. Trên hành tinh trống, phía "muốn" bằng không, nên dù vàng ít đến đâu, vàng cũng không khan hiếm.</p>
+  <p>Menger chia hàng hóa ra hai loại theo đúng ý này. <strong>Hàng hóa tự do</strong> <em class="tn">(free good)</em> có nhiều hơn mức mọi người muốn, như không khí ngoài trời: không ai phải nhường cho ai. <strong>Hàng hóa kinh tế</strong> <em class="tn">(economic good)</em> có ít hơn mức mọi người muốn, dùng chỗ này thì mất chỗ kia. Kinh tế học chỉ lo loại thứ hai.</p>
+
+  <h2>Giá trị nằm ở đâu</h2>
+  <p>Nếu bạn từng học Kinh tế chính trị Mác–Lênin, bạn đã gặp <strong>thuyết giá trị lao động</strong>: giá trị của món hàng đến từ lao động bỏ vào làm ra nó. Ý này có từ Adam Smith, David Ricardo, rồi Karl Marx đặt nó làm trọng tâm.</p>
+  <p>Khoảng 1871 đến 1874, ba người ở ba nước, không hẹn nhau, đi hướng khác: Jevons ở Anh, Menger ở Áo, Walras ở Thụy Sĩ. Họ cho rằng <strong>giá trị nằm ở chỗ một người cần món đó đến mức nào</strong>. Đó là <strong>thuyết giá trị chủ quan</strong> <em class="tn">(subjective value)</em>, và cuộc đổi hướng được gọi là <strong>cách mạng cận biên</strong>. Kinh tế học vi mô ngày nay xây trên nền này.</p>
+  <p>Hành tinh trống là phép thử gọn nhất: không có ai cần thì giá trị của mọi thứ bằng không, kể cả mạch vàng. <strong>Giá trị là một quan hệ giữa người và vật</strong>, và một bên của quan hệ đó chưa có mặt.</p>
+
+  <div class="cau-hoi-lon">
+    <p class="nhan">Mảnh ghép đầu tiên cho câu hỏi ngây thơ</p>
+    <p>Khi người đầu tiên đến, đói bụng, và hái một quả táo, quả táo bỗng có giá trị với người đó. <strong>Không ai bị trừ đi cái gì.</strong> Giá trị đó không chuyển từ túi ai sang túi ai, nó sinh ra. Vậy cần tách hai thứ: <strong>giá trị</strong> (có thể sinh ra) và <strong>tiền</strong> (thứ chuyền tay nhau). Tiền thì chưa có mặt ở đây.</p>
+  </div>
+
+  <details class="gap">
+    <summary>Ghi nhớ và từ khóa</summary>
+    <ul class="gon">
+      <li>Không có người thì không có kinh tế. Kinh tế học nói về lựa chọn của con người, không phải về đồ vật.</li>
+      <li>Một thứ thành hàng hóa khi có người cần, nó đáp ứng được, người ta biết điều đó và nắm được nó (Menger, 1871).</li>
+      <li>Khan hiếm là mong muốn nhiều hơn thứ đang có (Robbins, 1932).</li>
+      <li>Giá trị là quan hệ giữa người và vật, nên nó có thể sinh ra.</li>
+    </ul>
+    <div class="bang"><table>
+      <thead><tr><th>Tiếng Việt</th><th>Tiếng Anh</th><th>Nghĩa ngắn</th></tr></thead>
+      <tbody>
+        <tr><td>Tài nguyên</td><td>resource</td><td>Có sẵn trong tự nhiên, chưa chắc có ai dùng</td></tr>
+        <tr><td>Hàng hóa</td><td>good</td><td>Thỏa mãn được nhu cầu của người, đủ bốn điều kiện Menger</td></tr>
+        <tr><td>Hàng hóa tự do</td><td>free good</td><td>Nhiều hơn mức mọi người muốn</td></tr>
+        <tr><td>Hàng hóa kinh tế</td><td>economic good</td><td>Ít hơn mức mọi người muốn</td></tr>
+        <tr><td>Khan hiếm</td><td>scarcity</td><td>Muốn nhiều hơn thứ đang có</td></tr>
+        <tr><td>Giá trị chủ quan</td><td>subjective value</td><td>Giá trị nằm ở mức một người cần món đó</td></tr>
+      </tbody>
+    </table></div>
+  </details>
+  <details class="gap">
+    <summary>Tự kiểm tra (3 câu)</summary>
+    <p><strong>1.</strong> Hành tinh trống có một tỷ tấn vàng. Vàng có khan hiếm không?</p>
+    <details class="nho-mo"><summary>Đáp án</summary><p>Không. Khan hiếm là muốn nhiều hơn thứ có. Không ai muốn thì một tỷ tấn hay một gam cũng như nhau.</p></details>
+    <p style="margin-top:1rem"><strong>2.</strong> Một người đến, nhưng không biết nấm đỏ trong rừng ăn được và rất bổ. Nấm đã là hàng hóa với người đó chưa?</p>
+    <details class="nho-mo"><summary>Đáp án</summary><p>Chưa. Thiếu điều kiện thứ ba của Menger: người đó chưa <em>biết</em>. Kiến thức là một phần của việc biến tài nguyên thành hàng hóa.</p></details>
+    <p style="margin-top:1rem"><strong>3.</strong> Cho ví dụ một thứ là hàng hóa tự do ở nơi này nhưng là hàng hóa kinh tế ở nơi khác.</p>
+    <details class="nho-mo"><summary>Gợi ý</summary><p>Nước ngọt bên sông lớn và nước ngọt giữa sa mạc. Không khí ngoài đồng và không khí sạch giữa Hà Nội mùa bụi mịn. Đồ vật giống nhau, chỉ khác số người muốn nó ở đó.</p></details>
+  </details>
+  <details class="gap nguon">
+    <summary>Nguồn</summary>
+    <ol>
+      <li>Carl Menger, <em>Principles of Economics</em>, 1871, chương 1–2 (bốn điều kiện của hàng hóa; hàng hóa kinh tế và phi kinh tế). <a href="https://mises.org/library/book/principles-economics" target="_blank" rel="noopener">Bản tiếng Anh miễn phí</a>.</li>
+      <li>Lionel Robbins, <em>An Essay on the Nature and Significance of Economic Science</em>, 1932, chương 1.</li>
+      <li>Adam Smith, <em>The Wealth of Nations</em>, 1776, quyển I chương 4.</li>
+      <li>W. S. Jevons, <em>The Theory of Political Economy</em>, 1871; Léon Walras, <em>Éléments d'économie politique pure</em>, 1874.</li>
+      <li>N. Gregory Mankiw, <em>Principles of Economics</em>, chương 1.</li>
+    </ol>
+  </details>
+
+<script is:inline>
+(function () {
+/* Trang 1: thanh kéo vàng */
+var mucVang = ["1 gam", "1 kg", "1 tấn", "1 nghìn tấn", "1 triệu tấn", "1 tỷ tấn", "cả núi vàng", "nửa hành tinh", "cả hành tinh", "vô hạn"];
+var thanhVang = document.getElementById("luong-vang"), raVang = document.getElementById("ra-vang"), oVang = document.getElementById("o-vang");
+function veVang() { var s = mucVang[+thanhVang.value]; raVang.textContent = s; oVang.textContent = s; }
+thanhVang.addEventListener("input", veVang); veVang();
+
+/* Trang 1: bốn điều kiện của Menger */
+var menger = document.getElementById("menger"), ketLuan = document.getElementById("ket-luan"), nutTha = document.getElementById("tha-nguoi");
+var trang1 = document.querySelector(".trang"), soNguoi = document.getElementById("so-nguoi");
+var coNguoi = false;
+var nutDK = Array.prototype.slice.call(menger.querySelectorAll("[data-dk]"));
+function veMenger(loi) {
+  var du = nutDK.filter(function (b) { return b.getAttribute("aria-pressed") === "true"; }).length;
+  menger.classList.toggle("du", du === 4);
+  if (loi) { ketLuan.innerHTML = loi; return; }
+  if (du === 4) ketLuan.innerHTML = "Đủ <b>4/4</b>. Quả táo vừa thành một <strong>hàng hóa</strong>: có người cần, nó đáp ứng được, người đó biết và hái được nó.";
+  else ketLuan.innerHTML = "Mới đủ <b>" + du + "/4</b>. Quả táo vẫn chỉ là một <strong>tài nguyên</strong> <em class=\"tn\">(resource)</em> nằm chờ.";
+}
+nutDK.forEach(function (b) {
+  b.addEventListener("click", function () {
+    if (b.hasAttribute("data-can-nguoi") && !coNguoi) {
+      b.classList.remove("lac"); void b.offsetWidth; b.classList.add("lac");
+      veMenger("Không bật được: điều này cần <b>một con người</b>, mà hành tinh này đang có 0 người.");
+      return;
+    }
+    b.setAttribute("aria-pressed", b.getAttribute("aria-pressed") === "true" ? "false" : "true");
+    veMenger();
+  });
+});
+nutTha.addEventListener("click", function () {
+  coNguoi = !coNguoi;
+  trang1.classList.toggle("co-nguoi", coNguoi);
+  soNguoi.textContent = coNguoi ? "1" : "0";
+  nutDK.forEach(function (b) { if (b.hasAttribute("data-can-nguoi")) b.setAttribute("aria-pressed", coNguoi ? "true" : "false"); });
+  nutTha.textContent = coNguoi ? "Đưa người đó đi" : "Thử thả một người xuống";
+  veMenger();
+  if (coNguoi) ketLuan.innerHTML += " <span class=\"nho\">Nhìn lên hành tinh: số người vừa thành 1. Chuyện của người này để dành cho trang sau.</span>";
+});
+})();
+</script>

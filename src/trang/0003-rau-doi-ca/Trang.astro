@@ -1,0 +1,226 @@
+---
+// Trang 3: Rau đổi cá. Câu hỏi, số dân, trang cha nằm ở meta.json cùng thư mục.
+---
+
+  <figure class="hanh-tinh">
+    <svg viewBox="0 0 640 300" role="img" aria-labelledby="t3-ten">
+      <title id="t3-ten">An đứng bên ruộng rau, Bình đứng bên bờ sông với giỏ cá, ở giữa là mũi tên trao đổi</title>
+      <rect width="640" height="300" fill="var(--troi)"/>
+      <g fill="var(--troi-chu)"><circle class="sao" cx="70" cy="36" r="1.3"/><circle cx="200" cy="62" r="1"/><circle class="sao" cx="440" cy="30" r="1.2" style="animation-delay:1s"/><circle cx="580" cy="70" r="1"/><circle class="sao" cx="320" cy="22" r="1" style="animation-delay:.4s"/></g>
+      <ellipse cx="320" cy="310" rx="380" ry="96" fill="#4f8a5a"/>
+      <path d="M420 300c20-40 70-70 140-74 40-2 70 4 90 12v62z" fill="#2f6f8f"/>
+      <g stroke="#8fc3dd" stroke-opacity=".6" stroke-width="2" fill="none" stroke-linecap="round"><path d="M480 262c10-4 20-4 30 0"/><path d="M540 248c10-4 20-4 30 0"/><path d="M590 272c8-3 16-3 24 0"/></g>
+      <g fill="#7fbf6a"><ellipse cx="90" cy="236" rx="12" ry="7"/><ellipse cx="124" cy="244" rx="12" ry="7"/><ellipse cx="158" cy="236" rx="12" ry="7"/><ellipse cx="104" cy="258" rx="12" ry="7"/><ellipse cx="140" cy="262" rx="12" ry="7"/><ellipse cx="176" cy="256" rx="12" ry="7"/></g>
+      <g transform="translate(220 180)"><circle r="7" fill="#f4efe6"/><path d="M0 8v22M-10 16h20M0 30l-8 14M0 30l8 14" stroke="#f4efe6" stroke-width="3.2" stroke-linecap="round"/></g>
+      <text x="220" y="246" text-anchor="middle" font-family="Be Vietnam Pro, system-ui, sans-serif" font-size="13" fill="var(--troi-chu)">An · trồng rau</text>
+      <g transform="translate(420 180)"><circle r="7" fill="#f4efe6"/><path d="M0 8v22M-10 16h20M0 30l-8 14M0 30l8 14" stroke="#f4efe6" stroke-width="3.2" stroke-linecap="round"/></g>
+      <text x="420" y="246" text-anchor="middle" font-family="Be Vietnam Pro, system-ui, sans-serif" font-size="13" fill="var(--troi-chu)">Bình · đánh cá</text>
+      <g transform="translate(452 204)"><path d="M0 0c8-8 22-8 30 0-8 8-22 8-30 0z" fill="#e2b54f"/><path d="M30 0l8-6v12z" fill="#e2b54f"/></g>
+      <g class="mui-doi" stroke="var(--troi-chu)" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round" opacity=".85">
+        <path d="M262 160c34-26 82-26 116 0"/><path d="M370 150l8 10-12 3"/>
+        <path d="M378 128c-34 26-82 26-116 0" transform="translate(0 70)"/><path d="M270 208l-8-10 12-3"/>
+      </g>
+      <text x="320" y="138" text-anchor="middle" font-family="Be Vietnam Pro, system-ui, sans-serif" font-size="12" fill="#7fbf6a">rau →</text>
+      <text x="320" y="226" text-anchor="middle" font-family="Be Vietnam Pro, system-ui, sans-serif" font-size="12" fill="#e2b54f">← cá</text>
+    </svg>
+  </figure>
+
+  <p class="dan-nhap">Bạn hỏi ba câu trong một: vì sao hai người lại đổi cho nhau, vì sao có khi đổi không được, và tiền nằm ở đâu trong chuyện này. Đi lần lượt từng câu nhé.</p>
+
+  <h2>Vì sao đổi cho nhau lại sống được</h2>
+  <p>Gặp An và Bình. Mỗi người có 10 giờ làm mỗi ngày. Muốn sống, mỗi người cần <strong>10 bó rau và 5 con cá</strong> một ngày.</p>
+  <div class="bang"><table>
+    <thead><tr><th>Một giờ làm được</th><th>Rau</th><th>Cá</th></tr></thead>
+    <tbody>
+      <tr><td><strong>An</strong> (giỏi trồng, vụng câu)</td><td>5 bó</td><td>0,5 con</td></tr>
+      <tr><td><strong>Bình</strong> (giỏi câu, vụng trồng)</td><td>1 bó</td><td>3 con</td></tr>
+    </tbody>
+  </table></div>
+
+  <div class="thu" id="thu-doi">
+    <p class="nhan">Tự làm hết, hay mỗi người làm một việc rồi đổi?</p>
+    <div class="chon-che-do" role="radiogroup" aria-label="Cách sống">
+      <button type="button" role="radio" aria-checked="true" data-che-do="tu-lam">Ai tự làm nấy ăn</button>
+      <button type="button" role="radio" aria-checked="false" data-che-do="doi">Chuyên một việc rồi đổi</button>
+    </div>
+    <div class="thanh" data-hien="tu-lam">
+      <label for="gio-an"><span>An dành bao nhiêu giờ trồng rau?</span><output id="ra-gio-an">6 giờ</output></label>
+      <input id="gio-an" type="range" min="0" max="10" step="1" value="6">
+      <label for="gio-binh"><span>Bình dành bao nhiêu giờ đánh cá?</span><output id="ra-gio-binh">4 giờ</output></label>
+      <input id="gio-binh" type="range" min="0" max="10" step="1" value="4">
+    </div>
+    <div class="thanh" data-hien="doi" hidden>
+      <label for="gia-ca"><span>Đổi thế nào? 1 con cá = bao nhiêu bó rau</span><output id="ra-gia">2 bó</output></label>
+      <input id="gia-ca" type="range" min="0.5" max="5" step="0.5" value="2">
+      <div class="vung-gia" aria-hidden="true"><i id="vung-gia"></i></div>
+      <p class="nho" style="margin:0">An trồng rau cả ngày (50 bó), Bình câu cả ngày (30 con). Bình đem 12 con cá đổi lấy rau của An.</p>
+    </div>
+    <div class="hai-nguoi" aria-live="polite">
+      <div id="the-an"><span class="nhan">An</span><b id="an-rau">30</b> rau · <b id="an-ca">3</b> cá<span class="song" id="an-song"></span></div>
+      <div id="the-binh"><span class="nhan">Bình</span><b id="binh-rau">6</b> rau · <b id="binh-ca">12</b> cá<span class="song" id="binh-song"></span></div>
+    </div>
+    <p class="ket-luan" id="ket-doi"></p>
+  </div>
+
+  <p>Khi tự làm, kéo thế nào cũng có ít nhất một người chết đói, vì mỗi người quá vụng ở việc còn lại. Khi chuyên một việc rồi đổi, cả hai sống, và còn dư. Tổng cộng cả hành tinh có nhiều rau và cá hơn hẳn, chỉ vì mỗi người làm việc mình giỏi. Adam Smith gọi đó là <strong>phân công lao động</strong> <em class="tn">(division of labour)</em>, 1776.</p>
+
+  <details class="nho-mo">
+    <summary>Nếu Bình giỏi hơn An ở cả hai việc thì sao?</summary>
+    <p>Đây là phát hiện của David Ricardo năm 1817, gọi là <strong>lợi thế so sánh</strong> <em class="tn">(comparative advantage)</em>. Giả sử Bình làm 1 giờ được 6 bó rau hoặc 3 con cá, giỏi hơn An ở cả hai. Vẫn nên đổi. Lý do nằm ở <strong>chi phí cơ hội</strong> (trang 2): với An, câu 1 con cá phải bỏ 10 bó rau; với Bình, chỉ phải bỏ 2 bó. Cá "rẻ" với Bình hơn, rau "rẻ" với An hơn. Mỗi người làm thứ mình rẻ hơn rồi đổi, tổng sản lượng vẫn tăng. Chỉ cần chi phí cơ hội hai người <em>khác nhau</em> là đổi có lời, không cần ai giỏi tuyệt đối.</p>
+  </details>
+
+  <h2>Đổi bao nhiêu thì cả hai chịu</h2>
+  <p>Kéo thử thanh "1 cá = bao nhiêu rau" ở trên. Có một <strong>khoảng giá</strong> (vạch xanh) mà cả hai cùng sống. Rẻ quá thì Bình thiếu rau, đắt quá thì An thiếu rau. Trong khoảng đó, ai mặc cả giỏi hơn thì được phần dư nhiều hơn, nhưng cả hai đều hơn lúc chưa đổi. John Nash (Nobel 1994) có một bài năm 1950 về đúng câu hỏi này: hai bên mặc cả thì sẽ chốt ở đâu.</p>
+  <p>Đây là chỗ đáng dừng lại. Mỗi lần đổi, An <strong>mất</strong> rau và <strong>được</strong> cá. Bình ngược lại. Nhìn một cột thì giống trò chơi tổng bằng không. Nhưng cả hai đều <strong>tự nguyện</strong>, vì mỗi người coi thứ mình nhận quý hơn thứ mình đưa (giá trị chủ quan, trang 1). Một cuộc đổi tự nguyện làm <strong>cả hai</strong> khá hơn.</p>
+
+  <h2>Vì sao có khi cả hai cùng chết</h2>
+  <p>Đổi có lời, nhưng không tự động xảy ra. Có ba cách hỏng:</p>
+  <ul class="gon">
+    <li><strong>Không chốt được giá.</strong> Mỗi người đòi phần dư về mình, cãi nhau đến tối, không ai đổi.</li>
+    <li><strong>Không tin nhau.</strong> Ai đưa trước? Nếu An đưa rau trước, Bình có thể ôm rau mà không đưa cá.</li>
+    <li><strong>Cướp thay vì đổi.</strong> Nếu không ai công nhận "rau này của An", thì lấy luôn dễ hơn đổi. Đổi chỉ có khi có <strong>quyền sở hữu</strong> <em class="tn">(property rights)</em>.</li>
+  </ul>
+  <p>Thử làm Bình xem lừa có lời không. An chơi theo kiểu đơn giản: hôm qua Bình giữ lời thì hôm nay An đưa rau, hôm qua Bình lừa thì hôm nay An không đưa.</p>
+
+  <div class="thu" id="thu-tin">
+    <p class="nhan">Bạn là Bình. Hôm nay làm gì?</p>
+    <div class="hanh-dong">
+      <button class="nut-nho" type="button" data-tin="giu">Giữ lời: đưa 12 cá</button>
+      <button class="nut-nho" type="button" data-tin="lua">Lừa: nhận rau, giữ cá</button>
+      <button class="ve-truoc" type="button" id="tin-lai" style="margin:0 0 0 auto">Chơi lại</button>
+    </div>
+    <div class="do" aria-live="polite">
+      <div><b id="tin-ngay">0</b><span>ngày đã qua</span></div>
+      <div><b id="tin-binh">0</b><span>ngày Bình đủ ăn</span></div>
+      <div><b id="tin-an">0</b><span>ngày An đủ ăn</span></div>
+    </div>
+    <ol class="nhat-ky" id="tin-log" aria-live="polite"></ol>
+  </div>
+  <p>Lừa thắng đúng một ngày. Từ hôm sau An không đưa rau nữa, Bình thiếu rau, và An cũng thiếu cá. Khi hai người còn gặp nhau mỗi ngày, <strong>giữ lời là cách có lời nhất</strong>. Robert Aumann nhận Nobel 2005 một phần vì chứng minh điều này: hợp tác có thể tự đứng vững khi người ta gặp lại nhau nhiều lần, không cần ai ép. Nếu chỉ gặp nhau một lần rồi thôi, thì cám dỗ lừa lớn hơn nhiều.</p>
+
+  <h2>Tiền đóng vai trò gì</h2>
+  <p>Với hai người, <strong>tiền gần như chưa cần</strong>. An có thứ Bình cần, Bình có thứ An cần. Cái may này có tên là <strong>trùng khớp nhu cầu kép</strong> <em class="tn">(double coincidence of wants)</em>, chữ của William Stanley Jevons, 1875. Có nó thì đổi thẳng rau lấy cá là xong.</p>
+  <p>Nhưng chính ở đây, hai cái mầm của tiền đã nhú lên:</p>
+  <ul class="gon">
+    <li><strong>Một cái giá.</strong> "1 cá = 2 rau" là lần đầu tiên hành tinh có một con số so giá trị giữa người với người. Đó là mầm của <em>đơn vị tính giá</em>, việc thứ hai của tiền (trang 2).</li>
+    <li><strong>Một lời hứa trả sau.</strong> Cá có quanh năm, nhưng rau có mùa. Mùa này An chưa có rau, Bình vẫn đưa cá và An viết lên một mảnh gỗ: <em>"An nợ Bình 24 bó rau, trả sau mùa gặt."</em> Mảnh gỗ đó là một <strong>món nợ</strong>, và là mầm của tiền. Trang 2 nói nợ cần hai người. Giờ đã có đủ hai người.</li>
+  </ul>
+  <p>Mảnh gỗ ấy chưa phải tiền thật, vì chỉ An và Bình hiểu nó. Nó sẽ thành tiền khi Bình đem mảnh gỗ đi trả cho <strong>một người thứ ba</strong>, và người đó chịu nhận.</p>
+
+  <div class="cau-hoi-lon">
+    <p class="nhan">Mảnh ghép thứ ba cho câu hỏi ngây thơ</p>
+    <p>Trong một lần đổi, mỗi bên đều <strong>mất một thứ và được một thứ</strong>. Nếu chỉ đếm một cột (rau, hay sau này là tiền) thì thấy người này +, người kia −, tổng bằng không. Nhưng cả hai đều tự nguyện, vì cả hai đều khá hơn. Khi bạn trả 100k cho một bát phở, bạn −100k nhưng +1 bát phở mà bạn thấy đáng hơn 100k. Câu hỏi còn lại: khi tiền xuất hiện thật, nó có làm thay đổi phép tính này không?</p>
+  </div>
+
+  <details class="gap">
+    <summary>Ghi nhớ và từ khóa</summary>
+    <ul class="gon">
+      <li>Chuyên một việc rồi đổi làm tổng sản lượng tăng (Smith, 1776).</li>
+      <li>Chỉ cần chi phí cơ hội khác nhau là đổi có lời, kể cả khi một người giỏi hơn ở mọi việc (Ricardo, 1817).</li>
+      <li>Có một khoảng giá cả hai cùng có lợi; mặc cả quyết định chia phần dư (Nash, 1950).</li>
+      <li>Đổi hỏng khi không chốt được giá, không tin nhau, hoặc không có quyền sở hữu. Gặp lại nhau nhiều lần thì giữ lời có lời (Aumann, Nobel 2005).</li>
+      <li>Hai người thì chưa cần tiền (trùng khớp nhu cầu kép), nhưng đã có giá và có nợ: hai mầm của tiền.</li>
+    </ul>
+    <div class="bang"><table>
+      <thead><tr><th>Tiếng Việt</th><th>Tiếng Anh</th><th>Nghĩa ngắn</th></tr></thead>
+      <tbody>
+        <tr><td>Phân công lao động</td><td>division of labour</td><td>Mỗi người chuyên một việc</td></tr>
+        <tr><td>Lợi thế so sánh</td><td>comparative advantage</td><td>Làm thứ mình có chi phí cơ hội thấp hơn</td></tr>
+        <tr><td>Lợi thế tuyệt đối</td><td>absolute advantage</td><td>Làm ra nhiều hơn trong cùng thời gian</td></tr>
+        <tr><td>Đổi hàng</td><td>barter</td><td>Đổi thẳng hàng lấy hàng, không qua tiền</td></tr>
+        <tr><td>Trùng khớp nhu cầu kép</td><td>double coincidence of wants</td><td>Mỗi bên có đúng thứ bên kia cần</td></tr>
+        <tr><td>Quyền sở hữu</td><td>property rights</td><td>Ai cũng công nhận thứ gì là của ai</td></tr>
+        <tr><td>Trò chơi lặp lại</td><td>repeated game</td><td>Gặp nhau nhiều lần, nên tính cả ngày mai</td></tr>
+      </tbody>
+    </table></div>
+  </details>
+  <details class="gap">
+    <summary>Tự kiểm tra (3 câu)</summary>
+    <p><strong>1.</strong> Với số liệu ở trên, tự làm thì An có sống được không? Vì sao?</p>
+    <details class="nho-mo"><summary>Đáp án</summary><p>Không. Muốn 5 con cá An phải câu đúng 10 giờ (0,5 con mỗi giờ), không còn giờ nào trồng rau. Thiếu rau thì chết.</p></details>
+    <p style="margin-top:1rem"><strong>2.</strong> Bình giỏi hơn An ở cả rau lẫn cá. Vì sao đổi vẫn có lời?</p>
+    <details class="nho-mo"><summary>Đáp án</summary><p>Vì chi phí cơ hội khác nhau. Với An, 1 cá tốn 10 rau; với Bình chỉ tốn 2 rau. Bình câu cá, An trồng rau, rồi đổi ở giá giữa 2 và 10 rau cho 1 cá, cả hai đều được nhiều hơn lúc tự làm.</p></details>
+    <p style="margin-top:1rem"><strong>3.</strong> Vì sao hai người thì chưa cần tiền, nhưng ba người thì có thể cần?</p>
+    <details class="nho-mo"><summary>Gợi ý</summary><p>Hai người thì luôn trùng khớp nhu cầu kép. Thêm người thứ ba, có thể An cần cá của Bình nhưng Bình lại không cần rau mà cần thứ của người thứ ba. Đổi thẳng bắt đầu kẹt.</p></details>
+  </details>
+  <details class="gap nguon">
+    <summary>Nguồn</summary>
+    <ol>
+      <li>Adam Smith, <em>The Wealth of Nations</em>, 1776, quyển I chương 1–2 (phân công lao động, thiên hướng trao đổi).</li>
+      <li>David Ricardo, <em>On the Principles of Political Economy and Taxation</em>, 1817, chương 7 (lợi thế so sánh, ví dụ vải và rượu giữa Anh và Bồ Đào Nha).</li>
+      <li>John F. Nash, "The Bargaining Problem", <em>Econometrica</em>, 1950. Nobel kinh tế 1994.</li>
+      <li>Robert J. Aumann, Nobel kinh tế 2005 "vì đã làm rõ xung đột và hợp tác qua lý thuyết trò chơi" (trò chơi lặp lại). <a href="https://www.nobelprize.org/prizes/economic-sciences/2005/summary/" target="_blank" rel="noopener">nobelprize.org</a>.</li>
+      <li>Robert Axelrod, <em>The Evolution of Cooperation</em>, 1984 (chiến lược "ăn miếng trả miếng" mà An dùng).</li>
+      <li>W. S. Jevons, <em>Money and the Mechanism of Exchange</em>, 1875, chương 1 (trùng khớp nhu cầu kép).</li>
+    </ol>
+  </details>
+
+<script is:inline>
+(function () {
+/* Trang 3: tự làm hay chuyên môn hóa rồi đổi */
+var CAN_RAU = 10, CAN_CA = 5, cheDo = "tu-lam";
+var gioAn = document.getElementById("gio-an"), gioBinh = document.getElementById("gio-binh"), giaCa = document.getElementById("gia-ca");
+function so(n) { return (Math.round(n * 10) / 10).toString().replace(".", ","); }
+function veNguoi(ten, rau, ca) {
+  document.getElementById(ten + "-rau").textContent = so(rau);
+  document.getElementById(ten + "-ca").textContent = so(ca);
+  var song = rau >= CAN_RAU && ca >= CAN_CA, the = document.getElementById("the-" + ten);
+  the.className = song ? "ok" : "doi-bung";
+  var thieu = [];
+  if (rau < CAN_RAU) thieu.push("thiếu " + so(CAN_RAU - rau) + " rau");
+  if (ca < CAN_CA) thieu.push("thiếu " + so(CAN_CA - ca) + " cá");
+  document.getElementById(ten + "-song").textContent = song ? "Sống, dư " + so(rau - CAN_RAU) + " rau, " + so(ca - CAN_CA) + " cá" : "Đói: " + thieu.join(", ");
+  return song;
+}
+function veDoi() {
+  var ket = document.getElementById("ket-doi");
+  if (cheDo === "tu-lam") {
+    var ga = +gioAn.value, gb = +gioBinh.value;
+    document.getElementById("ra-gio-an").textContent = ga + " giờ";
+    document.getElementById("ra-gio-binh").textContent = gb + " giờ";
+    var a = veNguoi("an", ga * 5, (10 - ga) * 0.5), b = veNguoi("binh", (10 - gb) * 1, gb * 3);
+    var tongRau = ga * 5 + (10 - gb), tongCa = (10 - ga) * 0.5 + gb * 3;
+    ket.innerHTML = (a && b ? "Cả hai cùng sống?! " : "Kéo thế nào cũng có người đói. ") + "Cả hành tinh làm ra <b>" + so(tongRau) + " rau, " + so(tongCa) + " cá</b> mỗi ngày.";
+  } else {
+    var p = +giaCa.value, q = 12;
+    document.getElementById("ra-gia").textContent = so(p) + " bó";
+    var a2 = veNguoi("an", 50 - q * p, q), b2 = veNguoi("binh", q * p, 30 - q);
+    if (a2 && b2) ket.innerHTML = "Cả hai cùng sống, còn dư. Cả hành tinh làm ra <b>50 rau, 30 cá</b> mỗi ngày. An đưa " + so(q * p) + " bó rau, nhận 12 cá. Không ai bị ép.";
+    else if (!b2) ket.innerHTML = "Giá này rẻ quá với cá: Bình nhận không đủ rau. Bình sẽ <b>không chịu đổi</b>.";
+    else ket.innerHTML = "Giá này đắt quá với rau: An đưa đi nhiều rau quá. An sẽ <b>không chịu đổi</b>.";
+  }
+}
+// khoảng giá cả hai cùng sống: 12p ≥ 10 và 50 − 12p ≥ 10
+(function () { var lo = 10 / 12, hi = 40 / 12, min = 0.5, max = 5, v = document.getElementById("vung-gia");
+  v.style.left = ((lo - min) / (max - min) * 100) + "%"; v.style.width = ((hi - lo) / (max - min) * 100) + "%"; })();
+document.querySelectorAll("[data-che-do]").forEach(function (b) {
+  b.addEventListener("click", function () {
+    cheDo = b.getAttribute("data-che-do");
+    document.querySelectorAll("[data-che-do]").forEach(function (x) { x.setAttribute("aria-checked", x === b ? "true" : "false"); });
+    document.querySelectorAll("#thu-doi [data-hien]").forEach(function (x) { x.hidden = x.getAttribute("data-hien") !== cheDo; });
+    veDoi();
+  });
+});
+[gioAn, gioBinh, giaCa].forEach(function (x) { x.addEventListener("input", veDoi); });
+veDoi();
+
+/* Trang 3: giữ lời hay lừa (An chơi ăn miếng trả miếng) */
+var ngay = 0, binhNo = 0, anNo = 0, anTin = true, log = document.getElementById("tin-log");
+function ghiNgay(t) { var li = document.createElement("li"); li.textContent = t; log.appendChild(li); log.scrollTop = log.scrollHeight; }
+function veTin() { document.getElementById("tin-ngay").textContent = ngay; document.getElementById("tin-binh").textContent = binhNo; document.getElementById("tin-an").textContent = anNo; }
+document.querySelectorAll("[data-tin]").forEach(function (b) {
+  b.addEventListener("click", function () {
+    var giu = b.getAttribute("data-tin") === "giu"; ngay++;
+    if (anTin) {
+      if (giu) { binhNo++; anNo++; ghiNgay("Ngày " + ngay + ": đổi sòng phẳng. Cả hai đủ ăn."); }
+      else { binhNo++; ghiNgay("Ngày " + ngay + ": Bình ôm rau, giữ luôn cá. Bình no, An thiếu cá. An nhớ chuyện này."); }
+    } else {
+      if (giu) { ghiNgay("Ngày " + ngay + ": An không đưa rau nữa. Bình đưa cá trước để chuộc lỗi. An có cá, Bình thiếu rau."); anNo++; }
+      else { ghiNgay("Ngày " + ngay + ": An không đưa, Bình cũng không. Không ai đổi. Cả hai đói."); }
+    }
+    anTin = giu; veTin();
+  });
+});
+document.getElementById("tin-lai").addEventListener("click", function () { ngay = 0; binhNo = 0; anNo = 0; anTin = true; log.innerHTML = ""; veTin(); });
+})();
+</script>
