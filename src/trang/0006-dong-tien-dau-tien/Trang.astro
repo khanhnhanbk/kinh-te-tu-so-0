@@ -1,0 +1,248 @@
+---
+// Trang 6: Đồng tiền đầu tiên. Câu hỏi, số dân, trang cha nằm ở meta.json cùng thư mục.
+import KN from '../../components/KN.astro';
+---
+
+  <p class="dan-nhap">Đúng một nửa. Kinh tế học kể rằng tiền ra đời từ đúng cái khó bạn vừa thấy: càng đông người, càng khó tìm được người vừa có thứ mình cần, vừa cần thứ mình có. Nhưng các nhà khảo cổ và nhân học đào lên một chuyện khác. Trang này kể cả hai chuyện, và bạn sẽ thấy chúng khớp vào nhau.</p>
+
+  <h2>Chợ một trăm người, không ai ra lệnh</h2>
+  <p>Giờ thế giới có 100 người và 6 món: rau, cá, áo, gỗ, muối, vỏ ốc. Mỗi người làm một món và cần một món khác. Muốn đổi thẳng thì phải gặp đúng người có thứ mình cần <em>và</em> cần thứ mình có. Với 100 người, cảnh <KN id="trung-khop-nhu-cau-kep">trùng khớp nhu cầu kép</KN> như ở trang 3 hiếm lắm.</p>
+  <p>Năm 1892, nhà kinh tế người Áo Carl Menger chỉ ra một lối thoát. Người khôn sẽ nhận cả món mình không cần, miễn là món đó dễ đem đổi tiếp. Cách làm này gọi là <strong id="kn-trao-doi-gian-tiep">trao đổi gián tiếp</strong> <em class="tn">(indirect exchange)</em>. Mỗi ô dưới đây là một người, và hình trong ô là món người đó chịu nhận để đổi tiếp. Lúc đầu mỗi người chọn một kiểu. Mỗi ngày, ai cũng nhìn quanh xem hàng xóm hay nhận món gì rồi bắt chước. Bạn đặt tính chất cho từng món, rồi mở chợ:</p>
+
+  <div class="thu" id="t6c">
+    <p class="nhan">Tính chất của sáu món</p>
+    <div class="bang-mon" id="t6c-mon"></div>
+    <div class="hanh-dong">
+      <button type="button" class="nut-nho" id="t6c-mo">Mở chợ 40 ngày</button>
+      <button type="button" class="nut-nho" id="t6c-lai">Đổi người, mở lại</button>
+    </div>
+    <div class="cho-100" id="t6c-luoi" role="img" aria-label="Một trăm người và món mỗi người chịu nhận để đổi tiếp"></div>
+    <p class="nhan">Người có thứ mình cần, hôm nay</p>
+    <div class="do" aria-live="polite">
+      <div><b id="t6c-ngay">0</b><span>ngày</span></div>
+      <div><b id="t6c-gt">0</b><span>đổi gián tiếp</span></div>
+      <div class="vang-chu"><b id="t6c-th">0</b><span>chỉ đổi thẳng</span></div>
+    </div>
+    <svg class="bieu-do" id="t6c-bd" viewBox="0 0 600 200" role="img" aria-labelledby="t6c-bd-ten"><title id="t6c-bd-ten">Số người có được thứ mình cần mỗi ngày, hai cách đổi</title></svg>
+    <p class="chu-giai"><span><i class="dau chi"></i>Được đổi gián tiếp</span><span><i class="dau an"></i>Chỉ đổi thẳng</span></p>
+    <p class="ket-luan" id="t6c-ket" aria-live="polite">Bấm “Mở chợ 40 ngày”.</p>
+  </div>
+
+  <p>Chạy vài lần, bạn sẽ thấy cùng một chuyện. Vài ngày đầu, mỗi người nhận một kiểu. Món nào được nhiều người nhận hơn một chút thì càng dễ đổi tiếp, nên càng nhiều người bắt chước nhận nó. Chỉ sau vài tuần, gần cả chợ cùng nhận một món. Không ai ra lệnh, không ai họp bàn, món đó tự thành tiền. Số người có được thứ mình cần mỗi ngày cũng tăng lên, thường gần gấp đôi so với chỉ đổi thẳng.</p>
+  <p>Menger gọi độ dễ đổi đi của một món là <strong id="kn-kha-nang-ban">tính dễ bán</strong> <em class="tn">(saleability)</em>. Món giữ lâu không hỏng, nhỏ gọn, dễ chia, dễ nhận ra thì dễ bán. Thử bật rau thành “bền” (rau phơi khô chẳng hạn): rau cũng có cơ hội thành tiền. Chuyển cả sáu món thành “mau hỏng” thì không món nào thành tiền. Tiền là một món đồ có thật như thế gọi là <strong id="kn-tien-hang-hoa">tiền hàng hóa</strong> <em class="tn">(commodity money)</em>.</p>
+  <p>Giờ thử bật áo và gỗ thành “gọn”, để bốn món tốt ngang nhau. Mỗi lần mở chợ, món thắng lại khác: lần này muối, lần sau gỗ. Đó không phải lỗi. Năm 1989, Kiyotaki và Wright, hai người dựng mô hình ba người ở trang trước, chứng minh rằng một chợ có thể có nhiều thế <KN id="can-bang">cân bằng</KN>. Có thế mà món kém hơn vẫn thành tiền, chỉ vì ai cũng tin người khác sẽ nhận nó. Tiền là thứ mọi người đồng ý với nhau, không phải thứ tốt nhất.</p>
+
+  <h2>Chuyện có thật: thuốc lá trong trại tù binh</h2>
+  <p>Năm 1945, nhà kinh tế người Anh Richard Radford kể lại trại tù binh nơi ông bị giam trong Thế chiến II. Mỗi người nhận một thùng hàng cứu trợ giống nhau: đồ hộp, sô-cô-la, đường, thuốc lá. Ai cũng thừa thứ này, thiếu thứ kia, nên họ đổi. Chỉ ít lâu sau, mọi giá trong trại đều tính bằng thuốc lá, và cả người không hút cũng nhận thuốc lá. Thuốc lá bền, nhỏ, đếm được từng điếu, và ai cũng biết nó là gì. Đúng điều Menger tả, diễn lại trong một trại chỉ có vài nghìn người.</p>
+
+  <h2>Nhưng đồng tiền đầu tiên có lẽ không ra đời ở chợ</h2>
+  <p>Chuyện chợ đổi chác rồi sinh ra tiền nghe rất hợp lý. Vấn đề là các nhà nhân học đi tìm mãi mà không thấy nó. Năm 1985, nhà nhân học người Anh Caroline Humphrey viết rằng chưa ai tả được một nền kinh tế sống hoàn toàn bằng đổi chác, càng không thấy tiền mọc ra từ một nền kinh tế như thế (mình dịch thoáng). Người trong cùng làng không đổi tại chỗ với nhau. Họ cho trước và nhớ ai còn nợ mình. Đổi chác thật thì thường xảy ra với người lạ, hoặc khi tiền đã có rồi mà bị mất, như trong trại tù binh.</p>
+  <p>Những dấu vết cũ nhất mà người ta tìm được là sổ sách. Khoảng 3.000 năm trước Công nguyên, ở Lưỡng Hà (nay là Iraq), các đền và cung điện ghi lên bảng đất sét ai nợ bao nhiêu. Đơn vị tính là shekel bạc, một mức cân, đổi ra được một lượng lúa mạch nhất định. Phần lớn nông dân không cầm bạc trong tay. Họ chỉ nợ, rồi trả bằng lúa vào mùa gặt. Tiền ở đây là <strong id="kn-tien-ghi-no">tiền ghi nợ</strong> <em class="tn">(credit money)</em>: một dòng ghi ai nợ ai, tính theo một đơn vị chung. Mảnh gỗ khắc “An nợ Bình” ở trang 3 chính là một mầm như vậy, một món <KN id="no">nợ</KN> có ghi lại.</p>
+  <p>Hai chuyện này không đá nhau. Trong làng, người ta ghi nợ với nhau, dùng một món quen làm <KN id="don-vi-tinh-gia">đơn vị tính giá</KN>. Khi phải đổi với người lạ, người chưa chắc gặp lại, thì cần một món ai cũng nhận ngay tại chỗ: muối, vỏ ốc, bạc. Bấm từng thẻ để xem tiền đã từng là những gì:</p>
+
+  <div class="thu" id="t6t">
+    <p class="nhan">Tiền đã từng là gì</p>
+    <div class="the-tien-luoi" id="t6t-luoi"></div>
+  </div>
+
+  <p>Vậy đồng tiền đầu tiên là gì? Câu trả lời tùy bạn gọi cái gì là tiền. Nếu tiền là một dòng sổ có đơn vị chung, nó có từ Lưỡng Hà khoảng 5.000 năm trước. Nếu tiền là một món ai cũng nhận, như lúa, muối, vỏ ốc, thì nó còn cũ hơn và không ai biết lần đầu ở đâu. Nếu tiền là đồng xu có dấu đúc, thì xứ Lydia (nay thuộc Thổ Nhĩ Kỳ) làm ra khoảng năm 600 trước Công nguyên. Ở Việt Nam, đồng xu đầu tiên còn tìm thấy là Thái Bình Hưng Bảo, đúc dưới thời Đinh Tiên Hoàng, khoảng năm 970.</p>
+
+  <div class="cau-hoi-lon">
+    <p class="nhan">Mảnh ghép thứ sáu cho câu hỏi ngây thơ</p>
+    <p>Nhìn vào sổ nợ ở Lưỡng Hà. Mỗi dòng là <strong>+1 shekel</strong> cho người được nợ và <strong>−1 shekel</strong> cho người nợ. Cộng cả sổ lại, lúc nào cũng bằng không. Nếu tiền là sổ ghi nợ thì cột tiền <em>luôn</em> có tổng bằng không, và câu “người này +100k thì người kia −100k” đúng từng chữ. Nhưng hãy nhìn lại cái chợ 100 người. Khi có một món trung gian, số người có được thứ mình cần mỗi ngày tăng gần gấp đôi. Cột tiền cộng lại vẫn bằng không, còn cột đồ thật thì đã tăng. Câu hỏi giờ còn lại một chỗ: vì sao một cái sổ có tổng bằng không lại giúp cột đồ thật tăng được?</p>
+  </div>
+
+  <details class="gap">
+    <summary>Ghi nhớ và từ khóa</summary>
+    <ul class="gon">
+      <li>Càng đông người, đổi thẳng càng khó. Nhận một món dễ đổi tiếp, dù mình không cần, là trao đổi gián tiếp (Menger 1892).</li>
+      <li>Món được nhiều người nhận thì càng được nhiều người nhận: không cần ai ra lệnh, một món tự thành tiền.</li>
+      <li>Món dễ thành tiền: bền, gọn, dễ chia, dễ nhận ra. Nhưng món kém hơn vẫn có thể thắng nếu ai cũng tin người khác nhận nó (Kiyotaki và Wright 1989).</li>
+      <li>Dấu vết tiền cũ nhất là sổ ghi nợ ở Lưỡng Hà, khoảng 3.000 năm trước Công nguyên. Đồng xu đúc có sau, ở Lydia khoảng năm 600 trước Công nguyên.</li>
+      <li>Sổ nợ luôn có tổng bằng không, nhưng nó giúp đồ thật đổi được nhiều hơn.</li>
+    </ul>
+    <div class="bang"><table>
+      <thead><tr><th>Tiếng Việt</th><th>Tiếng Anh</th><th>Nghĩa ngắn</th></tr></thead>
+      <tbody>
+        <tr><td>Trao đổi gián tiếp</td><td>indirect exchange</td><td>Nhận một món để đổi tiếp, không phải để dùng</td></tr>
+        <tr><td>Tính dễ bán</td><td>saleability</td><td>Một món dễ đổi đi tới mức nào</td></tr>
+        <tr><td>Tiền hàng hóa</td><td>commodity money</td><td>Tiền là một món đồ có thật</td></tr>
+        <tr><td>Tiền ghi nợ</td><td>credit money</td><td>Tiền là một dòng ghi ai nợ ai</td></tr>
+        <tr><td>Phương tiện trao đổi</td><td>medium of exchange</td><td>Món đứng giữa hai lần đổi</td></tr>
+        <tr><td>Đổi chác</td><td>barter</td><td>Đổi món lấy món, không qua tiền</td></tr>
+      </tbody>
+    </table></div>
+  </details>
+  <details class="gap">
+    <summary>Tự kiểm tra (3 câu)</summary>
+    <p><strong>1.</strong> Bạn làm cá và cần áo. Người may áo không cần cá, nhưng chịu nhận muối. Bạn nên làm gì?</p>
+    <details class="nho-mo"><summary>Đáp án</summary><p>Đổi cá lấy muối với người cần cá, rồi đem muối đổi lấy áo. Đó là trao đổi gián tiếp: bạn nhận muối không phải để ăn, mà để đổi tiếp.</p></details>
+    <p style="margin-top:1rem"><strong>2.</strong> Vì sao rau tươi khó thành tiền hơn muối?</p>
+    <details class="nho-mo"><summary>Đáp án</summary><p>Rau mau hỏng. Người cầm rau chờ đổi tiếp có thể mất trắng sau một hai ngày, nên ít ai chịu nhận rau để đổi tiếp. Muối giữ được lâu.</p></details>
+    <p style="margin-top:1rem"><strong>3.</strong> Trong sổ nợ của một ngôi đền Lưỡng Hà, cộng hết mọi khoản được nợ và mọi khoản nợ thì ra bao nhiêu?</p>
+    <details class="nho-mo"><summary>Đáp án</summary><p>Bằng không. Mỗi khoản nợ là âm với người nợ và dương với người được nợ, đúng bằng nhau.</p></details>
+  </details>
+  <details class="gap nguon">
+    <summary>Nguồn</summary>
+    <ol>
+      <li>Carl Menger, "On the Origin of Money", <em>Economic Journal</em> 2(6), 1892 (trao đổi gián tiếp, tính dễ bán).</li>
+      <li>Nobuhiro Kiyotaki và Randall Wright, "On Money as a Medium of Exchange", <em>Journal of Political Economy</em> 97(4), 1989 (nhiều thế cân bằng, có thế món kém hơn vẫn thành tiền).</li>
+      <li>R. A. Radford, "The Economic Organisation of a P.O.W. Camp", <em>Economica</em> 12(48), 1945. <a href="https://en.wikipedia.org/wiki/Richard_A._Radford" target="_blank" rel="noopener">Wikipedia</a>.</li>
+      <li>Caroline Humphrey, "Barter and Economic Disintegration", <em>Man</em> 20(1), 1985.</li>
+      <li>David Graeber, <em>Debt: The First 5,000 Years</em>, 2011 (sổ nợ ở Lưỡng Hà, shekel bạc và lúa mạch).</li>
+      <li>Milton Friedman (Nobel 1976), "The Island of Stone Money", Hoover Institution, 1991 (đá Yap).</li>
+      <li>Herodotus, <em>Lịch sử</em>, quyển I (người Lydia đúc tiền vàng bạc đầu tiên).</li>
+      <li>Thái Bình Hưng Bảo, đồng tiền thời Đinh. <a href="https://vi.wikipedia.org/wiki/Th%C3%A1i_B%C3%ACnh_H%C6%B0ng_B%E1%BA%A3o" target="_blank" rel="noopener">Wikipedia</a>.</li>
+    </ol>
+  </details>
+
+<script is:inline>
+(function () {
+/* Trang 6: chợ 100 người. Mỗi người làm một món, cần một món khác, và chọn một món "chịu nhận để đổi tiếp".
+   Mỗi ngày gặp 4 lượt người ngẫu nhiên; đổi khi cả hai đều chịu nhận món của nhau.
+   Món mau hỏng cầm qua đêm thì hỏng. Cuối ngày, người ta nhìn vài hàng xóm và bắt chước món được nhận nhiều. */
+var MON = [
+  { k: "rau", e: "🥬", ben: false, gon: true },
+  { k: "cá", e: "🐟", ben: false, gon: false },
+  { k: "áo", e: "👕", ben: true, gon: false },
+  { k: "gỗ", e: "🪵", ben: true, gon: false },
+  { k: "muối", e: "🧂", ben: true, gon: true },
+  { k: "vỏ ốc", e: "🐚", ben: true, gon: true }
+];
+var N = 100, G = MON.length, NGAY = 40, hat = 1;
+function o(id) { return document.getElementById(id); }
+var bang = o("t6c-mon"), luoi = o("t6c-luoi"), bd = o("t6c-bd"), ket = o("t6c-ket"), NS = "http://www.w3.org/2000/svg";
+
+MON.forEach(function (m, i) {
+  var d = document.createElement("div"); d.className = "dong-mon";
+  d.innerHTML = '<span class="ten-mon">' + m.e + " " + m.k + '</span>' +
+    '<button type="button" class="chip" data-i="' + i + '" data-t="ben"></button>' +
+    '<button type="button" class="chip" data-i="' + i + '" data-t="gon"></button>';
+  bang.appendChild(d);
+});
+function veChip() {
+  bang.querySelectorAll(".chip").forEach(function (c) {
+    var m = MON[+c.getAttribute("data-i")], t = c.getAttribute("data-t"), on = m[t];
+    c.textContent = t === "ben" ? (on ? "bền" : "mau hỏng") : (on ? "gọn" : "cồng kềnh");
+    c.setAttribute("aria-pressed", String(on));
+  });
+}
+bang.addEventListener("click", function (ev) {
+  var c = ev.target.closest(".chip"); if (!c) return;
+  var m = MON[+c.getAttribute("data-i")], t = c.getAttribute("data-t"); m[t] = !m[t]; veChip(); dung(); datLai();
+});
+veChip();
+
+for (var i = 0; i < N; i++) { var s = document.createElement("span"); luoi.appendChild(s); }
+var o100 = luoi.children;
+
+function rng(seed) { var x = seed >>> 0; return function () { x = (x * 1664525 + 1013904223) >>> 0; return x / 4294967296; }; }
+function taoCho(seed, giantiep) {
+  var r = rng(seed), P = [], W = [], H = [], A = [], M = [];
+  for (var i = 0; i < N; i++) {
+    P[i] = i % G; var w; do { w = Math.floor(r() * G); } while (w === P[i]);
+    W[i] = w; H[i] = P[i]; A[i] = 0; M[i] = chiuGiu(Math.floor(r() * G));
+  }
+  return { r: r, P: P, W: W, H: H, A: A, M: M, gt: giantiep };
+}
+function trongSo(g) { return (MON[g].ben ? 1 : 0.15) * (MON[g].gon ? 1 : 0.55); }
+/* Món mau hỏng thì không ai dám cầm để đổi tiếp: -1 là không nhận món trung gian nào. */
+function chiuGiu(g) { return trongSo(g) >= 0.3 ? g : -1; }
+function motNgay(c) {
+  var r = c.r, H = c.H, W = c.W, P = c.P, A = c.A, M = c.M, an = 0, ord = [], i, k, q;
+  function nhan(x, y) { return H[y] === W[x] || (c.gt && H[y] === M[x] && H[x] !== M[x]); }
+  for (i = 0; i < N; i++) ord.push(i);
+  for (k = 0; k < 4; k++) {
+    for (i = N - 1; i > 0; i--) { var j = Math.floor(r() * (i + 1)), t = ord[i]; ord[i] = ord[j]; ord[j] = t; }
+    for (q = 0; q < N; q += 2) {
+      var a = ord[q], b = ord[q + 1];
+      if (H[a] !== H[b] && nhan(a, b) && nhan(b, a)) {
+        var tm = H[a]; H[a] = H[b]; H[b] = tm; A[a] = 0; A[b] = 0;
+        [a, b].forEach(function (x) { if (H[x] === W[x]) { an++; H[x] = P[x]; } });
+      }
+    }
+  }
+  for (i = 0; i < N; i++) { A[i]++; if (H[i] !== P[i] && !MON[H[i]].ben && A[i] > 1) { H[i] = P[i]; A[i] = 0; } }
+  if (c.gt) {
+    var M2 = M.slice();
+    for (i = 0; i < N; i++) {
+      if (r() < 0.3) {
+        var dem = []; for (k = 0; k < G; k++) dem.push(0);
+        if (M[i] >= 0) dem[M[i]] += 1; for (k = 0; k < 4; k++) { var hx = M[Math.floor(r() * N)]; if (hx >= 0) dem[hx]++; }
+        var tot = 0, tv = -1; for (k = 0; k < G; k++) { var v = dem[k] * trongSo(k) + r() * 0.01; if (v > tv) { tv = v; tot = k; } }
+        M2[i] = dem[tot] ? chiuGiu(tot) : M[i];
+      }
+      if (r() < 0.004) M2[i] = chiuGiu(Math.floor(r() * G));
+    }
+    for (i = 0; i < N; i++) M[i] = M2[i];
+  }
+  return an;
+}
+
+var choGT, choTH, ngay, dsGT, dsTH, hen = null;
+function veLuoi() { for (var i = 0; i < N; i++) o100[i].textContent = choGT.M[i] >= 0 ? MON[choGT.M[i]].e : "·"; }
+function datLai() {
+  choGT = taoCho(hat, true); choTH = taoCho(hat, false); ngay = 0; dsGT = []; dsTH = [];
+  veLuoi(); o("t6c-ngay").textContent = "0"; o("t6c-gt").textContent = "0"; o("t6c-th").textContent = "0";
+  veBD(); ket.textContent = "Bấm “Mở chợ 40 ngày”."; o("t6c-mo").textContent = "Mở chợ 40 ngày";
+}
+function dung() { if (hen) { clearInterval(hen); hen = null; } }
+function buoc() {
+  ngay++; var a = motNgay(choGT), b = motNgay(choTH); dsGT.push(a); dsTH.push(b);
+  veLuoi(); o("t6c-ngay").textContent = ngay; o("t6c-gt").textContent = a; o("t6c-th").textContent = b; veBD();
+  if (ngay >= NGAY) { dung(); ketLuan(); }
+}
+function tb(ds) { var t = 0, n = Math.min(10, ds.length); for (var i = ds.length - n; i < ds.length; i++) t += ds[i]; return t / n; }
+function ketLuan() {
+  var dem = []; for (var k = 0; k < G; k++) dem.push(0);
+  choGT.M.forEach(function (m) { if (m >= 0) dem[m]++; });
+  var top = 0; for (k = 1; k < G; k++) if (dem[k] > dem[top]) top = k;
+  var gt = Math.round(tb(dsGT)), th = Math.round(tb(dsTH)), lan = th ? (gt / th).toFixed(1).replace(".", ",") : "";
+  var so = "10 ngày cuối, mỗi ngày trung bình " + gt + " người có được thứ mình cần, so với " + th + " người nếu chỉ đổi thẳng" + (lan ? " (gấp " + lan + " lần)." : ".");
+  if (dem[top] >= 80) ket.innerHTML = "<b>Ngày " + ngay + ": " + dem[top] + "/100 người cùng nhận " + MON[top].e + " " + MON[top].k + ".</b> Không ai ra lệnh, " + MON[top].k + " tự thành tiền. " + so;
+  else if (!dem[top]) ket.innerHTML = "<b>Không món nào thành tiền:</b> món nào cũng mau hỏng, không ai dám cầm để đổi tiếp. Ô có dấu chấm là người chỉ chịu đổi thẳng. " + so;
+  else ket.innerHTML = "<b>Chưa món nào thành tiền:</b> nhiều nhất là " + MON[top].e + " " + MON[top].k + " với " + dem[top] + "/100 người. " + so;
+  o("t6c-mo").textContent = "Mở lại chợ này";
+}
+function veBD() {
+  while (bd.lastChild && bd.lastChild.nodeName !== "title") bd.removeChild(bd.lastChild);
+  var W = 600, H = 200, L = 34, R = 10, T = 12, B = 26, max = 50;
+  function x(i) { return L + (W - L - R) * i / (NGAY - 1); }
+  function y(v) { return T + (H - T - B) * (1 - Math.min(v, max) / max); }
+  function el(t, at, txt) { var e = document.createElementNS(NS, t); for (var a in at) e.setAttribute(a, at[a]); if (txt != null) e.textContent = txt; bd.appendChild(e); return e; }
+  [0, 25, 50].forEach(function (v) { el("line", { x1: L, x2: W - R, y1: y(v), y2: y(v), "class": "luoi" }); el("text", { x: L - 6, y: y(v) + 4, "text-anchor": "end", "class": "truc" }, v); });
+  [1, 10, 20, 30, 40].forEach(function (d, k, ds) { el("text", { x: x(d - 1), y: H - 8, "text-anchor": k === ds.length - 1 ? "end" : "middle", "class": "truc" }, "ngày " + d); });
+  [[dsTH, "an"], [dsGT, "chi"]].forEach(function (p) {
+    if (p[0].length) el("polyline", { points: p[0].map(function (v, i) { return x(i) + "," + y(v); }).join(" "), "class": "duong " + p[1] });
+  });
+}
+o("t6c-mo").addEventListener("click", function () {
+  dung(); if (ngay >= NGAY) datLai();
+  var tat = window.matchMedia && window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+  if (tat) { while (ngay < NGAY) buoc(); return; }
+  o("t6c-mo").textContent = "Đang họp chợ…";
+  hen = setInterval(buoc, 140);
+});
+o("t6c-lai").addEventListener("click", function () { dung(); hat = (hat * 7 + 3) % 1000 + 1; datLai(); });
+datLai();
+})();
+
+(function () {
+/* Trang 6: thẻ "tiền đã từng là gì", bấm để lật */
+var THE = [
+  { e: "🐚", t: "Vỏ ốc", n: "Trung Quốc thời Thương, khoảng 1.200 TCN", c: "Vỏ ốc tiền (cowrie) bền, nhỏ, khó làm giả. Dấu vết còn trong chữ Hán: chữ 貝 (bối, vỏ ốc) nằm trong 財 (tài), 貨 (hóa), 買 (mua). Vỏ ốc còn được dùng làm tiền ở châu Phi tới thế kỷ 19." },
+  { e: "🌾", t: "Shekel bạc và lúa mạch", n: "Lưỡng Hà, khoảng 3.000 TCN", c: "Đền và cung điện ghi nợ trên bảng đất sét, tính bằng shekel bạc. Nông dân ít khi cầm bạc: họ nợ rồi trả bằng lúa vào mùa gặt. Đây là dấu vết tiền cũ nhất còn đọc được." },
+  { e: "🪙", t: "Đồng xu Lydia", n: "Lydia (Thổ Nhĩ Kỳ ngày nay), khoảng 600 TCN", c: "Những miếng hợp kim vàng bạc có dấu đúc của nhà vua, để khỏi phải cân và thử mỗi lần đổi. Herodotus, sử gia Hy Lạp, ghi người Lydia là những người đầu tiên đúc tiền vàng bạc." },
+  { e: "🪨", t: "Đá Yap", n: "Đảo Yap, Thái Bình Dương", c: "Những bánh đá to hơn người, không ai khiêng đi. Khi đổi, cả đảo chỉ cần nhớ hòn đá giờ là của ai. Có hòn chìm dưới biển mà vẫn được tính là tài sản của một nhà. Milton Friedman (Nobel 1976) dùng chuyện này để nói tiền là một cái sổ chung." },
+  { e: "🚬", t: "Thuốc lá", n: "Trại tù binh, Thế chiến II", c: "Radford kể: giá mọi thứ trong trại tính bằng điếu thuốc, người không hút cũng nhận. Khi thùng cứu trợ tới, thuốc nhiều lên và giá mọi thứ tăng; khi thuốc cạn, giá giảm." },
+  { e: "太平", t: "Thái Bình Hưng Bảo", n: "Đại Cồ Việt thời Đinh, khoảng năm 970", c: "Đồng xu bằng đồng có lỗ vuông ở giữa, đúc dưới thời Đinh Tiên Hoàng, niên hiệu Thái Bình. Là đồng tiền xưa nhất của người Việt còn tìm thấy." }
+];
+var luoi = document.getElementById("t6t-luoi");
+THE.forEach(function (d) {
+  var b = document.createElement("button"); b.type = "button"; b.className = "the-tien"; b.setAttribute("aria-expanded", "false");
+  b.innerHTML = '<span class="hinh">' + d.e + '</span><b>' + d.t + '</b><span class="noi">' + d.n + '</span><span class="ke" hidden>' + d.c + '</span>';
+  b.addEventListener("click", function () { var mo = b.getAttribute("aria-expanded") !== "true"; b.setAttribute("aria-expanded", String(mo)); b.querySelector(".ke").hidden = !mo; });
+  luoi.appendChild(b);
+});
+})();
+</script>

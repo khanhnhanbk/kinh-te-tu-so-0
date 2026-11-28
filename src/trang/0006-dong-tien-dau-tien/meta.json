@@ -1,0 +1,21 @@
+{
+  "so": 6,
+  "slug": "dong-tien-dau-tien",
+  "ten": "Đồng tiền đầu tiên",
+  "cauHoi": "Ba người phải có ba món mà người khác cần, và phải gặp được nhau. Lên 100 hay 1.000 người thì đổi vòng rất khó. Đó có phải là lý do tiền xuất hiện, và đồng tiền đầu tiên ra đời thế nào?",
+  "cha": "ba-nguoi-ba-mon",
+  "danSo": 100,
+  "ngay": "2026-11-28",
+  "moTa": "Mở một cái chợ 100 người không ai ra lệnh và xem một món tự thành tiền. Rồi nghe các nhà khảo cổ kể một chuyện khác: đồng tiền đầu tiên có lẽ là một dòng ghi nợ.",
+  "goiY": [
+    "Nếu vỏ ốc nhặt được ngoài biển thì ai nhặt nhiều là giàu à?",
+    "Tiền giấy không ăn được, sao người ta vẫn nhận?",
+    "Ai được quyền làm ra tiền?"
+  ],
+  "khaiNiem": [
+    { "id": "trao-doi-gian-tiep", "ten": "Trao đổi gián tiếp", "en": "indirect exchange", "nghia": "Nhận một món mình không cần, chỉ vì tin rằng sẽ đem nó đổi tiếp được lấy thứ mình cần (Menger, 1892)." },
+    { "id": "kha-nang-ban", "ten": "Tính dễ bán", "en": "saleability", "nghia": "Một món dễ đổi đi tới mức nào: bao nhiêu người chịu nhận, giữ lâu có hỏng không, mang đi có tiện không. Món dễ bán nhất dễ thành tiền nhất." },
+    { "id": "tien-hang-hoa", "ten": "Tiền hàng hóa", "en": "commodity money", "nghia": "Tiền là một món đồ có thật, tự nó có giá trị, như muối, vỏ ốc, lúa, bạc, thuốc lá." },
+    { "id": "tien-ghi-no", "ten": "Tiền ghi nợ", "en": "credit money", "nghia": "Tiền là một dòng ghi ai nợ ai bao nhiêu, tính theo một đơn vị chung. Nó có thể không phải là món đồ nào cả." }
+  ]
+}
