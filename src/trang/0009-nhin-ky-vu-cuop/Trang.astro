@@ -28,21 +28,21 @@ import KN from '../../components/KN.astro';
   <p>Ngoài đời không về hẳn số 0: người ta vẫn làm lén, giấu bớt. Nhưng hướng thì đúng: lấy càng gần hết, phần còn lại để lấy càng teo.</p>
 
   <h2>Nhiều mùa: vì sao đỉnh tụt từ 50% xuống 35%</h2>
-  <p>Nhiều mùa thì có thêm chuyện hạt giống. Trang trước giả định: ai giữ lại dưới 4 phần thì phải ăn cả hạt giống, mùa sau làm ra ít đi 10%. Tính thử hai mức:</p>
+  <p>Nhiều mùa thì có thêm chuyện ăn và hạt giống. Trang trước giả định mỗi người cần ăn 4 phần mỗi mùa. Làm ra nhiều hơn cũng không ăn nhiều hơn, như người ta vẫn ăn ngày ba bữa. Phần giữ lại sau khi ăn là phần dư, để gieo cho mùa sau. Giữ lại không đủ 4 phần thì phải ăn cả hạt giống, mùa sau làm ra ít đi 10%. Tính thử hai mức:</p>
   <ul class="gon">
-    <li><strong>Lấy 35%:</strong> người ta bỏ 65% công, làm ra 6,5 phần, bị lấy 35%, giữ 4,2 phần. Vừa đủ, không phải ăn hạt giống.</li>
-    <li><strong>Lấy 40%:</strong> làm ra 6 phần, giữ 3,6 phần, dưới 4. Mùa nào làng cũng teo đi 10%, và phần kẻ cướp lấy teo theo.</li>
+    <li><strong>Lấy 35%:</strong> người ta bỏ 65% công, làm ra 6,5 phần, bị lấy 35%, giữ 4,2 phần. Ăn 4 phần còn dư 0,2: vừa đủ, không phải ăn hạt giống.</li>
+    <li><strong>Lấy 40%:</strong> làm ra 6 phần, giữ 3,6 phần, thiếu 0,4 phần để ăn. Mùa nào làng cũng teo đi 10%, và phần kẻ cướp lấy teo theo.</li>
   </ul>
-  <p>Vậy 35% là mức cao nhất mà người bị lấy còn giữ được hạt giống, tức còn <KN id="dau-tu">đầu tư</KN> cho mùa sau. Lấy quá mức đó, kẻ cướp đang ăn vào mùa sau của chính mình.</p>
-  <p>Nói thật: số 4 phần là giả định mình đặt ra để dựng trò chơi, không phải số đo ngoài đời. Đổi giả định thì con số đổi theo. Nhưng hình dạng thì không đổi: luôn có một đỉnh ở giữa.</p>
+  <p>Vậy 35% là mức cao nhất mà người bị lấy còn đủ ăn mà không đụng tới hạt giống, tức còn <KN id="dau-tu">đầu tư</KN> cho mùa sau. Lấy quá mức đó, kẻ cướp đang ăn vào mùa sau của chính mình.</p>
+  <p>Nói thật: số 4 phần ăn mỗi mùa là giả định mình đặt ra để dựng trò chơi, không phải số đo ngoài đời. Đổi giả định thì con số đổi theo. Nhưng hình dạng thì không đổi: luôn có một đỉnh ở giữa.</p>
 
   <div class="thu" id="t9h">
     <p class="nhan">Đổi giả định, tìm lại đỉnh (cộng dồn 20 mùa)</p>
     <div class="thanh">
-      <label for="t9h-ng"><span>Phải ăn hạt giống khi giữ dưới</span><output id="t9h-ra">4 phần</output></label>
+      <label for="t9h-ng"><span>Mỗi người cần ăn mỗi mùa</span><output id="t9h-ra">4 phần</output></label>
       <input type="range" id="t9h-ng" min="1" max="6" step="1" value="4">
     </div>
-    <p class="chu-nho" style="margin:0.2rem 0 0.4rem">Bị lấy t% thì người ta:</p>
+    <p class="chu-nho" style="margin:0.2rem 0 0.4rem">Mỗi người làm ra tối đa 10 phần. Giữ lại không đủ ăn thì phải ăn cả hạt giống (ở đây bỏ qua chuyện gieo thêm cho gọn). Bị lấy t% thì người ta:</p>
     <div class="hanh-dong" id="t9h-cong" role="group" aria-label="Người ta bớt công bao nhiêu khi bị lấy">
       <button type="button" class="chip" data-k="1" aria-pressed="true">Bớt đúng t% công</button>
       <button type="button" class="chip" data-k="0.5" aria-pressed="false">Bớt một nửa số đó</button>
@@ -118,7 +118,7 @@ import KN from '../../components/KN.astro';
     <ul class="gon">
       <li>Phần lấy được = mức lấy × đồ làm ra, mà đồ làm ra co lại khi mức lấy tăng. Lấy 100% thì không ai làm, được 0.</li>
       <li>Phần đồ không được làm ra vì bị lấy là tổn thất vô ích: không ai được nó, kể cả kẻ cướp.</li>
-      <li>Đỉnh của quả đồi (đường cong Laffer) tùy người ta phản ứng mạnh hay yếu. 35% trong trò chơi là mức cao nhất người ta còn giữ được hạt giống, theo giả định của trò chơi.</li>
+      <li>Đỉnh của quả đồi (đường cong Laffer) tùy người ta phản ứng mạnh hay yếu. 35% trong trò chơi là mức cao nhất người ta còn đủ ăn mà không đụng tới hạt giống, với giả định mỗi người ăn 4 phần mỗi mùa.</li>
       <li>Người bất bình có thể rời đi, lên tiếng (Hirschman 1970) hoặc chống lặng lẽ (Scott 1985). Rời đi dễ thì lên tiếng yếu.</li>
       <li>Đám đông đứng lên hay không tùy ngưỡng từng người; đổi ngưỡng một người có thể đổi cả đám đông (Granovetter 1978).</li>
     </ul>
@@ -201,7 +201,7 @@ var tat = window.matchMedia && window.matchMedia("(prefers-reduced-motion: reduc
     for (var s = 1; s <= 20; s++) {
       var e = 1 - k * t, moi = cap * e * (1 - t);
       L += t * 99 * cap * e;
-      if (moi < 1) cap *= 0.5; else if (moi < ng) cap *= 0.9; else if (moi >= 6) cap *= 1.02;
+      if (moi < ng / 4) cap *= 0.5; else if (moi < ng) cap *= 0.9;
     }
     return L;
   }
@@ -221,7 +221,8 @@ var tat = window.matchMedia && window.matchMedia("(prefers-reduced-motion: reduc
       if (p === tot) el(bd, "text", { x: xx + (bw - 4) / 2, y: y(v) - 6, "text-anchor": "middle", "class": "truc nhan-dinh" }, p + "%");
     });
     var t = tot / 100, e = 1 - k * t, lam = 10 * e, giu = lam * (1 - t);
-    o("t9h-ket").innerHTML = "<b>Đỉnh ở " + tot + "%:</b> kẻ cướp được " + so(max) + " phần sau 20 mùa. Ở mức này mỗi người làm ra " + lam.toLocaleString("vi-VN", { maximumFractionDigits: 1 }) + " phần, giữ " + giu.toLocaleString("vi-VN", { maximumFractionDigits: 1 }) + " phần" + (giu >= ng ? ", vẫn không phải ăn hạt giống." : ".") +
+    function phan(x) { return (Math.round(x * 10) / 10).toLocaleString("vi-VN", { maximumFractionDigits: 1 }); }
+    o("t9h-ket").innerHTML = "<b>Đỉnh ở " + tot + "%:</b> kẻ cướp được " + so(max) + " phần sau 20 mùa. Ở mức này mỗi người làm ra " + phan(lam) + " phần, giữ " + phan(giu) + " phần, ăn " + ng + (giu - ng < 0.05 && giu >= ng ? ", vừa đủ, không phải ăn hạt giống." : giu >= ng ? ", dư " + phan(giu - ng) + ": không phải ăn hạt giống." : ", thiếu " + phan(ng - giu) + " nên phải ăn hạt giống.") +
       " Lấy 100% thì được " + so(chay(1, ng)) + " phần" + (k === 0 ? ": người ta vẫn làm đủ, nhưng giữ 0 phần nên ăn hết hạt giống." : ".");
   }
   o("t9h-ng").addEventListener("input", ve);
