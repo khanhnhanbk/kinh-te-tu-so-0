@@ -1,6 +1,6 @@
 # Bàn giao: tiếp tục xây "Kinh tế từ số 0" từ bất cứ máy nào
 
-Cập nhật 28/11/2026, sau trang 11. File này để một phiên Claude mới (tài khoản mới, máy mới) đọc là làm tiếp được ngay, không phải nghiên cứu lại.
+Cập nhật 28/11/2026, sau trang 12. File này để một phiên Claude mới (tài khoản mới, máy mới) đọc là làm tiếp được ngay, không phải nghiên cứu lại.
 
 - Repo: https://github.com/khanhnhanbk/kinh-te-tu-so-0 (public)
 - Web: https://khanhnhanbk.github.io/kinh-te-tu-so-0/ (push `main` thì GitHub Actions tự build và đưa lên Pages)
@@ -17,7 +17,7 @@ khi đụng hướng nội dung. Mỗi trang một PR có ảnh chụp, CI xanh 
 Câu hỏi tiếp theo của mình: <viết câu hỏi ở đây>
 ```
 
-Câu hỏi đó thành tiêu đề trang mới (trang 12, cha mặc định là trang mới nhất Novian vừa đọc, xem cây ở mục 4). Không có câu hỏi thì chọn một trong ba gợi ý ở mục 4.
+Câu hỏi đó thành tiêu đề trang mới (trang 13, cha mặc định là trang mới nhất Novian vừa đọc, xem cây ở mục 4). Không có câu hỏi thì chọn một trong ba gợi ý ở mục 4.
 
 ## 2. Đọc gì, theo thứ tự
 
@@ -51,13 +51,14 @@ bìa
         ├ 5 Ba người, ba món
         │ └ 6 Đồng tiền đầu tiên
         │   ├ 7 Ai làm ra muối?
-        │   │ └ 11 Người giữ kho muối   ← trang mới nhất
+        │   │ └ 11 Người giữ kho muối
+        │   │   └ 12 Phiếu nợ thành tiền giấy   ← trang mới nhất
         │   └ 8 Kẻ cướp và 99 người
         │     └ 9 Nhìn kỹ vụ cướp
         └ 10 Được mùa mất giá
 ```
 
-Trang 10 (con của trang 4) có gợi ý: "Sao nông dân không bỏ ruộng lên phố hết cho nhanh?", "Nhà nước mua lúa giá cao cho nông dân thì sao?", "Máy móc làm được cả việc dịch vụ thì người ta làm gì?". Gợi ý đang hiện ở cuối trang 9: "Kẻ cướp ở lại thì có khác gì nhà nước thu thuế?" (Olson, kẻ cướp đứng yên, đã gieo ở trang 9), "Lật được kẻ cướp rồi, ai giữ trật tự?", "Người bỏ đi thì đi đâu, và nơi họ đến được gì?". Trang 11 (con của trang 7) có gợi ý: "Ai đứng sau ngân hàng, và ngân hàng trung ương ra đời thế nào?", "Ngân hàng cho vay ra tiền mới thì có gây lạm phát như thợ muối không?", "Lãi suất cao hay thấp là do ai quyết?".
+Trang 10 (con của trang 4) có gợi ý: "Sao nông dân không bỏ ruộng lên phố hết cho nhanh?", "Nhà nước mua lúa giá cao cho nông dân thì sao?", "Máy móc làm được cả việc dịch vụ thì người ta làm gì?". Gợi ý đang hiện ở cuối trang 9: "Kẻ cướp ở lại thì có khác gì nhà nước thu thuế?" (Olson, kẻ cướp đứng yên, đã gieo ở trang 9), "Lật được kẻ cướp rồi, ai giữ trật tự?", "Người bỏ đi thì đi đâu, và nơi họ đến được gì?". Trang 12 (con của trang 11) có gợi ý: "Nhà nước in thêm tiền giấy thì sao, có giống thợ muối không?", "Tiền trong tài khoản ngân hàng có phải là tiền giấy không?", "Nếu cả chợ thôi tin, tờ tiền giấy còn lại gì?". Trang 11 (con của trang 7) có gợi ý: "Ai đứng sau ngân hàng, và ngân hàng trung ương ra đời thế nào?", "Ngân hàng cho vay ra tiền mới thì có gây lạm phát như thợ muối không?", "Lãi suất cao hay thấp là do ai quyết?".
 
 Câu hỏi xuyên suốt "+100k / −100k sao không phải tổng bằng không?" vẫn CHƯA trả lời thẳng; mỗi trang gieo một mảnh trong khối `.cau-hoi-lon`.
 

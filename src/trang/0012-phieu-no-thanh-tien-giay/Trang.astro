@@ -1,0 +1,167 @@
+---
+// Trang 12: Phiếu nợ thành tiền giấy. Câu hỏi, số dân, trang cha nằm ở meta.json cùng thư mục.
+import KN from '../../components/KN.astro';
+---
+
+  <p class="dan-nhap">Khác ít hơn bạn nghĩ. Tiền giấy <em>là</em> một phiếu nợ, chỉ là một phiếu nợ đặc biệt. Ngân hàng Trung ương Anh đến nay vẫn in trên giấy bạc của mình câu “I promise to pay the bearer on demand”, nghĩa là “Tôi hứa trả cho người cầm tờ này khi người đó đòi”. Câu hỏi đúng là: một phiếu nợ phải đổi những gì thì mới thành tiền giấy?</p>
+
+  <h2>Ba chỗ khác nhau</h2>
+  <p>Nhớ mảnh gỗ ở trang 3 ghi “An nợ Bình 24 bó rau”. Đó là một phiếu nợ thật. Đem nó so với tờ tiền trong ví bạn thì thấy ba chỗ khác:</p>
+  <ul class="gon">
+    <li><strong>Ghi tên ai được đòi.</strong> Mảnh gỗ ghi tên Bình. Người khác cầm nó thì An có quyền nói “tôi không nợ anh”. Tiền giấy thì trả cho <em>bất kỳ ai</em> đang cầm.</li>
+    <li><strong>Tờ nào như tờ nấy.</strong> Mỗi phiếu nợ một kiểu: hạn trả khác, lãi khác, người ký khác. Nhận nó thì phải đọc kỹ. Tiền giấy cùng mệnh giá thì giống hệt nhau, không lãi, không hạn, liếc qua là biết.</li>
+    <li><strong>Ai là người nợ.</strong> Mảnh gỗ chỉ đáng tin với người quen An. Tiền giấy là nợ của người mà cả nước phải tin: ngân hàng, rồi nhà nước.</li>
+  </ul>
+  <p>Thử tự biến mảnh gỗ của An thành tiền giấy, từng bước một.</p>
+
+  <div class="thu" id="t12g">
+    <p class="nhan">Đem một tờ giấy nợ ra chợ 100 người</p>
+    <div class="hanh-dong" role="group" aria-label="Sửa tờ giấy">
+      <button type="button" class="chip" id="t12g-ten" aria-pressed="false">Bỏ tên người nhận</button>
+      <button type="button" class="chip" id="t12g-chuan" aria-pressed="false">Tờ nào như tờ nấy</button>
+    </div>
+    <p class="chu-nho" style="margin:0.75rem 0 0.35rem">Ai là người nợ?</p>
+    <div class="hanh-dong" id="t12g-no" role="group" aria-label="Người nợ">
+      <button type="button" class="chip" data-no="an" aria-pressed="true">An</button>
+      <button type="button" class="chip" data-no="kho" aria-pressed="false">Kho muối</button>
+      <button type="button" class="chip" data-no="nn" aria-pressed="false">Nhà nước thu thuế bằng tờ này</button>
+    </div>
+    <div class="to-giay" id="t12g-to" aria-live="polite"></div>
+    <div class="cho-100 hang" id="t12g-luoi" role="img" aria-label="100 người trong chợ: ai chịu nhận tờ giấy, ai không, và vì sao"></div>
+    <p class="chu-giai"><span>🤝 Chịu nhận</span><span>✍️ Giấy ghi tên người khác</span><span>🤨 Không tin người nợ</span><span>🔍 Ngại đọc kỹ</span></p>
+    <div class="do bon" aria-live="polite">
+      <div class="vang-chu"><b id="t12g-nhan">1</b><span>chịu nhận</span></div>
+      <div><b id="t12g-vuong-ten">0</b><span>vướng tên</span></div>
+      <div><b id="t12g-khong-tin">0</b><span>không tin</span></div>
+      <div><b id="t12g-ngai">0</b><span>ngại đọc kỹ</span></div>
+    </div>
+    <p class="ket-luan" id="t12g-ket" aria-live="polite"></p>
+  </div>
+  <p class="chu-nho">Cách tính (giả định cho dễ thấy): mỗi người trong chợ hỏi ba câu, theo thứ tự. Một: tôi có được đòi không? (giấy ghi tên thì chỉ Bình được đòi). Hai: tôi có tin người nợ không? (10 người quen An tin An, 70 người tin kho muối; ai cũng phải nộp thuế nên ai cũng cần tờ giấy nhà nước nhận thuế). Ba: tôi có chịu đọc kỹ không? (giấy mỗi tờ một kiểu thì chỉ 30 người có thì giờ xem hạn, lãi, chữ ký). Trả lời “có” cả ba thì người đó nhận. Ô nào không nhận thì hiện lý do đầu tiên.</p>
+
+  <p>Bật cả ba thứ, chọn người nợ là nhà nước: 100 người nhận. Lúc này tờ giấy là tiền giấy. Còn nếu tắt bất kỳ công tắc nào thì nó lại chỉ là một phiếu nợ, đi được vài tay rồi dừng.</p>
+
+  <h2>Bước 1: bỏ tên người nhận</h2>
+  <p>Giấy hứa trả cho bất kỳ ai đang cầm nó gọi là <strong id="kn-phieu-tra-cho-nguoi-cam">phiếu trả cho người cầm</strong> <em class="tn">(bearer instrument)</em>. Bỏ tên đi thì tờ giấy chuyển tay không cần hỏi ai, không cần ký nhận. Tiện, nhưng cũng rủi: đánh rơi là mất, ai nhặt được là của người đó. Thế kỷ 17, giấy nhận vàng của thợ kim hoàn London đi đúng con đường này. Lúc đầu nó ghi tên người gửi, dần dần chuyển sang “trả cho người cầm”, và từ đó mới chạy khắp chợ như tiền.</p>
+
+  <h2>Bước 2: tờ nào như tờ nấy</h2>
+  <p>Một phiếu nợ có lãi 5%, hạn tháng sau, và một phiếu có lãi 3%, hạn năm sau, thì không đáng như nhau dù cùng ghi 20 bó rau. Người nhận phải ngồi tính. Bỏ lãi, bỏ hạn, in sẵn mệnh giá tròn thì tờ nào cũng như tờ nào. Tính chất đó là <strong id="kn-tinh-thay-the">tính thay thế được</strong> <em class="tn">(fungibility)</em>. Nhờ nó mà người bán cá chỉ cần đếm, không cần đọc. Đây là một phần lớn của <KN id="kha-nang-ban">tính dễ bán</KN> mà Menger nói ở trang 6.</p>
+
+  <h2>Bước 3: đổi người nợ</h2>
+  <p>Bước này quan trọng nhất. Nhà kinh tế người Mỹ Hyman Minsky (1986) có một ý hay được nhắc lại: ai cũng làm ra được tiền, cái khó là làm cho người khác chịu nhận (mình dịch thoáng). An viết được giấy nợ, nhưng chỉ người quen An nhận. Kho muối viết thì 70 người nhận. Nhà kinh tế Perry Mehrling gọi đó là <strong id="kn-thu-bac-cua-tien">thứ bậc của tiền</strong> <em class="tn">(hierarchy of money)</em>. Nợ của người được tin hơn đứng cao hơn, và người ta dùng nó để trả các khoản nợ đứng thấp. An trả nợ Bình bằng phiếu của kho, chứ không ai trả nợ kho bằng giấy của An.</p>
+  <p>Đứng trên cùng là nhà nước, vì nhà nước có một thứ không ai khác có: quyền thu thuế. Adam Smith (1776) đã để ý rằng một ông vua chỉ cần quy định nộp một phần thuế bằng một loại giấy nào đó là loại giấy ấy có giá ngay (mình dịch thoáng). Ai cũng phải nộp thuế, nên ai cũng cần tờ giấy đó.</p>
+  <p>Ngày xưa tờ tiền giấy còn hứa đổi ra vàng hay bạc. Năm 1971, Mỹ thôi đổi đô la ra vàng, và từ đó không đồng tiền lớn nào còn đổi được ra vàng. Tiền giấy ngày nay là <strong id="kn-tien-phap-dinh">tiền pháp định</strong> <em class="tn">(fiat money)</em>. Ở Việt Nam, Luật Ngân hàng Nhà nước (2010) ghi tiền do Ngân hàng Nhà nước phát hành là “phương tiện thanh toán pháp quy”: dùng được để trả mọi khoản nợ trong nước.</p>
+
+  <h2>Chuyện có thật</h2>
+  <p><strong>Giao tử ở Tứ Xuyên.</strong> Tiền sắt nhà Tống nặng đến mức thương nhân gửi nó ở các hiệu buôn và cầm giấy nhận đi mua bán. Khoảng năm 1024, nhà nước giành lấy việc phát giấy này. Đó là tiền giấy do nhà nước phát hành sớm nhất được biết.</p>
+  <p><strong>Hồ Quý Ly năm 1396.</strong> Nhà Trần, dưới quyền Hồ Quý Ly, cho in tiền giấy Thông bảo hội sao, bắt dân đổi tiền đồng lấy tiền giấy và phạt nặng ai giấu tiền đồng. Nhiều người không tin tiền giấy, và việc buôn bán gặp khó khăn. Đây là bước 3 bị đi tắt: nhà nước có quyền bắt nhận, nhưng chưa có niềm tin.</p>
+
+  <h2>Trả lời gọn</h2>
+  <ul class="gon">
+    <li>Tiền giấy là một phiếu nợ. Nó khác phiếu nợ thường ở ba chỗ: không ghi tên người nhận, tờ nào như tờ nấy, và người nợ là người cả nước tin.</li>
+    <li>Phiếu nợ thường có lãi, có hạn, chỉ người quen người nợ nhận. Tiền giấy không lãi, không hạn, ai cũng nhận.</li>
+    <li>Ngày nay tiền giấy không đổi ra vàng nữa. Nó có giá vì nhà nước nhận nó khi thu thuế và luật buộc nhận nó khi trả nợ.</li>
+  </ul>
+
+  <div class="cau-hoi-lon">
+    <p class="nhan">Mảnh ghép thứ mười hai cho câu hỏi ngây thơ</p>
+    <p>Trên sổ của ngân hàng trung ương, mỗi tờ tiền giấy vẫn nằm ở cột “nợ phải trả”. Túi bạn +20, sổ của ngân hàng trung ương −20, cộng lại bằng không như mọi khoản nợ. Lạ ở chỗ khoản nợ này không bao giờ bị đòi: đem tờ 20 đồng đến đòi thì chỉ nhận lại một tờ 20 đồng khác. Vậy nó đáng giá nhờ đâu? Nhờ người khác chịu nhận, đúng như trang 2 đã nói. Trên sổ, tiền giấy là một cặp + và − tổng bằng không. Nhưng việc nó làm được, giúp 100 người đổi với nhau mà không cần quen nhau, thì không hề bằng không.</p>
+  </div>
+
+  <details class="gap">
+    <summary>Ghi nhớ và từ khóa</summary>
+    <ul class="gon">
+      <li>Tiền giấy là một phiếu nợ đã bỏ tên người nhận, đã chuẩn hóa, và có người nợ được cả nước tin.</li>
+      <li>Phiếu nợ trả cho người cầm thì chuyển tay được mà không cần hỏi ai.</li>
+      <li>Tờ nào như tờ nấy thì người nhận chỉ cần đếm, không cần đọc: tính thay thế được.</li>
+      <li>Nợ của người được tin hơn đứng cao hơn trong thứ bậc của tiền; nhà nước đứng trên cùng nhờ quyền thu thuế.</li>
+      <li>Từ năm 1971, tiền giấy lớn không đổi ra vàng nữa: tiền pháp định.</li>
+    </ul>
+    <div class="bang"><table>
+      <thead><tr><th>Tiếng Việt</th><th>Tiếng Anh</th><th>Nghĩa ngắn</th></tr></thead>
+      <tbody>
+        <tr><td>Phiếu trả cho người cầm</td><td>bearer instrument</td><td>Ai cầm thì người đó đòi được</td></tr>
+        <tr><td>Tính thay thế được</td><td>fungibility</td><td>Tờ nào cũng như tờ nào</td></tr>
+        <tr><td>Thứ bậc của tiền</td><td>hierarchy of money</td><td>Nợ của người được tin hơn đứng cao hơn</td></tr>
+        <tr><td>Tiền pháp định</td><td>fiat money</td><td>Có giá nhờ luật và thuế, không đổi ra vàng</td></tr>
+        <tr><td>Phương tiện thanh toán pháp quy</td><td>legal tender</td><td>Luật buộc nhận khi trả nợ</td></tr>
+      </tbody>
+    </table></div>
+  </details>
+  <details class="gap">
+    <summary>Tự kiểm tra (3 câu)</summary>
+    <p><strong>1.</strong> Một tờ giấy ghi “Kho muối nợ Bình 20 bao, trả sau một năm, lãi 2 bao”. Nó còn thiếu gì để thành tiền giấy?</p>
+    <details class="nho-mo"><summary>Đáp án</summary><p>Thiếu hai bước: bỏ tên Bình (trả cho người cầm), và bỏ lãi, bỏ hạn để tờ nào cũng như tờ nào. Người nợ là kho muối thì đã khá đáng tin.</p></details>
+    <p style="margin-top:1rem"><strong>2.</strong> Vì sao giấy của nhà nước đứng trên giấy của kho muối?</p>
+    <details class="nho-mo"><summary>Đáp án</summary><p>Vì nhà nước thu thuế bằng nó. Ai cũng phải nộp thuế, nên ai cũng cần tờ giấy đó, kể cả người không tin kho muối.</p></details>
+    <p style="margin-top:1rem"><strong>3.</strong> Đem tờ tiền giấy đến ngân hàng trung ương đòi “nợ” thì bạn nhận được gì?</p>
+    <details class="nho-mo"><summary>Đáp án</summary><p>Một tờ tiền khác cùng mệnh giá. Từ khi tiền không đổi ra vàng, khoản nợ này không bao giờ phải trả bằng thứ gì khác. Nó có giá vì người khác chịu nhận.</p></details>
+  </details>
+  <details class="gap nguon">
+    <summary>Nguồn</summary>
+    <ol>
+      <li>Bank of England, "What is money?" và dòng chữ trên giấy bạc. <a href="https://www.bankofengland.co.uk/explainers/what-is-money" target="_blank" rel="noopener">bankofengland.co.uk</a>.</li>
+      <li>Hyman P. Minsky, <em>Stabilizing an Unstable Economy</em>, 1986 (ai cũng làm ra được tiền, cái khó là được chấp nhận).</li>
+      <li>Perry Mehrling, "The Inherent Hierarchy of Money", 2012, in trong <em>Social Fairness and Economics</em> (Routledge, 2013).</li>
+      <li>Adam Smith, <em>The Wealth of Nations</em>, 1776, quyển II chương 2 (nộp thuế bằng giấy làm giấy có giá).</li>
+      <li>Glyn Davies, <em>A History of Money</em>, 1994 (giấy nhận vàng của thợ kim hoàn; giao tử nhà Tống).</li>
+      <li><em>Đại Việt sử ký toàn thư</em>, Bản kỷ, kỷ nhà Trần, năm Bính Tý 1396 (tiền giấy Thông bảo hội sao).</li>
+      <li>Luật Ngân hàng Nhà nước Việt Nam số 46/2010/QH12, điều 17 (phương tiện thanh toán pháp quy).</li>
+    </ol>
+  </details>
+
+<script is:inline>
+(function () {
+/* Trang 12: 100 người hỏi 3 câu với một tờ giấy nợ: được đòi không, tin người nợ không, có phải đọc kỹ không. */
+var boTen = false, chuan = false, nguoiNo = "an";
+function o(id) { return document.getElementById(id); }
+function quenAn(i) { return i < 10; }                 /* 10 người quen An, người số 0 là Bình */
+function tinKho(i) { return (i * 37) % 100 < 70; }    /* 70 người tin kho muối */
+function ranh(i) { return (i * 53 + 11) % 100 < 30; } /* 30 người có thì giờ đọc kỹ từng tờ */
+var luoi = o("t12g-luoi");
+for (var i = 0; i < 100; i++) luoi.appendChild(document.createElement("span"));
+function toGiay() {
+  var ai = nguoiNo === "an" ? "An" : nguoiNo === "kho" ? "Kho muối" : "Nhà nước";
+  var mon = nguoiNo === "an" ? "bó rau" : nguoiNo === "kho" ? "bao muối" : "đồng";
+  if (nguoiNo === "nn" && boTen && chuan) return "<b>TỜ 20 ĐỒNG</b><br>Dùng để nộp thuế và trả mọi khoản nợ trong nước.<small>Không tên, không lãi, không hạn. Đây là tiền giấy.</small>";
+  var cho = boTen ? "cho người cầm tờ này" : "cho Bình";
+  var khi = chuan ? "khi người đó đòi" : "sau mùa cá, kèm lãi 2 " + mon;
+  var so = chuan ? "20 " + mon : "24 " + mon;
+  if (nguoiNo === "nn") return ai + " sẽ trả " + so + " " + cho + " " + khi + ". Nhận tờ này khi thu thuế.<small>" + [boTen ? "" : "Còn ghi tên người nhận.", chuan ? "" : "Mỗi tờ một hạn, một mức lãi."].filter(Boolean).join("<br>") + "</small>";
+  return ai + " sẽ trả " + so + " " + cho + " " + khi + ".<small>" + (boTen ? "Không ghi tên người nhận." : "Ghi tên người nhận.") + "<br>" + (chuan ? "Tờ nào như tờ nấy." : "Mỗi tờ một hạn, một mức lãi.") + "</small>";
+}
+function ve() {
+  var dem = { nhan: 0, ten: 0, tin: 0, ngai: 0 };
+  Array.prototype.forEach.call(luoi.children, function (s, i) {
+    var c1 = boTen || i === 0;
+    var c2 = nguoiNo === "an" ? quenAn(i) : nguoiNo === "kho" ? tinKho(i) : true;
+    var c3 = chuan || ranh(i);
+    if (!c1) { s.textContent = "✍️"; s.className = "da-di"; dem.ten++; }
+    else if (!c2) { s.textContent = "🤨"; s.className = "da-di"; dem.tin++; }
+    else if (!c3) { s.textContent = "🔍"; s.className = "da-di"; dem.ngai++; }
+    else { s.textContent = "🤝"; s.className = "la-tien"; dem.nhan++; }
+  });
+  o("t12g-nhan").textContent = dem.nhan; o("t12g-vuong-ten").textContent = dem.ten;
+  o("t12g-khong-tin").textContent = dem.tin; o("t12g-ngai").textContent = dem.ngai;
+  o("t12g-to").innerHTML = toGiay();
+  var ket;
+  if (dem.nhan === 100) ket = "<b>100 người nhận: đây là tiền giấy.</b> Vẫn là một lời hứa trả, nhưng không ghi tên ai, tờ nào như tờ nấy, và người hứa là người cả chợ cần.";
+  else if (dem.nhan <= 1) ket = "<b>Chỉ Bình nhận.</b> Đây là một phiếu nợ bình thường: giấy ghi tên Bình nên người khác cầm cũng không đòi được.";
+  else {
+    var vuong = dem.ten >= dem.tin && dem.ten >= dem.ngai ? "giấy còn ghi tên người nhận" : dem.tin >= dem.ngai ? "nhiều người không tin người nợ" : "mỗi tờ một kiểu nên nhiều người ngại đọc kỹ";
+    ket = "<b>" + dem.nhan + " người nhận.</b> Tờ giấy đã đi được nhiều tay hơn, nhưng chưa phải tiền giấy. Chỗ vướng lớn nhất: " + vuong + ".";
+  }
+  o("t12g-ket").innerHTML = ket;
+}
+o("t12g-ten").addEventListener("click", function () { boTen = !boTen; this.setAttribute("aria-pressed", String(boTen)); ve(); });
+o("t12g-chuan").addEventListener("click", function () { chuan = !chuan; this.setAttribute("aria-pressed", String(chuan)); ve(); });
+o("t12g-no").querySelectorAll(".chip").forEach(function (b) {
+  b.addEventListener("click", function () {
+    nguoiNo = b.getAttribute("data-no");
+    o("t12g-no").querySelectorAll(".chip").forEach(function (x) { x.setAttribute("aria-pressed", String(x === b)); });
+    ve();
+  });
+});
+ve();
+})();
+</script>
