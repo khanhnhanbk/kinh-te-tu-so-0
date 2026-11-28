@@ -1,0 +1,191 @@
+---
+// Trang 5: Ba người, ba món. Câu hỏi, số dân, trang cha nằm ở meta.json cùng thư mục.
+import KN from '../../components/KN.astro';
+---
+
+  <p class="dan-nhap">Đúng vậy. Với hai người, An có thứ Bình cần và Bình có thứ An cần, nên đổi thẳng là xong. Đó là <KN id="trung-khop-nhu-cau-kep">trùng khớp nhu cầu kép</KN>, và khi có nó thì tiền chưa có việc gì để làm. Giờ ta thêm người thứ ba và xem thế giới phải sắp xếp ra sao để cả ba cùng sống, trước khi nghĩ tới tiền.</p>
+
+  <h2>Ba người, mỗi người cần thứ của người kế bên</h2>
+  <p>An trồng rau, Bình đánh cá, Chi may áo. Mỗi người chỉ làm một món, và mỗi người cần đúng một món của người khác: <strong>An cần cá, Bình cần áo, Chi cần rau.</strong> Bấm hai người để cho họ gặp nhau:</p>
+
+  <div class="thu" id="t5v">
+    <p class="nhan">Ai gặp ai?</p>
+    <div class="tam-giac" role="group" aria-label="Ba người">
+      <button type="button" class="nguoi-tg" data-ai="an" aria-pressed="false"><b>An</b><span>có 🥬 rau</span><span>cần 🐟 cá</span><i class="du" hidden>✓</i></button>
+      <button type="button" class="nguoi-tg" data-ai="binh" aria-pressed="false"><b>Bình</b><span>có 🐟 cá</span><span>cần 👕 áo</span><i class="du" hidden>✓</i></button>
+      <button type="button" class="nguoi-tg" data-ai="chi" aria-pressed="false"><b>Chi</b><span>có 👕 áo</span><span>cần 🥬 rau</span><i class="du" hidden>✓</i></button>
+    </div>
+    <div class="hanh-dong">
+      <button type="button" class="nut-nho" id="t5v-ca-ba">Cho cả ba gặp nhau một lúc</button>
+      <button type="button" class="nut-nho" id="t5v-lai">Làm lại</button>
+    </div>
+    <p class="ket-luan" id="t5v-ket" aria-live="polite">Bấm hai người bất kỳ.</p>
+  </div>
+
+  <p>Cặp nào gặp nhau cũng chỉ có <em>một</em> người muốn đổi. An muốn cá của Bình, nhưng Bình không cần rau. Bình muốn áo của Chi, nhưng Chi không cần cá. Cả ba đều có thứ người khác cần, vậy mà không cặp nào đổi thẳng được. Kiểu kẹt này gọi là <strong id="kn-nhu-cau-vong">nhu cầu vòng tròn</strong> <em class="tn">(cycle of wants)</em>. Năm 1989, hai nhà kinh tế Nobuhiro Kiyotaki và Randall Wright dùng đúng ba người, ba món, xếp vòng như thế này để giải thích vì sao tiền ra đời.</p>
+  <p>Nhưng khi cả ba đứng cùng một chỗ, vòng tròn khép lại: An đưa rau cho Chi, Chi đưa áo cho Bình, Bình đưa cá cho An. Mỗi người đưa một món, nhận một món, ai cũng có thứ mình cần. Một chỗ và một lúc để nhiều người cùng gặp nhau như vậy chính là <strong id="kn-cho">chợ</strong> <em class="tn">(market)</em>.</p>
+
+  <h2>Bảng giá nào thì cân bằng</h2>
+  <p>Ở trang 3, An và Bình chỉ cần một con số: 1 cá đổi mấy rau. Đó là <strong id="kn-gia-tuong-doi">giá tương đối</strong> <em class="tn">(relative price)</em>. Có ba món thì cần ba con số: cá theo rau, áo theo cá, và áo theo rau. Ba con số này phải khớp với nhau. Chỉnh thử:</p>
+
+  <div class="thu" id="t5g">
+    <p class="nhan">Bảng giá của chợ ba người</p>
+    <div class="bang-gia">
+      <div class="dong-gia"><span>1 🐟 cá =</span><span class="o-so"><button type="button" class="tru" data-o="t5g-ca" aria-label="Bớt">−</button><input id="t5g-ca" type="number" inputmode="decimal" min="0.5" max="10" step="0.5" value="2" aria-label="Một cá đổi bao nhiêu rau"><button type="button" class="cong" data-o="t5g-ca" aria-label="Thêm">+</button></span><span>🥬 rau</span></div>
+      <div class="dong-gia"><span>1 👕 áo =</span><span class="o-so"><button type="button" class="tru" data-o="t5g-ao-ca" aria-label="Bớt">−</button><input id="t5g-ao-ca" type="number" inputmode="decimal" min="0.5" max="10" step="0.5" value="3" aria-label="Một áo đổi bao nhiêu cá"><button type="button" class="cong" data-o="t5g-ao-ca" aria-label="Thêm">+</button></span><span>🐟 cá</span></div>
+      <div class="dong-gia"><span>1 👕 áo =</span><span class="o-so"><button type="button" class="tru" data-o="t5g-ao-rau" aria-label="Bớt">−</button><input id="t5g-ao-rau" type="number" inputmode="decimal" min="0.5" max="30" step="0.5" value="8" aria-label="Một áo đổi bao nhiêu rau"><button type="button" class="cong" data-o="t5g-ao-rau" aria-label="Thêm">+</button></span><span>🥬 rau</span></div>
+    </div>
+    <ol class="vong-loi" id="t5g-vong" aria-live="polite"></ol>
+    <p class="ket-luan" id="t5g-ket" aria-live="polite"></p>
+  </div>
+
+  <p>Khi ba giá không khớp, luôn có một vòng đổi giúp người đi vòng quay về với nhiều hơn lúc đầu mà không làm ra thêm gì. Đó là <strong id="kn-chenh-lech-gia">kinh doanh chênh lệch giá</strong> <em class="tn">(arbitrage)</em>. Người đi vòng lời bao nhiêu thì những người đổi với họ hụt bấy nhiêu, nên chẳng ai muốn giữ bảng giá lệch. Ai bị hụt sẽ đòi đổi giá, cho tới khi vòng lời biến mất.</p>
+  <p>Lúc đó thế giới ở <strong id="kn-can-bang">trạng thái cân bằng</strong> <em class="tn">(equilibrium)</em>: không ai muốn đổi cách làm của mình nữa. Ai cần gì đã đổi được, và không còn vòng nào để lời không. Léon Walras (1874) là người đầu tiên viết ra cân bằng cho cả một nền kinh tế nhiều món. Tám mươi năm sau, Kenneth Arrow và Gérard Debreu chứng minh rằng, với vài điều kiện, một bảng giá như vậy luôn tồn tại. Cả hai đều nhận Nobel nhờ công trình này (Arrow 1972, Debreu 1983).</p>
+
+  <h2>Càng nhiều món, bảng giá càng dài</h2>
+  <p>Ba món cần ba giá. Nhưng cứ thêm món là số giá tăng vọt, vì món nào cũng phải có giá theo từng món còn lại:</p>
+
+  <div class="thu" id="t5n">
+    <p class="nhan">Thế giới có bao nhiêu món?</p>
+    <div class="hanh-dong" id="t5n-chon"></div>
+    <div class="do" aria-live="polite">
+      <div><b id="t5n-mon">3</b><span>món</span></div>
+      <div class="vang-chu"><b id="t5n-cap">3</b><span>giá phải nhớ khi đổi thẳng</span></div>
+      <div><b id="t5n-don">2</b><span>giá nếu mọi thứ tính theo một món</span></div>
+    </div>
+  </div>
+
+  <p>Đổi thẳng với <i>n</i> món cần n×(n−1)÷2 giá. Nhưng nếu cả chợ thống nhất tính mọi thứ theo <em>một</em> món, chẳng hạn theo cá, thì chỉ cần n−1 giá: rau bao nhiêu cá, áo bao nhiêu cá, và xong. Món được chọn làm thước đó đang làm đúng việc thứ hai của tiền: <KN id="don-vi-tinh-gia">đơn vị tính giá</KN>. Chưa có đồng tiền nào, nhưng chỗ cho nó đã có sẵn.</p>
+
+  <h2>Cân bằng này mong manh ở đâu</h2>
+  <p>Thế cân bằng ở trên đứng vững nhờ một điều kiện: <strong>cả ba phải gặp nhau cùng lúc.</strong> Rau có mùa, cá có con nước, áo may mất mấy ngày. Nếu hôm nay chỉ An gặp Bình, An không có gì Bình cần. Bình có thể đưa cá trước và chờ, tức là An <KN id="no">nợ</KN> Bình. Nhưng Bình đâu cần rau của An, Bình cần áo của Chi. Món nợ ấy chỉ có ích với Bình nếu Bình đem nó đi đổi được với Chi. Đó sẽ là câu chuyện của trang sau, nếu bạn hỏi tới.</p>
+
+  <div class="cau-hoi-lon">
+    <p class="nhan">Mảnh ghép thứ năm cho câu hỏi ngây thơ</p>
+    <p>Trang này có hai kiểu đổi. Khi cả ba đổi vòng ở chợ, mỗi người đưa một món, nhận một món, ai cũng khá hơn: tổng tăng. Còn kinh doanh chênh lệch giá thì khác: người đi vòng lời đúng bằng phần người khác hụt, không có thêm cái áo hay bó rau nào. Đây là lần đầu cuốn sách gặp một cái lời <strong>đúng là tổng bằng không</strong>. Và chính vì nó tổng bằng không, người bị hụt sẽ không chịu, nên trong thế cân bằng nó biến mất. Câu hỏi của bạn có một phần đúng: có những cách kiếm lời tổng bằng không thật. Chỉ là phần lớn việc đổi chác không thuộc loại đó.</p>
+  </div>
+
+  <details class="gap">
+    <summary>Ghi nhớ và từ khóa</summary>
+    <ul class="gon">
+      <li>Hai người thì đổi thẳng được, chưa cần tiền. Ba người với nhu cầu vòng tròn thì không cặp nào tự đổi được (Kiyotaki và Wright, 1989).</li>
+      <li>Cả ba gặp nhau cùng lúc ở chợ thì vòng tròn khép lại, ai cũng có thứ mình cần.</li>
+      <li>Giá tương đối phải khớp nhau; lệch thì có vòng lời không, và người khác hụt đúng bấy nhiêu.</li>
+      <li>Cân bằng: không ai muốn đổi cách làm nữa (Walras 1874; Arrow và Debreu 1954).</li>
+      <li>n món cần n×(n−1)÷2 giá khi đổi thẳng, chỉ n−1 giá nếu tính theo một món chung.</li>
+    </ul>
+    <div class="bang"><table>
+      <thead><tr><th>Tiếng Việt</th><th>Tiếng Anh</th><th>Nghĩa ngắn</th></tr></thead>
+      <tbody>
+        <tr><td>Nhu cầu vòng tròn</td><td>cycle of wants</td><td>Mỗi người cần đồ của người kế bên, không cặp nào khớp</td></tr>
+        <tr><td>Chợ, thị trường</td><td>market</td><td>Chỗ và lúc nhiều người cùng gặp để đổi</td></tr>
+        <tr><td>Giá tương đối</td><td>relative price</td><td>Một món đổi được bao nhiêu món khác</td></tr>
+        <tr><td>Kinh doanh chênh lệch giá</td><td>arbitrage</td><td>Đi vòng đổi chác mà lời nhờ giá lệch</td></tr>
+        <tr><td>Trạng thái cân bằng</td><td>equilibrium</td><td>Không ai muốn đổi cách làm nữa</td></tr>
+        <tr><td>Cân bằng tổng thể</td><td>general equilibrium</td><td>Mọi chợ, mọi giá cùng khớp một lúc</td></tr>
+      </tbody>
+    </table></div>
+  </details>
+  <details class="gap">
+    <summary>Tự kiểm tra (3 câu)</summary>
+    <p><strong>1.</strong> An cần cá, Bình cần áo, Chi cần rau. Nếu chỉ An và Chi gặp nhau thì có đổi được không?</p>
+    <details class="nho-mo"><summary>Đáp án</summary><p>Không đổi thẳng được. Chi muốn rau của An, nhưng An không cần áo. Chỉ một bên muốn đổi.</p></details>
+    <p style="margin-top:1rem"><strong>2.</strong> Chợ ghi: 1 cá = 2 rau, 1 áo = 3 cá, 1 áo = 8 rau. Bạn có 1 áo. Đi vòng thế nào để lời?</p>
+    <details class="nho-mo"><summary>Đáp án</summary><p>Đổi 1 áo lấy 8 rau, 8 rau lấy 4 cá, 4 cá lấy 1⅓ áo. Lời ⅓ áo mà không may thêm gì, vì giá áo tính theo rau (8) cao hơn 2 × 3 = 6.</p></details>
+    <p style="margin-top:1rem"><strong>3.</strong> Thế giới có 10 món. Đổi thẳng cần bao nhiêu giá? Tính theo một món chung thì cần bao nhiêu?</p>
+    <details class="nho-mo"><summary>Đáp án</summary><p>10 × 9 ÷ 2 = 45 giá khi đổi thẳng. Chỉ 9 giá nếu mọi món tính theo một món chung.</p></details>
+  </details>
+  <details class="gap nguon">
+    <summary>Nguồn</summary>
+    <ol>
+      <li>Nobuhiro Kiyotaki và Randall Wright, "On Money as a Medium of Exchange", <em>Journal of Political Economy</em> 97(4), 1989 (ba người, ba món, nhu cầu xếp vòng).</li>
+      <li>Léon Walras, <em>Éléments d'économie politique pure</em>, 1874 (cân bằng tổng thể).</li>
+      <li>Kenneth J. Arrow và Gérard Debreu, "Existence of an Equilibrium for a Competitive Economy", <em>Econometrica</em> 22(3), 1954. Nobel kinh tế: Arrow 1972, Debreu 1983. <a href="https://www.nobelprize.org/prizes/economic-sciences/1983/debreu/facts/" target="_blank" rel="noopener">nobelprize.org</a>.</li>
+      <li>W. S. Jevons, <em>Money and the Mechanism of Exchange</em>, 1875 (cái khó của đổi thẳng: thiếu trùng khớp nhu cầu và thiếu một thước đo chung).</li>
+      <li>N. Gregory Mankiw, <em>Principles of Economics</em>, chương về thị trường và chương "The Monetary System".</li>
+    </ol>
+  </details>
+
+<script is:inline>
+(function () {
+/* Trang 5: ai gặp ai. An có rau cần cá, Bình có cá cần áo, Chi có áo cần rau. */
+var TEN = { an: "An", binh: "Bình", chi: "Chi" }, CO = { an: "rau", binh: "cá", chi: "áo" }, CAN = { an: "cá", binh: "áo", chi: "rau" };
+var chon = [], ket = document.getElementById("t5v-ket"), nut = document.querySelectorAll("#t5v .nguoi-tg");
+function muon(a, b) { return CAN[a] === CO[b]; }
+function boChon() { chon = []; nut.forEach(function (n) { n.setAttribute("aria-pressed", "false"); }); }
+function danhDau(ds) { nut.forEach(function (n) { n.querySelector(".du").hidden = ds.indexOf(n.getAttribute("data-ai")) < 0; n.classList.toggle("da-du", ds.indexOf(n.getAttribute("data-ai")) >= 0); }); }
+nut.forEach(function (n) {
+  n.addEventListener("click", function () {
+    var ai = n.getAttribute("data-ai");
+    if (chon.indexOf(ai) >= 0) { boChon(); ket.textContent = "Bấm hai người bất kỳ."; return; }
+    chon.push(ai); n.setAttribute("aria-pressed", "true"); danhDau([]);
+    if (chon.length < 2) { ket.textContent = TEN[ai] + " đang đi tìm người đổi. Bấm thêm một người nữa."; return; }
+    var a = chon[0], b = chon[1], ab = muon(a, b), ba = muon(b, a);
+    var nguoiMuon = ab ? a : b, nguoiKia = ab ? b : a;
+    ket.innerHTML = TEN[a] + " gặp " + TEN[b] + ". " + TEN[nguoiMuon] + " muốn " + CO[nguoiKia] + " của " + TEN[nguoiKia] + ", nhưng " + TEN[nguoiKia] + " không cần " + CO[nguoiMuon] + ". <b>Không đổi được.</b>";
+    boChon();
+  });
+});
+document.getElementById("t5v-ca-ba").addEventListener("click", function () {
+  boChon(); danhDau(["an", "binh", "chi"]);
+  ket.innerHTML = "<b>Cả ba cùng có thứ mình cần.</b> An đưa rau cho Chi, Chi đưa áo cho Bình, Bình đưa cá cho An. Mỗi người đưa một món, nhận một món.";
+});
+document.getElementById("t5v-lai").addEventListener("click", function () { boChon(); danhDau([]); ket.textContent = "Bấm hai người bất kỳ."; });
+})();
+
+(function () {
+/* Trang 5: bảng giá ba món. p1 = rau cho 1 cá, p2 = cá cho 1 áo, p3 = rau cho 1 áo. Khớp khi p3 = p1 × p2. */
+function o(id) { return document.getElementById(id); }
+function doc(id) { var e = o(id), v = parseFloat(String(e.value).replace(",", ".")); if (isNaN(v)) v = +e.min; return Math.min(+e.max, Math.max(+e.min, v)); }
+function so(n) { return (Math.round(n * 100) / 100).toString().replace(".", ","); }
+var vong = o("t5g-vong"), ket = o("t5g-ket");
+function ve() {
+  var p1 = doc("t5g-ca"), p2 = doc("t5g-ao-ca"), p3 = doc("t5g-ao-rau"), khop = p1 * p2;
+  vong.innerHTML = "";
+  function buoc(t) { var li = document.createElement("li"); li.innerHTML = t; vong.appendChild(li); }
+  if (Math.abs(p3 - khop) < 1e-9) {
+    ket.innerHTML = "<b>Cân bằng.</b> 1 áo = " + so(p2) + " cá = " + so(khop) + " rau, đi đường nào cũng như nhau. Không còn vòng nào để lời không.";
+    return;
+  }
+  if (p3 > khop) {
+    var ca = p3 / p1, ao = ca / p2;
+    buoc("Đem 1 👕 áo đổi lấy <b>" + so(p3) + "</b> 🥬 rau");
+    buoc("Đem " + so(p3) + " rau đổi lấy <b>" + so(ca) + "</b> 🐟 cá");
+    buoc("Đem " + so(ca) + " cá đổi lấy <b>" + so(ao) + "</b> 👕 áo");
+    ket.innerHTML = "<b>Lệch giá.</b> Đi một vòng, 1 áo thành " + so(ao) + " áo. Lời " + so(ao - 1) + " áo mà không may thêm mũi nào. Áo tính theo rau đang đắt hơn " + so(p2) + " × " + so(p1) + " = " + so(khop) + ".";
+  } else {
+    var ao2 = 1 / p3, ca2 = ao2 * p2, rau = ca2 * p1;
+    buoc("Đem 1 🥬 rau đổi lấy <b>" + so(ao2) + "</b> 👕 áo");
+    buoc("Đem " + so(ao2) + " áo đổi lấy <b>" + so(ca2) + "</b> 🐟 cá");
+    buoc("Đem " + so(ca2) + " cá đổi lấy <b>" + so(rau) + "</b> 🥬 rau");
+    ket.innerHTML = "<b>Lệch giá.</b> Đi một vòng, 1 rau thành " + so(rau) + " rau. Lời " + so(rau - 1) + " rau mà không trồng thêm cây nào. Áo tính theo rau đang rẻ hơn " + so(p2) + " × " + so(p1) + " = " + so(khop) + ".";
+  }
+}
+document.querySelectorAll("#t5g .o-so button").forEach(function (b) {
+  b.addEventListener("click", function () {
+    var e = o(b.getAttribute("data-o")), st = +e.step, v = doc(e.id) + (b.classList.contains("cong") ? st : -st);
+    e.value = Math.round(Math.min(+e.max, Math.max(+e.min, v)) * 100) / 100; ve();
+  });
+});
+document.querySelectorAll("#t5g input").forEach(function (e) { e.addEventListener("input", ve); });
+ve();
+})();
+
+(function () {
+/* Trang 5: số giá phải nhớ khi có n món */
+var chonN = o5("t5n-chon");
+function o5(id) { return document.getElementById(id); }
+function nhom(n) { return n.toLocaleString("vi-VN"); }
+function ve(n) {
+  o5("t5n-mon").textContent = nhom(n);
+  o5("t5n-cap").textContent = nhom(n * (n - 1) / 2);
+  o5("t5n-don").textContent = nhom(n - 1);
+  chonN.querySelectorAll("button").forEach(function (b) { b.setAttribute("aria-pressed", String(+b.getAttribute("data-n") === n)); });
+}
+[3, 10, 100, 1000, 10000].forEach(function (n) {
+  var b = document.createElement("button"); b.type = "button"; b.className = "nut-nho"; b.setAttribute("data-n", n); b.textContent = nhom(n) + " món";
+  b.addEventListener("click", function () { ve(n); }); chonN.appendChild(b);
+});
+ve(3);
+})();
+</script>
