@@ -313,3 +313,22 @@ strong[id^="kn-"]:target { outline: none; background: var(--vang-nen); box-shado
 .vong-loi { margin: 0.75rem 0 0; padding-left: 1.4rem; font-family: var(--chu-nhan); font-size: 0.92rem; display: grid; gap: 0.2rem; }
 .vong-loi:empty { display: none; }
 #t5n-chon .nut-nho[aria-pressed="true"] { background: var(--bien); color: var(--giay); }
+
+/* Trang 6: chợ 100 người, tính chất từng món, thẻ tiền xưa */
+.bang-mon { display: grid; grid-template-columns: repeat(auto-fill, minmax(15rem, 1fr)); gap: 0.4rem 1rem; font-family: var(--chu-nhan); font-size: 0.9rem; }
+.dong-mon { display: flex; align-items: center; gap: 0.35rem; min-width: 0; }
+.dong-mon .ten-mon { min-width: 4.8rem; }
+.chip { font: inherit; font-size: 0.82rem; padding: 0.25rem 0.65rem; border-radius: 999px; cursor: pointer; border: 1px solid var(--vien); background: var(--giay); color: var(--muc-nhat); }
+.chip[aria-pressed="true"] { border-color: var(--bien); color: var(--bien); font-weight: 600; }
+.chip:hover { border-color: var(--muc-nhat); }
+.cho-100 { display: grid; grid-template-columns: repeat(10, minmax(0, 1fr)); gap: 3px; margin: 0.9rem 0; max-width: 26rem; }
+.cho-100 span { aspect-ratio: 1; display: grid; place-items: center; background: var(--giay); border-radius: 5px; font-size: clamp(0.85rem, 3.6vw, 1.15rem); line-height: 1; }
+.the-tien-luoi { display: grid; grid-template-columns: repeat(auto-fill, minmax(13rem, 1fr)); gap: 0.6rem; }
+.the-tien { display: grid; gap: 0.15rem; align-content: start; text-align: left; padding: 0.75rem 0.9rem; border-radius: 12px; border: 1px solid var(--vien); background: var(--giay);
+  color: var(--muc); font-family: var(--chu-nhan); font-size: 0.88rem; cursor: pointer; transition: border-color .2s; }
+.the-tien:hover { border-color: var(--muc-nhat); }
+.the-tien[aria-expanded="true"] { border-color: var(--bien); }
+.the-tien .hinh { font-size: 1.6rem; line-height: 1.2; }
+.the-tien b { font-family: var(--chu-tieu-de); font-size: 1.05rem; }
+.the-tien .noi { color: var(--muc-nhat); font-size: 0.8rem; }
+.the-tien .ke { margin-top: 0.4rem; line-height: 1.55; }

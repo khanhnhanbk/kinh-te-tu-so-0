@@ -20,3 +20,4 @@ Chạy ở máy: `pnpm install`, rồi `pnpm dev`. Mỗi trang là một thư m�
 | 3 | Người thứ hai xuất hiện: một người trồng rau, một người đánh cá, phải đổi cho nhau mới sống được. Tiền đóng vai trò gì? Vì sao họ đổi được với nhau, hay cả hai cùng chết? | Rau đổi cá | 2 |
 | 4 | Sao hai người lại trùng hợp bổ sung cho nhau vậy? Nếu một người vừa trồng rau vừa nuôi cá, còn người kia làm việc có vẻ không liên quan, như may áo hay xây nhà, thì có đổi được không, và người đó có sống được không? | Người may áo | 3 |
 | 5 | Tiền chưa xuất hiện vì chưa cần thiết, đúng không? Giờ thêm một người nữa, thế giới có ba người. Giúp mình dựng thế cân bằng trước đã. | Ba người, ba món | 4 |
+| 6 | Lên 100 hay 1.000 người thì đổi vòng rất khó. Đó có phải là lý do tiền xuất hiện, và đồng tiền đầu tiên ra đời thế nào? | Đồng tiền đầu tiên | 5 |
