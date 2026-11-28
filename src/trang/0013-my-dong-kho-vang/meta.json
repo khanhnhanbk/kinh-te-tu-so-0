@@ -1,0 +1,21 @@
+{
+  "so": 13,
+  "slug": "my-dong-kho-vang",
+  "ten": "Mỹ đóng kho vàng",
+  "cauHoi": "Từ năm 1971, tiền giấy lớn không đổi ra vàng nữa. Tại sao Mỹ có thể làm điều này, và tại sao người ta vẫn tin đô la Mỹ?",
+  "cha": "phieu-no-thanh-tien-giay",
+  "danSo": 100,
+  "ngay": "2026-11-28",
+  "moTa": "Năm 1971 là một vụ rút tiền hàng loạt ở cấp cả thế giới, và Mỹ là cái kho đóng cửa. Vì sao không ai bắt được Mỹ mở lại, và vì sao người ta vẫn giữ đô la: tự chọn tiêu chí và so bốn ứng viên.",
+  "goiY": [
+    "Nếu Mỹ in quá nhiều đô la thì Việt Nam bị ảnh hưởng thế nào?",
+    "Vì sao Việt Nam cũng giữ đô la và vàng?",
+    "Một ngày nào đó thế giới có thể bỏ đô la không?"
+  ],
+  "khaiNiem": [
+    { "id": "he-thong-bretton-woods", "ten": "Hệ thống Bretton Woods", "en": "Bretton Woods system", "nghia": "Luật chơi tiền tệ của thế giới từ năm 1944 đến năm 1971: các đồng tiền neo vào đô la, còn ngân hàng trung ương nước ngoài được đổi đô la ra vàng ở giá 35 đô la một ounce." },
+    { "id": "nghich-ly-triffin", "ten": "Nghịch lý Triffin", "en": "Triffin dilemma", "nghia": "Thế khó của nước có đồng tiền cả thế giới dùng chung: phải đưa ra ngoài thật nhiều tiền để thế giới đủ dùng, nhưng càng đưa nhiều thì càng khó giữ lời hứa đổi tiền đó ra thứ khác (Robert Triffin, 1960)." },
+    { "id": "tien-te-du-tru", "ten": "Tiền tệ dự trữ", "en": "reserve currency", "nghia": "Đồng tiền mà ngân hàng trung ương các nước giữ để dành, và các nước dùng để buôn bán, vay mượn với nhau." },
+    { "id": "dac-quyen-qua-muc", "ten": "Đặc quyền quá mức", "en": "exorbitant privilege", "nghia": "Lợi thế của nước có tiền tệ dự trữ: vay rẻ hơn, và mua được hàng thật của nước khác bằng tiền do chính mình làm ra." }
+  ]
+}
