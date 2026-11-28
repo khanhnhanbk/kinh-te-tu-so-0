@@ -1,0 +1,154 @@
+---
+// Trang 8: Kẻ cướp và 99 người. Câu hỏi, số dân, trang cha nằm ở meta.json cùng thư mục.
+import KN from '../../components/KN.astro';
+---
+
+  <p class="dan-nhap">Cướp được chứ, và lịch sử có rất nhiều kẻ cướp. Nhưng cướp có một cái tật: nó không làm ra thêm bó rau, con cá nào. Nó chỉ chuyển đồ từ tay người làm sang tay người lấy. Thử làm kẻ cướp một lần là thấy ngay chuyện gì xảy ra sau mùa đầu tiên.</p>
+
+  <h2>Bạn là kẻ cướp</h2>
+  <p>99 người, mỗi người một mùa làm ra 10 phần đồ. Người ta làm chăm hay lười tùy vào phần mình được giữ lại: bị lấy càng nhiều thì càng ít muốn bỏ công. Đó là <strong id="kn-dong-luc">động lực</strong> <em class="tn">(incentive)</em>. Ai giữ lại không đủ ăn thì phải ăn cả hạt giống, mùa sau làm ra ít hơn. Ai giữ lại dư dả thì gieo thêm, mùa sau làm ra nhiều hơn. Chọn cách cướp và xem 20 mùa:</p>
+
+  <div class="thu" id="t8k">
+    <p class="nhan">Kẻ cướp chọn cách nào? (cộng dồn 20 mùa)</p>
+    <div class="hanh-dong" id="t8k-kieu" role="group" aria-label="Cách cướp">
+      <button type="button" class="chip" data-k="di" aria-pressed="true">Cướp sạch rồi đi</button>
+      <button type="button" class="chip" data-k="o" aria-pressed="false">Ở lại, lấy đều mỗi mùa</button>
+      <button type="button" class="chip" data-k="khong" aria-pressed="false">Không ai cướp</button>
+    </div>
+    <div class="bang-gia" id="t8k-dong-ty" hidden>
+      <div class="dong-gia"><span>Mỗi mùa lấy</span><span class="o-so"><button type="button" class="tru" data-o="t8k-ty" aria-label="Bớt">−</button><input id="t8k-ty" type="number" inputmode="numeric" min="0" max="100" step="5" value="50" aria-label="Kẻ cướp lấy bao nhiêu phần trăm mỗi mùa"><button type="button" class="cong" data-o="t8k-ty" aria-label="Thêm">+</button></span><span>% đồ làm ra</span></div>
+    </div>
+    <div class="do" aria-live="polite">
+      <div class="vang-chu"><b id="t8k-lay">0</b><span>phần kẻ cướp lấy</span></div>
+      <div><b id="t8k-giu">0</b><span>phần 99 người giữ</span></div>
+      <div><b id="t8k-tong">0%</b><span>đồ làm ra so với không ai cướp</span></div>
+    </div>
+    <svg class="bieu-do" id="t8k-bd" viewBox="0 0 600 200" role="img" aria-labelledby="t8k-bd-ten"><title id="t8k-bd-ten">Đồ làm ra mỗi mùa, chia phần kẻ cướp lấy và phần 99 người giữ</title></svg>
+    <p class="chu-giai"><span><i class="dau an"></i>Kẻ cướp lấy</span><span><i class="dau chi"></i>99 người giữ</span><span><i class="dau goc"></i>Nếu không ai cướp</span></p>
+    <p class="ket-luan" id="t8k-ket" aria-live="polite"></p>
+  </div>
+  <p class="chu-nho">Cách tính: bị lấy t% thì mỗi người chỉ bỏ ra (100 − t)% công sức. Ai giữ lại dưới 4 phần thì mùa sau làm ra ít đi 10% (dưới 1 phần thì mất một nửa); từ 6 phần trở lên thì mùa sau làm ra nhiều hơn 2%. Cướp sạch rồi đi là đánh bất ngờ: mùa đó người ta vẫn làm đủ, rồi mất hết.</p>
+
+  <h2>Kẻ cướp khôn thì ở lại</h2>
+  <p>Cướp sạch rồi đi được một mẻ lớn, rồi hết. 99 người mất hạt giống, mùa sau đói, mất mấy năm mới gượng dậy. Còn kẻ cướp ở lại thì muốn mùa sau còn có cái để lấy. Họ tự hạn chế: lấy vừa phải, thậm chí đuổi kẻ cướp khác đi để giữ “đàn cừu” của mình. Thử tìm mức lấy giúp kẻ cướp ở lại được nhiều nhất sau 20 mùa: nó không phải 100%, cũng không phải 50%.</p>
+  <p>Nhà kinh tế người Mỹ Mancur Olson (1993) gọi đó là <strong id="kn-ke-cuop-dinh-cu">kẻ cướp định cư</strong> <em class="tn">(stationary bandit)</em>, đối lập với kẻ cướp lưu động. Ông lấy ví dụ một lãnh chúa quân phiệt ở Trung Quốc thập niên 1920: dân ở vùng ông này cai trị thích ông hơn các toán cướp đi ngang qua, vì ông chỉ lấy đều đặn chứ không vét sạch. Olson cho rằng nhiều triều đại và nhà nước sơ khai bắt đầu từ đúng chỗ này: một kẻ cướp ở lại, thu đều đặn, và giữ yên vùng mình.</p>
+
+  <h2>Vì sao 99 người không đánh lại?</h2>
+  <p>Một chọi 99 thì kẻ cướp thua chắc. Nhưng muốn đánh lại, 99 người phải hợp sức, và ai đánh trước thì dễ chết trước. Ai cũng mong người khác ra tay, còn mình hưởng phần yên ổn. Kết cục là không ai ra tay. Olson (1965) gọi đó là <strong id="kn-hanh-dong-tap-the">bài toán hành động tập thể</strong> <em class="tn">(collective action problem)</em>: một nhóm nhỏ, gắn bó, có vũ khí, thường thắng một đám đông rời rạc.</p>
+
+  <h2>Vậy tại sao người ta vẫn đổi?</h2>
+  <p>Vì đổi làm cả hai bên khá hơn, còn cướp làm cả xã hội nghèo đi. Ở trang 3, An và Bình đổi được là nhờ <KN id="quyen-so-huu">quyền sở hữu</KN>: cả hai cùng công nhận cái gì là của ai. Nơi nào cướp dễ hơn làm, người khôn sẽ đi cướp, hoặc tốn công canh giữ, khóa cửa, chôn giấu, thay vì làm ra đồ. Nơi nào giữ được của mình làm ra, người khôn sẽ đi làm và đi đổi.</p>
+  <p>Douglass North (Nobel 1993) gọi những luật chơi đó là <strong id="kn-the-che">thể chế</strong> <em class="tn">(institutions)</em>. Năm 2024, Daron Acemoglu, Simon Johnson và James Robinson nhận Nobel vì chỉ ra rằng các nước giàu và nghèo khác nhau phần lớn ở thể chế. Có nước thể chế giúp một nhóm nhỏ lấy của số đông, họ gọi là thể chế bóc lột. Có nước thể chế để ai làm ra thì người đó giữ, họ gọi là thể chế bao trùm. Nói gọn: kẻ cướp ở lại trong trò chơi trên là một thể chế bóc lột thu nhỏ.</p>
+
+  <div class="cau-hoi-lon">
+    <p class="nhan">Mảnh ghép thứ tám cho câu hỏi ngây thơ</p>
+    <p>Đây là chỗ câu “người này +100k thì người kia −100k” đúng nhất: một vụ cướp. Mùa đầu, kẻ cướp được bao nhiêu thì 99 người mất bấy nhiêu, tổng bằng không. Nhưng từ mùa sau, tổng còn tệ hơn không: người bị lấy làm ít đi, ăn cả hạt giống, tốn công canh giữ. Cướp là trò <strong>tổng âm</strong>. Còn đổi chác thì tự nguyện: không ai đổi nếu thấy mình thiệt, nên cả hai cùng khá hơn. Câu hỏi của bạn đang trộn hai thứ khác nhau làm một: lấy của nhau và đổi với nhau. Chỉ thứ đầu là tổng bằng không (hoặc âm).</p>
+  </div>
+
+  <details class="gap">
+    <summary>Ghi nhớ và từ khóa</summary>
+    <ul class="gon">
+      <li>Cướp không làm ra đồ mới, chỉ chuyển đồ. Từ lần sau, nó làm đồ ít đi: người bị lấy mất động lực và mất hạt giống.</li>
+      <li>Kẻ cướp định cư lấy vừa phải vì còn muốn lấy mùa sau; kẻ cướp lưu động vét sạch (Olson 1993).</li>
+      <li>Đông người khó hợp sức đánh lại một nhóm nhỏ: bài toán hành động tập thể (Olson 1965).</li>
+      <li>Thể chế quyết định người ta làm giàu bằng làm ra đồ hay bằng lấy của người khác (North, Nobel 1993; Acemoglu, Johnson, Robinson, Nobel 2024).</li>
+    </ul>
+    <div class="bang"><table>
+      <thead><tr><th>Tiếng Việt</th><th>Tiếng Anh</th><th>Nghĩa ngắn</th></tr></thead>
+      <tbody>
+        <tr><td>Động lực</td><td>incentive</td><td>Cái làm người ta chịu bỏ công</td></tr>
+        <tr><td>Kẻ cướp định cư</td><td>stationary bandit</td><td>Ở lại, lấy vừa phải để mùa sau còn lấy</td></tr>
+        <tr><td>Kẻ cướp lưu động</td><td>roving bandit</td><td>Lấy sạch rồi đi</td></tr>
+        <tr><td>Bài toán hành động tập thể</td><td>collective action problem</td><td>Ai cũng chờ người khác ra tay</td></tr>
+        <tr><td>Thể chế</td><td>institutions</td><td>Luật chơi của một xã hội</td></tr>
+        <tr><td>Thể chế bóc lột / bao trùm</td><td>extractive / inclusive institutions</td><td>Nhóm nhỏ lấy của số đông / ai làm thì người đó giữ</td></tr>
+      </tbody>
+    </table></div>
+  </details>
+  <details class="gap">
+    <summary>Tự kiểm tra (3 câu)</summary>
+    <p><strong>1.</strong> Vì sao kẻ cướp lấy 100% mỗi mùa lại được ít hơn kẻ cướp lấy khoảng một phần ba?</p>
+    <details class="nho-mo"><summary>Đáp án</summary><p>Bị lấy hết thì không ai muốn làm nữa, và người ta ăn cả hạt giống. Đồ làm ra teo dần, nên 100% của một số rất nhỏ vẫn ít hơn một phần ba của một số lớn.</p></details>
+    <p style="margin-top:1rem"><strong>2.</strong> Một vụ cướp có phải trò tổng bằng không không?</p>
+    <details class="nho-mo"><summary>Đáp án</summary><p>Ngay lúc cướp thì đúng là tổng bằng không: được bao nhiêu, mất bấy nhiêu. Nhưng về sau là tổng âm, vì người ta làm ít đi và tốn công canh giữ.</p></details>
+    <p style="margin-top:1rem"><strong>3.</strong> Vì sao 99 người khó hợp sức đánh lại một kẻ cướp?</p>
+    <details class="nho-mo"><summary>Đáp án</summary><p>Vì ai đánh trước thì chịu rủi ro trước, còn lợi thì chia cho cả 99. Ai cũng chờ người khác, nên không ai ra tay: bài toán hành động tập thể.</p></details>
+  </details>
+  <details class="gap nguon">
+    <summary>Nguồn</summary>
+    <ol>
+      <li>Mancur Olson, "Dictatorship, Democracy, and Development", <em>American Political Science Review</em> 87(3), 1993 (kẻ cướp định cư và lưu động).</li>
+      <li>Mancur Olson, <em>The Logic of Collective Action</em>, 1965.</li>
+      <li>Douglass C. North, <em>Institutions, Institutional Change and Economic Performance</em>, 1990. Nobel kinh tế 1993.</li>
+      <li>Daron Acemoglu và James A. Robinson, <em>Why Nations Fail</em>, 2012. Nobel kinh tế 2024 (cùng Simon Johnson). <a href="https://www.nobelprize.org/prizes/economic-sciences/2024/summary/" target="_blank" rel="noopener">nobelprize.org</a>.</li>
+      <li>Thomas Hobbes, <em>Leviathan</em>, 1651 (đời sống khi không có ai giữ trật tự).</li>
+    </ol>
+  </details>
+
+<script is:inline>
+(function () {
+/* Trang 8: kẻ cướp và 99 người, 20 mùa. cap = phần đồ một người làm ra nếu bỏ hết công. */
+var N = 99, MUA = 20, NS = "http://www.w3.org/2000/svg", kieu = "di";
+function o(id) { return document.getElementById(id); }
+function doc(id) { var e = o(id), v = parseFloat(String(e.value).replace(",", ".")); if (isNaN(v)) v = +e.min; return Math.min(+e.max, Math.max(+e.min, v)); }
+function so(n) { return Math.round(n).toLocaleString("vi-VN"); }
+var bd = o("t8k-bd"), ket = o("t8k-ket");
+
+function chay(k, ty) {
+  var cap = 10, ds = [], lay = 0, giu = 0;
+  for (var s = 1; s <= MUA; s++) {
+    var t = k === "di" ? (s === 1 ? 1 : 0) : k === "o" ? ty : 0;
+    var e = k === "di" && s === 1 ? 1 : 1 - t;
+    var Y = N * cap * e, L = t * Y, G = Y - L, moi = cap * e * (1 - t);
+    ds.push([L, G]); lay += L; giu += G;
+    if (moi < 1) cap *= 0.5; else if (moi < 4) cap *= 0.9; else if (moi >= 6) cap *= 1.02;
+  }
+  return { ds: ds, lay: lay, giu: giu };
+}
+function ve() {
+  var ty = doc("t8k-ty") / 100, r = chay(kieu, ty), goc = chay("khong", 0), tong = (r.lay + r.giu) / (goc.lay + goc.giu);
+  o("t8k-lay").textContent = so(r.lay); o("t8k-giu").textContent = so(r.giu); o("t8k-tong").textContent = Math.round(tong * 100) + "%";
+  veBD(r.ds, goc.ds);
+  var tot = 0, totLay = -1;
+  for (var p = 0; p <= 100; p += 5) { var x = chay("o", p / 100).lay; if (x > totLay) { totLay = x; tot = p; } }
+  if (kieu === "khong") ket.innerHTML = "<b>Không ai cướp:</b> 99 người giữ hết phần mình làm, gieo thêm hạt, mỗi mùa làm ra nhiều hơn mùa trước. Đây là mốc để so.";
+  else if (kieu === "di") ket.innerHTML = "<b>Một mẻ " + so(r.lay) + " phần, rồi hết.</b> 99 người mất cả hạt giống, mùa sau làm ra chỉ còn một nửa và mất nhiều mùa mới gượng dậy. Sau 20 mùa, cả làng chỉ làm ra " + Math.round(tong * 100) + "% so với khi không ai cướp. Thử “Ở lại, lấy đều mỗi mùa” xem kẻ cướp có lời hơn không.";
+  else {
+    var di = chay("di", 0).lay, hon = r.lay > di;
+    ket.innerHTML = "<b>Lấy " + Math.round(ty * 100) + "% mỗi mùa:</b> kẻ cướp được " + so(r.lay) + " phần sau 20 mùa, " + (hon ? "nhiều hơn" : "ít hơn") + " mẻ cướp sạch rồi đi (" + so(di) + " phần). " +
+      (ty * 100 > tot ? "Lấy nhiều quá: người ta làm ít đi, ăn cả hạt giống, đồ teo dần. " : ty * 100 < tot ? "Còn lấy được nhiều hơn mà vẫn giữ được làng. " : "Đây là mức lấy được nhiều nhất cho kẻ cướp. ") +
+      "Mức lợi nhất cho kẻ cướp ở lại là khoảng " + tot + "%.";
+  }
+}
+function veBD(ds, goc) {
+  while (bd.lastChild && bd.lastChild.nodeName !== "title") bd.removeChild(bd.lastChild);
+  var W = 600, H = 200, L = 44, R = 10, T = 12, B = 26, max = 1500;
+  var bw = (W - L - R) / MUA;
+  function y(v) { return T + (H - T - B) * (1 - Math.min(v, max) / max); }
+  function el(t, at, txt) { var e = document.createElementNS(NS, t); for (var a in at) e.setAttribute(a, at[a]); if (txt != null) e.textContent = txt; bd.appendChild(e); return e; }
+  [0, 500, 1000, 1500].forEach(function (v) { el("line", { x1: L, x2: W - R, y1: y(v), y2: y(v), "class": "luoi" }); el("text", { x: L - 6, y: y(v) + 4, "text-anchor": "end", "class": "truc" }, v.toLocaleString("vi-VN")); });
+  [1, 5, 10, 15, 20].forEach(function (s, k, a) { el("text", { x: L + bw * (s - 0.5), y: H - 8, "text-anchor": "middle", "class": "truc" }, "mùa " + s); });
+  ds.forEach(function (d, i) {
+    var x = L + bw * i + 2, w = bw - 4;
+    el("rect", { x: x, y: y(d[0] + d[1]), width: w, height: y(d[1]) - y(d[0] + d[1]), "class": "cot-lay" });
+    el("rect", { x: x, y: y(d[1]), width: w, height: y(0) - y(d[1]), "class": "cot-giu" });
+  });
+  el("polyline", { points: goc.map(function (d, i) { return (L + bw * (i + 0.5)) + "," + y(d[0] + d[1]); }).join(" "), "class": "duong-goc" });
+}
+o("t8k-kieu").querySelectorAll(".chip").forEach(function (b) {
+  b.addEventListener("click", function () {
+    kieu = b.getAttribute("data-k");
+    o("t8k-kieu").querySelectorAll(".chip").forEach(function (x) { x.setAttribute("aria-pressed", String(x === b)); });
+    o("t8k-dong-ty").hidden = kieu !== "o"; ve();
+  });
+});
+document.querySelectorAll("#t8k .o-so button").forEach(function (b) {
+  b.addEventListener("click", function () {
+    var e = o(b.getAttribute("data-o")), st = +e.step, v = doc(e.id) + (b.classList.contains("cong") ? st : -st);
+    e.value = Math.min(+e.max, Math.max(+e.min, v)); ve();
+  });
+});
+o("t8k-ty").addEventListener("input", ve);
+ve();
+})();
+</script>

@@ -337,3 +337,10 @@ strong[id^="kn-"]:target { outline: none; background: var(--vang-nen); box-shado
 #t6c-dem { min-height: 1.6em; }
 .chu-nho { font-family: var(--chu-nhan); font-size: 0.85rem; color: var(--muc-nhat); margin: 0 0 0.6rem; }
 .cho-100 span.vua-du { box-shadow: inset 0 0 0 2px var(--bien); }
+
+/* Trang 8: cột đồ mỗi mùa */
+.bieu-do .cot-lay { fill: var(--vang); }
+.bieu-do .cot-giu { fill: var(--bien); }
+.bieu-do .duong-goc { fill: none; stroke: var(--muc-nhat); stroke-width: 1.5; stroke-dasharray: 4 4; }
+.chip { font-family: var(--chu-nhan); }
+.chu-giai .dau.goc { background: none; border-top: 2px dashed var(--muc-nhat); height: 0; }

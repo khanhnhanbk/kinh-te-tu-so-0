@@ -22,3 +22,4 @@ Chạy ở máy: `pnpm install`, rồi `pnpm dev`. Mỗi trang là một thư m�
 | 5 | Tiền chưa xuất hiện vì chưa cần thiết, đúng không? Giờ thêm một người nữa, thế giới có ba người. Giúp mình dựng thế cân bằng trước đã. | Ba người, ba món | 4 |
 | 6 | Lên 100 hay 1.000 người thì đổi vòng rất khó. Đó có phải là lý do tiền xuất hiện, và đồng tiền đầu tiên ra đời thế nào? | Đồng tiền đầu tiên | 5 |
 | 7 | Muối thành tiền chung, nhưng ai làm ra muối đó? | Ai làm ra muối? | 6 |
+| 8 | Có 100 người thì sao phải đổi? Một người cướp hết của 99 người thì sao? | Kẻ cướp và 99 người | 6 |
