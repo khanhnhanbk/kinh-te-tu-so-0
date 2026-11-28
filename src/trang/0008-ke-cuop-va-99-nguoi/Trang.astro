@@ -16,12 +16,12 @@ import KN from '../../components/KN.astro';
       <button type="button" class="chip" data-k="khong" aria-pressed="false">Không ai cướp</button>
     </div>
     <div class="bang-gia" id="t8k-dong-ty" hidden>
-      <div class="dong-gia"><span>Mỗi mùa lấy</span><span class="o-so"><button type="button" class="tru" data-o="t8k-ty" aria-label="Bớt">−</button><input id="t8k-ty" type="number" inputmode="numeric" min="0" max="100" step="5" value="50" aria-label="Kẻ cướp lấy bao nhiêu phần trăm mỗi mùa"><button type="button" class="cong" data-o="t8k-ty" aria-label="Thêm">+</button></span><span>% đồ làm ra</span></div>
+      <div class="dong-gia nhan-rieng"><span>Mỗi mùa lấy</span><span class="o-so"><button type="button" class="tru" data-o="t8k-ty" aria-label="Bớt">−</button><input id="t8k-ty" type="number" inputmode="numeric" min="0" max="100" step="5" value="50" aria-label="Kẻ cướp lấy bao nhiêu phần trăm mỗi mùa"><button type="button" class="cong" data-o="t8k-ty" aria-label="Thêm">+</button></span><span>% đồ làm ra</span></div>
     </div>
     <div class="do" aria-live="polite">
       <div class="vang-chu"><b id="t8k-lay">0</b><span>phần kẻ cướp lấy</span></div>
       <div><b id="t8k-giu">0</b><span>phần 99 người giữ</span></div>
-      <div><b id="t8k-tong">0%</b><span>đồ làm ra so với không ai cướp</span></div>
+      <div><b id="t8k-tong">0%</b><span>so với khi không ai cướp</span></div>
     </div>
     <svg class="bieu-do" id="t8k-bd" viewBox="0 0 600 200" role="img" aria-labelledby="t8k-bd-ten"><title id="t8k-bd-ten">Đồ làm ra mỗi mùa, chia phần kẻ cướp lấy và phần 99 người giữ</title></svg>
     <p class="chu-giai"><span><i class="dau an"></i>Kẻ cướp lấy</span><span><i class="dau chi"></i>99 người giữ</span><span><i class="dau goc"></i>Nếu không ai cướp</span></p>

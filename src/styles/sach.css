@@ -143,13 +143,15 @@ input[type="range"] { width: 100%; accent-color: var(--bien); }
 .do b { transition: color .3s; }
 .do b.nhay { animation: nhay .5s; }
 @keyframes nhay { 40% { transform: scale(1.18); } }
-.cot-hat { display: grid; gap: 0.75rem; font-family: var(--chu-nhan); }
-.cot-hat > div { display: grid; grid-template-columns: 8.5rem 1fr 4.5rem; gap: 0.75rem; align-items: center; }
+.cot-hat { display: grid; grid-template-columns: max-content minmax(0, 1fr) max-content; gap: 0.75rem; font-family: var(--chu-nhan); }
+/* subgrid: cột nhãn rộng theo nhãn dài nhất, các thanh vẫn thẳng hàng, nhãn không rớt dòng */
+.cot-hat > div { display: grid; grid-column: 1 / -1; grid-template-columns: subgrid; align-items: center; }
+.cot-hat .nhan { white-space: nowrap; }
 .cot-hat b { font-variant-numeric: tabular-nums; text-align: right; }
 .thanh-ngang { height: 0.9rem; background: var(--giay); border-radius: 999px; overflow: hidden; }
 .thanh-ngang i { display: block; height: 100%; background: var(--vang); border-radius: 999px; transition: width .35s cubic-bezier(.2,.7,.3,1); }
 .thanh-ngang i.xanh { background: var(--bien); }
-@media (max-width: 30rem) { .cot-hat > div { grid-template-columns: 1fr 3.8rem; } .cot-hat .nhan { grid-column: 1 / -1; } }
+@media (max-width: 30rem) { .cot-hat { grid-template-columns: minmax(0, 1fr) max-content; } .cot-hat .nhan { grid-column: 1 / -1; } }
 .chon-che-do { display: inline-flex; flex-wrap: wrap; gap: 0.25rem; padding: 0.25rem; border-radius: 1.2rem; background: var(--giay); margin-bottom: 0.5rem; }
 .chon-che-do button { font-family: var(--chu-nhan); font-size: 0.9rem; font-weight: 600; border: 0; border-radius: 999px; padding: 0.45rem 0.9rem; background: transparent; color: var(--muc-nhat); cursor: pointer; }
 .chon-che-do button[aria-checked="true"] { background: var(--bien); color: var(--giay); }
@@ -214,6 +216,13 @@ th { font-family: var(--chu-nhan); font-size: 0.78rem; font-weight: 600; letter-
   .menger { grid-template-columns: 1fr; justify-items: center; }
   .menger .dk { width: 100%; }
   .do b { font-size: 1.25rem; }
+  /* Điện thoại: ô số liệu thành từng hàng (số bên trái, nhãn bên phải) để nhãn dài không vỡ thành 3–4 dòng */
+  .do { grid-template-columns: minmax(0, 1fr); gap: 0.4rem; }
+  .do.bon { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  .do div { display: flex; align-items: baseline; gap: 0.75rem; padding: 0.45rem 0.75rem; }
+  .do b { flex: none; min-width: 3.6rem; }
+  .do.bon b { min-width: 2.2rem; }
+  .do span { font-size: 0.85rem; }
 }
 
 /* Khái niệm nhắc lại từ trang trước (<KN>): chữ gạch chấm, bấm hiện thẻ định nghĩa */
@@ -354,10 +363,17 @@ strong[id^="kn-"]:target { outline: none; background: var(--vang-nen); box-shado
 .thanh-ngang i.mat { background: var(--muc-nhat); opacity: 0.45; }
 .bieu-do .cham { fill: var(--vang); stroke: var(--giay); stroke-width: 2; }
 .bieu-do .nhan-dinh { fill: var(--vang); font-weight: 600; }
-.do.bon { grid-template-columns: repeat(4, minmax(0, 1fr)); }
-@media (max-width: 30rem) { .do.bon { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
+@media (min-width: 30.01rem) { .do.bon { grid-template-columns: repeat(4, minmax(0, 1fr)); } }
 .cho-100 span.da-di { background: transparent; box-shadow: inset 0 0 0 1px var(--vien); }
 .cho-100 span.noi-day { background: #c0504d33; }
 .cho-100 span.ke-cuop { background: var(--vang-nen); }
 .cho-100.hang { max-width: 30rem; }
 .chu-giai .dau.trong { background: transparent; border: 1px dashed var(--muc-nhat); width: 0.8rem; height: 0.8rem; border-radius: 3px; }
+
+.hanh-dong + .do, .chu-giai + .do { margin-top: 0.75rem; }
+/* Điện thoại (28/11): nhãn dài của ô nhập số đứng riêng một dòng, ô số + đơn vị ở dòng dưới; chữ trục biểu đồ to hơn */
+@media (max-width: 30rem) {
+  .dong-gia.nhan-rieng > span:first-child { flex-basis: 100%; }
+  .bieu-do { overflow: visible; }
+  .bieu-do .truc { font-size: 14px; }
+}

@@ -209,7 +209,7 @@ var tat = window.matchMedia && window.matchMedia("(prefers-reduced-motion: reduc
     var ng = +o("t9h-ng").value, ds = [], tot = 0, max = 0;
     o("t9h-ra").textContent = ng + " phần";
     for (var p = 0; p <= 100; p += 5) { var v = chay(p / 100, ng); ds.push(v); if (v > max) { max = v; tot = p; } }
-    var W = 600, H = 200, L = 50, R = 10, T = 22, B = 26, buoc = max > 10000 ? 5000 : max > 4000 ? 2000 : 1000, tran = Math.ceil(max / buoc) * buoc;
+    var W = 600, H = 200, L = 58, R = 10, T = 22, B = 26, buoc = max > 10000 ? 5000 : max > 4000 ? 2000 : 1000, tran = Math.ceil(max / buoc) * buoc;
     function y(v) { return T + (H - T - B) * (1 - v / tran); }
     var bw = (W - L - R) / ds.length;
     xoa(bd);
