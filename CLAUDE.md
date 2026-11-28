@@ -12,7 +12,7 @@ Dự án 100% AI code. Novian đặt câu hỏi, Claude dựng trang trả lời
 - Mỗi trang: ít nhất một thứ bấm/kéo được (mục tiêu "lật trang là wow"), rồi ghi nhớ + từ khóa Việt–Anh, tự kiểm tra, nguồn (gập trong `details.gap`).
 - Kiến thức chuẩn vi mô/vĩ mô, có nguồn thật; ưu tiên ý từ người đoạt Nobel kinh tế. Không bịa trích dẫn.
 - **Khái niệm nối trang.** Khái niệm mới của trang khai ở `khaiNiem` trong `meta.json` (`id`, `ten`, `en`, `nghia` 1–2 câu), chỗ định nghĩa trong `Trang.astro` mang `id="kn-<id>"`. Trang sau nhắc lại thì viết `<KN id="<id>">chữ</KN>` (import `../../components/KN.astro`), KHÔNG ghi kiểu "(…, trang 1)": bấm vào hiện thẻ định nghĩa ngay tại chỗ, kèm link về đúng đoạn ở trang cũ. `pnpm kiem` soát id.
-- **Câu chữ:** soát theo `docs/van-phong.md` (10 điều + bảng lỗi đã gặp) trước khi mở PR; gặp lỗi mới thì thêm vào bảng.
+- **Câu chữ:** soát theo `docs/van-phong.md` (11 điều + bảng lỗi đã gặp) trước khi mở PR; gặp lỗi mới thì thêm vào bảng.
 - Mục lục giấu sau nút ☰, chỉ hiện trang đã mở (lưu ở trình duyệt người đọc).
 
 ## Thêm một trang
