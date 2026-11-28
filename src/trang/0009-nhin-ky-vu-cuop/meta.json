@@ -1,0 +1,22 @@
+{
+  "so": 9,
+  "slug": "nhin-ky-vu-cuop",
+  "ten": "Nhìn kỹ vụ cướp",
+  "cauHoi": "Sao cướp 100% lại chẳng được gì, con số 35% từ đâu ra? Mà 99 người đâu có giống nhau: người bỏ cuộc, người liều mình đánh lại, người bỏ đi.",
+  "cha": "ke-cuop-va-99-nguoi",
+  "danSo": 100,
+  "ngay": "2026-11-28",
+  "moTa": "Tháo mô hình kẻ cướp ra từng mảnh: vì sao lấy hết lại được 0, vì sao đỉnh nằm ở 35%, và khi 99 người phản ứng khác nhau thì làng yên hay nổ.",
+  "goiY": [
+    "Kẻ cướp ở lại thì có khác gì nhà nước thu thuế?",
+    "Lật được kẻ cướp rồi, ai giữ trật tự?",
+    "Người bỏ đi thì đi đâu, và nơi họ đến được gì?"
+  ],
+  "khaiNiem": [
+    { "id": "ton-that-vo-ich", "ten": "Tổn thất vô ích", "en": "deadweight loss", "nghia": "Phần của cải mất đi mà không ai được, vì người bị lấy bớt làm ít đi hoặc đổi ít đi. Người lấy luôn được ít hơn phần người bị lấy mất." },
+    { "id": "duong-cong-laffer", "ten": "Đường cong Laffer", "en": "Laffer curve", "nghia": "Hình quả đồi của số thu được theo mức lấy: lấy 0% thì không thu được gì, lấy 100% thì không ai làm nên cũng không thu được gì, đỉnh nằm ở giữa. Đỉnh ở đâu tùy người bị lấy phản ứng mạnh hay yếu." },
+    { "id": "roi-di-va-len-tieng", "ten": "Rời đi và lên tiếng", "en": "exit and voice", "nghia": "Hai cách phản ứng của người không hài lòng: bỏ sang chỗ khác, hoặc ở lại đòi thay đổi. Rời đi càng dễ thì tiếng nói ở lại càng yếu (Albert Hirschman, 1970)." },
+    { "id": "vu-khi-cua-ke-yeu", "ten": "Vũ khí của kẻ yếu", "en": "weapons of the weak", "nghia": "Những cách chống lặng lẽ của người không dám chống công khai: làm cầm chừng, giả vờ không biết, giấu bớt (James Scott, 1985)." },
+    { "id": "mo-hinh-nguong", "ten": "Mô hình ngưỡng", "en": "threshold model", "nghia": "Cách giải thích đám đông: mỗi người chỉ tham gia khi đã có đủ một số người khác tham gia trước, số đó là ngưỡng của người ấy. Đổi ngưỡng của một người có thể đổi cả đám đông (Mark Granovetter, 1978)." }
+  ]
+}
