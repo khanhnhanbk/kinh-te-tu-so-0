@@ -2,7 +2,7 @@
    Chi tiết riêng: "số dân" của thế giới ở góc mỗi trang. */
 :root {
   --giay: #eef1ec; --giay-2: #e1e6e0; --muc: #1c2430; --muc-nhat: #434c57; --vien: #c6cec5;
-  --bien: #2c6a66; --vang: #946712; --vang-nen: #f2e5c6; --troi: #18202b; --troi-chu: #e8ebe6;
+  --bien: #2c6a66; --vang: #946712; --vang-nen: #f2e5c6; --troi: #18202b; --troi-chu: #e8ebe6; --vien-khoi: transparent;
   --chu-sach: "Literata", Georgia, "Times New Roman", serif;
   --chu-tieu-de: "Fraunces", "Literata", Georgia, serif;
   --chu-nhan: "Be Vietnam Pro", system-ui, -apple-system, "Segoe UI", sans-serif;
@@ -10,13 +10,13 @@
 }
 @media (prefers-color-scheme: dark) {
   :root:not([data-theme="light"]) {
-    --giay: #12171d; --giay-2: #1b222a; --muc: #e4e7e1; --muc-nhat: #b3bbc4; --vien: #2e3741;
-    --bien: #74bcb3; --vang: #dcb15e; --vang-nen: #2a2416; --troi: #0b0f14; --troi-chu: #e8ebe6; color-scheme: dark;
+    --giay: #151b26; --giay-2: #212a39; --muc: #d6dce4; --muc-nhat: #a3adbb; --vien: #334055; --vien-khoi: #2c3749;
+    --bien: #7cc4b9; --vang: #e0b76a; --vang-nen: #2b2718; --troi: #0e131b; --troi-chu: #e3e7ec; color-scheme: dark;
   }
 }
 :root[data-theme="dark"] {
-  --giay: #12171d; --giay-2: #1b222a; --muc: #e4e7e1; --muc-nhat: #b3bbc4; --vien: #2e3741;
-  --bien: #74bcb3; --vang: #dcb15e; --vang-nen: #2a2416; --troi: #0b0f14; --troi-chu: #e8ebe6; color-scheme: dark;
+  --giay: #151b26; --giay-2: #212a39; --muc: #d6dce4; --muc-nhat: #a3adbb; --vien: #334055; --vien-khoi: #2c3749;
+  --bien: #7cc4b9; --vang: #e0b76a; --vang-nen: #2b2718; --troi: #0e131b; --troi-chu: #e3e7ec; color-scheme: dark;
 }
 *, *::before, *::after { box-sizing: border-box; }
 [hidden] { display: none !important; }
@@ -102,7 +102,7 @@ ul.gon, ol.gon { padding-left: 1.3rem; margin: 0 0 1.1rem; display: grid; gap: 0
 @keyframes lap-lanh { from { opacity: .35; } to { opacity: .9; } }
 
 /* Khối thử nghiệm */
-.thu { margin: 1.5rem 0; padding: 1.25rem; background: var(--giay-2); border-radius: 10px; }
+.thu { margin: 1.5rem 0; padding: 1.25rem; background: var(--giay-2); border: 1px solid var(--vien-khoi); border-radius: 10px; }
 .thu > .nhan { color: var(--bien); margin-bottom: 0.6rem; }
 .thu p:last-child { margin-bottom: 0; }
 .thanh { display: grid; gap: 0.35rem; margin: 0.75rem 0 1rem; font-family: var(--chu-nhan); font-size: 0.95rem; }
@@ -344,3 +344,8 @@ strong[id^="kn-"]:target { outline: none; background: var(--vang-nen); box-shado
 .bieu-do .duong-goc { fill: none; stroke: var(--muc-nhat); stroke-width: 1.5; stroke-dasharray: 4 4; }
 .chip { font-family: var(--chu-nhan); }
 .chu-giai .dau.goc { background: none; border-top: 2px dashed var(--muc-nhat); height: 0; }
+
+/* Chế độ tối (28/11): nền xanh than thay cho gần đen, chữ dịu hơn trắng (~12:1), khối nổi rõ khỏi nền và có viền,
+   chữ có chân dày hơn một chút (440) và làm mượt kiểu grayscale để nét mảnh không bị lóa. */
+@media (prefers-color-scheme: dark) { :root:not([data-theme="light"]) body { -webkit-font-smoothing: antialiased; -moz-osx-font-smoothing: grayscale; font-weight: 440; } }
+:root[data-theme="dark"] body { -webkit-font-smoothing: antialiased; -moz-osx-font-smoothing: grayscale; font-weight: 440; }
