@@ -1,5 +1,7 @@
 # Kinh tế từ số 0
 
+> Phiên mới, máy mới: đọc [`docs/BAN-GIAO.md`](docs/BAN-GIAO.md) trước (câu mở đầu, quy trình, gu của Novian, việc chưa chốt).
+
 Dự án 100% AI code. Novian đặt câu hỏi, Claude dựng trang trả lời. Không cần hỏi chi tiết kỹ thuật, chỉ hỏi khi đụng hướng nội dung. Sách có thể lên 100, 1000 trang vì "câu hỏi thì không bao giờ hết": mọi thứ phải thêm trang mới mà không sửa trang cũ.
 
 ## Luật của cuốn sách
@@ -19,7 +21,7 @@ Dự án 100% AI code. Novian đặt câu hỏi, Claude dựng trang trả lời
 
 1. Tạo `src/trang/<số 4 chữ số>-<slug>/` với `meta.json` (xem trang có sẵn: `so`, `slug`, `ten`, `cauHoi`, `cha`, `danSo`, `ngay`, `moTa`, `goiY`) và `Trang.astro` (chỉ phần thân: hình, chữ, trò tương tác, ghi nhớ, tự kiểm tra, nguồn). Đầu trang và cuối trang do `DauTrang`/`CuoiTrang` tự vẽ.
 2. JS của trang để trong `<script is:inline>` bọc `(function(){ ... })()`, id phần tử có tiền tố riêng của trang để không đụng trang khác. CSS dùng chung ở `src/styles/sach.css`, chỉ thêm lớp mới khi cần.
-3. `pnpm kiem` (soát cây) rồi `pnpm build`. Chụp ảnh qua `pnpm preview`.
+3. `pnpm kiem` (soát cây) rồi `pnpm build`, chạy `pnpm preview --port 4321` rồi `pnpm soat` (rớt dòng) và `pnpm chup <slug> <thư-mục>` (ảnh PR).
 4. Thêm một dòng vào bảng "Các trang" trong README.
 
 ## Kỹ thuật

@@ -7,7 +7,9 @@
     "dev": "astro dev",
     "build": "astro build",
     "preview": "astro preview",
-    "kiem": "node scripts/kiem-trang.mjs"
+    "kiem": "node scripts/kiem-trang.mjs",
+    "chup": "node scripts/chup-anh.mjs",
+    "soat": "node scripts/soat-rot-dong.mjs"
   },
   "dependencies": {
     "astro": "7.4.7"
