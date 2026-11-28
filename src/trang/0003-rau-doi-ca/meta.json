@@ -17,13 +17,13 @@
       "id": "phan-cong-lao-dong",
       "ten": "Phân công lao động",
       "en": "division of labour",
-      "nghia": "Mỗi người chuyên một việc rồi đổi cho nhau, tổng làm ra nhiều hơn lúc ai cũng tự làm mọi thứ (Adam Smith, 1776)."
+      "nghia": "Mỗi người chuyên một việc rồi đổi cho nhau, nên tổng sản lượng nhiều hơn lúc ai cũng tự làm mọi thứ (Adam Smith, 1776)."
     },
     {
       "id": "loi-the-so-sanh",
       "ten": "Lợi thế so sánh",
       "en": "comparative advantage",
-      "nghia": "Đổi có lời khi chi phí cơ hội hai người khác nhau, kể cả khi một người giỏi hơn ở mọi việc (David Ricardo, 1817)."
+      "nghia": "Lợi thế của người làm một việc với chi phí cơ hội thấp hơn người khác. Chỉ cần chi phí cơ hội của hai người khác nhau là đổi cho nhau có lợi, kể cả khi một người giỏi hơn ở mọi việc (David Ricardo, 1817)."
     },
     {
       "id": "khoang-gia",
@@ -41,13 +41,13 @@
       "id": "tro-choi-lap-lai",
       "ten": "Trò chơi lặp lại",
       "en": "repeated game",
-      "nghia": "Khi hai người còn gặp nhau mãi, giữ lời có lời hơn lừa. Robert Aumann nhận Nobel 2005 một phần vì điều này."
+      "nghia": "Tình huống hai bên gặp nhau và chọn cách cư xử nhiều lần. Khi còn gặp lại mãi, giữ lời có lợi hơn lừa. Robert Aumann nhận Nobel 2005 một phần vì điều này."
     },
     {
       "id": "trung-khop-nhu-cau-kep",
       "ten": "Trùng khớp nhu cầu kép",
       "en": "double coincidence of wants",
-      "nghia": "Cái may khi tôi có thứ bạn cần và bạn có thứ tôi cần, nên đổi thẳng được (Jevons, 1875). Thiếu nó thì cần tiền."
+      "nghia": "Trường hợp may mắn khi tôi có thứ bạn cần và bạn cũng có thứ tôi cần, nên hai bên đổi thẳng được (Jevons, 1875). Không có sự trùng khớp này thì cần đến tiền."
     }
   ]
 }

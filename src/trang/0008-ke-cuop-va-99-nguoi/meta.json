@@ -13,9 +13,9 @@
     "Ai bảo vệ quyền sở hữu nếu không có kẻ cướp nào?"
   ],
   "khaiNiem": [
-    { "id": "dong-luc", "ten": "Động lực", "en": "incentive", "nghia": "Cái làm người ta chịu bỏ công hay thôi bỏ công. Ai được giữ phần lớn thứ mình làm ra thì làm nhiều; bị lấy gần hết thì làm ít đi." },
+    { "id": "dong-luc", "ten": "Động lực", "en": "incentive", "nghia": "Điều khiến người ta chịu bỏ công, hoặc thôi không bỏ công nữa. Ai được giữ phần lớn thứ mình làm ra thì làm nhiều; bị lấy gần hết thì làm ít đi." },
     { "id": "ke-cuop-dinh-cu", "ten": "Kẻ cướp định cư", "en": "stationary bandit", "nghia": "Kẻ cướp ở lại lâu dài nên lấy vừa phải và giữ cho người bị lấy còn làm ăn được, vì mùa sau còn lấy tiếp. Đối lập với kẻ cướp lưu động lấy sạch rồi đi (Mancur Olson, 1993)." },
     { "id": "hanh-dong-tap-the", "ten": "Bài toán hành động tập thể", "en": "collective action problem", "nghia": "Nhiều người cùng có lợi nếu hợp sức, nhưng ai cũng chờ người khác ra tay trước, nên rốt cuộc không ai làm (Mancur Olson, 1965)." },
-    { "id": "the-che", "ten": "Thể chế", "en": "institutions", "nghia": "Luật chơi của một xã hội: luật lệ, quyền sở hữu, phong tục, cách giữ lời. Thể chế quyết định người ta làm giàu bằng cách làm ra đồ hay bằng cách lấy của người khác (Douglass North, Nobel 1993)." }
+    { "id": "the-che", "ten": "Thể chế", "en": "institutions", "nghia": "Luật chơi của một xã hội: luật lệ, quyền sở hữu, phong tục, thói quen giữ lời với nhau. Thể chế quyết định người ta làm giàu bằng cách làm ra đồ hay bằng cách lấy của người khác (Douglass North, Nobel 1993)." }
   ]
 }

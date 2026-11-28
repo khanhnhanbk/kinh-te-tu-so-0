@@ -41,7 +41,7 @@
       "id": "chi-phi-co-hoi",
       "ten": "Chi phí cơ hội",
       "en": "opportunity cost",
-      "nghia": "Cái phải bỏ để có một thứ: thứ tốt nhất mà bạn không làm được nữa. Giữ một giỏ hạt để gieo thì chi phí là một giỏ không được ăn hôm nay."
+      "nghia": "Thứ tốt nhất phải bỏ qua khi chọn một thứ khác. Giữ một giỏ hạt để gieo thì chi phí cơ hội là một giỏ không được ăn hôm nay."
     },
     {
       "id": "tiet-kiem",
@@ -53,13 +53,13 @@
       "id": "dau-tu",
       "ten": "Đầu tư",
       "en": "investment",
-      "nghia": "Đem thứ để dành ra làm cho mai sau có nhiều hơn, như gieo hạt xuống đất."
+      "nghia": "Đem phần để dành ra dùng để mai sau có nhiều hơn, như gieo hạt xuống đất."
     },
     {
       "id": "lai-suat",
       "ten": "Lãi suất",
       "en": "interest rate",
-      "nghia": "Phần thêm khi đổi một thứ hôm nay lấy thứ đó mai sau. Irving Fisher (1930): người ta thích có hôm nay hơn, mà hạt gieo hôm nay lại sinh thêm."
+      "nghia": "Phần trả thêm khi đổi một thứ hôm nay lấy chính thứ đó vào mai sau. Irving Fisher (1930): người ta thích có ngay hôm nay hơn mai sau, mà hạt gieo hôm nay lại sinh thêm."
     }
   ]
 }
