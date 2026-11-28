@@ -266,12 +266,18 @@ strong[id^="kn-"]:target { outline: none; background: var(--vang-nen); box-shado
 @media (prefers-reduced-motion: no-preference) { .tro-chuyen .tin { animation: tin-hien .25s ease-out; } @keyframes tin-hien { from { opacity: 0; transform: translateY(6px); } } }
 
 /* Trang 4: khung code luật Chi và An + biểu đồ 100 ngày */
-.lap-trinh textarea { display: block; width: 100%; margin-top: 0.75rem; padding: 0.8rem; border: 1px solid var(--vien); border-radius: 8px;
-  background: var(--troi); color: var(--troi-chu); font-family: "Roboto Mono", ui-monospace, Menlo, Consolas, monospace; font-size: 0.82rem; line-height: 1.55;
-  white-space: pre; overflow-x: auto; resize: vertical; tab-size: 2; }
-.lap-trinh textarea:focus { outline: 2px solid var(--bien); outline-offset: 2px; }
-.lap-trinh .nut-chay { background: var(--bien); color: var(--giay); border-color: var(--bien); }
-.lap-trinh .loi-code { margin: 0.5rem 0 0; padding: 0.5rem 0.75rem; border-radius: 6px; background: var(--vang-nen); color: var(--muc); font-family: var(--chu-nhan); font-size: 0.88rem; }
+.ham-the { display: grid; grid-template-columns: repeat(auto-fit, minmax(15rem, 1fr)); gap: 0.75rem; margin-top: 0.75rem; }
+.ham { background: var(--troi); color: var(--troi-chu); border-radius: 8px; padding: 0.7rem 0.9rem; font-family: var(--chu-nhan); font-size: 0.9rem; }
+.ham .ten-ham { margin: 0; font-family: "Roboto Mono", ui-monospace, Menlo, monospace; font-weight: 400; }
+.ham.chi .ten-ham { color: #74bcb3; } .ham.an .ten-ham { color: #dcb15e; }
+.tham-so { display: grid; grid-template-columns: auto 1fr; grid-template-areas: "ten ten" "so dv"; align-items: center; gap: 0.15rem 0.5rem; padding: 0.4rem 0 0.4rem 1rem; border-bottom: 1px dashed rgba(232, 235, 230, 0.15); }
+.tham-so label { grid-area: ten; color: rgba(232, 235, 230, 0.85); }
+.tham-so .o-so { grid-area: so; display: inline-flex; align-items: center; gap: 0.25rem; }
+.tham-so .don-vi { grid-area: dv; color: rgba(232, 235, 230, 0.7); font-size: 0.82rem; }
+.o-so input { width: 4.2rem; text-align: center; font: inherit; font-weight: 600; padding: 0.3rem 0.2rem; border-radius: 6px; border: 1px solid rgba(232, 235, 230, 0.3); background: rgba(232, 235, 230, 0.08); color: var(--troi-chu); -moz-appearance: textfield; }
+.o-so input::-webkit-inner-spin-button, .o-so input::-webkit-outer-spin-button { -webkit-appearance: none; margin: 0; }
+.o-so button { width: 2rem; height: 2rem; border-radius: 50%; border: 1px solid rgba(232, 235, 230, 0.35); background: transparent; color: var(--troi-chu); font-size: 1.1rem; line-height: 1; cursor: pointer; }
+.o-so button:hover { background: rgba(232, 235, 230, 0.15); }
 .bieu-do { display: block; width: 100%; height: auto; margin-top: 0.75rem; background: var(--giay); border-radius: 8px; }
 .bieu-do .luoi { stroke: var(--vien); stroke-width: 1; }
 .bieu-do .truc { font-family: var(--chu-nhan); font-size: 11px; fill: var(--muc-nhat); }
