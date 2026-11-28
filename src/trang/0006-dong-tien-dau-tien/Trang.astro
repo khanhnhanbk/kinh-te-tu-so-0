@@ -16,6 +16,11 @@ import KN from '../../components/KN.astro';
       <button type="button" class="nut-nho" id="t6c-mo">Mở chợ 40 ngày</button>
       <button type="button" class="nut-nho" id="t6c-lai">Đổi người, mở lại</button>
     </div>
+    <div class="hanh-dong xem-o" role="group" aria-label="Xem chợ nào">
+      <span>Xem chợ:</span>
+      <button type="button" class="chip" id="t6c-cho-gt" aria-pressed="true">Gián tiếp</button>
+      <button type="button" class="chip" id="t6c-cho-th" aria-pressed="false">Đổi thẳng</button>
+    </div>
     <div class="hanh-dong xem-o" role="group" aria-label="Mỗi ô cho thấy gì">
       <span>Mỗi ô là:</span>
       <button type="button" class="chip" id="t6c-xem-nhan" aria-pressed="true">Chịu nhận gì</button>
@@ -31,10 +36,11 @@ import KN from '../../components/KN.astro';
     </div>
     <svg class="bieu-do" id="t6c-bd" viewBox="0 0 600 200" role="img" aria-labelledby="t6c-bd-ten"><title id="t6c-bd-ten">Số người có được thứ mình cần mỗi ngày, hai cách đổi</title></svg>
     <p class="chu-giai"><span><i class="dau chi"></i>Được đổi gián tiếp</span><span><i class="dau an"></i>Chỉ đổi thẳng</span></p>
+    <p class="chu-nho" style="margin-top:0.4rem">Hai đường là hai chợ chạy cùng lúc: cùng 100 người, cùng món làm, cùng món cần, gặp nhau theo đúng cùng một thứ tự. Chỉ khác luật: ở chợ “chỉ đổi thẳng”, ai cũng chỉ nhận đúng món mình cần. Mỗi điểm là số người có được thứ mình cần trong ngày đó, tức là số ô viền xanh trên lưới.</p>
     <p class="ket-luan" id="t6c-ket" aria-live="polite">Bấm “Mở chợ 40 ngày”.</p>
   </div>
 
-  <p>Chạy vài lần, bạn sẽ thấy cùng một chuyện. Vài ngày đầu, mỗi người nhận một kiểu. Món nào được nhiều người nhận hơn một chút thì càng dễ đổi tiếp, nên càng nhiều người bắt chước nhận nó. Chỉ sau vài tuần, gần cả chợ cùng nhận một món. Không ai ra lệnh, không ai họp bàn, món đó tự thành tiền. Nhưng để ý: 100 ô muối là 100 người <em>chịu nhận</em> muối, không phải 100 người có muối. Bấm “Đang cầm gì” để xem muối thật. Ngày đầu chỉ 16 thợ muối cầm muối. Mỗi lần một thợ muối đem muối đổi được thứ mình cần, họ làm ra bao muối mới, nên số người cầm muối tăng dần, nhưng vẫn không phải cả chợ. Cái lan ra cả 100 ô là <em>lòng tin</em> rằng muối đổi tiếp được. Số người có được thứ mình cần mỗi ngày cũng tăng lên, thường gần gấp đôi so với chỉ đổi thẳng.</p>
+  <p>Chạy vài lần, bạn sẽ thấy cùng một chuyện. Vài ngày đầu, mỗi người nhận một kiểu. Món nào được nhiều người nhận hơn một chút thì càng dễ đổi tiếp, nên càng nhiều người bắt chước nhận nó. Chỉ sau vài tuần, gần cả chợ cùng nhận một món. Không ai ra lệnh, không ai họp bàn, món đó tự thành tiền. Nhưng để ý: 100 ô muối là 100 người <em>chịu nhận</em> muối, không phải 100 người có muối. Bấm “Đang cầm gì” để xem muối thật. Ngày đầu chỉ 16 thợ muối cầm muối. Mỗi lần một thợ muối đem muối đổi được thứ mình cần, họ làm ra bao muối mới, nên số người cầm muối tăng dần, nhưng vẫn không phải cả chợ. Cái lan ra cả 100 ô là <em>lòng tin</em> rằng muối đổi tiếp được. Số người có được thứ mình cần mỗi ngày cũng tăng lên, thường gấp rưỡi tới gấp đôi so với chỉ đổi thẳng.</p>
   <p>Menger gọi độ dễ đổi đi của một món là <strong id="kn-kha-nang-ban">tính dễ bán</strong> <em class="tn">(saleability)</em>. Món giữ lâu không hỏng, nhỏ gọn, dễ chia, dễ nhận ra thì dễ bán. Thử bật rau thành “bền” (rau phơi khô chẳng hạn): rau cũng có cơ hội thành tiền. Chuyển cả sáu món thành “mau hỏng” thì không món nào thành tiền. Tiền là một món đồ có thật như thế gọi là <strong id="kn-tien-hang-hoa">tiền hàng hóa</strong> <em class="tn">(commodity money)</em>.</p>
   <p>Giờ thử bật áo và gỗ thành “gọn”, để bốn món tốt ngang nhau. Mỗi lần mở chợ, món thắng lại khác: lần này muối, lần sau gỗ. Đó không phải lỗi. Năm 1989, Kiyotaki và Wright, hai người dựng mô hình ba người ở trang trước, chứng minh rằng một chợ có thể có nhiều thế <KN id="can-bang">cân bằng</KN>. Có thế mà món kém hơn vẫn thành tiền, chỉ vì ai cũng tin người khác sẽ nhận nó. Tiền là thứ mọi người đồng ý với nhau, không phải thứ tốt nhất.</p>
 
@@ -55,7 +61,7 @@ import KN from '../../components/KN.astro';
 
   <div class="cau-hoi-lon">
     <p class="nhan">Mảnh ghép thứ sáu cho câu hỏi ngây thơ</p>
-    <p>Nhìn vào sổ nợ ở Lưỡng Hà. Mỗi dòng là <strong>+1 shekel</strong> cho người được nợ và <strong>−1 shekel</strong> cho người nợ. Cộng cả sổ lại, lúc nào cũng bằng không. Nếu tiền là sổ ghi nợ thì cột tiền <em>luôn</em> có tổng bằng không, và câu “người này +100k thì người kia −100k” đúng từng chữ. Nhưng hãy nhìn lại cái chợ 100 người. Khi có một món trung gian, số người có được thứ mình cần mỗi ngày tăng gần gấp đôi. Cột tiền cộng lại vẫn bằng không, còn cột đồ thật thì đã tăng. Câu hỏi giờ còn lại một chỗ: vì sao một cái sổ có tổng bằng không lại giúp cột đồ thật tăng được?</p>
+    <p>Nhìn vào sổ nợ ở Lưỡng Hà. Mỗi dòng là <strong>+1 shekel</strong> cho người được nợ và <strong>−1 shekel</strong> cho người nợ. Cộng cả sổ lại, lúc nào cũng bằng không. Nếu tiền là sổ ghi nợ thì cột tiền <em>luôn</em> có tổng bằng không, và câu “người này +100k thì người kia −100k” đúng từng chữ. Nhưng hãy nhìn lại cái chợ 100 người. Khi có một món trung gian, số người có được thứ mình cần mỗi ngày tăng rõ rệt. Cột tiền cộng lại vẫn bằng không, còn cột đồ thật thì đã tăng. Câu hỏi giờ còn lại một chỗ: vì sao một cái sổ có tổng bằng không lại giúp cột đồ thật tăng được?</p>
   </div>
 
   <details class="gap">
@@ -149,22 +155,22 @@ function taoCho(seed, giantiep) {
     P[i] = i % G; var w; do { w = Math.floor(r() * G); } while (w === P[i]);
     W[i] = w; H[i] = P[i]; A[i] = 0; M[i] = chiuGiu(Math.floor(r() * G));
   }
-  return { r: r, P: P, W: W, H: H, A: A, M: M, gt: giantiep };
+  return { r: r, r2: rng(seed + 99991), P: P, W: W, H: H, A: A, M: M, V: [], gt: giantiep };
 }
 function trongSo(g) { return (MON[g].ben ? 1 : 0.15) * (MON[g].gon ? 1 : 0.55); }
 /* Món mau hỏng thì không ai dám cầm để đổi tiếp: -1 là không nhận món trung gian nào. */
 function chiuGiu(g) { return trongSo(g) >= 0.3 ? g : -1; }
 function motNgay(c) {
-  var r = c.r, H = c.H, W = c.W, P = c.P, A = c.A, M = c.M, an = 0, ord = [], i, k, q;
+  var r = c.r, r2 = c.r2, H = c.H, W = c.W, P = c.P, A = c.A, M = c.M, an = 0, ord = [], i, k, q;
   function nhan(x, y) { return H[y] === W[x] || (c.gt && H[y] === M[x] && H[x] !== M[x]); }
-  for (i = 0; i < N; i++) ord.push(i);
+  for (i = 0; i < N; i++) { ord.push(i); c.V[i] = false; }
   for (k = 0; k < 4; k++) {
     for (i = N - 1; i > 0; i--) { var j = Math.floor(r() * (i + 1)), t = ord[i]; ord[i] = ord[j]; ord[j] = t; }
     for (q = 0; q < N; q += 2) {
       var a = ord[q], b = ord[q + 1];
       if (H[a] !== H[b] && nhan(a, b) && nhan(b, a)) {
         var tm = H[a]; H[a] = H[b]; H[b] = tm; A[a] = 0; A[b] = 0;
-        [a, b].forEach(function (x) { if (H[x] === W[x]) { an++; H[x] = P[x]; } });
+        [a, b].forEach(function (x) { if (H[x] === W[x]) { c.V[x] = true; H[x] = P[x]; } });
       }
     }
   }
@@ -172,33 +178,41 @@ function motNgay(c) {
   if (c.gt) {
     var M2 = M.slice();
     for (i = 0; i < N; i++) {
-      if (r() < 0.3) {
+      if (r2() < 0.3) {
         var dem = []; for (k = 0; k < G; k++) dem.push(0);
-        if (M[i] >= 0) dem[M[i]] += 1; for (k = 0; k < 4; k++) { var hx = M[Math.floor(r() * N)]; if (hx >= 0) dem[hx]++; }
-        var tot = 0, tv = -1; for (k = 0; k < G; k++) { var v = dem[k] * trongSo(k) + r() * 0.01; if (v > tv) { tv = v; tot = k; } }
+        if (M[i] >= 0) dem[M[i]] += 1; for (k = 0; k < 4; k++) { var hx = M[Math.floor(r2() * N)]; if (hx >= 0) dem[hx]++; }
+        var tot = 0, tv = -1; for (k = 0; k < G; k++) { var v = dem[k] * trongSo(k) + r2() * 0.01; if (v > tv) { tv = v; tot = k; } }
         M2[i] = dem[tot] ? chiuGiu(tot) : M[i];
       }
-      if (r() < 0.004) M2[i] = chiuGiu(Math.floor(r() * G));
+      if (r2() < 0.004) M2[i] = chiuGiu(Math.floor(r2() * G));
     }
     for (i = 0; i < N; i++) M[i] = M2[i];
   }
+  for (i = 0; i < N; i++) if (c.V[i]) an++;
   return an;
 }
 
 var choGT, choTH, ngay, dsGT, dsTH, hen = null;
 o("t6c-xem-nhan").addEventListener("click", function () { chonXem(false); });
 o("t6c-xem-cam").addEventListener("click", function () { chonXem(true); });
+function chonCho(th) { xemTH = th; o("t6c-cho-th").setAttribute("aria-pressed", String(th)); o("t6c-cho-gt").setAttribute("aria-pressed", String(!th)); veLuoi(); }
+o("t6c-cho-gt").addEventListener("click", function () { chonCho(false); });
+o("t6c-cho-th").addEventListener("click", function () { chonCho(true); });
 var xemCam = false;
 function moTop() { var dem = [], k; for (k = 0; k < G; k++) dem.push(0); choGT.M.forEach(function (m) { if (m >= 0) dem[m]++; }); var t = 0; for (k = 1; k < G; k++) if (dem[k] > dem[t]) t = k; return { t: t, n: dem[t] }; }
+var xemTH = false;
 function veLuoi() {
-  var top = moTop(), cam = 0;
+  var top = moTop(), cam = 0, c = xemTH ? choTH : choGT, du = 0;
   for (var i = 0; i < N; i++) {
-    var h = choGT.H[i]; if (h === top.t) cam++;
-    o100[i].textContent = xemCam ? MON[h].e : (choGT.M[i] >= 0 ? MON[choGT.M[i]].e : "·");
-    o100[i].classList.toggle("la-tien", xemCam && h === top.t && top.n >= 50);
+    var h = c.H[i]; if (h === top.t) cam++; if (c.V[i]) du++;
+    o100[i].textContent = xemCam ? MON[h].e : xemTH ? MON[c.W[i]].e : (c.M[i] >= 0 ? MON[c.M[i]].e : "·");
+    o100[i].classList.toggle("la-tien", !xemTH && xemCam && h === top.t && top.n >= 50);
+    o100[i].classList.toggle("vua-du", !!c.V[i]);
   }
   var lam = 0; for (var j = 0; j < N; j++) if (choGT.P[j] === top.t) lam++;
-  o("t6c-dem").innerHTML = top.n ? "<b>" + top.n + "</b> người chịu nhận " + MON[top.t].e + " " + MON[top.t].k + ", nhưng chỉ <b>" + cam + "</b> người đang thật sự cầm " + MON[top.t].k + ". Ngày đầu chỉ " + lam + " người làm " + MON[top.t].k + " có nó; phần còn lại do họ làm thêm mỗi lần đổi được thứ mình cần." : "";
+  var duCau = ngay ? " Ô viền xanh: <b>" + du + "</b> người có được thứ mình cần hôm nay." : "";
+  if (xemTH) { o("t6c-dem").innerHTML = "Chợ chỉ đổi thẳng: mỗi người chỉ nhận đúng món mình cần" + (xemCam ? "" : " (hình trong ô)") + ", nên phải gặp đúng người vừa có món đó vừa cần món mình làm." + duCau; return; }
+  o("t6c-dem").innerHTML = (top.n ? "<b>" + top.n + "</b> người chịu nhận " + MON[top.t].e + " " + MON[top.t].k + ", nhưng chỉ <b>" + cam + "</b> người đang thật sự cầm " + MON[top.t].k + ". Ngày đầu chỉ " + lam + " người làm " + MON[top.t].k + " có nó; phần còn lại do họ làm thêm mỗi lần đổi được thứ mình cần." : "") + duCau;
   luoi.setAttribute("aria-label", xemCam ? "Một trăm người và món mỗi người đang cầm" : "Một trăm người và món mỗi người chịu nhận để đổi tiếp");
 }
 function chonXem(c) { xemCam = c; o("t6c-xem-cam").setAttribute("aria-pressed", String(c)); o("t6c-xem-nhan").setAttribute("aria-pressed", String(!c)); veLuoi(); }
