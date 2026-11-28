@@ -1,0 +1,21 @@
+{
+  "so": 10,
+  "slug": "duoc-mua-mat-gia",
+  "ten": "Được mùa mất giá",
+  "cauHoi": "Ở trang người may áo, kết cục chỉ có hai: Chi đủ sống hoặc Chi không đủ sống. Còn An thì luôn đủ sống nếu làm ra đủ ăn, đúng không? Vậy sao trong cuộc sống hiện đại, nông dân lại nghèo hơn người làm dịch vụ?",
+  "cha": "nguoi-may-ao",
+  "danSo": 100,
+  "ngay": "2026-11-28",
+  "moTa": "Làng 100 người: thêm máy cày, lúa nhiều gấp bốn, vậy mà nông dân nghèo đi. Vì sao người làm ra cái ăn lại đứng ở thế yếu khi cái ăn đã thừa, và khi nào nông dân mới khá lên.",
+  "goiY": [
+    "Sao nông dân không bỏ ruộng lên phố hết cho nhanh?",
+    "Nhà nước mua lúa giá cao cho nông dân thì sao?",
+    "Máy móc làm được cả việc dịch vụ thì người ta làm gì?"
+  ],
+  "khaiNiem": [
+    { "id": "cau-kem-co-gian", "ten": "Cầu kém co giãn", "en": "inelastic demand", "nghia": "Tình trạng lượng người ta mua gần như không đổi dù giá lên hay xuống nhiều. Cái ăn là ví dụ quen: rẻ đến mấy người ta cũng không ăn gấp đôi." },
+    { "id": "duoc-mua-mat-gia", "ten": "Được mùa mất giá", "en": "King's law", "nghia": "Hiện tượng mùa màng bội thu mà tổng tiền người làm ra thu về lại giảm, vì cầu kém co giãn nên giá rớt nhanh hơn lượng tăng. Gregory King ghi lại quy luật này với giá lúa ở Anh cuối thế kỷ 17." },
+    { "id": "nguoi-chap-nhan-gia", "ten": "Người chấp nhận giá", "en": "price taker", "nghia": "Người bán quá nhỏ so với cả chợ: bán nhiều hay ít cũng không đổi được giá, chỉ nhận giá chợ đưa ra." },
+    { "id": "kinh-te-hai-khu-vuc", "ten": "Kinh tế hai khu vực", "en": "dual economy", "nghia": "Cách nhìn một nền kinh tế đang lớn như hai khu vực: nông thôn đông người mà mỗi người làm ra ít, và thành thị mỗi người làm ra nhiều hơn. Lao động chuyển dần từ khu vực đầu sang khu vực sau (Arthur Lewis, 1954, Nobel 1979)." }
+  ]
+}

@@ -1,6 +1,6 @@
 # Bàn giao: tiếp tục xây "Kinh tế từ số 0" từ bất cứ máy nào
 
-Cập nhật 28/11/2026, sau trang 9. File này để một phiên Claude mới (tài khoản mới, máy mới) đọc là làm tiếp được ngay, không phải nghiên cứu lại.
+Cập nhật 28/11/2026, sau trang 10. File này để một phiên Claude mới (tài khoản mới, máy mới) đọc là làm tiếp được ngay, không phải nghiên cứu lại.
 
 - Repo: https://github.com/khanhnhanbk/kinh-te-tu-so-0 (public)
 - Web: https://khanhnhanbk.github.io/kinh-te-tu-so-0/ (push `main` thì GitHub Actions tự build và đưa lên Pages)
@@ -17,7 +17,7 @@ khi đụng hướng nội dung. Mỗi trang một PR có ảnh chụp, CI xanh 
 Câu hỏi tiếp theo của mình: <viết câu hỏi ở đây>
 ```
 
-Câu hỏi đó thành tiêu đề trang mới (trang 10, cha mặc định là trang 9 "Nhìn kỹ vụ cướp"). Không có câu hỏi thì chọn một trong ba gợi ý ở mục 4.
+Câu hỏi đó thành tiêu đề trang mới (trang 11, cha mặc định là trang mới nhất Novian vừa đọc, xem cây ở mục 4). Không có câu hỏi thì chọn một trong ba gợi ý ở mục 4.
 
 ## 2. Đọc gì, theo thứ tự
 
@@ -32,7 +32,7 @@ Câu hỏi đó thành tiêu đề trang mới (trang 10, cha mặc định là 
 
 ## 3. Quy trình một trang (đã chạy trơn qua PR #1–#25)
 
-1. Máy mới: `pnpm i`. Script chụp ảnh cần Playwright + Chromium: `npm i -g playwright && npx playwright install chromium` (hoặc chỉ `npx playwright install chromium` nếu playwright đã có).
+1. Máy mới: `pnpm i`. Ubuntu 26.04: Playwright chưa tải được Chromium cho bản này; dùng bản Chromium có sẵn trong `~/.cache/ms-playwright` (tạo symlink tên bản mới trỏ sang bản cũ) và chạy script với `NODE_PATH=<thư mục node_modules có playwright>`. Script chụp ảnh cần Playwright + Chromium: `npm i -g playwright && npx playwright install chromium` (hoặc chỉ `npx playwright install chromium` nếu playwright đã có).
 2. Tạo nhánh từ `main`, thêm `src/trang/<số>-<slug>/{meta.json,Trang.astro}` theo CLAUDE.md, thêm một dòng vào bảng trong README.
 3. Soát: `pnpm kiem` (cây + khái niệm), `pnpm build`, rồi chạy `pnpm preview --port 4321` ở nền và:
    - `pnpm soat`: tìm nhãn/nút/ô số liệu bị rớt dòng ở 1280px và 390px. Hai chỗ tiêu đề bảng ở trang 1–2 (390px) đã biết và chấp nhận được.
@@ -48,14 +48,15 @@ bìa
   └ 2 Ngân hàng của một người
     └ 3 Rau đổi cá
       └ 4 Người may áo
-        └ 5 Ba người, ba món
-          └ 6 Đồng tiền đầu tiên
-            ├ 7 Ai làm ra muối?
-            └ 8 Kẻ cướp và 99 người
-              └ 9 Nhìn kỹ vụ cướp   ← trang mới nhất
+        ├ 5 Ba người, ba món
+        │ └ 6 Đồng tiền đầu tiên
+        │   ├ 7 Ai làm ra muối?
+        │   └ 8 Kẻ cướp và 99 người
+        │     └ 9 Nhìn kỹ vụ cướp
+        └ 10 Được mùa mất giá   ← trang mới nhất
 ```
 
-Gợi ý đang hiện ở cuối trang 9: "Kẻ cướp ở lại thì có khác gì nhà nước thu thuế?" (Olson, kẻ cướp đứng yên, đã gieo ở trang 9), "Lật được kẻ cướp rồi, ai giữ trật tự?", "Người bỏ đi thì đi đâu, và nơi họ đến được gì?". Trang 7 cũng còn là lá, có gợi ý riêng.
+Trang 10 (con của trang 4) có gợi ý: "Sao nông dân không bỏ ruộng lên phố hết cho nhanh?", "Nhà nước mua lúa giá cao cho nông dân thì sao?", "Máy móc làm được cả việc dịch vụ thì người ta làm gì?". Gợi ý đang hiện ở cuối trang 9: "Kẻ cướp ở lại thì có khác gì nhà nước thu thuế?" (Olson, kẻ cướp đứng yên, đã gieo ở trang 9), "Lật được kẻ cướp rồi, ai giữ trật tự?", "Người bỏ đi thì đi đâu, và nơi họ đến được gì?". Trang 7 cũng còn là lá, có gợi ý riêng.
 
 Câu hỏi xuyên suốt "+100k / −100k sao không phải tổng bằng không?" vẫn CHƯA trả lời thẳng; mỗi trang gieo một mảnh trong khối `.cau-hoi-lon`.
 

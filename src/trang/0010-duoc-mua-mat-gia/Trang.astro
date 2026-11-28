@@ -1,0 +1,186 @@
+---
+// Trang 10: Được mùa mất giá. Câu hỏi, số dân, trang cha nằm ở meta.json cùng thư mục.
+import KN from '../../components/KN.astro';
+---
+
+  <p class="dan-nhap">Đúng một nửa. An luôn đủ ăn, miễn là không mất mùa và không ai cướp. Nhưng đủ ăn là cái sàn, không phải cái trần. Ở trang trước An mặc cả mạnh vì An là người <em>duy nhất</em> có đồ ăn, trong lúc đồ ăn còn khan hiếm. Đổi hai điều đó đi thì thế mạnh của An đảo ngược.</p>
+
+  <h2>Khi có 80 An và 20 Chi</h2>
+  <p>Ở trang trước, Chi yếu thế vì Chi cần đồ ăn để sống, còn An chỉ <em>thích</em> áo. Giờ thử nhìn một làng đông hơn. Rất nhiều người cùng bán một thứ giống hệt nhau (lúa), trong khi người mua chỉ ăn được chừng đó. Lúc này người làm ra cái ăn mới là bên phải mời chào.</p>
+  <p>Làng có 100 người. Như ở các trang trước, mỗi người ăn 4 phần mỗi mùa, như ngày 3 bữa: làm nhiều cũng không ăn nhiều hơn. Cả làng cần 400 phần. Ai không làm ruộng thì làm dịch vụ: dạy học, cắt tóc, may áo, chở hàng. Chọn nông cụ và số người ở lại ruộng:</p>
+
+  <div class="thu" id="t10l">
+    <p class="nhan">Làng 100 người, một mùa</p>
+    <div class="hanh-dong" id="t10l-canh" role="group" aria-label="Bốn cảnh mẫu">
+      <button type="button" class="chip" data-q="5" data-n="80" aria-pressed="true">Cảnh 1</button>
+      <button type="button" class="chip" data-q="20" data-n="80" aria-pressed="false">Cảnh 2</button>
+      <button type="button" class="chip" data-q="20" data-n="30" aria-pressed="false">Cảnh 3</button>
+      <button type="button" class="chip" data-q="40" data-n="10" aria-pressed="false">Cảnh 4</button>
+    </div>
+    <p class="chu-nho" style="margin:0.75rem 0 0.35rem">Nông cụ</p>
+    <div class="hanh-dong" id="t10l-cu" role="group" aria-label="Nông cụ">
+      <button type="button" class="chip" data-q="5" aria-pressed="true">Cuốc tay</button>
+      <button type="button" class="chip" data-q="8" aria-pressed="false">Cày trâu</button>
+      <button type="button" class="chip" data-q="20" aria-pressed="false">Máy cày</button>
+      <button type="button" class="chip" data-q="40" aria-pressed="false">Máy gặt, phân bón</button>
+    </div>
+    <div class="bang-gia" style="margin-top:0.6rem">
+      <div class="dong-gia nhan-rieng"><span>Ở lại ruộng</span><span class="o-so"><button type="button" class="tru" data-o="t10l-n" aria-label="Bớt">−</button><input id="t10l-n" type="number" inputmode="numeric" min="5" max="100" step="5" value="80" aria-label="Số người làm ruộng"><button type="button" class="cong" data-o="t10l-n" aria-label="Thêm">+</button></span><span>người</span></div>
+    </div>
+    <div class="hanh-dong" style="margin-top:0.6rem">
+      <button type="button" class="chip" id="t10l-mua" aria-pressed="false">Năm nay được mùa (lúa nhiều gấp rưỡi)</button>
+    </div>
+    <div class="cho-100 hang" id="t10l-luoi" role="img" aria-label="100 người trong làng: ai làm ruộng, ai làm dịch vụ"></div>
+    <p class="chu-giai"><span>🌾 Làm ruộng</span><span>🛠️ Làm dịch vụ</span></p>
+    <p class="chu-nho" id="t10l-lua" style="margin-top:0.6rem"></p>
+    <div class="so-thu" aria-live="polite">
+      <span>1 nông dân</span><span class="thanh-ngang"><i id="t10l-thanh-nd"></i></span><b id="t10l-nd">5 đồng</b>
+      <span>1 người làm dịch vụ</span><span class="thanh-ngang"><i class="xanh" id="t10l-thanh-dv"></i></span><b id="t10l-dv">10 đồng</b>
+    </div>
+    <p class="ket-luan" id="t10l-ket" aria-live="polite"></p>
+  </div>
+  <p class="chu-nho">Cách tính (đều là giả định để dễ thấy, không phải số thật): một mùa, mỗi nông dân làm ra 5 phần nếu dùng cuốc tay, 8 phần nếu cày trâu, 20 phần nếu có máy cày, 40 phần nếu có máy gặt và phân bón. Lúa làm ra vừa đủ 400 phần thì giá 1 đồng một phần. Làm ra gấp đôi mức cả làng ăn thì giá còn một nửa, gấp bốn thì còn một phần tư. Người ta vẫn chỉ mua 400 phần, phần thừa bỏ đi. Tiền cả nông dân thu về = 400 phần × giá, chia đều cho số người làm ruộng (tính cả phần họ tự ăn theo giá chợ). Một người làm dịch vụ kiếm 10 đồng mỗi mùa, giữ cố định để dễ so. Không cho phép ít người làm ruộng tới mức cả làng thiếu ăn.</p>
+
+  <p>Thử bốn cảnh:</p>
+  <ul class="gon">
+    <li><strong>Cảnh 1:</strong> cuốc tay, 80 người làm ruộng. Lúa vừa đủ ăn. Mỗi nông dân kiếm 5 đồng, chỉ bằng nửa người làm dịch vụ. Muốn đủ ăn thì phải đông người làm ruộng, nên ai cũng làm ra ít.</li>
+    <li><strong>Cảnh 2:</strong> có máy cày, nhưng vẫn 80 người ở lại ruộng. Lúa nhiều gấp bốn, giá còn một phần tư. Mỗi nông dân làm ra gấp bốn mà chỉ còn 1,25 đồng. Máy móc làm nông dân nghèo đi.</li>
+    <li><strong>Cảnh 3:</strong> vẫn máy cày, 50 người rời ruộng đi làm dịch vụ. Lúa chỉ còn thừa một nửa. Mỗi nông dân kiếm gần 9 đồng, gần bằng người làm dịch vụ.</li>
+    <li><strong>Cảnh 4:</strong> máy gặt và phân bón, chỉ còn 10 người làm ruộng. Mỗi người nuôi được 10 người. Lúa vừa đủ, giá trở lại 1 đồng, và mỗi nông dân kiếm 40 đồng, gấp bốn người làm dịch vụ.</li>
+  </ul>
+  <p>Ở cảnh nào cũng bấm thử “Năm nay được mùa”: lúa nhiều gấp rưỡi, còn tiền nông dân thu về thì <em>giảm</em> một phần ba.</p>
+
+  <h2>Vì sao giá rớt mạnh vậy?</h2>
+  <p>Vì bụng chỉ chứa được chừng đó. Phần ăn thứ tư trong ngày đã ít giá trị hơn phần đầu, phần thứ năm gần như chẳng ai cần. Đó là <KN id="ich-loi-can-bien-giam-dan">lợi ích cận biên giảm dần</KN> áp vào cái ăn. Lúa rẻ đi một nửa thì người ta cũng không ăn gấp đôi. Kinh tế học gọi đó là <strong id="kn-cau-kem-co-gian">cầu kém co giãn</strong> <em class="tn">(inelastic demand)</em>: lượng mua gần như đứng yên dù giá lên xuống nhiều.</p>
+  <p>Khi lượng mua đứng yên, muốn bán hết phần thừa thì chỉ còn cách hạ giá thật sâu. Giá rớt nhanh hơn lượng tăng, nên mùa càng tốt thì tổng tiền thu về càng ít. Người Việt có câu <strong id="kn-duoc-mua-mat-gia">được mùa mất giá</strong>. Cuối thế kỷ 17, nhà thống kê người Anh Gregory King đã ghi lại điều này bằng số: lúa hụt một phần mười thì giá lên ba phần mười, hụt hai phần mười thì giá lên tám phần mười. Sách kinh tế gọi đó là quy luật King <em class="tn">(King's law)</em>.</p>
+  <p>Sao mỗi nông dân không tự bán ít đi để giữ giá? Vì một người chỉ là một trong 80 người bán cùng một thứ lúa. Người đó bán bớt thì 79 người kia bán thay, giá chợ chẳng nhích. Người như vậy là <strong id="kn-nguoi-chap-nhan-gia">người chấp nhận giá</strong> <em class="tn">(price taker)</em>: nhận giá chợ đưa ra, không mặc cả được. Ở trang trước An có <KN id="khoang-gia">khoảng giá</KN> rộng để mặc cả. Trong làng 80 An thì khoảng đó gần như biến mất.</p>
+  <p>Còn một cái bẫy nữa. Nhà kinh tế người Mỹ Willard Cochrane (1958) gọi nó là <em>cối xay nông nghiệp</em> <em class="tn">(agricultural treadmill)</em>. Người dùng máy cày sớm làm ra nhiều hơn trong lúc giá chưa rớt, nên có lời. Khi ai cũng có máy thì giá rớt, và người chưa có máy bị lỗ, buộc phải mua máy theo. Cả làng chạy mãi trên một cái cối xay mà thu nhập vẫn đứng yên. Phần lợi từ máy móc rơi vào túi người mua lúa, tức là mọi người khác.</p>
+
+  <h2>Sao nông dân không rời ruộng?</h2>
+  <p>Trong trò chơi, bấm − là một người rời ruộng. Ngoài đời thì rời ruộng khó hơn nhiều: phải bỏ đất, bỏ nhà, học nghề mới, xa người thân. Người lớn tuổi gần như không đi được. Vì vậy số người ở lại ruộng giảm chậm hơn nhiều so với tốc độ máy móc đến. Trong khoảng chênh đó, nông dân nghèo hơn.</p>
+  <p>Nhà kinh tế người Saint Lucia Arthur Lewis (1954) vẽ lại khoảng chênh này. Ông nhìn một nước đang lớn như <strong id="kn-kinh-te-hai-khu-vuc">kinh tế hai khu vực</strong> <em class="tn">(dual economy)</em>: nông thôn đông người, mỗi người làm ra ít; thành thị trả công cao hơn và kéo dần người ra khỏi ruộng. Đó chính là <KN id="chuyen-doi-co-cau">chuyển dịch cơ cấu</KN> mà Kuznets đo được, nhìn từ phía người nông dân. Lewis nhận Nobel năm 1979, cùng năm với Theodore Schultz. Schultz cho rằng nông dân nghèo không phải vì dại hay lười. Trong cái khung họ có, họ tính toán rất khéo; cái nghèo nằm ở cái khung (mình dịch thoáng ý của ông).</p>
+  <p>Số thật cho thấy khoảng chênh còn rộng:</p>
+  <ul class="gon">
+    <li><strong>Việt Nam năm 2024:</strong> nông, lâm nghiệp và thủy sản có khoảng 26,5% người lao động, nhưng chỉ làm ra 11,86% GDP. Tính trung bình, mỗi người làm nông làm ra chưa bằng một nửa mức chung của cả nước.</li>
+    <li><strong>Các nước đang phát triển:</strong> Douglas Gollin, David Lagakos và Michael Waugh (2014) thấy mỗi người làm ngoài nông nghiệp làm ra khoảng gấp bốn người làm nông. Tính cả giờ làm và số năm đi học thì vẫn còn khoảng gấp đôi.</li>
+    <li><strong>Mỹ năm 2023:</strong> chỉ khoảng 1 trên 100 người lao động làm trong nông trại. Thu nhập trung vị (mức ở giữa) của các hộ nông trại là 97.984 đô la, cao hơn mức 80.610 đô la của mọi hộ ở Mỹ. Nhưng phần lớn số đó đến từ việc làm ngoài ruộng, chỉ trang trại lớn mới sống khá bằng nghề nông.</li>
+  </ul>
+  <p>Hai điều cần nói thêm. Một: “người làm dịch vụ” không phải ai cũng khá. Người chạy xe ôm, bán hàng rong cũng làm dịch vụ, và nhiều người trong số đó vừa rời ruộng. Câu “nông dân nghèo hơn” là so trung bình. Hai: nông dân chỉ khá lên khi còn ít người làm ruộng, đúng như cảnh 4. Ở Mỹ chuyện đó mất gần hai trăm năm.</p>
+
+  <h2>Trả lời gọn</h2>
+  <ul class="gon">
+    <li>An luôn đủ ăn, nhưng An chỉ mặc cả mạnh khi đồ ăn khan hiếm và An là người bán duy nhất.</li>
+    <li>Khi nông cụ tốt lên, cái ăn thừa ra. Người ta không ăn thêm (<KN id="luat-engel">luật Engel</KN>), nên giá rớt sâu hơn lượng tăng.</li>
+    <li>Nông dân chỉ khá lên khi đủ nhiều người rời ruộng. Rời ruộng thì chậm, nên trong lúc chờ, nông dân nghèo hơn người làm dịch vụ.</li>
+  </ul>
+
+  <div class="cau-hoi-lon">
+    <p class="nhan">Mảnh ghép thứ mười cho câu hỏi ngây thơ</p>
+    <p>Ở cảnh 2, máy cày làm ra gấp bốn lúa. Đếm bằng tiền thì nông dân thu 100 đồng thay vì 400, còn người mua trả ít đi đúng 300 đồng. Một bên −300, một bên +300, tổng bằng không, đúng như câu hỏi của bạn. Nhưng đếm đồ thật thì cả làng vẫn ăn đủ, và 60 người có thể rời ruộng đi làm việc khác mà làng không đói. Tiền chỉ chia lại; phần tăng nằm ở công sức được giải phóng. Còn một điều lạ: lúa nhiều gấp bốn mà tính bằng tiền lại “đáng” ít hơn. Tiền đo thứ người ta còn thiếu, không đo thứ đã có. Hãy nhớ điều này khi gặp con số GDP.</p>
+  </div>
+
+  <details class="gap">
+    <summary>Ghi nhớ và từ khóa</summary>
+    <ul class="gon">
+      <li>Đủ ăn là cái sàn, không phải cái trần: người làm ra cái ăn chỉ mặc cả mạnh khi cái ăn khan hiếm.</li>
+      <li>Người ta không ăn nhiều hơn khi lúa rẻ (cầu kém co giãn), nên được mùa thì giá rớt sâu hơn lượng tăng: được mùa mất giá (King).</li>
+      <li>Một nông dân giữa nhiều người bán là người chấp nhận giá, không tự giữ giá được.</li>
+      <li>Máy móc nông nghiệp làm lợi cho người mua lúa; nông dân chỉ khá lên khi đủ người rời ruộng (Cochrane 1958; Lewis, Nobel 1979).</li>
+      <li>Việt Nam 2024: 26,5% lao động làm nông, làm ra 11,86% GDP.</li>
+    </ul>
+    <div class="bang"><table>
+      <thead><tr><th>Tiếng Việt</th><th>Tiếng Anh</th><th>Nghĩa ngắn</th></tr></thead>
+      <tbody>
+        <tr><td>Cầu kém co giãn</td><td>inelastic demand</td><td>Giá đổi nhiều, lượng mua đổi ít</td></tr>
+        <tr><td>Được mùa mất giá</td><td>King's law</td><td>Mùa càng tốt, tổng tiền thu về càng ít</td></tr>
+        <tr><td>Người chấp nhận giá</td><td>price taker</td><td>Quá nhỏ để đổi được giá chợ</td></tr>
+        <tr><td>Cối xay nông nghiệp</td><td>agricultural treadmill</td><td>Ai cũng phải mua máy mà thu nhập vẫn đứng yên</td></tr>
+        <tr><td>Kinh tế hai khu vực</td><td>dual economy</td><td>Nông thôn đông người làm ra ít, thành thị làm ra nhiều hơn</td></tr>
+      </tbody>
+    </table></div>
+  </details>
+  <details class="gap">
+    <summary>Tự kiểm tra (3 câu)</summary>
+    <p><strong>1.</strong> Làng dùng máy cày (mỗi nông dân làm ra 20 phần) và có 40 người làm ruộng. Một nông dân kiếm bao nhiêu đồng mỗi mùa?</p>
+    <details class="nho-mo"><summary>Đáp án</summary><p>5 đồng. Lúa làm ra 40 × 20 = 800 phần, gấp đôi mức cả làng ăn, nên giá còn 0,5 đồng. Cả làng mua 400 phần, trả 200 đồng, chia cho 40 người là 5 đồng.</p></details>
+    <p style="margin-top:1rem"><strong>2.</strong> Vì sao một nông dân tự bán ít lúa đi lại không giữ được giá?</p>
+    <details class="nho-mo"><summary>Đáp án</summary><p>Vì người đó chỉ là một trong rất nhiều người bán cùng một thứ. Người đó bán bớt thì người khác bán thay, giá chợ không đổi. Người đó là người chấp nhận giá.</p></details>
+    <p style="margin-top:1rem"><strong>3.</strong> Ở Mỹ, hộ nông trại không nghèo hơn mức chung. Vì sao?</p>
+    <details class="nho-mo"><summary>Gợi ý</summary><p>Vì sau gần hai trăm năm, chỉ còn khoảng 1 trên 100 người làm nông, mỗi người làm ra rất nhiều, giống cảnh 4. Và nhiều hộ có thêm việc làm ngoài ruộng.</p></details>
+  </details>
+  <details class="gap nguon">
+    <summary>Nguồn</summary>
+    <ol>
+      <li>Charles Davenant, <em>An Essay upon the Probable Methods of Making a People Gainers in the Balance of Trade</em>, 1699 (bảng lúa hụt và giá lúa của Gregory King).</li>
+      <li>N. Gregory Mankiw, <em>Principles of Economics</em>, chương 5 (độ co giãn; ví dụ “tin tốt cho nghề nông có thể là tin xấu cho nông dân”).</li>
+      <li>Willard W. Cochrane, <em>Farm Prices: Myth and Reality</em>, 1958 (cối xay nông nghiệp).</li>
+      <li>W. Arthur Lewis, "Economic Development with Unlimited Supplies of Labour", <em>The Manchester School</em> 22(2), 1954. Nobel kinh tế 1979.</li>
+      <li>Theodore W. Schultz, <em>Transforming Traditional Agriculture</em>, 1964; bài giảng Nobel 1979 "The Economics of Being Poor". <a href="https://www.nobelprize.org/prizes/economic-sciences/1979/schultz/lecture/" target="_blank" rel="noopener">nobelprize.org</a>.</li>
+      <li>Douglas Gollin, David Lagakos, Michael E. Waugh, "The Agricultural Productivity Gap", <em>Quarterly Journal of Economics</em> 129(2), 2014. <a href="https://www.nber.org/papers/w19628" target="_blank" rel="noopener">NBER w19628</a>.</li>
+      <li>Tổng cục Thống kê, <em>Báo cáo điều tra lao động việc làm năm 2024</em> và thông cáo tình hình kinh tế – xã hội năm 2024 (cơ cấu GDP). <a href="https://www.nso.gov.vn/" target="_blank" rel="noopener">nso.gov.vn</a>.</li>
+      <li>USDA Economic Research Service, "Farm Household Income Estimates" (số năm 2023). <a href="https://www.ers.usda.gov/topics/farm-economy/farm-household-well-being/farm-household-income-estimates" target="_blank" rel="noopener">ers.usda.gov</a>.</li>
+    </ol>
+  </details>
+
+<script is:inline>
+(function () {
+/* Trang 10: làng 100 người, một mùa. q = phần lúa 1 nông dân làm ra, n = số người làm ruộng. */
+var DAN = 100, CAN = 400, CONG_DV = 10, q = 5, duocMua = false;
+function o(id) { return document.getElementById(id); }
+function so(v) { return v.toLocaleString("vi-VN", { maximumFractionDigits: 2 }); }
+function toiThieu() { return Math.ceil(CAN / q / 5) * 5; }
+function docN() { var e = o("t10l-n"), v = parseInt(e.value, 10); if (isNaN(v)) v = 80; v = Math.round(v / 5) * 5; return Math.min(DAN, Math.max(toiThieu(), v)); }
+function tinh(n) {
+  var lua = n * q * (duocMua ? 1.5 : 1), gia = CAN / lua, tong = CAN * gia;
+  return { lua: lua, gia: gia, tong: tong, nd: tong / n };
+}
+var luoi = o("t10l-luoi");
+for (var i = 0; i < DAN; i++) luoi.appendChild(document.createElement("span"));
+function ve() {
+  var n = docN(); o("t10l-n").value = n;
+  var r = tinh(n), thua = r.lua - CAN;
+  Array.prototype.forEach.call(luoi.children, function (s, k) {
+    var ruong = k < n; s.textContent = ruong ? "🌾" : "🛠️"; s.className = ruong ? "lam-ruong" : "lam-dich-vu";
+  });
+  o("t10l-lua").textContent = "Lúa làm ra: " + so(r.lua) + " phần. Cả làng ăn 400 phần" + (thua > 0 ? ", thừa " + so(thua) + " phần bỏ đi. Giá 1 phần: " + so(r.gia) + "\u00a0đồng." : ", vừa đủ. Giá 1 phần: 1 đồng.");
+  var max = Math.max(40, r.nd, CONG_DV);
+  o("t10l-thanh-nd").style.width = (r.nd / max * 100) + "%";
+  o("t10l-thanh-dv").style.width = (CONG_DV / max * 100) + "%";
+  o("t10l-nd").textContent = so(r.nd) + "\u00a0đồng";
+  o("t10l-dv").textContent = CONG_DV + "\u00a0đồng";
+  var hoa = Math.sqrt(CAN * CAN / (q * (duocMua ? 1.5 : 1) * CONG_DV)), ket;
+  if (r.nd < CONG_DV * 0.95) ket = "<b>Nông dân nghèo hơn:</b> " + so(r.nd) + "\u00a0đồng so với " + CONG_DV + "\u00a0đồng. ";
+  else if (r.nd > CONG_DV * 1.05) ket = "<b>Nông dân khá hơn:</b> " + so(r.nd) + "\u00a0đồng so với " + CONG_DV + "\u00a0đồng. ";
+  else ket = "<b>Gần bằng nhau:</b> " + so(r.nd) + "\u00a0đồng so với " + CONG_DV + "\u00a0đồng. ";
+  if (hoa < toiThieu()) ket += "Với nông cụ này phải có ít nhất " + toiThieu() + " người làm ruộng thì làng mới đủ ăn, nên mỗi nông dân kiếm nhiều nhất " + so(tinh(toiThieu()).nd) + "\u00a0đồng.";
+  else ket += "Với nông cụ này, nông dân kiếm bằng người làm dịch vụ khi còn khoảng " + Math.round(hoa) + " người ở lại ruộng" + (n > hoa ? ": còn " + (n - Math.round(hoa)) + " người nữa phải rời ruộng." : n < hoa - 0.5 ? ". Làng đang có ít người làm ruộng hơn mức đó, nên mỗi người được nhiều hơn." : ".");
+  if (duocMua) ket += " Được mùa: lúa nhiều gấp rưỡi, còn tiền thu về chỉ bằng hai phần ba năm thường.";
+  o("t10l-ket").innerHTML = ket;
+}
+function chonCu(qMoi) {
+  q = qMoi;
+  o("t10l-cu").querySelectorAll(".chip").forEach(function (b) { b.setAttribute("aria-pressed", String(+b.getAttribute("data-q") === q)); });
+  o("t10l-n").min = toiThieu();
+}
+function boCanh() { o("t10l-canh").querySelectorAll(".chip").forEach(function (b) { b.setAttribute("aria-pressed", "false"); }); }
+o("t10l-canh").querySelectorAll(".chip").forEach(function (b) {
+  b.addEventListener("click", function () {
+    chonCu(+b.getAttribute("data-q")); o("t10l-n").value = b.getAttribute("data-n");
+    boCanh(); b.setAttribute("aria-pressed", "true"); ve();
+  });
+});
+o("t10l-cu").querySelectorAll(".chip").forEach(function (b) {
+  b.addEventListener("click", function () { chonCu(+b.getAttribute("data-q")); boCanh(); ve(); });
+});
+document.querySelectorAll("#t10l .o-so button").forEach(function (b) {
+  b.addEventListener("click", function () {
+    var e = o(b.getAttribute("data-o")); e.value = docN() + (b.classList.contains("cong") ? 5 : -5); boCanh(); ve();
+  });
+});
+o("t10l-n").addEventListener("change", function () { boCanh(); ve(); });
+o("t10l-mua").addEventListener("click", function () {
+  duocMua = !duocMua; o("t10l-mua").setAttribute("aria-pressed", String(duocMua)); ve();
+});
+ve();
+})();
+</script>
