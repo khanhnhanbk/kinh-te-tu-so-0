@@ -1,0 +1,22 @@
+{
+  "so": 11,
+  "slug": "nguoi-giu-kho-muoi",
+  "ten": "Người giữ kho muối",
+  "cauHoi": "Muối được làm ra, có giá trị và đã thành tiền. Vậy ngân hàng ở đâu, có vai trò gì, và nó xuất hiện vì lý do gì?",
+  "cha": "ai-lam-ra-muoi",
+  "danSo": 100,
+  "ngay": "2026-11-28",
+  "moTa": "Bạn giữ kho muối cho cả chợ và phát phiếu nhận muối. Cho vay thêm phiếu thì có lãi và chợ có thêm tiền, nhưng một tin đồn có thể làm sập kho.",
+  "goiY": [
+    "Ai đứng sau ngân hàng, và ngân hàng trung ương ra đời thế nào?",
+    "Ngân hàng cho vay ra tiền mới thì có gây lạm phát như thợ muối không?",
+    "Lãi suất cao hay thấp là do ai quyết?"
+  ],
+  "khaiNiem": [
+    { "id": "trung-gian-tai-chinh", "ten": "Trung gian tài chính", "en": "financial intermediary", "nghia": "Người hoặc tổ chức nhận tiền của người đang dư rồi cho người đang thiếu vay, đứng giữa và chịu rủi ro thay hai bên. Ngân hàng là trung gian tài chính quen thuộc nhất." },
+    { "id": "du-tru-mot-phan", "ten": "Dự trữ một phần", "en": "fractional reserve banking", "nghia": "Cách ngân hàng chỉ giữ lại một phần tiền gửi để trả người rút, phần còn lại đem cho vay. Cách này dựa vào việc người gửi hiếm khi rút cùng một lúc." },
+    { "id": "ngan-hang-tao-tien", "ten": "Ngân hàng tạo tiền", "en": "money creation by banks", "nghia": "Việc ngân hàng cho vay bằng cách ghi thêm một khoản tiền gửi cho người vay. Khoản đó tiêu được như tiền, dù không ai gửi thêm tiền cũ vào ngân hàng." },
+    { "id": "rut-tien-hang-loat", "ten": "Rút tiền hàng loạt", "en": "bank run", "nghia": "Tình trạng nhiều người gửi cùng lúc đòi rút vì sợ ngân hàng hết tiền, khiến ngân hàng hết tiền thật. Douglas Diamond và Philip Dybvig (1983, Nobel 2022) chỉ ra nỗi sợ này có thể tự biến thành sự thật." },
+    { "id": "nguoi-cho-vay-cuoi-cung", "ten": "Người cho vay cuối cùng", "en": "lender of last resort", "nghia": "Nơi đứng sau các ngân hàng, cho ngân hàng vay khi bị rút tiền hàng loạt để tin đồn tắt. Walter Bagehot (1873) đặt luật: cho vay thoải mái, lấy lãi cao, đòi tài sản bảo đảm tốt." }
+  ]
+}

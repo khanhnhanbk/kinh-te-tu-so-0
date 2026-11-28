@@ -1,0 +1,178 @@
+---
+// Trang 11: Người giữ kho muối. Câu hỏi, số dân, trang cha nằm ở meta.json cùng thư mục.
+import KN from '../../components/KN.astro';
+---
+
+  <p class="dan-nhap">Ngân hàng ra đời rất sớm, có khi trước cả đồng xu. Nó không bắt đầu từ một tòa nhà có quầy giao dịch. Nó bắt đầu từ một cái kho chắc chắn và một người được cả chợ tin để giữ đồ hộ. Hãy xem chợ muối của trang trước cần người đó vì sao.</p>
+
+  <h2>Muối nhiều thì cần một cái kho</h2>
+  <p>Khi muối đã thành tiền, người chăm làm sẽ để dành được nhiều muối. Một trăm bao muối thì nặng, chiếm chỗ, dễ ẩm, và nhất là dễ bị cướp. Kẻ cướp ở trang 8 thích nhất là những nhà cất sẵn của cải. Vì vậy người có muối muốn gửi nó ở chỗ an toàn: một cái kho xây chắc, có người canh.</p>
+  <p>Người giữ kho nhận muối và đưa lại một tấm phiếu: “Ai cầm phiếu này đến đây thì nhận 1 bao muối”. Ra chợ, người ta thấy không cần vác muối đi mua cá. Đưa phiếu cho người bán cá là xong, người bán cá muốn lấy muối thì tự đến kho. Tấm phiếu nhẹ hơn, gọn hơn, và nó bắt đầu được dùng như tiền.</p>
+  <p>Đây là chuyện có thật, chỉ khác món hàng:</p>
+  <ul class="gon">
+    <li><strong>Lưỡng Hà:</strong> đền và cung điện giữ kho lúa, kho bạc của cả vùng, ghi sổ ai gửi bao nhiêu, ai nợ bao nhiêu. Chính những sổ đó là <KN id="tien-ghi-no">tiền ghi nợ</KN> ở trang 6. Bộ luật của vua Hammurabi (khoảng năm 1750 TCN) đã có điều khoản về lãi cho vay lúa và bạc.</li>
+    <li><strong>Ý thời Trung cổ:</strong> người đổi tiền ngồi sau một cái bàn dài ở chợ, tiếng Ý gọi là <em>banco</em>. Chữ “bank” (ngân hàng) đến từ cái bàn đó.</li>
+    <li><strong>London thế kỷ 17:</strong> người giàu gửi vàng ở các thợ kim hoàn vì họ có két sắt. Giấy nhận vàng của thợ kim hoàn được đem đi trả nợ, mua hàng, và dần thành tiền giấy.</li>
+  </ul>
+
+  <h2>Bạn là người giữ kho muối</h2>
+  <p>Người trong chợ đã gửi vào kho của bạn 100 bao muối và cầm 100 phiếu. Hầu như ngày nào muối cũng nằm yên trong kho, vì người ta chỉ tiêu phiếu. Rồi người đóng thuyền đến xin vay để mua gỗ, hứa trả kèm lãi sau mùa cá. Bạn không đưa muối. Bạn chỉ viết thêm phiếu cho người đó. Viết bao nhiêu, và kho chịu nổi đến đâu?</p>
+
+  <div class="thu" id="t11k">
+    <p class="nhan">Kho muối của bạn</p>
+    <div class="bang-gia">
+      <div class="dong-gia nhan-rieng"><span>Phiếu cho vay thêm</span><span class="o-so"><button type="button" class="tru" data-o="t11k-vay" aria-label="Bớt">−</button><input id="t11k-vay" type="number" inputmode="numeric" min="0" max="400" step="50" value="0" aria-label="Số phiếu cho vay thêm"><button type="button" class="cong" data-o="t11k-vay" aria-label="Thêm">+</button></span><span>phiếu</span></div>
+      <div class="dong-gia nhan-rieng"><span>Người cầm phiếu đòi muối cùng lúc</span><span class="o-so"><button type="button" class="tru" data-o="t11k-doi" aria-label="Bớt">−</button><input id="t11k-doi" type="number" inputmode="numeric" min="0" max="100" step="5" value="10" aria-label="Phần trăm người cầm phiếu đòi muối cùng lúc"><button type="button" class="cong" data-o="t11k-doi" aria-label="Thêm">+</button></span><span>%</span></div>
+    </div>
+    <div class="hanh-dong" style="margin-top:0.6rem" role="group" aria-label="Chuyện trong chợ">
+      <button type="button" class="chip" id="t11k-thuong" aria-pressed="true">Tháng bình thường</button>
+      <button type="button" class="chip" id="t11k-don" aria-pressed="false">Có tin đồn kho hết muối</button>
+      <button type="button" class="chip" id="t11k-lon" aria-pressed="false">Có kho lớn đứng sau</button>
+    </div>
+    <div class="cho-100 hang" id="t11k-luoi" role="img" aria-label="Các phiếu đang lưu hành trong chợ, mỗi ô là 5 phiếu"></div>
+    <p class="chu-giai"><span>🧂 5 phiếu có muối trong kho</span><span>📜 5 phiếu cho vay</span></p>
+    <div class="do" aria-live="polite" style="margin-top:0.75rem">
+      <div><b id="t11k-phieu">100</b><span>phiếu đang tiêu như tiền</span></div>
+      <div><b id="t11k-muoi">100</b><span>bao muối trong kho</span></div>
+      <div class="vang-chu"><b id="t11k-lai">0</b><span>bao lãi mỗi năm</span></div>
+    </div>
+    <div class="so-thu">
+      <span>Muối trong kho</span><span class="thanh-ngang"><i class="xanh" id="t11k-thanh-kho"></i></span><b id="t11k-kho">100 bao</b>
+      <span>Muối bị đòi</span><span class="thanh-ngang"><i id="t11k-thanh-doi"></i></span><b id="t11k-bi-doi">10 bao</b>
+    </div>
+    <p class="ket-luan" id="t11k-ket" aria-live="polite"></p>
+  </div>
+  <p class="chu-nho">Cách tính (giả định cho dễ thấy): mỗi phiếu đổi được 1 bao muối. Người vay trả lãi 10% mỗi năm, tính bằng muối. Người gửi không được lãi, vì bạn giữ hộ. Muối bị đòi = phần trăm người đòi × số phiếu đang lưu hành. Kho đủ muối khi muối bị đòi không quá 100 bao. “Có kho lớn đứng sau” là một kho rất lớn sẵn lòng cho bạn mượn muối lấy lãi cao, lấy nợ của người đóng thuyền làm vật bảo đảm.</p>
+
+  <p>Thử ba cảnh:</p>
+  <ul class="gon">
+    <li><strong>Cảnh 1:</strong> để 0 phiếu cho vay. Kho an toàn tuyệt đối, nhưng người đóng thuyền không có gỗ, còn bạn không có đồng lãi nào để trả công canh kho.</li>
+    <li><strong>Cảnh 2:</strong> cho vay 200 phiếu, tháng bình thường. Chợ có 300 phiếu mà kho chỉ có 100 bao, vẫn đủ muối, và bạn thu 20 bao lãi mỗi năm.</li>
+    <li><strong>Cảnh 3:</strong> giữ 200 phiếu, bấm “Có tin đồn kho hết muối”. Một nửa số người cầm phiếu kéo đến, kho sập. Rồi bấm thêm “Có kho lớn đứng sau” xem chuyện gì đổi khác.</li>
+  </ul>
+
+  <h2>Ngân hàng làm hai việc</h2>
+  <p><strong>Việc thứ nhất: giữ hộ.</strong> Đó là lý do cái kho ra đời. Người gửi đổi một chút phí lấy sự yên tâm, và tấm phiếu tiện hơn bao muối khi đi chợ.</p>
+  <p><strong>Việc thứ hai: nối người đang dư với người đang thiếu.</strong> Ở trang 2, một người để dành hạt giống thì chỉ tự mình đem gieo được. Trong chợ 100 người, người có muối để dành và người cần muối để đóng thuyền thường là hai người khác nhau. Họ cũng không quen nhau, không biết ai đáng tin. Người giữ kho đứng giữa. Bạn biết ai hay trả nợ, bạn gom muối của nhiều người, và bạn chịu rủi ro nếu một người vay không trả. Vai trò này gọi là <strong id="kn-trung-gian-tai-chinh">trung gian tài chính</strong> <em class="tn">(financial intermediary)</em>. Phần <KN id="lai-suat">lãi suất</KN> người vay trả là công của bạn.</p>
+  <p>Việc thứ hai còn có một mẹo. Người gửi muốn rút lúc nào cũng được, còn cái thuyền phải chờ hết mùa cá mới trả được nợ. Bạn làm được cả hai nhờ một điều quan sát: người gửi hiếm khi rút cùng một lúc. Bạn chỉ cần giữ trong kho một phần đủ cho người rút hằng ngày, phần còn lại đem cho vay. Cách làm đó gọi là <strong id="kn-du-tru-mot-phan">dự trữ một phần</strong> <em class="tn">(fractional reserve banking)</em>.</p>
+
+  <h2>Cho vay là làm ra tiền</h2>
+  <p>Nhìn lại ô số đầu tiên trong trò chơi. Bạn không đưa bao muối nào cho người đóng thuyền, chỉ viết phiếu. Nhưng phiếu đó tiêu được như mọi phiếu khác. Chợ bỗng có nhiều tiền hơn mà không ai làm ra thêm bao muối nào. Đó là <strong id="kn-ngan-hang-tao-tien">ngân hàng tạo tiền</strong> <em class="tn">(money creation by banks)</em>.</p>
+  <p>Nghe như chuyện của người giữ kho thời xưa, nhưng ngày nay vẫn vậy. Năm 2014, Ngân hàng Trung ương Anh viết thẳng trong một bài giải thích: phần lớn tiền trong nền kinh tế hiện đại là tiền gửi ngân hàng, và tiền gửi đó chủ yếu sinh ra khi ngân hàng cho vay. Khi bạn vay mua nhà, ngân hàng không lấy tiền của ai đưa cho bạn. Nó ghi thêm một con số vào tài khoản của bạn.</p>
+  <p>Vậy người giữ kho giống thợ muối ở trang trước: cả hai đều làm ra tiền. Khác nhau ở chỗ thợ muối phải đào muối, còn người giữ kho chỉ cần viết. Viết quá tay thì có hai cái giá. Một là giá cả trong chợ tăng, như <KN id="lam-phat">lạm phát</KN> khi thợ muối làm quá nhiều. Hai là kho sập, như bạn vừa thấy.</p>
+
+  <h2>Một tin đồn có thể làm sập kho</h2>
+  <p>Ở cảnh 3, người vay của bạn không hề quỵt nợ. Cái thuyền vẫn đang đóng, mùa sau vẫn trả. Muối không mất, chỉ là nó đang nằm trong gỗ thuyền chứ không nằm trong kho. Nhưng nếu ai cũng tin rằng người khác sẽ đến rút trước, thì ai cũng vội đến rút. Kho không thể trả cùng lúc, và tin đồn thành sự thật. Đó là <strong id="kn-rut-tien-hang-loat">rút tiền hàng loạt</strong> <em class="tn">(bank run)</em>.</p>
+  <p>Douglas Diamond và Philip Dybvig (1983) viết điều này thành mô hình. Một ngân hàng hoàn toàn lành mạnh vẫn có hai kết cục: nếu người gửi tin nhau thì nó sống, nếu người gửi sợ nhau thì nó chết. Hai ông nhận Nobel năm 2022, cùng Ben Bernanke, người nghiên cứu các ngân hàng Mỹ sập trong Đại suy thoái 1930. Chuyện này chưa cũ. Tháng 3/2023, khách hàng của Silicon Valley Bank ở Mỹ đòi rút khoảng 42 tỷ đô la chỉ trong một ngày, và ngân hàng đóng cửa ngay hôm sau.</p>
+  <p>Cách chữa là có ai đó đứng sau cho kho mượn muối lúc hoảng loạn. Thấy ai đến cũng nhận đủ muối, người chưa đòi sẽ thôi lo, và tin đồn tắt. Nhà báo người Anh Walter Bagehot (1873) đặt luật cho vai trò này: lúc hoảng loạn thì cho vay thoải mái, nhưng lấy lãi cao, và chỉ nhận tài sản bảo đảm tốt. Nơi đóng vai trò đó gọi là <strong id="kn-nguoi-cho-vay-cuoi-cung">người cho vay cuối cùng</strong> <em class="tn">(lender of last resort)</em>. Ngày nay đó là ngân hàng trung ương.</p>
+
+  <h2>Trả lời gọn</h2>
+  <ul class="gon">
+    <li><strong>Ở đâu:</strong> ở cái kho mà cả chợ tin. Từ đền Lưỡng Hà, bàn người đổi tiền ở Ý, tới két sắt của thợ kim hoàn London.</li>
+    <li><strong>Vì sao xuất hiện:</strong> vì để dành nhiều thì cần chỗ giữ an toàn, và vì người dư với người thiếu cần ai đó đứng giữa.</li>
+    <li><strong>Vai trò:</strong> giữ hộ, cho vay, và nhờ cho vay mà làm ra phần lớn tiền đang tiêu. Đổi lại, ngân hàng luôn sống nhờ niềm tin.</li>
+  </ul>
+
+  <div class="cau-hoi-lon">
+    <p class="nhan">Mảnh ghép thứ mười một cho câu hỏi ngây thơ</p>
+    <p>Khi bạn cho người đóng thuyền vay 50 phiếu, sổ của bạn có hai dòng: được đòi 50 bao (+50), và phải đổi 50 phiếu ra muối khi có người đòi (−50). Sổ người vay cũng có hai dòng: 50 phiếu để tiêu (+50) và khoản nợ 50 bao (−50). Cộng hết lại vẫn bằng không. Vậy mà chợ có thêm 50 phiếu tiêu được như tiền, và cái thuyền đóng xong thì đánh được cá thật. Tiền ngân hàng sinh ra từ đúng một cặp + và −. Mỗi phiếu đang được tiêu là một khoản nợ của ai đó. Câu hỏi “+100k thì −100k” của bạn hóa ra đang tả chính cách tiền ra đời.</p>
+  </div>
+
+  <details class="gap">
+    <summary>Ghi nhớ và từ khóa</summary>
+    <ul class="gon">
+      <li>Ngân hàng bắt đầu từ việc giữ hộ của cải ở một cái kho được tin cậy. Phiếu nhận hàng dần được tiêu như tiền.</li>
+      <li>Ngân hàng nối người đang dư với người đang thiếu và chịu rủi ro thay họ: trung gian tài chính.</li>
+      <li>Người gửi hiếm khi rút cùng lúc, nên ngân hàng chỉ giữ một phần, còn lại cho vay: dự trữ một phần.</li>
+      <li>Cho vay bằng cách viết thêm phiếu (ghi thêm số vào tài khoản) là làm ra tiền mới (Ngân hàng Trung ương Anh, 2014).</li>
+      <li>Nỗi sợ người khác rút trước có thể làm sập một ngân hàng lành mạnh (Diamond và Dybvig 1983, Nobel 2022). Người cho vay cuối cùng dập tắt nỗi sợ đó (Bagehot 1873).</li>
+    </ul>
+    <div class="bang"><table>
+      <thead><tr><th>Tiếng Việt</th><th>Tiếng Anh</th><th>Nghĩa ngắn</th></tr></thead>
+      <tbody>
+        <tr><td>Trung gian tài chính</td><td>financial intermediary</td><td>Đứng giữa người dư và người thiếu</td></tr>
+        <tr><td>Dự trữ một phần</td><td>fractional reserve banking</td><td>Giữ một phần, cho vay phần còn lại</td></tr>
+        <tr><td>Ngân hàng tạo tiền</td><td>money creation by banks</td><td>Cho vay bằng cách ghi thêm tiền gửi</td></tr>
+        <tr><td>Rút tiền hàng loạt</td><td>bank run</td><td>Ai cũng sợ người khác rút trước</td></tr>
+        <tr><td>Người cho vay cuối cùng</td><td>lender of last resort</td><td>Cho ngân hàng mượn lúc hoảng loạn</td></tr>
+      </tbody>
+    </table></div>
+  </details>
+  <details class="gap">
+    <summary>Tự kiểm tra (3 câu)</summary>
+    <p><strong>1.</strong> Kho có 100 bao muối, chợ có 400 phiếu. Phải có bao nhiêu phần trăm người cầm phiếu đòi cùng lúc thì kho sập?</p>
+    <details class="nho-mo"><summary>Đáp án</summary><p>Hơn 25%. Kho chỉ trả được 100 trên 400 phiếu, tức một phần tư. Hơn một phần tư người cầm phiếu đến đòi là kho hết muối.</p></details>
+    <p style="margin-top:1rem"><strong>2.</strong> Người giữ kho cho vay 100 phiếu. Chợ có thêm bao nhiêu bao muối? Có thêm bao nhiêu tiền?</p>
+    <details class="nho-mo"><summary>Đáp án</summary><p>Không thêm bao muối nào, nhưng có thêm 100 phiếu tiêu được như tiền. Tiền mới sinh ra từ khoản cho vay, đi kèm một khoản nợ 100 bao của người vay.</p></details>
+    <p style="margin-top:1rem"><strong>3.</strong> Vì sao một ngân hàng cho vay cẩn thận vẫn có thể sập?</p>
+    <details class="nho-mo"><summary>Đáp án</summary><p>Vì tiền cho vay chỉ thu về được sau một thời gian, còn người gửi có thể đòi ngay. Nếu nhiều người sợ người khác rút trước và cùng kéo đến, ngân hàng không đủ tiền trả ngay, dù các khoản vay đều tốt.</p></details>
+  </details>
+  <details class="gap nguon">
+    <summary>Nguồn</summary>
+    <ol>
+      <li>Douglas W. Diamond và Philip H. Dybvig, "Bank Runs, Deposit Insurance, and Liquidity", <em>Journal of Political Economy</em> 91(3), 1983. Nobel kinh tế 2022 (cùng Ben Bernanke). <a href="https://www.nobelprize.org/prizes/economic-sciences/2022/popular-information/" target="_blank" rel="noopener">nobelprize.org</a>.</li>
+      <li>Michael McLeay, Amar Radia, Ryland Thomas, "Money creation in the modern economy", <em>Bank of England Quarterly Bulletin</em>, 2014 Q1. <a href="https://www.bankofengland.co.uk/quarterly-bulletin/2014/q1/money-creation-in-the-modern-economy" target="_blank" rel="noopener">bankofengland.co.uk</a>.</li>
+      <li>Walter Bagehot, <em>Lombard Street: A Description of the Money Market</em>, 1873 (người cho vay cuối cùng).</li>
+      <li>Sidney Homer và Richard Sylla, <em>A History of Interest Rates</em>, chương về Lưỡng Hà (luật Hammurabi về lãi cho vay lúa và bạc).</li>
+      <li>Glyn Davies, <em>A History of Money</em>, 1994 (người đổi tiền ở Ý, thợ kim hoàn London và giấy nhận vàng).</li>
+      <li>Báo cáo của Cục Dự trữ Liên bang Mỹ về Silicon Valley Bank, tháng 4/2023 (khoảng 42 tỷ đô la bị rút ngày 9/3/2023). <a href="https://www.federalreserve.gov/publications/review-of-the-federal-reserves-supervision-and-regulation-of-silicon-valley-bank.htm" target="_blank" rel="noopener">federalreserve.gov</a>.</li>
+    </ol>
+  </details>
+
+<script is:inline>
+(function () {
+/* Trang 11: kho muối 100 bao. vay = phiếu cho vay thêm, doi = % người cầm phiếu đòi muối cùng lúc. */
+var KHO = 100, LAI = 0.1, lon = false;
+function o(id) { return document.getElementById(id); }
+function doc(id) { var e = o(id), v = parseFloat(String(e.value).replace(",", ".")); if (isNaN(v)) v = +e.min; v = Math.round(v / +e.step) * +e.step; return Math.min(+e.max, Math.max(+e.min, v)); }
+function so(v) { return v.toLocaleString("vi-VN", { maximumFractionDigits: 1 }); }
+var luoi = o("t11k-luoi");
+for (var i = 0; i < 100; i++) luoi.appendChild(document.createElement("span"));
+function ve() {
+  var vay = doc("t11k-vay"), doi = doc("t11k-doi");
+  o("t11k-vay").value = vay; o("t11k-doi").value = doi;
+  var phieu = KHO + vay, biDoi = doi / 100 * phieu, nguong = KHO / phieu * 100, ket;
+  Array.prototype.forEach.call(luoi.children, function (s, k) {
+    if (k < KHO / 5) { s.textContent = "🧂"; s.className = "la-tien"; }
+    else if (k < phieu / 5) { s.textContent = "📜"; s.className = "lam-dich-vu"; }
+    else { s.textContent = ""; s.className = "da-di"; }
+  });
+  o("t11k-phieu").textContent = so(phieu);
+  o("t11k-muoi").textContent = so(KHO);
+  o("t11k-lai").textContent = so(vay * LAI);
+  var max = Math.max(KHO, biDoi);
+  o("t11k-thanh-kho").style.width = (KHO / max * 100) + "%";
+  o("t11k-thanh-doi").style.width = (biDoi / max * 100) + "%";
+  o("t11k-kho").textContent = KHO + " bao";
+  o("t11k-bi-doi").textContent = so(biDoi) + " bao";
+  if (biDoi <= KHO) {
+    if (vay === 0) ket = "<b>Kho giữ hộ thuần.</b> Mỗi phiếu có đúng 1 bao muối đằng sau, ai đòi cũng có. Nhưng không ai vay được, và bạn không có đồng lãi nào.";
+    else ket = "<b>Đủ muối.</b> Chợ có " + so(phieu) + " phiếu mà kho chỉ có 100 bao: " + so(vay) + " phiếu là tiền mới, sinh ra lúc bạn cho vay. Bạn thu " + so(vay * LAI) + " bao lãi mỗi năm. Kho chịu được tối đa " + so(nguong) + "% người cầm phiếu đòi cùng lúc.";
+  } else if (lon) {
+    ket = "<b>Kho lớn cho bạn mượn " + so(biDoi - KHO) + " bao.</b> Ai đến đòi cũng nhận đủ muối, nên người chưa đòi thôi lo và tin đồn tắt. Bạn phải trả lãi cao cho kho lớn, nhưng kho của bạn không sập. Người đóng thuyền trả nợ xong thì bạn trả lại kho lớn.";
+  } else {
+    ket = "<b>Sập kho.</b> " + so(biDoi) + " bao bị đòi mà kho chỉ có 100. Người đến trước lấy đủ, " + so(biDoi - KHO) + " phiếu của người đến sau thành giấy lộn. Lạ ở chỗ: người vay của bạn vẫn sẽ trả nợ. Muối không mất, chỉ là chưa về kho kịp. Kho chỉ chịu được " + so(nguong) + "% người đòi cùng lúc.";
+  }
+  o("t11k-ket").innerHTML = ket;
+}
+function datDoi(v, nut) {
+  o("t11k-doi").value = v;
+  o("t11k-thuong").setAttribute("aria-pressed", String(nut === "thuong"));
+  o("t11k-don").setAttribute("aria-pressed", String(nut === "don"));
+  ve();
+}
+o("t11k-thuong").addEventListener("click", function () { datDoi(10, "thuong"); });
+o("t11k-don").addEventListener("click", function () { datDoi(50, "don"); });
+o("t11k-lon").addEventListener("click", function () { lon = !lon; o("t11k-lon").setAttribute("aria-pressed", String(lon)); ve(); });
+document.querySelectorAll("#t11k .o-so button").forEach(function (b) {
+  b.addEventListener("click", function () {
+    var e = o(b.getAttribute("data-o")), st = +e.step;
+    e.value = doc(e.id) + (b.classList.contains("cong") ? st : -st);
+    if (e.id === "t11k-doi") datDoi(doc("t11k-doi"), ""); else ve();
+  });
+});
+o("t11k-vay").addEventListener("change", ve);
+o("t11k-doi").addEventListener("change", function () { datDoi(doc("t11k-doi"), ""); });
+ve();
+})();
+</script>
