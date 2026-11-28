@@ -1,0 +1,21 @@
+{
+  "so": 12,
+  "slug": "phieu-no-thanh-tien-giay",
+  "ten": "Phiếu nợ thành tiền giấy",
+  "cauHoi": "Cái phiếu nợ và cái tiền giấy khác nhau chỗ nào?",
+  "cha": "nguoi-giu-kho-muoi",
+  "danSo": 100,
+  "ngay": "2026-11-28",
+  "moTa": "Tiền giấy là một phiếu nợ đã qua ba bước: bỏ tên người nhận, làm tờ nào như tờ nấy, và đổi người nợ sang người cả chợ tin. Tự sửa một tờ giấy nợ và xem bao nhiêu người trong chợ chịu nhận.",
+  "goiY": [
+    "Nhà nước in thêm tiền giấy thì sao, có giống thợ muối không?",
+    "Tiền trong tài khoản ngân hàng có phải là tiền giấy không?",
+    "Nếu cả chợ thôi tin, tờ tiền giấy còn lại gì?"
+  ],
+  "khaiNiem": [
+    { "id": "phieu-tra-cho-nguoi-cam", "ten": "Phiếu trả cho người cầm", "en": "bearer instrument", "nghia": "Giấy hứa trả cho bất kỳ ai đang cầm nó, không ghi tên người nhận, nên chuyển tay không cần hỏi ai." },
+    { "id": "tinh-thay-the", "ten": "Tính thay thế được", "en": "fungibility", "nghia": "Tính chất của một thứ mà các đơn vị giống hệt nhau: đổi tờ này lấy tờ kia cùng mệnh giá thì không ai thiệt, nên không ai phải xem kỹ từng tờ." },
+    { "id": "thu-bac-cua-tien", "ten": "Thứ bậc của tiền", "en": "hierarchy of money", "nghia": "Cách xếp các loại giấy nợ theo mức được chịu nhận. Nợ của người được tin hơn đứng cao hơn, và người ta dùng nó để trả các khoản nợ đứng thấp hơn." },
+    { "id": "tien-phap-dinh", "ten": "Tiền pháp định", "en": "fiat money", "nghia": "Tiền có giá trị vì nhà nước quy định nó dùng để nộp thuế và trả nợ, và cả nước chịu nhận nó. Nó không đổi được ra vàng hay món hàng nào." }
+  ]
+}

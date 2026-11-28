@@ -382,3 +382,6 @@ strong[id^="kn-"]:target { outline: none; background: var(--vang-nen); box-shado
 .so-thu b { font-variant-numeric: tabular-nums; white-space: nowrap; }
 .cho-100 span.lam-ruong { background: color-mix(in srgb, var(--vang) 22%, var(--giay)); }
 .cho-100 span.lam-dich-vu { background: color-mix(in srgb, var(--bien) 22%, var(--giay)); }
+/* Trang 12: tờ giấy nợ thay đổi theo công tắc */
+.to-giay { margin: 0.9rem 0; padding: 0.9rem 1rem; border-radius: 6px; border: 1px dashed var(--muc-nhat); background: var(--vang-nen); font-family: var(--chu-tieu-de); font-size: 1.05rem; line-height: 1.5; max-width: 30rem; }
+.to-giay small { display: block; margin-top: 0.4rem; font-family: var(--chu-nhan); font-size: 0.78rem; color: var(--muc-nhat); }
