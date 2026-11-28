@@ -1,0 +1,335 @@
+---
+// Trang 9: Nhìn kỹ vụ cướp. Câu hỏi, số dân, trang cha nằm ở meta.json cùng thư mục.
+import KN from '../../components/KN.astro';
+---
+
+  <p class="dan-nhap">Trang trước đưa ra kết quả mà chưa đưa lý do. Trang này tháo trò chơi ra từng mảnh: một mùa, rồi nhiều mùa, rồi tới chuyện 99 người không ai giống ai.</p>
+
+  <h2>Một mùa: lấy phần trăm của một thứ đang co lại</h2>
+  <p>Phần kẻ cướp lấy là một phép nhân: <strong>mức lấy × đồ làm ra</strong>. Nhưng đồ làm ra không đứng yên. Ở trang trước, bị lấy bao nhiêu phần trăm thì người ta bớt bấy nhiêu phần trăm công, vì đó là <KN id="dong-luc">động lực</KN>. Mức lấy tăng thì thừa số đầu lớn lên, còn thừa số sau nhỏ lại. Kéo thử:</p>
+
+  <div class="thu" id="t9m">
+    <p class="nhan">Một mùa, 99 người, mỗi người làm được tối đa 10 phần</p>
+    <div class="thanh">
+      <label for="t9m-ty"><span>Kẻ cướp lấy</span><output id="t9m-ra">50%</output></label>
+      <input type="range" id="t9m-ty" min="0" max="100" step="5" value="50">
+    </div>
+    <div class="cot-hat" aria-live="polite">
+      <div><span class="nhan">99 người làm ra</span><span class="thanh-ngang"><i class="xanh" id="t9m-c1"></i></span><b id="t9m-s1">0</b></div>
+      <div><span class="nhan">Kẻ cướp lấy</span><span class="thanh-ngang"><i id="t9m-c2"></i></span><b id="t9m-s2">0</b></div>
+      <div><span class="nhan">Mất, không ai được</span><span class="thanh-ngang"><i class="mat" id="t9m-c3"></i></span><b id="t9m-s3">0</b></div>
+    </div>
+    <svg class="bieu-do" id="t9m-bd" viewBox="0 0 600 190" role="img" aria-labelledby="t9m-bd-ten"><title id="t9m-bd-ten">Phần kẻ cướp lấy trong một mùa theo mức lấy: hình quả đồi, đỉnh ở 50%</title></svg>
+    <p class="ket-luan" id="t9m-ket" aria-live="polite"></p>
+  </div>
+
+  <p>Đẩy lên 100% thì không ai làm gì nữa, vì làm ra bao nhiêu cũng mất hết. 100% của 0 vẫn là 0. Trong một mùa, đỉnh nằm ở 50%: lấy một nửa của một nửa, được 248 phần.</p>
+  <p>Nhìn thanh xám. Không ai cướp thì 99 người làm ra 990 phần. Bị lấy 50% thì họ chỉ làm ra 495 phần: kẻ cướp được 248, 99 người giữ 248, còn 495 phần không ai được cả, vì chúng chưa bao giờ được làm ra. Kinh tế học gọi phần đó là <strong id="kn-ton-that-vo-ich">tổn thất vô ích</strong> <em class="tn">(deadweight loss)</em>. Đây là lý do kẻ cướp luôn được ít hơn phần người bị cướp mất.</p>
+  <p>Ngoài đời không về hẳn số 0: người ta vẫn làm lén, giấu bớt. Nhưng hướng thì đúng: lấy càng gần hết, phần còn lại để lấy càng teo.</p>
+
+  <h2>Nhiều mùa: vì sao đỉnh tụt từ 50% xuống 35%</h2>
+  <p>Nhiều mùa thì có thêm chuyện hạt giống. Trang trước giả định: ai giữ lại dưới 4 phần thì phải ăn cả hạt giống, mùa sau làm ra ít đi 10%. Tính thử hai mức:</p>
+  <ul class="gon">
+    <li><strong>Lấy 35%:</strong> người ta bỏ 65% công, làm ra 6,5 phần, bị lấy 35%, giữ 4,2 phần. Vừa đủ, không phải ăn hạt giống.</li>
+    <li><strong>Lấy 40%:</strong> làm ra 6 phần, giữ 3,6 phần, dưới 4. Mùa nào làng cũng teo đi 10%, và phần kẻ cướp lấy teo theo.</li>
+  </ul>
+  <p>Vậy 35% là mức cao nhất mà người bị lấy còn giữ được hạt giống, tức còn <KN id="dau-tu">đầu tư</KN> cho mùa sau. Lấy quá mức đó, kẻ cướp đang ăn vào mùa sau của chính mình.</p>
+  <p>Nói thật: số 4 phần là giả định mình đặt ra để dựng trò chơi, không phải số đo ngoài đời. Đổi giả định thì con số đổi theo. Nhưng hình dạng thì không đổi: luôn có một đỉnh ở giữa.</p>
+
+  <div class="thu" id="t9h">
+    <p class="nhan">Đổi giả định, tìm lại đỉnh (cộng dồn 20 mùa)</p>
+    <div class="thanh">
+      <label for="t9h-ng"><span>Phải ăn hạt giống khi giữ dưới</span><output id="t9h-ra">4 phần</output></label>
+      <input type="range" id="t9h-ng" min="1" max="6" step="1" value="4">
+    </div>
+    <p class="chu-nho" style="margin:0.2rem 0 0.4rem">Bị lấy t% thì người ta:</p>
+    <div class="hanh-dong" id="t9h-cong" role="group" aria-label="Người ta bớt công bao nhiêu khi bị lấy">
+      <button type="button" class="chip" data-k="1" aria-pressed="true">Bớt đúng t% công</button>
+      <button type="button" class="chip" data-k="0.5" aria-pressed="false">Bớt một nửa số đó</button>
+      <button type="button" class="chip" data-k="0" aria-pressed="false">Vẫn làm đủ</button>
+    </div>
+    <svg class="bieu-do" id="t9h-bd" viewBox="0 0 600 200" role="img" aria-labelledby="t9h-bd-ten"><title id="t9h-bd-ten">Tổng phần kẻ cướp thu sau 20 mùa ở từng mức lấy, cột vàng là mức thu nhiều nhất</title></svg>
+    <p class="ket-luan" id="t9h-ket" aria-live="polite"></p>
+  </div>
+
+  <p>Hình quả đồi này có tên: <strong id="kn-duong-cong-laffer">đường cong Laffer</strong> <em class="tn">(Laffer curve)</em>, theo tên nhà kinh tế người Mỹ Arthur Laffer, người làm nó nổi tiếng từ thập niên 1970. Ý thì cũ hơn nhiều. Học giả Bắc Phi Ibn Khaldun (1377) đã viết rằng lúc một triều đại mới lên, thuế suất thấp mà thu được nhiều; lúc triều đại suy, thuế suất cao mà thu được ít (mình dịch thoáng).</p>
+  <p>Đỉnh ngoài đời nằm ở đâu thì tùy người ta phản ứng mạnh hay yếu. Peter Diamond (Nobel 2010) và Emmanuel Saez (2011) ước tính: với phần thu nhập rất cao ở Mỹ, mức thuế giúp nhà nước thu được nhiều nhất là khoảng 73%. Con số đó cao hơn 35% nhiều, vì người giàu ở Mỹ không bớt làm mạnh như 99 người trong trò chơi. Bài học không nằm ở con số mà ở hình dạng: lấy quá đỉnh thì vừa thu ít đi, vừa làm cả xã hội nghèo đi.</p>
+
+  <h2>99 người không ai giống ai</h2>
+  <p>Trò chơi ở trang trước coi 99 người như nhau. Ngoài đời thì không. Nhà kinh tế Albert Hirschman (1970) chia cách phản ứng của người không hài lòng thành hai đường: <strong id="kn-roi-di-va-len-tieng">rời đi và lên tiếng</strong> <em class="tn">(exit and voice)</em>. Rời đi là bỏ sang chỗ khác. Lên tiếng, khi đối diện kẻ cướp, là nổi dậy.</p>
+  <p>Nhà nhân học James Scott (1985) sống hai năm ở một làng lúa ở Malaysia và thấy thêm một đường thứ ba, phổ biến hơn cả: làm cầm chừng, giả vờ không biết, giấu bớt thóc. Ông gọi đó là <strong id="kn-vu-khi-cua-ke-yeu">vũ khí của kẻ yếu</strong> <em class="tn">(weapons of the weak)</em>. Còn lại là những người chịu được thì cứ làm tiếp.</p>
+  <p>Giờ thử với 99 người, mỗi người một tính:</p>
+
+  <div class="thu" id="t9n">
+    <p class="nhan">Làng 99 người và một kẻ cướp, 10 mùa</p>
+    <div class="thanh">
+      <label for="t9n-ty"><span>Kẻ cướp lấy mỗi mùa</span><output id="t9n-ra">35%</output></label>
+      <input type="range" id="t9n-ty" min="0" max="100" step="5" value="35">
+    </div>
+    <div class="hanh-dong" role="group" aria-label="Hoàn cảnh của làng">
+      <button type="button" class="chip" id="t9n-dat" aria-pressed="false">Gần đó có đất trống</button>
+      <button type="button" class="chip" id="t9n-tin" aria-pressed="false">Người trong làng tin nhau</button>
+    </div>
+    <div class="hanh-dong" style="margin-top:0.75rem">
+      <button type="button" class="nut-nho" id="t9n-chay">Chạy 10 mùa</button>
+    </div>
+    <div class="cho-100 lang" id="t9n-luoi" role="img" aria-label="99 người trong làng và việc mỗi người đang làm"></div>
+    <p class="chu-giai"><span>🌾 Làm tiếp</span><span>💤 Lãn công</span><span>✊ Nổi dậy</span><span><i class="dau trong"></i>Bỏ đi</span><span>🗡️ Kẻ cướp</span></p>
+    <div class="do bon" aria-live="polite">
+      <div><b id="t9n-lam">99</b><span>làm tiếp</span></div>
+      <div><b id="t9n-lan">0</b><span>lãn công</span></div>
+      <div><b id="t9n-day">0</b><span>nổi dậy</span></div>
+      <div><b id="t9n-di">0</b><span>bỏ đi</span></div>
+    </div>
+    <p class="chu-nho" id="t9n-mua" style="margin-top:0.6rem">Mùa 0/10. Bấm “Chạy 10 mùa”.</p>
+    <p class="ket-luan" id="t9n-ket" aria-live="polite"></p>
+  </div>
+  <p class="chu-nho">Cách tính: mỗi người chịu được một mức lấy riêng, từ 15% tới 75%. Bị lấy quá mức đó thì người ấy bất bình. Người bất bình có chỗ để đi thì mỗi mùa có một nửa khả năng bỏ đi. Không đi được thì lãn công (chỉ làm 40% sức), hoặc nổi dậy nếu số người đã nổi dậy đủ lớn so với ngưỡng riêng của người đó. Bất bình càng lâu thì ngưỡng càng hạ. Đủ 25 người nổi dậy cùng mùa thì kẻ cướp bị lật; không đủ thì bị dẹp, mùa sau tính lại. “Đất trống” cho 35% số người có chỗ để đi (không bật thì 5%); “tin nhau” làm ngưỡng của mọi người còn một nửa.</p>
+
+  <p>Thử ba cảnh. <strong>Thứ nhất:</strong> để 35%, không bật gì. Làng trông yên: mùa nào cũng có một nhóm nhỏ nổi dậy rồi bị dẹp, cho tới một mùa nhóm ấy bỗng đủ đông. <strong>Thứ hai:</strong> bật “Gần đó có đất trống” rồi kéo lên 50%. Nhiều người bất bình bỏ đi, số ở lại không đủ đông để nổi dậy, nên kẻ cướp lại sống lâu hơn. Hirschman gọi đó là rời đi làm yếu tiếng nói. <strong>Thứ ba:</strong> bật “Người trong làng tin nhau”. Chỉ cần lấy quá tay một chút là cả làng đứng lên ngay mùa đầu.</p>
+  <p>Cảnh thứ ba giải thích vì sao <KN id="ke-cuop-dinh-cu">kẻ cướp định cư</KN> khôn không chỉ giữ mức lấy vừa phải. Hắn còn cấm tụ tập, chia rẽ, gieo nghi ngờ: tất cả để người trong làng không tin nhau. Đó là cách hắn giữ cho <KN id="hanh-dong-tap-the">bài toán hành động tập thể</KN> mãi không giải được.</p>
+
+  <h2>Một người nhát hơn một chút</h2>
+  <p>Vì sao làng có thể yên 9 mùa rồi nổ ở mùa thứ 10? Nhà xã hội học Mark Granovetter (1978) giải thích bằng <strong id="kn-mo-hinh-nguong">mô hình ngưỡng</strong> <em class="tn">(threshold model)</em>. Mỗi người có một con số riêng: phải thấy bao nhiêu người đứng lên trước thì mình mới đứng lên. Người liều mình có ngưỡng 0, tức đứng lên một mình cũng được. Người thận trọng cần thấy nhiều người khác đi trước.</p>
+  <p>Granovetter lấy ví dụ 100 người; ở đây thu lại còn 10. Mỗi ô ghi ngưỡng của một người:</p>
+
+  <div class="thu" id="t9g">
+    <p class="nhan">Mười người, mười ngưỡng</p>
+    <div class="cho-100 hang" id="t9g-hang" aria-live="polite"></div>
+    <div class="hanh-dong">
+      <button type="button" class="chip" id="t9g-doi" aria-pressed="false">Người thứ hai nhát hơn (1 → 2)</button>
+    </div>
+    <div class="hanh-dong" style="margin-top:0.75rem">
+      <button type="button" class="nut-nho" id="t9g-chay">Châm ngòi</button>
+    </div>
+    <p class="ket-luan" id="t9g-ket" aria-live="polite"></p>
+  </div>
+
+  <p>Hai nhóm này gần như giống hệt nhau, chỉ khác ngưỡng của một người. Vậy mà một nhóm cả 10 người cùng đứng lên, nhóm kia chỉ có một người đứng lẻ loi. Người ngoài nhìn vào sẽ nói nhóm đầu “quá khích”, nhóm sau “hiền lành”, trong khi lòng người hai nhóm gần như y nhau.</p>
+  <p>Nhà kinh tế Timur Kuran (1991) dùng ý này để giải thích vì sao năm 1989 gần như không ai đoán trước được các chế độ ở Đông Âu sụp đổ nhanh đến vậy. Nhiều người bất bình nhưng giấu kín, nên không ai biết ngưỡng của người khác, kể cả chính quyền. Chỉ cần vài người đầu tiên đứng lên là chuỗi đổ.</p>
+
+  <div class="cau-hoi-lon">
+    <p class="nhan">Mảnh ghép thứ chín cho câu hỏi ngây thơ</p>
+    <p>Trong một vụ cướp, con số −100k không đứng yên. Người bị lấy làm ít đi, bỏ đi, lãn công, nổi dậy. Mỗi phản ứng làm mất thêm một phần của cải mà không vào túi ai: đó là tổn thất vô ích. Vì vậy kẻ cướp được ít hơn phần cả làng mất. Còn khi hai người đổi tự nguyện, không ai cần phản ứng như thế, vì không ai bị ép. Tổng bằng không chỉ là khoảnh khắc trên giấy; sau đó, cướp kéo tổng xuống, đổi kéo tổng lên.</p>
+  </div>
+
+  <details class="gap">
+    <summary>Ghi nhớ và từ khóa</summary>
+    <ul class="gon">
+      <li>Phần lấy được = mức lấy × đồ làm ra, mà đồ làm ra co lại khi mức lấy tăng. Lấy 100% thì không ai làm, được 0.</li>
+      <li>Phần đồ không được làm ra vì bị lấy là tổn thất vô ích: không ai được nó, kể cả kẻ cướp.</li>
+      <li>Đỉnh của quả đồi (đường cong Laffer) tùy người ta phản ứng mạnh hay yếu. 35% trong trò chơi là mức cao nhất người ta còn giữ được hạt giống, theo giả định của trò chơi.</li>
+      <li>Người bất bình có thể rời đi, lên tiếng (Hirschman 1970) hoặc chống lặng lẽ (Scott 1985). Rời đi dễ thì lên tiếng yếu.</li>
+      <li>Đám đông đứng lên hay không tùy ngưỡng từng người; đổi ngưỡng một người có thể đổi cả đám đông (Granovetter 1978).</li>
+    </ul>
+    <div class="bang"><table>
+      <thead><tr><th>Tiếng Việt</th><th>Tiếng Anh</th><th>Nghĩa ngắn</th></tr></thead>
+      <tbody>
+        <tr><td>Tổn thất vô ích</td><td>deadweight loss</td><td>Của cải mất đi mà không ai được</td></tr>
+        <tr><td>Đường cong Laffer</td><td>Laffer curve</td><td>Số thu được theo mức lấy, hình quả đồi</td></tr>
+        <tr><td>Rời đi và lên tiếng</td><td>exit and voice</td><td>Bỏ đi, hoặc ở lại đòi thay đổi</td></tr>
+        <tr><td>Vũ khí của kẻ yếu</td><td>weapons of the weak</td><td>Chống lặng lẽ: cầm chừng, giả vờ, giấu bớt</td></tr>
+        <tr><td>Mô hình ngưỡng</td><td>threshold model</td><td>Mỗi người cần thấy đủ người khác đi trước</td></tr>
+      </tbody>
+    </table></div>
+  </details>
+  <details class="gap">
+    <summary>Tự kiểm tra (3 câu)</summary>
+    <p><strong>1.</strong> Trong một mùa, vì sao lấy 50% lại thu nhiều nhất?</p>
+    <details class="nho-mo"><summary>Đáp án</summary><p>Phần lấy được là mức lấy nhân với đồ làm ra, mà đồ làm ra giảm đúng theo mức lấy. Hai thừa số kéo ngược nhau, và tích của chúng lớn nhất khi cả hai bằng một nửa.</p></details>
+    <p style="margin-top:1rem"><strong>2.</strong> Nếu người ta vẫn làm đủ dù bị lấy bao nhiêu, kẻ cướp lấy 100% có được nhiều không?</p>
+    <details class="nho-mo"><summary>Đáp án</summary><p>Mùa đầu thì được hết, nhưng người ta không giữ lại được gì nên phải ăn hết hạt giống, mùa sau làm ra chỉ còn một nửa, rồi một nửa nữa. Tổng 20 mùa vẫn thua xa mức lấy vừa phải.</p></details>
+    <p style="margin-top:1rem"><strong>3.</strong> Vì sao có đất trống gần đó lại có thể giúp kẻ cướp sống lâu hơn?</p>
+    <details class="nho-mo"><summary>Đáp án</summary><p>Nhiều người bất bình bỏ đi, nên số ở lại không đủ đông để nổi dậy. Rời đi dễ thì lên tiếng yếu (Hirschman). Kẻ cướp mất bớt người để lấy, nhưng giữ được ghế.</p></details>
+  </details>
+  <details class="gap nguon">
+    <summary>Nguồn</summary>
+    <ol>
+      <li>N. Gregory Mankiw, <em>Principles of Economics</em>, chương "Application: The Costs of Taxation" (tổn thất vô ích, đường cong Laffer).</li>
+      <li>Ibn Khaldun, <em>The Muqaddimah</em> (1377), bản dịch tiếng Anh của Franz Rosenthal, 1958, chương 3 (thuế đầu và cuối triều đại).</li>
+      <li>Arthur B. Laffer, "The Laffer Curve: Past, Present, and Future", Heritage Foundation Backgrounder số 1765, 2004.</li>
+      <li>Peter Diamond và Emmanuel Saez, "The Case for a Progressive Tax: From Basic Research to Policy Recommendations", <em>Journal of Economic Perspectives</em> 25(4), 2011. Diamond đoạt Nobel kinh tế 2010.</li>
+      <li>Albert O. Hirschman, <em>Exit, Voice, and Loyalty</em>, Harvard University Press, 1970.</li>
+      <li>James C. Scott, <em>Weapons of the Weak: Everyday Forms of Peasant Resistance</em>, Yale University Press, 1985.</li>
+      <li>Mark Granovetter, "Threshold Models of Collective Behavior", <em>American Journal of Sociology</em> 83(6), 1978.</li>
+      <li>Timur Kuran, "Now Out of Never: The Element of Surprise in the East European Revolution of 1989", <em>World Politics</em> 44(1), 1991.</li>
+      <li>Mancur Olson, "Dictatorship, Democracy, and Development", <em>American Political Science Review</em> 87(3), 1993.</li>
+    </ol>
+  </details>
+
+<script is:inline>
+(function () {
+var NS = "http://www.w3.org/2000/svg";
+function o(id) { return document.getElementById(id); }
+function so(n) { return Math.round(n).toLocaleString("vi-VN"); }
+function el(svg, t, at, txt) { var e = document.createElementNS(NS, t); for (var a in at) e.setAttribute(a, at[a]); if (txt != null) e.textContent = txt; svg.appendChild(e); return e; }
+function xoa(svg) { while (svg.lastChild && svg.lastChild.nodeName !== "title") svg.removeChild(svg.lastChild); }
+var tat = window.matchMedia && window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+
+/* 1. Một mùa: lấy = 990 · t · (1 − t) */
+(function () {
+  var bd = o("t9m-bd"), W = 600, H = 190, L = 44, R = 14, T = 14, B = 26, MAX = 250;
+  function x(t) { return L + (W - L - R) * t; }
+  function y(v) { return T + (H - T - B) * (1 - v / MAX); }
+  function ve() {
+    var t = +o("t9m-ty").value / 100, lam = 990 * (1 - t), lay = t * lam, mat = 990 - lam;
+    o("t9m-ra").textContent = Math.round(t * 100) + "%";
+    o("t9m-c1").style.width = (lam / 990 * 100) + "%"; o("t9m-s1").textContent = so(lam);
+    o("t9m-c2").style.width = (lay / 990 * 100) + "%"; o("t9m-s2").textContent = so(lay);
+    o("t9m-c3").style.width = (mat / 990 * 100) + "%"; o("t9m-s3").textContent = so(mat);
+    xoa(bd);
+    [0, 100, 200].forEach(function (v) { el(bd, "line", { x1: L, x2: W - R, y1: y(v), y2: y(v), "class": "luoi" }); el(bd, "text", { x: L - 6, y: y(v) + 4, "text-anchor": "end", "class": "truc" }, v); });
+    [0, 25, 50, 75, 100].forEach(function (p) { el(bd, "text", { x: x(p / 100), y: H - 8, "text-anchor": "middle", "class": "truc" }, p + "%"); });
+    var pts = []; for (var i = 0; i <= 100; i++) { var q = i / 100; pts.push(x(q) + "," + y(990 * q * (1 - q))); }
+    el(bd, "polyline", { points: pts.join(" "), "class": "duong an" });
+    el(bd, "line", { x1: x(t), x2: x(t), y1: y(0), y2: y(lay), "class": "duong-goc" });
+    el(bd, "circle", { cx: x(t), cy: y(lay), r: 6, "class": "cham" });
+    var k;
+    if (t === 0) k = "<b>Không lấy gì:</b> 99 người làm đủ 990 phần, kẻ cướp không được phần nào.";
+    else if (t === 1) k = "<b>Lấy 100%:</b> làm ra bao nhiêu cũng mất hết, nên không ai làm. 100% của 0 vẫn là 0.";
+    else k = "<b>Lấy " + Math.round(t * 100) + "%:</b> người ta chỉ làm ra " + so(lam) + " phần, kẻ cướp lấy " + so(lay) + ". Còn " + so(mat) + " phần không ai được, vì chưa bao giờ được làm ra." + (t === 0.5 ? " Đây là đỉnh của một mùa." : "");
+    o("t9m-ket").innerHTML = k;
+  }
+  o("t9m-ty").addEventListener("input", ve); ve();
+})();
+
+/* 2. Nhiều mùa: đổi ngưỡng ăn hạt giống và mức bớt công, tìm đỉnh */
+(function () {
+  var bd = o("t9h-bd"), k = 1;
+  function chay(t, ng) {
+    var cap = 10, L = 0;
+    for (var s = 1; s <= 20; s++) {
+      var e = 1 - k * t, moi = cap * e * (1 - t);
+      L += t * 99 * cap * e;
+      if (moi < 1) cap *= 0.5; else if (moi < ng) cap *= 0.9; else if (moi >= 6) cap *= 1.02;
+    }
+    return L;
+  }
+  function ve() {
+    var ng = +o("t9h-ng").value, ds = [], tot = 0, max = 0;
+    o("t9h-ra").textContent = ng + " phần";
+    for (var p = 0; p <= 100; p += 5) { var v = chay(p / 100, ng); ds.push(v); if (v > max) { max = v; tot = p; } }
+    var W = 600, H = 200, L = 50, R = 10, T = 22, B = 26, buoc = max > 10000 ? 5000 : max > 4000 ? 2000 : 1000, tran = Math.ceil(max / buoc) * buoc;
+    function y(v) { return T + (H - T - B) * (1 - v / tran); }
+    var bw = (W - L - R) / ds.length;
+    xoa(bd);
+    for (var g = 0; g <= tran; g += buoc) { el(bd, "line", { x1: L, x2: W - R, y1: y(g), y2: y(g), "class": "luoi" }); el(bd, "text", { x: L - 6, y: y(g) + 4, "text-anchor": "end", "class": "truc" }, g.toLocaleString("vi-VN")); }
+    ds.forEach(function (v, i) {
+      var p = i * 5, xx = L + bw * i + 2;
+      el(bd, "rect", { x: xx, y: y(v), width: bw - 4, height: Math.max(0, y(0) - y(v)), "class": p === tot ? "cot-lay" : "cot-giu" });
+      if (p % 25 === 0) el(bd, "text", { x: xx + (bw - 4) / 2, y: H - 8, "text-anchor": "middle", "class": "truc" }, p + "%");
+      if (p === tot) el(bd, "text", { x: xx + (bw - 4) / 2, y: y(v) - 6, "text-anchor": "middle", "class": "truc nhan-dinh" }, p + "%");
+    });
+    var t = tot / 100, e = 1 - k * t, lam = 10 * e, giu = lam * (1 - t);
+    o("t9h-ket").innerHTML = "<b>Đỉnh ở " + tot + "%:</b> kẻ cướp được " + so(max) + " phần sau 20 mùa. Ở mức này mỗi người làm ra " + lam.toLocaleString("vi-VN", { maximumFractionDigits: 1 }) + " phần, giữ " + giu.toLocaleString("vi-VN", { maximumFractionDigits: 1 }) + " phần" + (giu >= ng ? ", vẫn không phải ăn hạt giống." : ".") +
+      " Lấy 100% thì được " + so(chay(1, ng)) + " phần" + (k === 0 ? ": người ta vẫn làm đủ, nhưng giữ 0 phần nên ăn hết hạt giống." : ".");
+  }
+  o("t9h-ng").addEventListener("input", ve);
+  o("t9h-cong").querySelectorAll(".chip").forEach(function (b) {
+    b.addEventListener("click", function () {
+      k = +b.getAttribute("data-k");
+      o("t9h-cong").querySelectorAll(".chip").forEach(function (x) { x.setAttribute("aria-pressed", String(x === b)); });
+      ve();
+    });
+  });
+  ve();
+})();
+
+/* 3. Làng 99 người: làm tiếp, lãn công, nổi dậy, bỏ đi */
+(function () {
+  var luoi = o("t9n-luoi"), CAN = 25, MUA = 10, hen = null, o100 = [];
+  for (var i = 0; i < 100; i++) { var s = document.createElement("span"); luoi.appendChild(s); o100.push(s); }
+  function rng(a) { return function () { a |= 0; a = a + 0x6D2B79F5 | 0; var t = Math.imul(a ^ a >>> 15, 1 | a); t = t + Math.imul(t ^ t >>> 7, 61 | t) ^ t; return ((t ^ t >>> 14) >>> 0) / 4294967296; }; }
+  function bat(id) { return o(id).getAttribute("aria-pressed") === "true"; }
+  function mo() {
+    var ty = +o("t9n-ty").value, dat = bat("t9n-dat"), tin = bat("t9n-tin");
+    var r = rng(2026), ds = [];
+    for (var i = 0; i < 99; i++) ds.push({ chiu: 15 + 60 * r(), duong: r(), ng: r(), buc: 0, o: true });
+    var r2 = rng(77), kq = [], lat = 0, tong = 0;
+    function nguong(p) { return Math.floor(p.ng * (tin ? 30 : 60)) - 3 * p.buc; }
+    for (var m = 1; m <= MUA; m++) {
+      if (lat) { kq.push({ st: ds.map(function (p) { return p.o ? "lam" : "di"; }), lay: 0, day: 0, tong: tong, lat: lat }); continue; }
+      var gian = [];
+      ds.forEach(function (p) {
+        if (!p.o) return;
+        if (ty > p.chiu) { p.buc++; if (p.duong < (dat ? 0.35 : 0.05) && r2() < 0.5) { p.o = false; return; } gian.push(p); }
+      });
+      var day = 0, doi = true;
+      while (doi) { doi = false; var n = 0; gian.forEach(function (p) { if (nguong(p) <= day) n++; }); if (n > day) { day = n; doi = true; } }
+      var cong = 0, st = ds.map(function (p) {
+        var x = !p.o ? "di" : ty <= p.chiu ? "lam" : nguong(p) <= day ? "day" : "lan";
+        cong += x === "lam" ? 1 : x === "lan" ? 0.4 : 0; return x;
+      });
+      var lay = ty / 100 * 10 * cong;
+      if (day >= CAN) { lat = m; lay = 0; }
+      tong += lay;
+      kq.push({ st: st, lay: lay, day: day, tong: tong, lat: lat });
+    }
+    return kq;
+  }
+  var ICON = { lam: "🌾", lan: "💤", day: "✊", di: "" };
+  function hien(k, m) {
+    var dem = { lam: 0, lan: 0, day: 0, di: 0 };
+    k.st.forEach(function (x, i) { dem[x]++; o100[i].textContent = ICON[x]; o100[i].className = x === "di" ? "da-di" : x === "day" ? "noi-day" : ""; });
+    var lat = k.lat && k.lat <= m;
+    o100[99].textContent = lat ? "" : "🗡️"; o100[99].className = lat ? "da-di" : "ke-cuop";
+    o("t9n-lam").textContent = dem.lam; o("t9n-lan").textContent = dem.lan; o("t9n-day").textContent = dem.day; o("t9n-di").textContent = dem.di;
+    o("t9n-mua").textContent = "Mùa " + m + "/" + MUA + (lat && k.lat === m ? ": " + k.day + " người nổi dậy cùng lúc, kẻ cướp bị lật." : lat ? ": kẻ cướp đã bị lật, cả làng làm tiếp." : ": kẻ cướp thu " + so(k.lay) + " phần, cộng dồn " + so(k.tong) + ".");
+  }
+  function ketLuan(kq) {
+    var cuoi = kq[MUA - 1], ty = +o("t9n-ty").value, di = cuoi.st.filter(function (x) { return x === "di"; }).length;
+    var lan = cuoi.st.filter(function (x) { return x === "lan"; }).length, hong = 0;
+    kq.forEach(function (k) { if (!k.lat && k.day > 0) hong++; });
+    var t;
+    if (cuoi.lat) t = "<b>Kẻ cướp bị lật ở mùa " + cuoi.lat + ".</b> " + (cuoi.lat === 1 ? "Lấy quá tay, cả làng đứng lên ngay mùa đầu, hắn chưa kịp thu phần nào." : "Trước đó hắn thu được " + so(cuoi.tong) + " phần" + (hong ? ", và đã " + hong + " mùa có người nổi dậy nhưng quá ít nên bị dẹp" : "") + "." + (cuoi.lat >= 6 ? " Nhìn từ ngoài, làng gần như yên cho tới mùa nổ." : ""));
+    else if (di >= 10) t = "<b>" + di + " người đã bỏ đi.</b> Nhiều người bất bình đã đi, nên số ở lại không đủ đông để nổi dậy. Kẻ cướp vẫn giữ được ghế, thu " + so(cuoi.tong) + " phần, nhưng làng ngày càng vắng.";
+    else if (ty <= 15) t = "<b>Lấy " + ty + "%:</b> gần như ai cũng chịu được, làng yên, kẻ cướp thu đều " + so(cuoi.tong) + " phần.";
+    else t = "<b>Làng chưa nổ.</b> " + lan + " người lãn công" + (hong ? ", " + hong + " mùa có người nổi dậy rồi bị dẹp" : "") + ". Kẻ cướp thu " + so(cuoi.tong) + " phần sau 10 mùa.";
+    o("t9n-ket").innerHTML = t;
+  }
+  function veLai() {
+    clearTimeout(hen); o("t9n-ra").textContent = o("t9n-ty").value + "%";
+    o100.forEach(function (s, i) { s.textContent = i === 99 ? "🗡️" : "🌾"; s.className = i === 99 ? "ke-cuop" : ""; });
+    o("t9n-lam").textContent = 99; o("t9n-lan").textContent = 0; o("t9n-day").textContent = 0; o("t9n-di").textContent = 0;
+    o("t9n-mua").textContent = "Mùa 0/10. Bấm “Chạy 10 mùa”."; o("t9n-ket").innerHTML = "";
+  }
+  o("t9n-chay").addEventListener("click", function () {
+    clearTimeout(hen);
+    var kq = mo(), m = 0;
+    if (tat) { hien(kq[MUA - 1], MUA); ketLuan(kq); return; }
+    (function buoc() { hien(kq[m], m + 1); m++; if (m < MUA) hen = setTimeout(buoc, 650); else ketLuan(kq); })();
+  });
+  o("t9n-ty").addEventListener("input", veLai);
+  ["t9n-dat", "t9n-tin"].forEach(function (id) {
+    o(id).addEventListener("click", function () { o(id).setAttribute("aria-pressed", String(!bat(id))); veLai(); });
+  });
+  veLai();
+})();
+
+/* 4. Mười người, mười ngưỡng (Granovetter 1978) */
+(function () {
+  var hang = o("t9g-hang"), oo = [], hen = null;
+  for (var i = 0; i < 10; i++) { var s = document.createElement("span"); hang.appendChild(s); oo.push(s); }
+  function nguong() { var a = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9]; if (o("t9g-doi").getAttribute("aria-pressed") === "true") a[1] = 2; return a; }
+  function veLai() { clearTimeout(hen); var a = nguong(); oo.forEach(function (s, i) { s.textContent = a[i]; s.className = ""; s.title = "Ngưỡng " + a[i]; }); o("t9g-ket").innerHTML = "Số trong ô: người đó cần thấy bao nhiêu người đứng lên trước."; }
+  o("t9g-doi").addEventListener("click", function () { var b = o("t9g-doi"); b.setAttribute("aria-pressed", String(b.getAttribute("aria-pressed") !== "true")); veLai(); });
+  o("t9g-chay").addEventListener("click", function () {
+    veLai();
+    var a = nguong(), da = [], dem = 0;
+    function buoc() {
+      var moi = [];
+      a.forEach(function (n, i) { if (da.indexOf(i) < 0 && n <= dem) moi.push(i); });
+      if (!moi.length) {
+        o("t9g-ket").innerHTML = dem === 10 ? "<b>Cả 10 người đứng lên.</b> Người ngưỡng 0 kéo người ngưỡng 1, người ngưỡng 1 kéo người ngưỡng 2, cứ thế đến hết." : "<b>Chỉ " + dem + " người đứng lên, rồi đứng một mình.</b> Không còn ai có ngưỡng 1 nên chuỗi đứt ngay ô thứ hai.";
+        return;
+      }
+      moi.forEach(function (i) { da.push(i); oo[i].textContent = "✊"; oo[i].className = "la-tien"; });
+      dem = da.length;
+      if (tat) buoc(); else hen = setTimeout(buoc, 380);
+    }
+    buoc();
+  });
+  veLai();
+})();
+})();
+</script>

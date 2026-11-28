@@ -23,3 +23,4 @@ Chạy ở máy: `pnpm install`, rồi `pnpm dev`. Mỗi trang là một thư m�
 | 6 | Lên 100 hay 1.000 người thì đổi vòng rất khó. Đó có phải là lý do tiền xuất hiện, và đồng tiền đầu tiên ra đời thế nào? | Đồng tiền đầu tiên | 5 |
 | 7 | Muối thành tiền chung, nhưng ai làm ra muối đó? | Ai làm ra muối? | 6 |
 | 8 | Có 100 người thì sao phải đổi? Một người cướp hết của 99 người thì sao? | Kẻ cướp và 99 người | 6 |
+| 9 | Sao cướp 100% lại chẳng được gì, con số 35% từ đâu ra? Mà 99 người đâu có giống nhau. | Nhìn kỹ vụ cướp | 8 |
