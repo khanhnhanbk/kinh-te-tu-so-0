@@ -25,3 +25,4 @@ Chạy ở máy: `pnpm install`, rồi `pnpm dev`. Mỗi trang là một thư m�
 | 8 | Có 100 người thì sao phải đổi? Một người cướp hết của 99 người thì sao? | Kẻ cướp và 99 người | 6 |
 | 9 | Sao cướp 100% lại chẳng được gì, con số 35% từ đâu ra? Mà 99 người đâu có giống nhau. | Nhìn kỹ vụ cướp | 8 |
 | 10 | Ở trang người may áo, kết cục chỉ có hai: Chi đủ sống hoặc Chi không đủ sống. Còn An thì luôn đủ sống nếu làm ra đủ ăn, đúng không? Vậy sao trong cuộc sống hiện đại, nông dân lại nghèo hơn người làm dịch vụ? | Được mùa mất giá | 4 |
+| 11 | Muối được làm ra, có giá trị và đã thành tiền. Vậy ngân hàng ở đâu, có vai trò gì, và nó xuất hiện vì lý do gì? | Người giữ kho muối | 7 |
