@@ -54,20 +54,31 @@ import KN from '../../components/KN.astro';
   </div>
   <p class="nho">An có hai điều giấu kín, mỗi lần chơi một khác: mỗi ngày An dư bao nhiêu đồ ăn, và An thích áo đến mức nào. Hết tuần mới lật bài.</p>
 
-  <h2>Tự viết luật cho Chi và An</h2>
-  <p>Trò chơi trên giấu luật. Ở đây luật nằm trong tay bạn. Hai hằng số đầu là hai điều An giấu: An làm dư bao nhiêu mỗi ngày, và An thích áo đến đâu. Hai hàm bên dưới là cách Chi làm việc và cách An quyết có mua hay không. Sửa code rồi bấm chạy 100 ngày:</p>
+  <h2>Tự đặt luật cho Chi và An</h2>
+  <p>Trò chơi trên giấu luật. Ở đây luật nằm trong tay bạn. Mỗi nhân vật là một "hàm" với vài tham số: điền số, hoặc bấm − và +, thế giới chạy lại 100 ngày ngay.</p>
 
   <div class="thu lap-trinh" id="t4c">
     <p class="nhan">Hai nhân vật, một trăm ngày</p>
     <div class="hanh-dong" id="t4c-mau" aria-label="Luật mẫu"></div>
-    <textarea id="t4c-code" spellcheck="false" autocapitalize="off" autocomplete="off" aria-label="Code luật của Chi và An" rows="16"></textarea>
-    <div class="hanh-dong"><button class="nut-nho nut-chay" type="button" id="t4c-chay">▶ Chạy 100 ngày</button></div>
-    <p class="loi-code" id="t4c-loi" role="alert" hidden></p>
+    <div class="ham-the">
+      <div class="ham chi"><p class="ten-ham">chi(</p>
+      <div class="tham-so"><label for="t4c-gia">giá chào mỗi áo</label><span class="o-so"><button type="button" class="tru" data-o="t4c-gia" aria-label="Bớt">−</button><input id="t4c-gia" type="number" inputmode="decimal" min="0" max="5" step="0.5" value="1.5"><button type="button" class="cong" data-o="t4c-gia" aria-label="Thêm">+</button></span><span class="don-vi">phần</span></div>
+      <div class="tham-so"><label for="t4c-rau">đi hái rau khi kho dưới</label><span class="o-so"><button type="button" class="tru" data-o="t4c-rau" aria-label="Bớt">−</button><input id="t4c-rau" type="number" inputmode="decimal" min="0" max="5" step="0.5" value="0.5"><button type="button" class="cong" data-o="t4c-rau" aria-label="Thêm">+</button></span><span class="don-vi">phần</span></div>
+      <div class="tham-so"><label for="t4c-ton">ngừng may khi còn tồn</label><span class="o-so"><button type="button" class="tru" data-o="t4c-ton" aria-label="Bớt">−</button><input id="t4c-ton" type="number" inputmode="decimal" min="1" max="10" step="1" value="3"><button type="button" class="cong" data-o="t4c-ton" aria-label="Thêm">+</button></span><span class="don-vi">áo</span></div>
+      <p class="ten-ham">)</p></div>
+      <div class="ham an"><p class="ten-ham">an(</p>
+      <div class="tham-so"><label for="t4c-du">mỗi ngày làm dư</label><span class="o-so"><button type="button" class="tru" data-o="t4c-du" aria-label="Bớt">−</button><input id="t4c-du" type="number" inputmode="decimal" min="0" max="4" step="0.5" value="1.5"><button type="button" class="cong" data-o="t4c-du" aria-label="Thêm">+</button></span><span class="don-vi">phần</span></div>
+      <div class="tham-so"><label for="t4c-thich">cái áo đầu đáng</label><span class="o-so"><button type="button" class="tru" data-o="t4c-thich" aria-label="Bớt">−</button><input id="t4c-thich" type="number" inputmode="decimal" min="0" max="6" step="0.5" value="3"><button type="button" class="cong" data-o="t4c-thich" aria-label="Thêm">+</button></span><span class="don-vi">phần</span></div>
+      <div class="tham-so"><label for="t4c-giam">cái sau còn đáng</label><span class="o-so"><button type="button" class="tru" data-o="t4c-giam" aria-label="Bớt">−</button><input id="t4c-giam" type="number" inputmode="decimal" min="10" max="100" step="10" value="90"><button type="button" class="cong" data-o="t4c-giam" aria-label="Thêm">+</button></span><span class="don-vi">% cái trước</span></div>
+      <div class="tham-so"><label for="t4c-chua">chừa lại cho mình</label><span class="o-so"><button type="button" class="tru" data-o="t4c-chua" aria-label="Bớt">−</button><input id="t4c-chua" type="number" inputmode="decimal" min="0" max="3" step="0.5" value="1"><button type="button" class="cong" data-o="t4c-chua" aria-label="Thêm">+</button></span><span class="don-vi">phần</span></div>
+      <div class="tham-so"><label for="t4c-ben">áo mặc được</label><span class="o-so"><button type="button" class="tru" data-o="t4c-ben" aria-label="Bớt">−</button><input id="t4c-ben" type="number" inputmode="decimal" min="1" max="30" step="1" value="10"><button type="button" class="cong" data-o="t4c-ben" aria-label="Thêm">+</button></span><span class="don-vi">ngày</span></div>
+      <p class="ten-ham">)</p></div>
+    </div>
     <svg class="bieu-do" id="t4c-bd" viewBox="0 0 600 220" role="img" aria-labelledby="t4c-bd-ten"><title id="t4c-bd-ten">Đồ ăn trong kho của Chi và An qua 100 ngày</title></svg>
     <p class="chu-giai"><span><i class="dau chi"></i>Kho của Chi</span><span><i class="dau an"></i>Kho của An</span><span><i class="dau doi"></i>Đêm đói</span></p>
     <p class="ket-luan" id="t4c-ket" aria-live="polite"></p>
   </div>
-  <p class="nho">Luật chơi của thế giới: mỗi sáng An làm ra 1 phần cho mình cộng phần dư. Chi chọn: may một áo rồi chào An một giá, hoặc bỏ may đi hái rau (được 0,5 phần). Tối nào cũng ăn 1 phần. Đói ba đêm liền thì bỏ cuộc. Áo bền 10 ngày, rách thì An lại cần áo mới.</p>
+  <p class="nho">Luật chơi của thế giới: mỗi sáng An làm ra 1 phần cho mình cộng phần dư. Mỗi ngày Chi may một áo rồi chào An, hoặc bỏ may đi hái rau (được 0,5 phần). An mua khi giá không quá mức cái áo tiếp theo đáng với mình, và còn chừa đủ phần cho mình. Tối nào cũng ăn 1 phần. Đói ba đêm liền thì bỏ cuộc.</p>
 
   <p>Chi chỉ sống được khi <strong>cùng lúc</strong> có hai điều:</p>
   <ol>
@@ -218,46 +229,44 @@ batDau();
 
 
 (function () {
-/* Trang 4: tự viết luật cho Chi và An, chạy 100 ngày. Code người đọc viết chạy ngay trong trình duyệt của họ. */
+/* Trang 4: luật của Chi và An là các tham số người đọc điền bằng chuột; đổi số nào thì chạy lại 100 ngày. */
+var MAC = { gia: 1.5, rau: 0.5, ton: 3, du: 1.5, thich: 3, giam: 90, chua: 1, ben: 10 };
 var MAU = {
-  "Luật gốc": 'const AN_DU = 1.5;        // mỗi ngày An làm dư bao nhiêu phần ăn\nconst AN_THICH_AO = 3;    // cái áo đầu tiên đáng bao nhiêu phần với An\n\n// Mỗi ngày Chi may một áo rồi chào An một giá (trả về số),\n// hoặc bỏ may, đi hái rau (trả về "rau").\nfunction chi(ngay, kho, ao) {\n  if (kho < 0.5) return "rau";\n  return 1.5;\n}\n\n// An có mua một áo với giá này không? aoDangMac: số áo An đang có\nfunction an(gia, aoDangMac, kho) {\n  const dang = AN_THICH_AO * Math.pow(0.9, aoDangMac); // cái tiếp theo đáng bao nhiêu\n  return gia <= dang && gia <= kho - 1; // chừa 1 phần cho mình tối nay\n}\n',
-  "Chi bán rẻ": null, "Chi bán đắt": null, "An mua hết": null, "An hết dư": null
+  "Luật gốc": {},
+  "Chi bán rẻ": { gia: 0.5 },
+  "Chi bán đắt": { gia: 2.5 },
+  "An mua hết": { gia: 2.5, thich: 6, giam: 100, chua: 0 },
+  "An hết dư": { du: 0.5 },
+  "Áo rách nhanh": { ben: 3 }
 };
-var goc = MAU["Luật gốc"];
-MAU["Chi bán rẻ"] = goc.replace("return 1.5;", "return 0.5;");
-MAU["Chi bán đắt"] = goc.replace("return 1.5;", "return 2.5;");
-MAU["An mua hết"] = goc.replace("return 1.5;", "return 2.5;").replace("return gia <= dang && gia <= kho - 1; // chừa 1 phần cho mình tối nay", "return true; // thấy áo là mua, không cần biết giá");
-MAU["An hết dư"] = goc.replace("const AN_DU = 1.5;", "const AN_DU = 0.5;");
-var vung = document.getElementById("t4c-code"), loi = document.getElementById("t4c-loi"), bd = document.getElementById("t4c-bd"), ket = document.getElementById("t4c-ket");
-var NS = "http://www.w3.org/2000/svg";
+var bd = document.getElementById("t4c-bd"), ket = document.getElementById("t4c-ket"), NS = "http://www.w3.org/2000/svg";
+function o(k) { return document.getElementById("t4c-" + k); }
 function so(n) { return (Math.round(n * 10) / 10).toString().replace(".", ","); }
-Object.keys(MAU).forEach(function (ten, i) {
+function doc(k) { var e = o(k), v = parseFloat(String(e.value).replace(",", ".")); if (isNaN(v)) v = MAC[k]; return Math.min(+e.max, Math.max(+e.min, v)); }
+Object.keys(MAU).forEach(function (ten) {
   var b = document.createElement("button"); b.type = "button"; b.className = "nut-nho"; b.textContent = ten;
-  b.addEventListener("click", function () { vung.value = MAU[ten]; chay(); });
+  b.addEventListener("click", function () { var m = MAU[ten]; Object.keys(MAC).forEach(function (k) { o(k).value = k in m ? m[k] : MAC[k]; }); chay(); });
   document.getElementById("t4c-mau").appendChild(b);
 });
-vung.value = goc;
-vung.addEventListener("keydown", function (e) {
-  if (e.key === "Tab" && !e.shiftKey) { e.preventDefault(); var a = vung.selectionStart; vung.setRangeText("  ", a, vung.selectionEnd, "end"); }
-  if (e.key === "Enter" && (e.ctrlKey || e.metaKey)) { e.preventDefault(); chay(); }
+document.querySelectorAll("#t4c .o-so button").forEach(function (b) {
+  b.addEventListener("click", function () {
+    var e = document.getElementById(b.getAttribute("data-o")), k = e.id.slice(4), st = +e.step;
+    var v = doc(k) + (b.classList.contains("cong") ? st : -st);
+    e.value = Math.round(Math.min(+e.max, Math.max(+e.min, v)) * 100) / 100; chay();
+  });
 });
+document.querySelectorAll("#t4c input").forEach(function (e) { e.addEventListener("input", chay); });
 function chay() {
-  loi.hidden = true;
-  var luat;
-  try { luat = new Function(vung.value + "\n;return { chi: chi, an: an, du: AN_DU, thich: AN_THICH_AO };")(); }
-  catch (e) { baoLoi("Code chưa chạy được: " + e.message); return; }
+  var L = {}; Object.keys(MAC).forEach(function (k) { L[k] = doc(k); });
   var kc = 3, ka = 3, ao = 0, tu = [], dc = 0, da = 0, banDuoc = 0, tienBan = 0, chet = null, ds = [], dem = [];
   for (var ngay = 1; ngay <= 100; ngay++) {
-    ka += 1 + Number(luat.du || 0);
-    tu = tu.filter(function (n) { return ngay - n < 10; });
-    var viec;
-    try { viec = luat.chi(ngay, kc, ao); } catch (e) { baoLoi("Hàm chi() lỗi ở ngày " + ngay + ": " + e.message); return; }
-    if (viec === "rau") kc += 0.5;
-    else if (typeof viec === "number" && isFinite(viec)) {
-      ao++;
-      var gia = Math.max(0, viec), mua;
-      try { mua = luat.an(gia, tu.length, ka); } catch (e) { baoLoi("Hàm an() lỗi ở ngày " + ngay + ": " + e.message); return; }
-      if (mua && ka >= gia) { ka -= gia; kc += gia; ao--; tu.push(ngay); banDuoc++; tienBan += gia; }
+    ka += 1 + L.du;
+    tu = tu.filter(function (n) { return ngay - n < L.ben; });
+    if (kc < L.rau) kc += 0.5;
+    else {
+      if (ao < L.ton) ao++;
+      var dang = L.thich * Math.pow(L.giam / 100, tu.length);
+      if (ao > 0 && L.gia <= dang && L.gia <= ka - L.chua) { ka -= L.gia; kc += L.gia; ao--; tu.push(ngay); banDuoc++; tienBan += L.gia; }
     }
     kc -= 1; ka -= 1;
     var doiC = kc < 0, doiA = ka < 0;
@@ -268,12 +277,11 @@ function chay() {
     if (da >= 3) { chet = "An"; break; }
   }
   ve(ds, dem);
-  var soNgay = ds.length, tb = banDuoc ? tienBan / banDuoc : 0;
+  var tb = banDuoc ? tienBan / banDuoc : 0;
   var demDoiC = dem.filter(function (d) { return d[0]; }).length, demDoiA = dem.filter(function (d) { return d[1]; }).length;
-  ket.innerHTML = (chet ? "<b>" + chet + " bỏ cuộc ở ngày " + soNgay + "</b> sau ba đêm đói liền. " : "<b>Cả hai sống qua 100 ngày.</b> ") +
-    "Chi bán " + banDuoc + " áo" + (banDuoc ? ", giá trung bình " + so(tb) + " phần" : "") + ". Đêm đói: Chi " + demDoiC + ", An " + demDoiA + ".";
+  ket.innerHTML = (chet ? "<b>" + chet + " bỏ cuộc ở ngày " + ds.length + "</b> sau ba đêm đói liền. " : "<b>Cả hai sống qua 100 ngày.</b> ") +
+    "Chi bán " + banDuoc + " áo" + (banDuoc ? ", giá " + so(tb) + " phần" : "") + ". Đêm đói: Chi " + demDoiC + ", An " + demDoiA + ".";
 }
-function baoLoi(m) { loi.textContent = m; loi.hidden = false; }
 function ve(ds, dem) {
   while (bd.childNodes.length > 1) bd.removeChild(bd.lastChild);
   var W = 600, H = 220, L = 34, R = 8, T = 10, B = 24;
@@ -286,12 +294,9 @@ function ve(ds, dem) {
     el("text", { x: L - 6, y: y(v) + 4, "text-anchor": "end", "class": "truc" }).textContent = so(v);
   });
   [1, 25, 50, 75, 100].forEach(function (d) { el("text", { x: x(d - 1), y: H - 6, "text-anchor": d === 1 ? "start" : d === 100 ? "end" : "middle", "class": "truc" }).textContent = "ngày " + d; });
-  ["chi", "an"].forEach(function (ai, k) {
-    el("polyline", { points: ds.map(function (d, i) { return x(i) + "," + y(d[k]); }).join(" "), "class": "duong " + ai });
-  });
+  ["chi", "an"].forEach(function (ai, k) { el("polyline", { points: ds.map(function (d, i) { return x(i) + "," + y(d[k]); }).join(" "), "class": "duong " + ai }); });
   dem.forEach(function (d, i) { if (d[0]) el("circle", { cx: x(i), cy: y(0), r: 3.5, "class": "cham-doi" }); if (d[1]) el("circle", { cx: x(i), cy: y(0) - 8, r: 3.5, "class": "cham-doi" }); });
 }
-document.getElementById("t4c-chay").addEventListener("click", chay);
 chay();
 })();
 </script>
