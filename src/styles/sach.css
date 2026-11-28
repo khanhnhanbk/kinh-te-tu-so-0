@@ -336,7 +336,7 @@ strong[id^="kn-"]:target { outline: none; background: var(--vang-nen); box-shado
 .cho-100 span.la-tien { outline: 2px solid var(--vang); outline-offset: -2px; background: var(--vang-nen); }
 #t6c-dem { min-height: 1.6em; }
 .chu-nho { font-family: var(--chu-nhan); font-size: 0.85rem; color: var(--muc-nhat); margin: 0 0 0.6rem; }
-.cho-100 span.vua-du { box-shadow: inset 0 0 0 2px var(--bien); }
+.cho-100 span.vua-du { box-shadow: inset 0 0 0 2px var(--bien); background: color-mix(in srgb, var(--bien) 28%, var(--giay)); }
 
 /* Trang 8: cột đồ mỗi mùa */
 .bieu-do .cot-lay { fill: var(--vang); }
