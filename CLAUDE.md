@@ -27,5 +27,5 @@ Dự án 100% AI code. Novian đặt câu hỏi, Claude dựng trang trả lời
 - Astro 7, build tĩnh, `base: /kinh-te-tu-so-0`. Link nội bộ dùng `duongDan()` / `duongTep()` trong `src/lib/trang.ts`, không viết cứng đường dẫn.
 - Lật trang là View Transitions giữa hai tài liệu (`@view-transition`), câu hỏi bay nhờ cùng `view-transition-name: q-<so>`. Tự tắt khi người đọc bật giảm chuyển động.
 - Nút sáng/tối `position: absolute`, không fixed. Cuộn mượt link `#`. Link ra ngoài `target="_blank" rel="noopener"`.
-- Mỗi trang mới một PR (Claude tự squash merge khi CI xanh, Novian chốt 27/11), kèm ảnh chụp ở `docs/screenshots/<chủ-đề>/` (máy tính sáng + điện thoại tối). Soát: không tràn ngang ở 390px, không lỗi console.
+- Mỗi trang mới một PR (Claude tự squash merge khi CI xanh, Novian chốt 27/11), kèm ảnh chụp ở `docs/screenshots/<chủ-đề>/` (máy tính sáng + điện thoại tối). Soát: không tràn ngang ở 390px, không lỗi console, nhãn/nút/ô số liệu không rớt dòng lẻ ở cả 1280px và 390px (Novian 28/11).
 - Push lên `main` thì GitHub Actions tự soát, build và đưa lên GitHub Pages.
