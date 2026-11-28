@@ -332,3 +332,7 @@ strong[id^="kn-"]:target { outline: none; background: var(--vang-nen); box-shado
 .the-tien b { font-family: var(--chu-tieu-de); font-size: 1.05rem; }
 .the-tien .noi { color: var(--muc-nhat); font-size: 0.8rem; }
 .the-tien .ke { margin-top: 0.4rem; line-height: 1.55; }
+.xem-o { align-items: center; font-family: var(--chu-nhan); font-size: 0.88rem; color: var(--muc-nhat); margin-top: 0.9rem; }
+.cho-100 span.la-tien { outline: 2px solid var(--vang); outline-offset: -2px; background: var(--vang-nen); }
+#t6c-dem { min-height: 1.6em; }
+.chu-nho { font-family: var(--chu-nhan); font-size: 0.85rem; color: var(--muc-nhat); margin: 0 0 0.6rem; }
