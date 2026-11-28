@@ -1,0 +1,22 @@
+{
+  "so": 5,
+  "slug": "ba-nguoi-ba-mon",
+  "ten": "Ba người, ba món",
+  "cauHoi": "Tiền chưa xuất hiện vì chưa cần thiết, đúng không? Mới hai người đổi qua đổi lại. Giờ thêm một người nữa, thế giới có ba người. Giúp mình dựng thế cân bằng trước đã.",
+  "cha": "nguoi-may-ao",
+  "danSo": 3,
+  "ngay": "2026-11-28",
+  "moTa": "Ba người, ba món, mỗi người cần thứ của người kế bên: khi nào cả ba cùng đổi được, và bảng giá thế nào thì không ai lời được nhờ đi vòng?",
+  "goiY": [
+    "Nếu ba người không gặp nhau cùng lúc được thì sao?",
+    "Mảnh gỗ của An có thành tiền được không?",
+    "Ai đặt ra bảng giá?"
+  ],
+  "khaiNiem": [
+    { "id": "nhu-cau-vong", "ten": "Nhu cầu vòng tròn", "en": "cycle of wants", "nghia": "An cần đồ của Bình, Bình cần đồ của Chi, Chi cần đồ của An. Không cặp nào tự đổi thẳng được, dù cả ba đều có thứ người khác cần (Kiyotaki và Wright, 1989)." },
+    { "id": "gia-tuong-doi", "ten": "Giá tương đối", "en": "relative price", "nghia": "Một món đổi được bao nhiêu món khác, như 1 cá = 2 rau. Chưa cần tiền vẫn có giá tương đối." },
+    { "id": "chenh-lech-gia", "ten": "Kinh doanh chênh lệch giá", "en": "arbitrage", "nghia": "Đi một vòng đổi chác mà quay về nhiều hơn lúc đầu, nhờ các giá không khớp nhau. Người đi vòng lời đúng bằng phần người khác hụt." },
+    { "id": "can-bang", "ten": "Trạng thái cân bằng", "en": "equilibrium", "nghia": "Trạng thái không ai muốn đổi cách làm của mình nữa: ai cần gì đã đổi được, và không còn vòng nào để lời không. Walras (1874) dựng ý này cho cả nền kinh tế; Arrow và Debreu chứng minh nó tồn tại (1954)." },
+    { "id": "cho", "ten": "Chợ", "en": "market", "nghia": "Chỗ và lúc nhiều người cùng gặp nhau để đổi. Có chợ thì vòng tròn nhu cầu khép lại được trong một lần." }
+  ]
+}

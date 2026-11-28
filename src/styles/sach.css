@@ -274,10 +274,13 @@ strong[id^="kn-"]:target { outline: none; background: var(--vang-nen); box-shado
 .tham-so label { grid-area: ten; color: rgba(232, 235, 230, 0.85); }
 .tham-so .o-so { grid-area: so; display: inline-flex; align-items: center; gap: 0.25rem; }
 .tham-so .don-vi { grid-area: dv; color: rgba(232, 235, 230, 0.7); font-size: 0.82rem; }
-.o-so input { width: 4.2rem; text-align: center; font: inherit; font-weight: 600; padding: 0.3rem 0.2rem; border-radius: 6px; border: 1px solid rgba(232, 235, 230, 0.3); background: rgba(232, 235, 230, 0.08); color: var(--troi-chu); -moz-appearance: textfield; }
+.o-so input { width: 4.2rem; text-align: center; font: inherit; font-weight: 600; padding: 0.3rem 0.2rem; border-radius: 6px; border: 1px solid var(--vien); background: var(--giay); color: var(--muc); -moz-appearance: textfield; }
 .o-so input::-webkit-inner-spin-button, .o-so input::-webkit-outer-spin-button { -webkit-appearance: none; margin: 0; }
-.o-so button { width: 2rem; height: 2rem; border-radius: 50%; border: 1px solid rgba(232, 235, 230, 0.35); background: transparent; color: var(--troi-chu); font-size: 1.1rem; line-height: 1; cursor: pointer; }
-.o-so button:hover { background: rgba(232, 235, 230, 0.15); }
+.o-so button { width: 2rem; height: 2rem; border-radius: 50%; border: 1px solid var(--vien); background: transparent; color: var(--muc); font-size: 1.1rem; line-height: 1; cursor: pointer; }
+.o-so button:hover { background: var(--giay-2); }
+.ham .o-so input { border-color: rgba(232, 235, 230, 0.3); background: rgba(232, 235, 230, 0.08); color: var(--troi-chu); }
+.ham .o-so button { border-color: rgba(232, 235, 230, 0.35); color: var(--troi-chu); }
+.ham .o-so button:hover { background: rgba(232, 235, 230, 0.15); }
 .bieu-do { display: block; width: 100%; height: auto; margin-top: 0.75rem; background: var(--giay); border-radius: 8px; }
 .bieu-do .luoi { stroke: var(--vien); stroke-width: 1; }
 .bieu-do .truc { font-family: var(--chu-nhan); font-size: 11px; fill: var(--muc-nhat); }
@@ -289,3 +292,24 @@ strong[id^="kn-"]:target { outline: none; background: var(--vang-nen); box-shado
 .chu-giai .dau { display: inline-block; width: 0.9rem; height: 0.25rem; border-radius: 2px; margin-right: 0.35rem; vertical-align: middle; }
 .chu-giai .dau.chi { background: var(--bien); } .chu-giai .dau.an { background: var(--vang); }
 .chu-giai .dau.doi { width: 0.5rem; height: 0.5rem; border-radius: 50%; background: #c0504d; }
+
+/* Trang 5: ba người đứng thành tam giác, bảng giá ba món */
+.tam-giac { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 0.6rem; margin-top: 0.4rem; }
+.tam-giac .nguoi-tg:nth-child(1) { grid-column: 2 / span 2; }
+.tam-giac .nguoi-tg:nth-child(2) { grid-column: 1 / span 2; }
+.tam-giac .nguoi-tg:nth-child(3) { grid-column: 3 / span 2; }
+.nguoi-tg { position: relative; display: grid; gap: 0.1rem; justify-items: center; padding: 0.7rem 0.5rem; border-radius: 12px; border: 2px solid var(--vien); background: var(--giay);
+  color: var(--muc); font-family: var(--chu-nhan); font-size: 0.88rem; cursor: pointer; transition: border-color .2s, transform .2s; }
+.nguoi-tg b { font-family: var(--chu-tieu-de); font-size: 1.15rem; }
+.nguoi-tg span { color: var(--muc-nhat); }
+.nguoi-tg:hover { border-color: var(--muc-nhat); }
+.nguoi-tg[aria-pressed="true"] { border-color: var(--vang); transform: translateY(-2px); }
+.nguoi-tg.da-du { border-color: var(--bien); }
+.nguoi-tg .du { position: absolute; top: 0.35rem; right: 0.5rem; font-style: normal; font-weight: 700; color: var(--bien); }
+.bang-gia { display: grid; gap: 0.5rem; margin: 0.4rem 0 0.2rem; font-family: var(--chu-nhan); }
+.dong-gia { display: flex; flex-wrap: wrap; align-items: center; gap: 0.5rem; }
+.dong-gia > span:first-child { min-width: 5.2rem; }
+.dong-gia .o-so { display: inline-flex; align-items: center; gap: 0.25rem; }
+.vong-loi { margin: 0.75rem 0 0; padding-left: 1.4rem; font-family: var(--chu-nhan); font-size: 0.92rem; display: grid; gap: 0.2rem; }
+.vong-loi:empty { display: none; }
+#t5n-chon .nut-nho[aria-pressed="true"] { background: var(--bien); color: var(--giay); }
