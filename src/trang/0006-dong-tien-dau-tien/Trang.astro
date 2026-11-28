@@ -36,7 +36,7 @@ import KN from '../../components/KN.astro';
     </div>
     <svg class="bieu-do" id="t6c-bd" viewBox="0 0 600 200" role="img" aria-labelledby="t6c-bd-ten"><title id="t6c-bd-ten">Số người có được thứ mình cần mỗi ngày, hai cách đổi</title></svg>
     <p class="chu-giai"><span><i class="dau chi"></i>Được đổi gián tiếp</span><span><i class="dau an"></i>Chỉ đổi thẳng</span></p>
-    <p class="chu-nho" style="margin-top:0.4rem">Hai đường là hai chợ chạy cùng lúc: cùng 100 người, cùng món làm, cùng món cần, gặp nhau theo đúng cùng một thứ tự. Chỉ khác luật: ở chợ “chỉ đổi thẳng”, ai cũng chỉ nhận đúng món mình cần. Mỗi điểm là số người có được thứ mình cần trong ngày đó, tức là số ô viền xanh trên lưới.</p>
+    <p class="chu-nho" style="margin-top:0.4rem">Hai đường là hai chợ chạy cùng lúc: cùng 100 người, cùng món làm, cùng món cần, gặp nhau theo đúng cùng một thứ tự. Chỉ khác luật: ở chợ “chỉ đổi thẳng”, ai cũng chỉ nhận đúng món mình cần. Mỗi điểm là số người có được thứ mình cần trong ngày đó, tức là số ô xanh trên lưới.</p>
     <p class="ket-luan" id="t6c-ket" aria-live="polite">Bấm “Mở chợ 40 ngày”.</p>
   </div>
 
@@ -205,13 +205,13 @@ function veLuoi() {
   var top = moTop(), cam = 0, c = xemTH ? choTH : choGT, du = 0;
   for (var i = 0; i < N; i++) {
     var h = c.H[i]; if (h === top.t) cam++; if (c.V[i]) du++;
-    o100[i].textContent = xemCam ? MON[h].e : xemTH ? MON[c.W[i]].e : (c.M[i] >= 0 ? MON[c.M[i]].e : "·");
+    o100[i].textContent = xemCam ? MON[c.V[i] ? c.W[i] : h].e : xemTH ? MON[c.W[i]].e : (c.M[i] >= 0 ? MON[c.M[i]].e : "·");
     o100[i].classList.toggle("la-tien", !xemTH && xemCam && h === top.t && top.n >= 50);
     o100[i].classList.toggle("vua-du", !!c.V[i]);
   }
   var lam = 0; for (var j = 0; j < N; j++) if (choGT.P[j] === top.t) lam++;
-  var duCau = ngay ? " Ô viền xanh: <b>" + du + "</b> người có được thứ mình cần hôm nay." : "";
-  if (xemTH) { o("t6c-dem").innerHTML = "Chợ chỉ đổi thẳng: mỗi người chỉ nhận đúng món mình cần" + (xemCam ? "" : " (hình trong ô)") + ", nên phải gặp đúng người vừa có món đó vừa cần món mình làm." + duCau; return; }
+  var duCau = ngay ? " Ô xanh: <b>" + du + "</b> người có được thứ mình cần hôm nay" + (xemCam ? " (hình trong ô là thứ đó)." : ".") : "";
+  if (xemTH) { o("t6c-dem").innerHTML = "Chợ chỉ đổi thẳng: mỗi người chỉ nhận đúng món mình cần" + (xemCam ? "" : " (hình trong ô)") + ", nên phải gặp đúng người vừa có món đó vừa cần món mình làm." + (xemCam ? " Ai chưa gặp được thì vẫn cầm món mình làm." : "") + duCau; return; }
   o("t6c-dem").innerHTML = (top.n ? "<b>" + top.n + "</b> người chịu nhận " + MON[top.t].e + " " + MON[top.t].k + ", nhưng chỉ <b>" + cam + "</b> người đang thật sự cầm " + MON[top.t].k + ". Ngày đầu chỉ " + lam + " người làm " + MON[top.t].k + " có nó; phần còn lại do họ làm thêm mỗi lần đổi được thứ mình cần." : "") + duCau;
   luoi.setAttribute("aria-label", xemCam ? "Một trăm người và món mỗi người đang cầm" : "Một trăm người và món mỗi người chịu nhận để đổi tiếp");
 }
