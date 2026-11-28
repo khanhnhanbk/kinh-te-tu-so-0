@@ -27,3 +27,4 @@ Chạy ở máy: `pnpm install`, rồi `pnpm dev`. Mỗi trang là một thư m�
 | 10 | Ở trang người may áo, kết cục chỉ có hai: Chi đủ sống hoặc Chi không đủ sống. Còn An thì luôn đủ sống nếu làm ra đủ ăn, đúng không? Vậy sao trong cuộc sống hiện đại, nông dân lại nghèo hơn người làm dịch vụ? | Được mùa mất giá | 4 |
 | 11 | Muối được làm ra, có giá trị và đã thành tiền. Vậy ngân hàng ở đâu, có vai trò gì, và nó xuất hiện vì lý do gì? | Người giữ kho muối | 7 |
 | 12 | Cái phiếu nợ và cái tiền giấy khác nhau chỗ nào? | Phiếu nợ thành tiền giấy | 11 |
+| 13 | Từ năm 1971, tiền giấy lớn không đổi ra vàng nữa. Tại sao Mỹ có thể làm điều này, và tại sao người ta vẫn tin đô la Mỹ? | Mỹ đóng kho vàng | 12 |
