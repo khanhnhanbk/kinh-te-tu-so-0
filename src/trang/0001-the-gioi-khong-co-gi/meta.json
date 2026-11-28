@@ -23,13 +23,13 @@
       "id": "hang-hoa",
       "ten": "Hàng hóa",
       "en": "good",
-      "nghia": "Thứ có ích cho con người. Theo Carl Menger (1871) phải đủ bốn điều: có người cần, nó đáp ứng được nhu cầu đó, người đó biết vậy, và người đó lấy được nó."
+      "nghia": "Thứ có ích cho con người. Theo Carl Menger (1871), một thứ phải đủ bốn điều mới là hàng hóa: có người cần, nó đáp ứng được nhu cầu đó, người đó biết vậy, và người đó lấy được nó."
     },
     {
       "id": "khan-hiem",
       "ten": "Khan hiếm",
       "en": "scarcity",
-      "nghia": "Khi thứ người ta muốn nhiều hơn thứ đang có. Khan hiếm không phải là \"có ít\": không ai muốn thì ít mấy cũng không khan hiếm."
+      "nghia": "Tình trạng thứ người ta muốn nhiều hơn thứ đang có. Khan hiếm không phải là \"có ít\": không ai muốn thì ít đến đâu cũng không khan hiếm."
     },
     {
       "id": "hang-hoa-tu-do",
@@ -41,7 +41,7 @@
       "id": "hang-hoa-kinh-te",
       "ten": "Hàng hóa kinh tế",
       "en": "economic good",
-      "nghia": "Hàng hóa có ít hơn mức mọi người muốn: dùng chỗ này thì mất chỗ kia. Kinh tế học lo loại này."
+      "nghia": "Hàng hóa có ít hơn mức mọi người muốn: dùng chỗ này thì mất chỗ kia. Kinh tế học nghiên cứu loại này."
     },
     {
       "id": "gia-tri-lao-dong",

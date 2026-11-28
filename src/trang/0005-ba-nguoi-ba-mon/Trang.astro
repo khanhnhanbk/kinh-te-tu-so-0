@@ -5,7 +5,7 @@ import KN from '../../components/KN.astro';
 
   <p class="dan-nhap">Đúng vậy. Với hai người, An có thứ Bình cần và Bình có thứ An cần, nên đổi thẳng là xong. Đó là <KN id="trung-khop-nhu-cau-kep">trùng khớp nhu cầu kép</KN>, và khi có nó thì tiền chưa có việc gì để làm. Giờ ta thêm người thứ ba và xem thế giới phải sắp xếp ra sao để cả ba cùng sống, trước khi nghĩ tới tiền.</p>
 
-  <h2>Ba người, mỗi người cần thứ của người kế bên</h2>
+  <h2>Ba người, mỗi người cần thứ của người bên cạnh</h2>
   <p>An trồng rau, Bình đánh cá, Chi may áo. Mỗi người chỉ làm một món, và mỗi người cần đúng một món của người khác: <strong>An cần cá, Bình cần áo, Chi cần rau.</strong> Bấm hai người để cho họ gặp nhau:</p>
 
   <div class="thu" id="t5v">
@@ -26,7 +26,7 @@ import KN from '../../components/KN.astro';
   <p>Nhưng khi cả ba đứng cùng một chỗ, vòng tròn khép lại: An đưa rau cho Chi, Chi đưa áo cho Bình, Bình đưa cá cho An. Mỗi người đưa một món, nhận một món, ai cũng có thứ mình cần. Một chỗ và một lúc để nhiều người cùng gặp nhau như vậy chính là <strong id="kn-cho">chợ</strong> <em class="tn">(market)</em>.</p>
 
   <h2>Bảng giá nào thì cân bằng</h2>
-  <p>Ở trang 3, An và Bình chỉ cần một con số: 1 cá đổi mấy rau. Đó là <strong id="kn-gia-tuong-doi">giá tương đối</strong> <em class="tn">(relative price)</em>. Có ba món thì cần ba con số: cá theo rau, áo theo cá, và áo theo rau. Ba con số này phải khớp với nhau. Chỉnh thử:</p>
+  <p>Ở trang 3, An và Bình chỉ cần một con số: 1 cá đổi mấy rau. Đó là <strong id="kn-gia-tuong-doi">giá tương đối</strong> <em class="tn">(relative price)</em>. Có ba món thì cần ba con số: cá theo rau, áo theo cá và áo theo rau. Ba con số này phải khớp với nhau. Chỉnh thử:</p>
 
   <div class="thu" id="t5g">
     <p class="nhan">Bảng giá của chợ ba người</p>
@@ -39,8 +39,8 @@ import KN from '../../components/KN.astro';
     <p class="ket-luan" id="t5g-ket" aria-live="polite"></p>
   </div>
 
-  <p>Khi ba giá không khớp, luôn có một vòng đổi giúp người đi vòng quay về với nhiều hơn lúc đầu mà không làm ra thêm gì. Đó là <strong id="kn-chenh-lech-gia">kinh doanh chênh lệch giá</strong> <em class="tn">(arbitrage)</em>. Người đi vòng lời bao nhiêu thì những người đổi với họ hụt bấy nhiêu, nên chẳng ai muốn giữ bảng giá lệch. Ai bị hụt sẽ đòi đổi giá, cho tới khi vòng lời biến mất.</p>
-  <p>Lúc đó thế giới ở <strong id="kn-can-bang">trạng thái cân bằng</strong> <em class="tn">(equilibrium)</em>: không ai muốn đổi cách làm của mình nữa. Ai cần gì đã đổi được, và không còn vòng nào để lời không. Léon Walras (1874) là người đầu tiên viết ra cân bằng cho cả một nền kinh tế nhiều món. Tám mươi năm sau, Kenneth Arrow và Gérard Debreu chứng minh rằng, với vài điều kiện, một bảng giá như vậy luôn tồn tại. Cả hai đều nhận Nobel nhờ công trình này (Arrow 1972, Debreu 1983).</p>
+  <p>Khi ba giá không khớp, luôn có một vòng đổi giúp người đi vòng quay về với nhiều hơn lúc đầu mà không làm ra thêm gì. Đó là <strong id="kn-chenh-lech-gia">kinh doanh chênh lệch giá</strong> <em class="tn">(arbitrage)</em>. Người đi vòng lời bao nhiêu thì những người đổi với họ chịu thiệt bấy nhiêu, nên chẳng ai muốn giữ bảng giá lệch. Ai bị thiệt sẽ đòi đổi giá, cho tới khi vòng lời biến mất.</p>
+  <p>Lúc đó thế giới ở <strong id="kn-can-bang">trạng thái cân bằng</strong> <em class="tn">(equilibrium)</em>: không ai muốn đổi cách làm của mình nữa. Ai cần gì đã đổi được, và không còn vòng nào để ăn chênh lệch. Léon Walras (1874) là người đầu tiên mô tả trạng thái cân bằng cho cả một nền kinh tế có nhiều món hàng. Tám mươi năm sau, Kenneth Arrow và Gérard Debreu chứng minh rằng, với vài điều kiện, một bảng giá như vậy luôn tồn tại. Cả hai đều nhận Nobel nhờ công trình này (Arrow 1972, Debreu 1983).</p>
 
   <h2>Càng nhiều món, bảng giá càng dài</h2>
   <p>Ba món cần ba giá. Nhưng cứ thêm món là số giá tăng vọt, vì món nào cũng phải có giá theo từng món còn lại:</p>
@@ -55,14 +55,14 @@ import KN from '../../components/KN.astro';
     </div>
   </div>
 
-  <p>Đổi thẳng với <i>n</i> món cần n×(n−1)÷2 giá. Nhưng nếu cả chợ thống nhất tính mọi thứ theo <em>một</em> món, chẳng hạn theo cá, thì chỉ cần n−1 giá: rau bao nhiêu cá, áo bao nhiêu cá, và xong. Món được chọn làm thước đó đang làm đúng việc thứ hai của tiền: <KN id="don-vi-tinh-gia">đơn vị tính giá</KN>. Chưa có đồng tiền nào, nhưng chỗ cho nó đã có sẵn.</p>
+  <p>Đổi thẳng với <i>n</i> món cần n×(n−1)÷2 giá. Nhưng nếu cả chợ thống nhất tính mọi thứ theo <em>một</em> món, chẳng hạn theo cá, thì chỉ cần n−1 giá: rau bao nhiêu cá, áo bao nhiêu cá, và xong. Món được chọn làm thước đo chung ấy đang làm đúng việc thứ hai của tiền: <KN id="don-vi-tinh-gia">đơn vị tính giá</KN>. Chưa có đồng tiền nào, nhưng chỗ cho nó đã có sẵn.</p>
 
   <h2>Cân bằng này mong manh ở đâu</h2>
   <p>Thế cân bằng ở trên đứng vững nhờ một điều kiện: <strong>cả ba phải gặp nhau cùng lúc.</strong> Rau có mùa, cá có con nước, áo may mất mấy ngày. Nếu hôm nay chỉ An gặp Bình, An không có gì Bình cần. Bình có thể đưa cá trước và chờ, tức là An <KN id="no">nợ</KN> Bình. Nhưng Bình đâu cần rau của An, Bình cần áo của Chi. Món nợ ấy chỉ có ích với Bình nếu Bình đem nó đi đổi được với Chi. Đó sẽ là câu chuyện của trang sau, nếu bạn hỏi tới.</p>
 
   <div class="cau-hoi-lon">
     <p class="nhan">Mảnh ghép thứ năm cho câu hỏi ngây thơ</p>
-    <p>Trang này có hai kiểu đổi. Khi cả ba đổi vòng ở chợ, mỗi người đưa một món, nhận một món, ai cũng khá hơn: tổng tăng. Còn kinh doanh chênh lệch giá thì khác: người đi vòng lời đúng bằng phần người khác hụt, không có thêm cái áo hay bó rau nào. Đây là lần đầu cuốn sách gặp một cái lời <strong>đúng là tổng bằng không</strong>. Và chính vì nó tổng bằng không, người bị hụt sẽ không chịu, nên trong thế cân bằng nó biến mất. Câu hỏi của bạn có một phần đúng: có những cách kiếm lời tổng bằng không thật. Chỉ là phần lớn việc đổi chác không thuộc loại đó.</p>
+    <p>Trang này có hai kiểu đổi. Khi cả ba đổi vòng ở chợ, mỗi người đưa một món, nhận một món, ai cũng khá hơn: tổng tăng. Còn kinh doanh chênh lệch giá thì khác: người đi vòng lời đúng bằng phần người khác hụt, không có thêm cái áo hay bó rau nào. Đây là lần đầu cuốn sách gặp một khoản lời <strong>đúng là tổng bằng không</strong>. Và chính vì nó có tổng bằng không, người bị hụt sẽ không chịu, nên trong thế cân bằng nó biến mất. Câu hỏi của bạn có một phần đúng: có những cách kiếm lời tổng bằng không thật. Chỉ là phần lớn việc đổi chác không thuộc loại đó.</p>
   </div>
 
   <details class="gap">
@@ -70,14 +70,14 @@ import KN from '../../components/KN.astro';
     <ul class="gon">
       <li>Hai người thì đổi thẳng được, chưa cần tiền. Ba người với nhu cầu vòng tròn thì không cặp nào tự đổi được (Kiyotaki và Wright, 1989).</li>
       <li>Cả ba gặp nhau cùng lúc ở chợ thì vòng tròn khép lại, ai cũng có thứ mình cần.</li>
-      <li>Giá tương đối phải khớp nhau; lệch thì có vòng lời không, và người khác hụt đúng bấy nhiêu.</li>
+      <li>Giá tương đối phải khớp nhau; lệch thì có vòng ăn chênh lệch, và người khác chịu thiệt đúng bấy nhiêu.</li>
       <li>Cân bằng: không ai muốn đổi cách làm nữa (Walras 1874; Arrow và Debreu 1954).</li>
       <li>n món cần n×(n−1)÷2 giá khi đổi thẳng, chỉ n−1 giá nếu tính theo một món chung.</li>
     </ul>
     <div class="bang"><table>
       <thead><tr><th>Tiếng Việt</th><th>Tiếng Anh</th><th>Nghĩa ngắn</th></tr></thead>
       <tbody>
-        <tr><td>Nhu cầu vòng tròn</td><td>cycle of wants</td><td>Mỗi người cần đồ của người kế bên, không cặp nào khớp</td></tr>
+        <tr><td>Nhu cầu vòng tròn</td><td>cycle of wants</td><td>Mỗi người cần đồ của người bên cạnh, không cặp nào khớp</td></tr>
         <tr><td>Chợ, thị trường</td><td>market</td><td>Chỗ và lúc nhiều người cùng gặp để đổi</td></tr>
         <tr><td>Giá tương đối</td><td>relative price</td><td>Một món đổi được bao nhiêu món khác</td></tr>
         <tr><td>Kinh doanh chênh lệch giá</td><td>arbitrage</td><td>Đi vòng đổi chác mà lời nhờ giá lệch</td></tr>
@@ -144,7 +144,7 @@ function ve() {
   vong.innerHTML = "";
   function buoc(t) { var li = document.createElement("li"); li.innerHTML = t; vong.appendChild(li); }
   if (Math.abs(p3 - khop) < 1e-9) {
-    ket.innerHTML = "<b>Cân bằng.</b> 1 áo = " + so(p2) + " cá = " + so(khop) + " rau, đi đường nào cũng như nhau. Không còn vòng nào để lời không.";
+    ket.innerHTML = "<b>Cân bằng.</b> 1 áo = " + so(p2) + " cá = " + so(khop) + " rau, đi đường nào cũng như nhau. Không còn vòng nào để ăn chênh lệch.";
     return;
   }
   if (p3 > khop) {

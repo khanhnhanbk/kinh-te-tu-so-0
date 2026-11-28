@@ -6,7 +6,7 @@
   "cha": "dong-tien-dau-tien",
   "danSo": 100,
   "ngay": "2026-11-28",
-  "moTa": "Người làm ra tiền được lợi gì, và khi họ làm ra quá nhiều thì giá cả ra sao. Tự chỉnh lượng muối mỗi ngày và xem ai giàu lên, ai âm thầm hụt.",
+  "moTa": "Người làm ra tiền được lợi gì, và khi họ làm ra quá nhiều thì giá cả ra sao. Tự chỉnh lượng muối mỗi ngày và xem ai giàu lên, ai âm thầm chịu thiệt.",
   "goiY": [
     "Sao không làm thật nhiều muối cho cả chợ cùng giàu?",
     "Vàng thì ai đào ra, sao người ta tin vàng?",
@@ -14,7 +14,7 @@
   ],
   "khaiNiem": [
     { "id": "dac-quyen-duc-tien", "ten": "Lợi tức đúc tiền", "en": "seigniorage", "nghia": "Phần lợi của người làm ra tiền: tiền mới mua được bao nhiêu đồ, trừ đi công làm ra nó. Tiền càng dễ làm thì phần lợi này càng lớn." },
-    { "id": "lam-phat", "ten": "Lạm phát", "en": "inflation", "nghia": "Giá của hầu hết mọi thứ cùng tăng lên, tức là mỗi đồng tiền mua được ít đồ hơn trước." },
+    { "id": "lam-phat", "ten": "Lạm phát", "en": "inflation", "nghia": "Mức giá chung tăng lên, giá của hầu hết các thứ cùng tăng, tức là mỗi đồng tiền mua được ít đồ hơn trước." },
     { "id": "thuyet-so-luong-tien", "ten": "Thuyết số lượng tiền", "en": "quantity theory of money", "nghia": "Nếu lượng tiền tăng nhanh hơn lượng đồ làm ra thì giá tăng theo. Irving Fisher viết thành công thức năm 1911; Milton Friedman (Nobel 1976) dùng nó để giải thích lạm phát kéo dài." },
     { "id": "hieu-ung-cantillon", "ten": "Hiệu ứng Cantillon", "en": "Cantillon effect", "nghia": "Ai cầm tiền mới trước thì mua được ở giá cũ và được lợi; ai nhận sau, khi giá đã tăng, thì thiệt (Richard Cantillon, khoảng 1730)." }
   ]

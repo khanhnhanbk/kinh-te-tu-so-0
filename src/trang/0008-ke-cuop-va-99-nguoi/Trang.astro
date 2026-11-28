@@ -6,7 +6,7 @@ import KN from '../../components/KN.astro';
   <p class="dan-nhap">Cướp được chứ, và lịch sử có rất nhiều kẻ cướp. Nhưng cướp có một cái tật: nó không làm ra thêm bó rau, con cá nào. Nó chỉ chuyển đồ từ tay người làm sang tay người lấy. Thử làm kẻ cướp một lần là thấy ngay chuyện gì xảy ra sau mùa đầu tiên.</p>
 
   <h2>Bạn là kẻ cướp</h2>
-  <p>99 người, mỗi người một mùa làm ra 10 phần đồ. Người ta làm chăm hay lười tùy vào phần mình được giữ lại: bị lấy càng nhiều thì càng ít muốn bỏ công. Đó là <strong id="kn-dong-luc">động lực</strong> <em class="tn">(incentive)</em>. Ai giữ lại không đủ ăn thì phải ăn cả hạt giống, mùa sau làm ra ít hơn. Ai giữ lại dư dả thì gieo thêm, mùa sau làm ra nhiều hơn. Chọn cách cướp và xem 20 mùa:</p>
+  <p>99 người, mỗi người một mùa làm ra 10 phần đồ. Người ta làm chăm hay lười tùy vào phần mình được giữ lại: bị lấy càng nhiều thì càng ít muốn bỏ công. Đó là <strong id="kn-dong-luc">động lực</strong> <em class="tn">(incentive)</em>, sách kinh tế còn gọi là động cơ khuyến khích. Ai giữ lại không đủ ăn thì phải ăn cả hạt giống, mùa sau làm ra ít hơn. Ai giữ lại dư dả thì gieo thêm, mùa sau làm ra nhiều hơn. Chọn cách cướp và xem 20 mùa:</p>
 
   <div class="thu" id="t8k">
     <p class="nhan">Kẻ cướp chọn cách nào? (cộng dồn 20 mùa)</p>
@@ -30,25 +30,25 @@ import KN from '../../components/KN.astro';
   <p class="chu-nho">Cách tính: bị lấy t% thì mỗi người chỉ bỏ ra (100 − t)% công sức. Ai giữ lại dưới 4 phần thì mùa sau làm ra ít đi 10% (dưới 1 phần thì mất một nửa); từ 6 phần trở lên thì mùa sau làm ra nhiều hơn 2%. Cướp sạch rồi đi là đánh bất ngờ: mùa đó người ta vẫn làm đủ, rồi mất hết.</p>
 
   <h2>Kẻ cướp khôn thì ở lại</h2>
-  <p>Cướp sạch rồi đi được một mẻ lớn, rồi hết. 99 người mất hạt giống, mùa sau đói, mất mấy năm mới gượng dậy. Còn kẻ cướp ở lại thì muốn mùa sau còn có cái để lấy. Họ tự hạn chế: lấy vừa phải, thậm chí đuổi kẻ cướp khác đi để giữ “đàn cừu” của mình. Thử tìm mức lấy giúp kẻ cướp ở lại được nhiều nhất sau 20 mùa: nó không phải 100%, cũng không phải 50%.</p>
-  <p>Nhà kinh tế người Mỹ Mancur Olson (1993) gọi đó là <strong id="kn-ke-cuop-dinh-cu">kẻ cướp định cư</strong> <em class="tn">(stationary bandit)</em>, đối lập với kẻ cướp lưu động. Ông lấy ví dụ một lãnh chúa quân phiệt ở Trung Quốc thập niên 1920: dân ở vùng ông này cai trị thích ông hơn các toán cướp đi ngang qua, vì ông chỉ lấy đều đặn chứ không vét sạch. Olson cho rằng nhiều triều đại và nhà nước sơ khai bắt đầu từ đúng chỗ này: một kẻ cướp ở lại, thu đều đặn, và giữ yên vùng mình.</p>
+  <p>Cướp sạch rồi đi được một mẻ lớn, rồi hết. 99 người mất hạt giống, mùa sau đói, mất mấy năm mới gượng dậy. Còn kẻ cướp ở lại thì muốn mùa sau còn có cái để lấy. Hắn tự hạn chế: lấy vừa phải, thậm chí đuổi kẻ cướp khác đi để giữ “đàn cừu” của mình. Thử tìm mức lấy giúp kẻ cướp ở lại thu được nhiều nhất sau 20 mùa: nó không phải 100%, cũng không phải 50%.</p>
+  <p>Nhà kinh tế người Mỹ Mancur Olson (1993) gọi đó là <strong id="kn-ke-cuop-dinh-cu">kẻ cướp định cư</strong> <em class="tn">(stationary bandit)</em>, đối lập với kẻ cướp lưu động. Ông lấy ví dụ một viên quân phiệt ở Trung Quốc thập niên 1920: dân ở vùng ông này cai trị thích ông hơn các toán cướp đi ngang qua, vì ông chỉ lấy đều đặn chứ không vét sạch. Olson cho rằng nhiều triều đại và nhà nước sơ khai bắt đầu từ đúng chỗ này: một kẻ cướp ở lại, thu đều đặn, và giữ yên vùng mình.</p>
 
   <h2>Vì sao 99 người không đánh lại?</h2>
   <p>Một chọi 99 thì kẻ cướp thua chắc. Nhưng muốn đánh lại, 99 người phải hợp sức, và ai đánh trước thì dễ chết trước. Ai cũng mong người khác ra tay, còn mình hưởng phần yên ổn. Kết cục là không ai ra tay. Olson (1965) gọi đó là <strong id="kn-hanh-dong-tap-the">bài toán hành động tập thể</strong> <em class="tn">(collective action problem)</em>: một nhóm nhỏ, gắn bó, có vũ khí, thường thắng một đám đông rời rạc.</p>
 
   <h2>Vậy tại sao người ta vẫn đổi?</h2>
-  <p>Vì đổi làm cả hai bên khá hơn, còn cướp làm cả xã hội nghèo đi. Ở trang 3, An và Bình đổi được là nhờ <KN id="quyen-so-huu">quyền sở hữu</KN>: cả hai cùng công nhận cái gì là của ai. Nơi nào cướp dễ hơn làm, người khôn sẽ đi cướp, hoặc tốn công canh giữ, khóa cửa, chôn giấu, thay vì làm ra đồ. Nơi nào giữ được của mình làm ra, người khôn sẽ đi làm và đi đổi.</p>
-  <p>Douglass North (Nobel 1993) gọi những luật chơi đó là <strong id="kn-the-che">thể chế</strong> <em class="tn">(institutions)</em>. Năm 2024, Daron Acemoglu, Simon Johnson và James Robinson nhận Nobel vì chỉ ra rằng các nước giàu và nghèo khác nhau phần lớn ở thể chế. Có nước thể chế giúp một nhóm nhỏ lấy của số đông, họ gọi là thể chế bóc lột. Có nước thể chế để ai làm ra thì người đó giữ, họ gọi là thể chế bao trùm. Nói gọn: kẻ cướp ở lại trong trò chơi trên là một thể chế bóc lột thu nhỏ.</p>
+  <p>Vì đổi làm cả hai bên khá hơn, còn cướp làm cả xã hội nghèo đi. Ở trang 3, An và Bình đổi được là nhờ <KN id="quyen-so-huu">quyền sở hữu</KN>: cả hai cùng công nhận cái gì là của ai. Nơi nào cướp dễ hơn làm, người khôn sẽ đi cướp. Người còn lại phải tốn công canh giữ, khóa cửa, chôn giấu thay vì làm ra đồ. Nơi nào người ta giữ được thứ mình làm ra, người khôn sẽ đi làm và đi đổi.</p>
+  <p>Nhà kinh tế người Mỹ Douglass North (Nobel 1993) gọi những luật chơi đó là <strong id="kn-the-che">thể chế</strong> <em class="tn">(institutions)</em>. Năm 2024, Daron Acemoglu, Simon Johnson và James Robinson nhận Nobel vì chỉ ra rằng các nước giàu và nghèo khác nhau phần lớn ở thể chế. Ở một số nước, thể chế giúp một nhóm nhỏ lấy của số đông; ba ông gọi đó là thể chế bóc lột. Ở những nước khác, thể chế để ai làm ra thì người đó giữ; ba ông gọi đó là thể chế bao trùm. Nói gọn: kẻ cướp ở lại trong trò chơi trên là một thể chế bóc lột thu nhỏ.</p>
 
   <div class="cau-hoi-lon">
     <p class="nhan">Mảnh ghép thứ tám cho câu hỏi ngây thơ</p>
-    <p>Đây là chỗ câu “người này +100k thì người kia −100k” đúng nhất: một vụ cướp. Mùa đầu, kẻ cướp được bao nhiêu thì 99 người mất bấy nhiêu, tổng bằng không. Nhưng từ mùa sau, tổng còn tệ hơn không: người bị lấy làm ít đi, ăn cả hạt giống, tốn công canh giữ. Cướp là trò <strong>tổng âm</strong>. Còn đổi chác thì tự nguyện: không ai đổi nếu thấy mình thiệt, nên cả hai cùng khá hơn. Câu hỏi của bạn đang trộn hai thứ khác nhau làm một: lấy của nhau và đổi với nhau. Chỉ thứ đầu là tổng bằng không (hoặc âm).</p>
+    <p>Đây là chỗ câu “người này +100k thì người kia −100k” đúng nhất: một vụ cướp. Mùa đầu, kẻ cướp được bao nhiêu thì 99 người mất bấy nhiêu, tổng bằng không. Nhưng từ mùa sau, tổng còn xuống dưới không: người bị lấy làm ít đi, ăn cả hạt giống, tốn công canh giữ. Cướp là trò <strong>tổng âm</strong>. Còn đổi chác thì tự nguyện: không ai đổi nếu thấy mình thiệt, nên cả hai cùng khá hơn. Câu hỏi của bạn đang trộn hai thứ khác nhau làm một: lấy của nhau và đổi với nhau. Chỉ thứ đầu là tổng bằng không (hoặc âm).</p>
   </div>
 
   <details class="gap">
     <summary>Ghi nhớ và từ khóa</summary>
     <ul class="gon">
-      <li>Cướp không làm ra đồ mới, chỉ chuyển đồ. Từ lần sau, nó làm đồ ít đi: người bị lấy mất động lực và mất hạt giống.</li>
+      <li>Cướp không làm ra đồ mới, chỉ chuyển đồ. Từ lần sau, nó làm cho đồ làm ra ít đi: người bị lấy mất động lực và mất hạt giống.</li>
       <li>Kẻ cướp định cư lấy vừa phải vì còn muốn lấy mùa sau; kẻ cướp lưu động vét sạch (Olson 1993).</li>
       <li>Đông người khó hợp sức đánh lại một nhóm nhỏ: bài toán hành động tập thể (Olson 1965).</li>
       <li>Thể chế quyết định người ta làm giàu bằng làm ra đồ hay bằng lấy của người khác (North, Nobel 1993; Acemoglu, Johnson, Robinson, Nobel 2024).</li>
@@ -56,7 +56,7 @@ import KN from '../../components/KN.astro';
     <div class="bang"><table>
       <thead><tr><th>Tiếng Việt</th><th>Tiếng Anh</th><th>Nghĩa ngắn</th></tr></thead>
       <tbody>
-        <tr><td>Động lực</td><td>incentive</td><td>Cái làm người ta chịu bỏ công</td></tr>
+        <tr><td>Động lực</td><td>incentive</td><td>Điều khiến người ta chịu bỏ công</td></tr>
         <tr><td>Kẻ cướp định cư</td><td>stationary bandit</td><td>Ở lại, lấy vừa phải để mùa sau còn lấy</td></tr>
         <tr><td>Kẻ cướp lưu động</td><td>roving bandit</td><td>Lấy sạch rồi đi</td></tr>
         <tr><td>Bài toán hành động tập thể</td><td>collective action problem</td><td>Ai cũng chờ người khác ra tay</td></tr>

@@ -17,25 +17,25 @@
       "id": "phan-du",
       "ten": "Phần làm dư",
       "en": "surplus",
-      "nghia": "Phần một người làm ra nhiều hơn mức chính mình cần để sống. Có phần dư thì mới nuôi được người làm việc khác, không làm ra cái ăn."
+      "nghia": "Phần một người làm ra nhiều hơn mức chính mình cần để sống. Có phần dư thì mới nuôi được những người làm việc khác, không trực tiếp làm ra cái ăn."
     },
     {
       "id": "nhu-cau",
       "ten": "Nhu cầu",
       "en": "demand",
-      "nghia": "Không chỉ là muốn, mà là muốn và chịu đưa thứ của mình ra để có. An thích áo nhưng không chịu đưa phần ăn nào thì chưa thành nhu cầu với Chi."
+      "nghia": "Mong muốn đi kèm việc chịu đưa thứ của mình ra để có. Chỉ thích mà không chịu đưa gì ra đổi thì chưa thành nhu cầu."
     },
     {
       "id": "ich-loi-can-bien-giam-dan",
-      "ten": "Ích lợi cận biên giảm dần",
+      "ten": "Lợi ích cận biên giảm dần",
       "en": "diminishing marginal utility",
-      "nghia": "Mỗi đơn vị thêm vào mang lại ít ích lợi hơn đơn vị trước: cái áo thứ nhất quý, cái thứ ba bớt cần hẳn. Jevons, Menger, Walras dựng giá trị chủ quan trên ý này."
+      "nghia": "Mỗi đơn vị thêm vào mang lại ít lợi ích hơn đơn vị trước: cái áo thứ nhất rất quý, đến cái thứ ba thì không còn cần mấy. Jevons, Menger, Walras dựng giá trị chủ quan trên ý này."
     },
     {
       "id": "quy-mo-thi-truong",
       "ten": "Quy mô thị trường",
       "en": "extent of the market",
-      "nghia": "Có bao nhiêu người sẵn sàng đổi với mình. Adam Smith (1776): chợ càng nhỏ thì càng khó sống bằng một nghề hẹp."
+      "nghia": "Số người sẵn sàng đổi với mình. Adam Smith (1776): chợ càng nhỏ thì càng khó sống bằng một nghề hẹp."
     },
     {
       "id": "luat-engel",
@@ -47,7 +47,7 @@
       "id": "chuyen-doi-co-cau",
       "ten": "Chuyển dịch cơ cấu",
       "en": "structural change",
-      "nghia": "Khi nền kinh tế lớn lên, người lao động dời dần từ làm nông sang làm hàng hóa và dịch vụ (Simon Kuznets, Nobel 1971)."
+      "nghia": "Khi nền kinh tế lớn lên, người lao động chuyển dần từ nông nghiệp sang công nghiệp và dịch vụ (Simon Kuznets, Nobel 1971)."
     }
   ]
 }
